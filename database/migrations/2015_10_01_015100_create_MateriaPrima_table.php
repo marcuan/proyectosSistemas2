@@ -14,7 +14,9 @@ class CreateMateriaPrimaTable extends Migration
     {
         Schema::create('MateriaPrima', function(Blueprint $table) {
             $table->increments('id');
-            
+            $table->string('nombre');
+		  $table->integer('existencia');
+		  $table->float('precio');
             $table->timestamps();
         });
     }
