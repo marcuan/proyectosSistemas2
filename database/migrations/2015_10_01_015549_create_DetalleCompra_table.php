@@ -14,7 +14,10 @@ class CreateDetalleCompraTable extends Migration
     {
         Schema::create('DetalleCompra', function(Blueprint $table) {
             $table->increments('id');
-            
+            $table->integer('materia_prima_id')->unsigned();
+		  $table->foreign('materia_prima_id')->references('id')->on('MateriaPrima');
+		  $table->integer('compras_id')->unsigned();
+		  $table->foreign('compras_id')->references('id')->on('Compras');
             $table->timestamps();
         });
     }
