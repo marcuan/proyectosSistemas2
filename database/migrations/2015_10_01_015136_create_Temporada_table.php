@@ -14,7 +14,7 @@ class CreateTemporadaTable extends Migration
     {
         Schema::create('Temporada', function(Blueprint $table) {
             $table->increments('id');
-            
+            $table->string('nombre');
             $table->timestamps();
         });
     }
