@@ -18,10 +18,10 @@ class CreateComprasTable extends Migration
             $table->float('subTotal');
             $table->float('descuento');
             $table->float('total');
-            $table->integer('cliente_id')->unsigned();
-            $table->foreign('cliente_id')->references('id')->on('Cliente');
-            $table->integer('empleado_id')->unsigned();
-            $table->foreign('empleado_id')->references('id')->on('Empleado');
+        //    $table->integer('cliente_id')->unsigned();
+         //   $table->foreign('cliente_id')->references('id')->on('Cliente');
+          //  $table->integer('empleado_id')->unsigned();
+           // $table->foreign('empleado_id')->references('id')->on('Empleado');
             $table->timestamps();
         });
     }
