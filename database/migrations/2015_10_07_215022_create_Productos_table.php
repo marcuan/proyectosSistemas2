@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConsignacionTable extends Migration
+class CreateProductosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,11 @@ class CreateConsignacionTable extends Migration
      */
     public function up()
     {
-        Schema::create('Consignacion', function(Blueprint $table) {
+         Schema::create('Proveedores', function(Blueprint $table) {
             $table->increments('id');
-            
+                 $table->string('nombre');
+		 $table->integer('telefono');
+                 $table->string('direccion');
             $table->timestamps();
         });
     }
@@ -26,8 +28,6 @@ class CreateConsignacionTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Consignacion');
-        //linea de comenrario
-        
+        Schema::drop('Productos');
     }
 }
