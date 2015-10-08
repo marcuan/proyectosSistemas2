@@ -16,7 +16,11 @@ class CreateHorariosCursosTable extends Migration
             $table->increments('id');
             $table->string('dia');
             $table->string('horaInicio');
-            $table->string('horaFin');            
+            $table->string('horaFin');
+            $table->integer('id');
+            $table->foreign('id')->reference('id')->on('Cursos');
+            $table->integer('id');
+            $table->foreign('id')->reference('id')->on('Asignaciones');
             $table->timestamps();
         });
     }
