@@ -16,7 +16,7 @@ class CreateAsignacionTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->integer('id_estudiante');
-            $table->foreign('id')->reference('id')->on('Estudiante');
+            $table->foreign('id_estudiante')->reference('id')->on('Estudiante');
             $table->timestamps();            
         });
     }
