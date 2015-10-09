@@ -16,7 +16,7 @@ class CreatePlatillosTable extends Migration
             $table->increments('id');
             $table->integer('temporada_id')->unsigned();
 		  $table->foreign('temporada_id')->references('id')->on('Temporada');
-          $table->int('cantidad');
+          $table->integer('cantidad');
           $table->string('tipo');
             $table->timestamps();
         });
