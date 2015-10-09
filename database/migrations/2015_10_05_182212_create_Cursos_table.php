@@ -17,7 +17,7 @@ class CreateCursosTable extends Migration
             $table->string('nombre');
             $table->string('descripcion');
             $table->integer('id_empleado');
-            $table->foreign('id')->reference('id')->on('Empleado');
+            $table->foreign('id_empleado')->reference('id')->on('Empleado');
 
             $table->timestamps();
         });
