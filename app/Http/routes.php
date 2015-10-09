@@ -15,5 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+///Rutas cafeteria
+//Rutas materia prima
 Route::get('/totalmateriaprima/',['as'=>'materiaprima','uses'=>'materiaprimaController@prueba']);
+
+//Rutas Compras
+Route::get('/comprasproveedor/',['as'=>'compras','uses'=>'comprasController@proveedor']);
