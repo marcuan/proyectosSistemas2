@@ -15,8 +15,8 @@ class CreateAsignacionTable extends Migration
         Schema::create('Asignacion', function(Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->integer('id');
-            $table->foreign('id')->reference('id')->on('Estudiante');
+            $table->integer('id_estudiante');
+            $table->foreign('id_estudiante')->reference('id')->on('Estudiante');
             $table->timestamps();            
         });
     }
