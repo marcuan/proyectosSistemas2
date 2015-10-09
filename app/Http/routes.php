@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/totalmateriaprima/',['as'=>'materiaprima','uses'=>'materiaprimaController@prueba']);

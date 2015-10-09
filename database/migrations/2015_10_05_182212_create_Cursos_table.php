@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTemporadaTable extends Migration
+class CreateCursosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,13 @@ class CreateTemporadaTable extends Migration
      */
     public function up()
     {
-        Schema::create('Temporada', function(Blueprint $table) {
+        Schema::create('Cursos', function(Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->string('descripcion');
+            $table->integer('id_empleado');
+            $table->foreign('id')->reference('id')->on('Empleado');
+
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateTemporadaTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Temporada');
+        Schema::drop('Cursos');
     }
 }
