@@ -96,7 +96,7 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
         //
     }
     
-    public function prueba($id)
+    public function prueba()
     {
         //
 	  // dd('exito');

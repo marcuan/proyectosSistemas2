@@ -1,32 +1,16 @@
-	< table >
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Existencia</th>
-                <th>precio</th>
-               
-            </tr>
-        </thead>
- 
-                   <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Existencia</th>
-                <th>precio</th>
-                
-            </tr>
-       
-               	@foreach($materiaprima as $dato)
-            <tr>
-                <td>{{ $dato->id}}</td>
-                <td>{{ $dato->nombre}}</td>
-                <td>{{ $dato->existencia}}</td>
-                <td>width="50" </td>
-	   <a hrf="" class="btn btn-info"	>
-	   ver
-	   </a>
-            </tr>
-            @endforeach 
-       
-    </table>
+@extends('layouts.master')
+
+@section('title', 'Page Title')
+
+@section('sidebar')
+    @parent
+
+    <p>This is appended to the master sidebar.</p>
+@endsection
+
+@section('content')
+    <p>Materia Prima Disponible</p>
+    @foreach($materiaprima as $dato)
+        <p>{{ $dato->nombre }}</p>
+    @endforeach
+@endsection

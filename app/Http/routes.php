@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/materiaprima/{id}',['as'=>'materiaprima','uses'=>'materiaprimaController@prueba']);
+Route::get('/totalmateriaprima/',['as'=>'materiaprima','uses'=>'materiaprimaController@prueba']);
