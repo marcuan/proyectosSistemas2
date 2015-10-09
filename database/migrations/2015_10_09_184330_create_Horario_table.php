@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHorariosCursosTable extends Migration
+class CreateHorarioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,18 @@ class CreateHorariosCursosTable extends Migration
      */
     public function up()
     {
-        Schema::create('HorariosCursos', function(Blueprint $table) {
+        Schema::create('Horario', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('dia');
+               $table->string('dia');
             $table->string('horaInicio');
             $table->string('horaFin');
-            $table->integer('id_cursos');
-            $table->foreign('id_cursos')->reference('id')->on('Cursos');
-            $table->integer('id_asignaciones');
-            $table->foreign('id_asignaciones')->reference('id')->on('Asignacion');
+		  
+		  $table->integer('curso_id')->unsigned();
+		  $table->foreign('curso_id')->references('id')->on('Curso');
+		  
+		  $table->integer('asignacion_id')->unsigned();
+		  $table->foreign('asignacion_id')->references('id')->on('Asignacion');
+		  
             $table->timestamps();
         });
     }
@@ -32,6 +35,6 @@ class CreateHorariosCursosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('HorariosCursos');
+        Schema::drop('Horario');
     }
 }
