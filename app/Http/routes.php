@@ -20,4 +20,5 @@ Route::get('/', function () {
 Route::get('/totalmateriaprima/',['as'=>'materiaprima','uses'=>'materiaprimaController@prueba']);
 
 //Rutas Compras
-Route::get('/comprasproveedor/',['as'=>'compras','uses'=>'comprasController@proveedor']);
+//Ruta para obtener las compras de un proveedor
+Route::get('/comprasproveedor/{id}',['as'=>'compras','uses'=>'comprasController@proveedor']);

@@ -6,9 +6,20 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+//use App\Repositories\ComprasRepo;
+use App\Repositories\ProveedorRepo;
+use Resources;
 
 class comprasController extends Controller
 {
+	protected $proveedorrepo;
+public function __construct(ProveedorRepo $proveedorrepo){
+	
+	
+	$this->proveedorrepo=$proveedorrepo;
+}
+	
+	
     /**
      * Display a listing of the resource.
      *
@@ -83,5 +94,13 @@ class comprasController extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    public function proveedor($id)
+    {
+        //Buscamo al proveedor con ese id
+	   $proveedore=$this->proveedorrepo->find($id);
+	    return View('compras.comprasaproveedor',compact('proveedore'));
+	   //dd($proveedore);
     }
 }
