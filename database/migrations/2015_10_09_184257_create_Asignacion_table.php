@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePlatillosTable extends Migration
+class CreateAsignacionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,11 @@ class CreatePlatillosTable extends Migration
      */
     public function up()
     {
-        Schema::create('Platillos', function(Blueprint $table) {
+        Schema::create('Asignacion', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('temporada_id')->unsigned();
-		    $table->foreign('temporada_id')->references('id')->on('Temporada');
-            $table->integer('cantidad');
-            $table->string('tipo');
+            $table->string('nombre');
+		  $table->integer('estudiante_id')->unsigned();
+		  $table->foreign('estudiante_id')->references('id')->on('Estudiante');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreatePlatillosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Platillos');
+        Schema::drop('Asignacion');
     }
 }
