@@ -15,9 +15,10 @@ class CreatePlatillosTable extends Migration
         Schema::create('Platillos', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('temporada_id')->unsigned();
-		  $table->foreign('temporada_id')->references('id')->on('Temporada');
-          $table->integer('cantidad');
-          $table->string('tipo');
+		    $table->foreign('temporada_id')->references('id')->on('Temporada');
+            $table->string('nombre');
+            $table->float('precio');
+            $table->string('descripcion');
             $table->timestamps();
         });
     }
