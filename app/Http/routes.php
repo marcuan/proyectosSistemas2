@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 ///Rutas cafeteria
 //Rutas materia prima
 Route::get('/totalmateriaprima/',['as'=>'materiaprima','uses'=>'materiaprimaController@prueba']);
@@ -22,3 +23,12 @@ Route::get('/totalmateriaprima/',['as'=>'materiaprima','uses'=>'materiaprimaCont
 //Rutas Compras
 //Ruta para obtener las compras de un proveedor
 Route::get('/comprasproveedor/{id}',['as'=>'compras','uses'=>'comprasController@proveedor']);
+
+//Rutas para todos los platillos
+Route::get('platillo', 'platilloController@mostrar');
+
+//Rutas para platillos de una temporada
+Route::get('platillo/{id}', 'platilloController@mostrarplatillotemporada');
+
+//Rutas para mostrar las temporadas
+Route::get('temporada', 'temporadaController@mostrar');
