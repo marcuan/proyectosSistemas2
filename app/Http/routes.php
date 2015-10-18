@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/******************
+  MODULO ESCUELA
+******************/
+
+Route::resource('estudiantes','EstudianteController');
+
+/******************/
 
 ///Rutas cafeteria
 //Rutas materia prima
