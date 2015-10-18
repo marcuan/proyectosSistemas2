@@ -105,4 +105,10 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
 	  return View('materiaprima.todamateriaprima',compact('materiaprima'));
 	   //dd($materiaprima->nombre);
     }
+
+    //realizando pruebas
+    //public function Pruebavista(){          //Pruebavista funcion que contiene la vista
+
+      //  return View('pruebasvistas/test');
+    //}
 }
