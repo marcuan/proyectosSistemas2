@@ -20,6 +20,8 @@ Route::get('/', function () {
 ******************/
 
 Route::resource('estudiantes','EstudianteController');
+Route::resource('maestros','MaestroController');
+Route::resource('cursos','CursoController');
 
 /******************/
 
