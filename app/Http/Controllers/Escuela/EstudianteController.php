@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace RED\Http\Controllers\Escuela;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use RED\Http\Requests;
+use RED\Http\Controllers\Controller;
 
 class EstudianteController extends Controller
 {

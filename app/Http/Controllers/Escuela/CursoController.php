@@ -1,25 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace RED\Http\Controllers\Escuela;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-//use App\Repositories\ComprasRepo;
-use App\Repositories\ProveedorRepo;
-use Resources;
+use RED\Http\Requests;
+use RED\Http\Controllers\Controller;
 
-class comprasController extends Controller
+class CursoController extends Controller
 {
-	protected $proveedorrepo;
-public function __construct(ProveedorRepo $proveedorrepo){
-	
-	
-	$this->proveedorrepo=$proveedorrepo;
-}
-	
-	
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +16,7 @@ public function __construct(ProveedorRepo $proveedorrepo){
      */
     public function index()
     {
-        //
+        return view('curso.index');
     }
 
     /**
@@ -37,7 +26,7 @@ public function __construct(ProveedorRepo $proveedorrepo){
      */
     public function create()
     {
-        //
+        return view('curso.create');
     }
 
     /**
@@ -94,13 +83,5 @@ public function __construct(ProveedorRepo $proveedorrepo){
     public function destroy($id)
     {
         //
-    }
-    
-    public function proveedor($id)
-    {
-        //Buscamo al proveedor con ese id
-	   $proveedore=$this->proveedorrepo->find($id);
-	    return View('compras.comprasaproveedor',compact('proveedore'));
-	   //dd($proveedore);
     }
 }

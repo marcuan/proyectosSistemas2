@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace RED\Http\Controllers\Escuela;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use RED\Http\Requests;
+use RED\Http\Controllers\Controller;
 
-class CursoController extends Controller
+class MaestroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class CursoController extends Controller
      */
     public function index()
     {
-        return view('curso.index');
+        return view('maestro.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        return view('curso.create');
+        return view('maestro.create');
     }
 
     /**

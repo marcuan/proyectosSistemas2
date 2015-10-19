@@ -1,14 +1,25 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace RED\Http\Controllers\Restaurante;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use RED\Http\Requests;
+use RED\Http\Controllers\Controller;
+use RED\Repositories\MateriaPrimaRepo;
+use Resources;
 
-class MaestroController extends Controller
+
+class MateriaPrimaController extends Controller
 {
+	
+protected $materiaprimarepo;
+public function __construct(MateriaPrimaRepo $materiaprimarepo){
+	
+	
+	$this->materiaprimarepo=$materiaprimarepo;
+}
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +27,7 @@ class MaestroController extends Controller
      */
     public function index()
     {
-        return view('maestro.index');
+        //
     }
 
     /**
@@ -26,7 +37,7 @@ class MaestroController extends Controller
      */
     public function create()
     {
-        return view('maestro.create');
+        //
     }
 
     /**
@@ -84,4 +95,20 @@ class MaestroController extends Controller
     {
         //
     }
+    
+    public function prueba()
+    {
+        //
+	  // dd('exito');
+	   $materiaprima=$this->materiaprimarepo->findall();
+	 //  dd($materiaprima);
+	  return View('materiaprima.todamateriaprima',compact('materiaprima'));
+	   //dd($materiaprima->nombre);
+    }
+
+    //realizando pruebas
+    //public function Pruebavista(){          //Pruebavista funcion que contiene la vista
+
+      //  return View('pruebasvistas/test');
+    //}
 }

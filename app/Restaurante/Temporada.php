@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace RED\Restaurante;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +10,7 @@ class Temporada extends Model
 	
     public function platillos()
     {
-    	return $this->hasMany('App\Platillo','temporada_id'); 
+    	return $this->hasMany('RED\Platillo','temporada_id'); 
 	}
 	
 

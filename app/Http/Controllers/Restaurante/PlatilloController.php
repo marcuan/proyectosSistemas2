@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace RED\Http\Controllers\Restaurante;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Platillo;
-use App\Temporada;
+use RED\Http\Requests;
+use RED\Http\Controllers\Controller;
+use RED\Restaurante\Platillo;
+use RED\Restaurante\Temporada;
 use Resources;
 
 
-class platilloController extends Controller
+class PlatilloController extends Controller
 {
     /**
      * Desplegar platillos

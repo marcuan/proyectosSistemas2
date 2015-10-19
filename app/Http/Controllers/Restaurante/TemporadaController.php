@@ -1,24 +1,29 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace RED\Http\Controllers\Restaurante;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Repositories\MateriaPrimaRepo;
+use RED\Http\Requests;
+use RED\Http\Controllers\Controller;
+use RED\Restaurante\Temporada;
 use Resources;
 
 
-class materiaprimaController extends Controller
+class TemporadaController extends Controller
 {
 	
-protected $materiaprimarepo;
-public function __construct(MateriaPrimaRepo $materiaprimarepo){
-	
-	
-	$this->materiaprimarepo=$materiaprimarepo;
-}
+    /**
+     * Desplegar temporadas.
+     *
+     * @return Response
+     */
+    public function mostrar()
+    {
+        $temporada = Temporada::all();
+        return View('temporada.temporada',compact('temporada'));
+    }
+
 
     /**
      * Display a listing of the resource.
@@ -29,6 +34,7 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
     {
         //
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -96,19 +102,4 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
         //
     }
     
-    public function prueba()
-    {
-        //
-	  // dd('exito');
-	   $materiaprima=$this->materiaprimarepo->findall();
-	 //  dd($materiaprima);
-	  return View('materiaprima.todamateriaprima',compact('materiaprima'));
-	   //dd($materiaprima->nombre);
-    }
-
-    //realizando pruebas
-    //public function Pruebavista(){          //Pruebavista funcion que contiene la vista
-
-      //  return View('pruebasvistas/test');
-    //}
 }
