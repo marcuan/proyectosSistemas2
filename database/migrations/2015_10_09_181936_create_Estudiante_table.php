@@ -16,9 +16,16 @@ class CreateEstudianteTable extends Migration
             $table->increments('id');
             $table->string('codigo');
             $table->string('nombre');
+            $table->string('apellido');
+            $table->dateTime('fecha_nacimiento');
             $table->string('direccion');
-            $table->string('telefono');
             $table->timestamps();
+
+
+            $table->integer('genero_id')->unsigned();
+            $table->foreign('genero_id')->references('id')->on('genero');
+
+
         });
     }
 
