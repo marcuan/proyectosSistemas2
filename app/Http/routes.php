@@ -15,31 +15,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/******************
+  MODULO ESCUELA
+******************/
 
-///Rutas cafeteria
-//Rutas materia prima
-Route::get('/totalmateriaprima/',['as'=>'materiaprima','uses'=>'materiaprimaController@prueba']);
+Route::resource('estudiantes','Escuela\EstudianteController');
+Route::resource('maestros','Escuela\MaestroController');
+Route::resource('cursos','Escuela\CursoController');
 
-//<<<<<<< HEAD
+/******************/
 
-///primera vista de prueba
-//materiaprimaController ---> es la clase controlador y dentro llama la funcion Pruebavista
-//Route::get('Prueba', 'materiaprimaController@Pruebavista');   //si se pone solo Prueba --> se llama en la carpeta publica en /ModuloCafeteria/public/Prueba
-//{
+/******************************
+  MODULO CAFETERÍA/RESTAURANTE
+******************************/
 
-//	return view('PruebasVistas/test');
-//})
-=======
+Route::get('/totalmateriaprima/',['as'=>'materiaprima','uses'=>'Restaurante\MateriaPrimaController@prueba']);
 //Rutas Compras
 //Ruta para obtener las compras de un proveedor
-Route::get('/comprasproveedor/{id}',['as'=>'compras','uses'=>'comprasController@proveedor']);
-
+Route::get('/comprasproveedor/{id}',['as'=>'compras','uses'=>'Restaurante\ComprasController@proveedor']);
 //Rutas para todos los platillos
 Route::get('platillo', 'platilloController@mostrar');
-
 //Rutas para platillos de una temporada
-Route::get('platillo/{id}', 'platilloController@mostrarplatillotemporada');
-
+Route::get('platillo/{id}', 'Restaurante\PlatilloController@mostrarplatillotemporada');
 //Rutas para mostrar las temporadas
-Route::get('temporada', 'temporadaController@mostrar');
->>>>>>> bddd9ce275696de4b348a142c02b1c0f506a65c1
+Route::get('temporada', 'Restaurante\TemporadaController@mostrar');
+
+/*****************************/

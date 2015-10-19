@@ -1,6 +1,9 @@
 <?php
-namespace App\Repositories;
-use App\Proveedore;
+
+namespace RED\Repositories;
+
+use RED\Restaurante\Proveedore;
+
 class ProveedorRepo{
 	public function findall(){
 	return $proveedor = Proveedore::all();//Buscar todos los proveedores
@@ -8,6 +11,4 @@ class ProveedorRepo{
 	public function find($id){
 	return $proveedor = Proveedore::find($id); //Obtener el proveedor con un id especifico
 	}
-	
-	
 }
