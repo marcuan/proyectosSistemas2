@@ -16,7 +16,7 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        return view('estudiante.index');
+        return view('Escuela.estudiante.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        return view('estudiante.create');
+        return view('Escuela.estudiante.create');
     }
 
     /**
@@ -59,7 +59,7 @@ class EstudianteController extends Controller
      */
     public function edit($id)
     {
-        return view('estudiante.edit');
+        return view('Escueala.estudiante.edit');
     }
 
     /**

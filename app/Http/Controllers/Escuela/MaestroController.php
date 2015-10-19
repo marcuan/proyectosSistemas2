@@ -16,7 +16,7 @@ class MaestroController extends Controller
      */
     public function index()
     {
-        return view('maestro.index');
+        return view('Escuela.maestro.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class MaestroController extends Controller
      */
     public function create()
     {
-        return view('maestro.create');
+        return view('Escuela.maestro.create');
     }
 
     /**
@@ -59,7 +59,7 @@ class MaestroController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('Escuela.maestro.edit');
     }
 
     /**

@@ -16,7 +16,7 @@ class CursoController extends Controller
      */
     public function index()
     {
-        return view('curso.index');
+        return view('Escuela.curso.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        return view('curso.create');
+        return view('Escuela.curso.create');
     }
 
     /**
@@ -59,7 +59,7 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('Escueala.curso.edit');
     }
 
     /**
