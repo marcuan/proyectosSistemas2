@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace RED\Despensa;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DetalleCompra extends Model
+class Consignacion extends Model
 {
     //
 }

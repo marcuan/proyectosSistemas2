@@ -1,30 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace RED\Http\Controllers\Restaurante;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Temporada;
+use RED\Http\Requests;
+use RED\Http\Controllers\Controller;
+use RED\Repositories\ProveedorRepo;
 use Resources;
 
-
-class temporadaController extends Controller
+class ComprasController extends Controller
 {
+	protected $proveedorrepo;
+public function __construct(ProveedorRepo $proveedorrepo){
 	
-    /**
-     * Desplegar temporadas.
-     *
-     * @return Response
-     */
-    public function mostrar()
-    {
-        $temporada = Temporada::all();
-        return View('temporada.temporada',compact('temporada'));
-    }
-
-
+	
+	$this->proveedorrepo=$proveedorrepo;
+}
+	
+	
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +28,6 @@ class temporadaController extends Controller
     {
         //
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -102,4 +95,11 @@ class temporadaController extends Controller
         //
     }
     
+    public function proveedor($id)
+    {
+        //Buscamo al proveedor con ese id
+	   $proveedore=$this->proveedorrepo->find($id);
+	    return View('compras.comprasaproveedor',compact('proveedore'));
+	   //dd($proveedore);
+    }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace RED\Restaurante;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Horario extends Model
+class Cliente extends Model
 {
     //
 }

@@ -54,10 +54,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST', 'localhost'),    //http://127.0.0.1:8080/phpmyadmin/
-            'database'  => env('DB_DATABASE', 'pruebadbuno'),  //pruebadbuno
-            'username'  => env('DB_USERNAME', 'root'),          //root
-            'password'  => env('DB_PASSWORD', 'rooot'),         //rooot
+            'host'      => env('DB_HOST', 'localhost'),
+            'database'  => env('DB_DATABASE', 'psys2'),
+            'username'  => env('DB_USERNAME', 'psys2'),
+            'password'  => env('DB_PASSWORD', 'psys2'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
