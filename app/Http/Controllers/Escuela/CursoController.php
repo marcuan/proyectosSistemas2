@@ -37,7 +37,7 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "aki estoy";
     }
 
     /**
