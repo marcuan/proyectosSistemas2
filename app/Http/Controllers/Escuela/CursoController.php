@@ -3,7 +3,7 @@
 namespace RED\Http\Controllers\Escuela;
 
 use Illuminate\Http\Request;
-
+use RED\Escuela\Curso;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 
@@ -16,7 +16,8 @@ class CursoController extends Controller
      */
     public function index()
     {
-        return view('curso.index');
+        $course = Curso::All();
+        return view('Escuela.curso.index',compact('course'));
     }
 
     /**
@@ -26,7 +27,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        return view('curso.create');
+        return view('Escuela.curso.create');
     }
 
     /**
@@ -37,7 +38,9 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Curso::create($request->all());
+
+    return redirect('/cursos')->with('message','store');
     }
 
     /**
@@ -59,7 +62,8 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $curso = Curso::find($id);
+        return view('Escuela.curso.edit', ['curso'=>$curso]);
     }
 
     /**
@@ -71,7 +75,11 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $curso = Curso::find($id);
+        $curso->fill($request->all());
+        $curso->save();
+
+     return redirect('/cursos')->with('message','edit');
     }
 
     /**
