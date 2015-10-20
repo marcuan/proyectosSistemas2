@@ -3,7 +3,7 @@
 namespace RED\Http\Controllers\Escuela;
 
 use Illuminate\Http\Request;
-
+use RED\Escuela\Maestro;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 
@@ -16,7 +16,8 @@ class MaestroController extends Controller
      */
     public function index()
     {
-        return view('maestro.index');
+        $teacher = Maestro::All();
+        return view('Escuela.maestro.index',compact('teacher'));
     }
 
     /**
@@ -26,7 +27,7 @@ class MaestroController extends Controller
      */
     public function create()
     {
-        return view('maestro.create');
+        return view('Escuela.maestro.create');
     }
 
     /**
@@ -37,7 +38,15 @@ class MaestroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Maestro::create([
+            'nombre_maestro' => $request['nombre_maestro'],
+            'apellido_maestro' => $request['apellido_maestro'],
+            'fecha_nacimiento' => $request['fecha_nacimiento'],
+            'direccion' => $request['direccion'],
+            'correo' => $request['correo'],
+        ]);
+
+    return redirect('/maestros')->with('message','store');
     }
 
     /**
@@ -59,7 +68,7 @@ class MaestroController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('Escuela.maestro.edit');
     }
 
     /**
@@ -71,7 +80,17 @@ class MaestroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $maestro = Maestro::find($id);
+
+        $maestro->codigo = $request['codigo'];
+        $maestro->nombre_maestro = $request['nombre_maestro'];
+        $maestro->apellido_maestro = $request['apellido_maestro'];
+        $maestro->fecha_nacimiento = $request['fecha_nacimiento'];
+        $maestro->direccion = $request['direccion'];
+        $maestro->correo = $request['correo'];
+        $maestro->activo = $request['activo'];
+
+        $maestro->save();
     }
 
     /**
@@ -82,6 +101,7 @@ class MaestroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $maestro = Maestro::find($id);
+        $maestro->delete();
     }
 }

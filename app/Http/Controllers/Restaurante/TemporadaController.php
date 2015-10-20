@@ -33,6 +33,9 @@ class TemporadaController extends Controller
     public function index()
     {
         //
+	   
+	    $temporada = Temporada::all();
+        return View('temporada.temporada',compact('temporada'));
     }
 
 
@@ -44,6 +47,8 @@ class TemporadaController extends Controller
     public function create()
     {
         //
+	   
+	      return view('Temporada.create');
     }
 
     /**
@@ -55,6 +60,11 @@ class TemporadaController extends Controller
     public function store(Request $request)
     {
         //
+	    Temporada::create([
+            'nombre' => $request['nombre_temporada'],  
+		  ]);
+		   return redirect('/temporada')->with('message','store');
+     
     }
 
     /**
