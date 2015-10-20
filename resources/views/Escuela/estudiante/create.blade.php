@@ -5,25 +5,28 @@
             <div class="container">
             <div class="form-grup">
                 {!!Form::label('Nombre:')!!}
-                {!!Form::text('nombre_estudiante',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre estudiante'])!!}
+                {!!Form::text('nombre_estudiante',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre estudiante','required'])!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Apellido:')!!}
-                {!!Form::text('apellido_estudiante',null,['class'=>'form-control','placeholder'=>'Ingrese Apellido estudiante'])!!}
+                {!!Form::text('apellido_estudiante',null,['class'=>'form-control','placeholder'=>'Ingrese Apellido estudiante','required'])!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Fecha de Nacimiento:')!!}
-                {!!Form::text('fecha_nacimiento',null,['class'=>'form-control','placeholder'=>'Ingrese Fecha de Nacimiento'])!!}
+                {!!Form::date('fecha_nacimiento',null,['class'=>'form-control','placeholder'=>'Ingrese Fecha de Nacimiento','required'])!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Dirección:')!!}
-                {!!Form::text('direccion',null,['class'=>'form-control','placeholder'=>'Ingrese Direccion'])!!}
+                {!!Form::text('direccion',null,['class'=>'form-control','placeholder'=>'Ingrese Direccion','required'])!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Correo Electrónico:')!!}
-                {!!Form::text('correo',null,['class'=>'form-control','placeholder'=>'Ingrese Correo Electrónico'])!!}
+                {!!Form::text('correo',null,['class'=>'form-control','placeholder'=>'Ingrese Correo Electrónico','required'])!!}
             </div>
-            
+            <div class="form-grup">
+                {!!Form::label('Género:')!!}
+                {!!Form::select('genero', array('1'=>'Femenino','2'=>'Masculino'),['class'=>'form-control'])!!}
+            </div>
             {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
         </div>
     {!!form::close()!!}
