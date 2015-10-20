@@ -45,6 +45,10 @@ Route::get('temporada', 'Restaurante\TemporadaController@mostrar');
   MODULO DESPENSA
 ******************************/
 Route::get ('cliente','Despensa\ClientesController@index');
+<<<<<<< HEAD
 Route::get ('cliente/crear','Despensa\ClientesController@crear');
+=======
+Route::get ('cliente/lista','Despensa\ClientesController@lista');
+>>>>>>> cdb4d39793a1a3ebab20e56928fcf654d4ee3718
 
 /*****************************/
