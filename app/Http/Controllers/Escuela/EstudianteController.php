@@ -38,14 +38,7 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        Estudiante::create([
-            'nombre_estudiante' => $request['nombre_estudiante'],
-            'apellido_estudiante' => $request['apellido_estudiante'],
-            'fecha_nacimiento' => $request['fecha_nacimiento'],
-            'direccion' => $request['direccion'],
-            'correo' => $request['correo'],
-            'genero_id' => $request['genero'],
-        ]);
+        Estudiante::create($request->all());
 
     return redirect('/estudiantes')->with('message','store');
     }
