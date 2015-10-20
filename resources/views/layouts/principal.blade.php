@@ -10,6 +10,8 @@
 	<header><h1>Escuela</h1></header>
 	@yield('content')
 
+	
+	{!!Html::script('//code.jquery.com/jquery-1.11.3.min.js')!!}
 	{!!Html::script('//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')!!}
 </body>
 </html>
