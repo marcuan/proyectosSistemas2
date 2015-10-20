@@ -3,7 +3,7 @@
 namespace RED\Http\Controllers\Escuela;
 
 use Illuminate\Http\Request;
-
+use RED\Escuela\Curso;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 
@@ -16,7 +16,8 @@ class CursoController extends Controller
      */
     public function index()
     {
-        return view('curso.index');
+        $course = Curso::All();
+        return view('Escuela.curso.index',compact('course'));
     }
 
     /**
@@ -26,7 +27,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        return view('curso.create');
+        return view('Escuela.curso.create');
     }
 
     /**
@@ -37,7 +38,16 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Curso::create([
+            'codigo' => $request['codigo'],
+            'nombre_curso' => $request['nombre_curso'],
+            'descripcion' => $request['descripcion'],
+            'fecha_inicio' => $request['fecha_inicio'],
+            'fecha_fin' => $request['fecha_fin'],
+            'max_estudiantes' => $request['max_estudiantes'],
+        ]);
+
+    return redirect('/cursos')->with('message','store');
     }
 
     /**
@@ -59,7 +69,7 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('Escueala.curso.edit');
     }
 
     /**
@@ -71,7 +81,17 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $curso = Curso::find($id);
+
+        $curso->codigo = $request['codigo'];
+        $curso->nombre_curso = $request['nombre_curso'];
+        $curso->descripcion = $request['descripcion'];
+        $curso->fecha_inicio = $request['fecha_inicio'];
+        $curso->fecha_fin = $request['fecha_fin'];
+        $curso->max_estudiantes = $request['max_estudiantes'];
+        $curso->num_estudiantes = $request['num_estudiantes'];
+
+        $curso->save();
     }
 
     /**
@@ -82,6 +102,7 @@ class CursoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $curso = Curso::find($id);
+        $curso->delete();
     }
 }

@@ -4,20 +4,20 @@ namespace RED\Escuela;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Estudiante extends Model
+class Maestro extends Model
 {
+    
+    protected $table = 'Maestro';
 
-	protected $table = 'Estudiante';
-
-	protected $fillable = [
-		'codigo',
-		'nombre_estudiante',
-		'apellido_estudiante',
-		'fecha_nacimiento',
-		'direccion',
-		'correo',
-		'genero_id'
-		];
+    protected $fillable = [
+        'codigo',
+    	'nombre_maestro',
+    	'apellido_maestro', 
+    	'fecha_nacimiento',
+    	'direccion',
+    	'correo',
+        'activo',
+    	'genero_id'];
 
     public function telefonos()
     {

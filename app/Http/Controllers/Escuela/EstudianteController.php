@@ -3,7 +3,7 @@
 namespace RED\Http\Controllers\Escuela;
 
 use Illuminate\Http\Request;
-
+use RED\Escuela\Estudiante;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 
@@ -16,7 +16,8 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        return view('estudiante.index');
+        $student = Estudiante::All();
+        return view('Escuela.estudiante.index',compact('student'));
     }
 
     /**
@@ -26,7 +27,7 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        return view('estudiante.create');
+        return view('Escuela.estudiante.create');
     }
 
     /**
@@ -37,7 +38,15 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Estudiante::create([
+            'nombre_estudiante' => $request['nombre_estudiante'],
+            'apellido_estudiante' => $request['apellido_estudiante'],
+            'fecha_nacimiento' => $request['fecha_nacimiento'],
+            'direccion' => $request['direccion'],
+            'correo' => $request['correo'],
+        ]);
+
+    return redirect('/estudiantes')->with('message','store');
     }
 
     /**
@@ -59,7 +68,7 @@ class EstudianteController extends Controller
      */
     public function edit($id)
     {
-        return view('estudiante.edit');
+        return view('Escueala.estudiante.edit');
     }
 
     /**
@@ -71,7 +80,17 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $estudiante = Estudiante::find($id);
+
+        $estudiante->codigo = $request['codigo'];
+        $estudiante->nombre_estudiante = $request['nombre_estudiante'];
+        $estudiante->apellido_estudiante = $request['apellido_estudiante'];
+        $estudiante->fecha_nacimiento = $request['fecha_nacimiento'];
+        $estudiante->direccion = $request['direccion'];
+        $estudiante->correo = $request['correo'];
+        $estudiante->activo = $request['activo'];
+
+        $estudiante->save();
     }
 
     /**
@@ -82,6 +101,7 @@ class EstudianteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $estudiante = Estudiante::find($id);
+        $estudiante->delete();
     }
 }
