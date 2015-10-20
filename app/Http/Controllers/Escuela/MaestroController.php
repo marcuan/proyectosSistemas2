@@ -16,7 +16,8 @@ class MaestroController extends Controller
      */
     public function index()
     {
-        return view('Escuela.maestro.index');
+        $teacher = \RED\Escuela\Maestro::All();
+        return view('Escuela.maestro.index',compact('teacher'));
     }
 
     /**

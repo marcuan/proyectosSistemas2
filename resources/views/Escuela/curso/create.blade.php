@@ -1,8 +1,8 @@
 @extends('layouts.principal')
 @section('content')
     {!!Form::open(['route'=>'cursos.store', 'method'=>'POST'])!!}
-            <h3>Cursos</h3>
-        	<div class="container">
+        <h3>Cursos</h3>
+        <div class="container">
             <div class="form-grup">
         		{!!Form::label('Codigo:')!!}
         		{!!Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Ingrese Codigo'])!!}
