@@ -14,11 +14,15 @@ class CreateCursoTable extends Migration
     {
         Schema::create('Curso', function(Blueprint $table) {
             $table->increments('id');
-             $table->string('nombre');
-            $table->string('descripcion');  
-		  $table->integer('empleado_id')->unsigned();
-		  $table->foreign('empleado_id')->references('id')->on('Empleado');
-		  $table->timestamps();
+            $table->string('codigo');
+            $table->string('nombre_curso');
+            $table->string('descripcion');
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
+            $table->integer('max_estudiantes');    
+            $table->integer('num_estudiantes');
+            $table->boolean('activo');  
+		    $table->timestamps();
         });
     }
 

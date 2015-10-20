@@ -55,9 +55,9 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'psys2'),
-            'username'  => env('DB_USERNAME', 'psys2'),
-            'password'  => env('DB_PASSWORD', 'psys2'),
+            'database'  => env('DB_DATABASE', 'caferedbd'),
+            'username'  => env('DB_USERNAME', 'root'),
+            'password'  => env('DB_PASSWORD', ''),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
