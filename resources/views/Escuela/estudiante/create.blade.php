@@ -25,7 +25,7 @@
             </div>
             <div class="form-grup">
                 {!!Form::label('Género:')!!}
-                {!!Form::select('genero', array('1'=>'Femenino','2'=>'Masculino'),['class'=>'form-control'])!!}
+                {!!Form::select('genero', array('1'=>'Femenino','2'=>'Masculino'),null,['class'=>'form-control'])!!}
             </div>
             {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
         </div>
