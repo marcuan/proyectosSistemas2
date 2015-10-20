@@ -33,7 +33,8 @@
                 <td>{{$estudiante->fecha_nacimiento}}</td>
                 <td>{{$estudiante->direccion}}</td>
                 <td>{{$estudiante->correo}}</td>
-                <td>{!!link_to_route('estudiantes.edit', $title = 'Editar', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
+                <td>{!!link_to_route('estudiantes.edit', $title = 'Editar', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-primary']);!!}
+                    {!!link_to_route('estudiantes.show', $title = 'Asignar Cursos', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
             </tbody>
             @endforeach
         </table>
