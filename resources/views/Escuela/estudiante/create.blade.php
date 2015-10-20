@@ -1,6 +1,6 @@
 @extends('layouts.principal')
 @section('content')
-    {!!Form::open()!!}
+    {!!Form::open(['route'=>'estudiantes.store', 'method'=>'POST'])!!}
         <h3>Estudiantes</h3>
         <div class="form-grup">
             {!!Form::label('Nombre:')!!}
@@ -17,6 +17,10 @@
         <div class="form-grup">
             {!!Form::label('Dirección:')!!}
             {!!Form::text('direccion',null,['class'=>'form-control','placeholder'=>'Ingrese Direccion'])!!}
+        </div>
+        <div class="form-grup">
+            {!!Form::label('Correo Electrónico:')!!}
+            {!!Form::text('correo',null,['class'=>'form-control','placeholder'=>'Ingrese Correo Electrónico'])!!}
         </div>
         
         {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}

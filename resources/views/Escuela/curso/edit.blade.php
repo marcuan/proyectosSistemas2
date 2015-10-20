@@ -1,45 +1,24 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Curso</title>
-
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Edición de Curso</div>
-            </div>
+@extends('layouts.principal')
+@section('content')
+    {!!Form::open(['route'=>'cursos.update', 'method'=>'POST'])!!}
+        <h3>Cursos</h3>
+        <div class="form-grup">
+            {!!Form::label('Codigo:')!!}
+            {!!Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Ingrese Codigo'])!!}
         </div>
-    </body>
-</html>
+        <div class="form-grup">
+            {!!Form::label('Curso:')!!}
+            {!!Form::text('nombre_curso',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre del Curso'])!!}
+        </div>
+        <div class="form-grup">
+            {!!Form::label('Descripcion:')!!}
+            {!!Form::text('descripcion',null,['class'=>'form-control','placeholder'=>'Ingrese Descripcion'])!!}
+        </div>
+        <div class="form-grup">
+            {!!Form::label('Maximo Estudiantes:')!!}
+            {!!Form::text('max_estudiantes',null,['class'=>'form-control','placeholder'=>'Ingrese Maximo de Estudiantes'])!!}
+        </div>
+        {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+    {!!form::close()!!}
+
+@stop

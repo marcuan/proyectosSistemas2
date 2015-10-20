@@ -1,6 +1,6 @@
 @extends('layouts.principal')
 @section('content')
-    {!!Form::open()!!}
+    {!!Form::open(['route'=>'maestros.store', 'method'=>'POST'])!!}
         <h3>Maestros</h3>
         <div class="form-grup">
             {!!Form::label('Nombre:')!!}

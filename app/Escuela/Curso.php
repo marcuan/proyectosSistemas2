@@ -6,13 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Curso extends Model
 {
+
+    protected $table = 'Curso';
+
     protected $fillable = [
     'codigo',
     'nombre_curso',
     'descripcion',
     'fecha_inicio',
     'fecha_fin',
-    'max_estudiantes'];
+    'max_estudiantes',
+    'num_estudiantes',
+    'activo'];
 
     public function estudiantes()
     {

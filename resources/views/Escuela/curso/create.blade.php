@@ -1,6 +1,6 @@
 @extends('layouts.principal')
 @section('content')
-    {!!Form::open()!!}
+    {!!Form::open(['route'=>'cursos.store', 'method'=>'POST'])!!}
         <h3>Cursos</h3>
     	<div class="form-grup">
     		{!!Form::label('Codigo:')!!}
@@ -14,6 +14,14 @@
     		{!!Form::label('Descripcion:')!!}
     		{!!Form::text('descripcion',null,['class'=>'form-control','placeholder'=>'Ingrese Descripcion'])!!}
     	</div>
+        <div class="form-grup">
+            {!!Form::label('Fecha de Inicio:')!!}
+            {!!Form::text('fecha_inicio',null,['class'=>'form-control','placeholder'=>'Ingrese Fecha de Inicio'])!!}
+        </div>
+        <div class="form-grup">
+            {!!Form::label('Fecha de Finalización:')!!}
+            {!!Form::text('fecha_fin',null,['class'=>'form-control','placeholder'=>'Ingrese Fecha de Finalización'])!!}
+        </div>
     	<div class="form-grup">
     		{!!Form::label('Maximo Estudiantes:')!!}
     		{!!Form::text('max_estudiantes',null,['class'=>'form-control','placeholder'=>'Ingrese Maximo de Estudiantes'])!!}

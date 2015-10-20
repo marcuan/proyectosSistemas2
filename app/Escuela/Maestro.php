@@ -7,14 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Maestro extends Model
 {
     
+    protected $table = 'Maestro';
+
     protected $fillable = [
+        'codigo',
     	'nombre_maestro',
     	'apellido_maestro', 
-    	'fecha_maestro',
+    	'fecha_nacimiento',
     	'direccion',
     	'correo',
-    	'genero_id'
-    	];
+        'activo',
+    	'genero_id'];
 
     public function telefonos()
     {
