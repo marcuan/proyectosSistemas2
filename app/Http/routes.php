@@ -45,5 +45,6 @@ Route::get('temporada', 'Restaurante\TemporadaController@mostrar');
   MODULO DESPENSA
 ******************************/
 Route::get ('cliente','Despensa\ClientesController@index');
+Route::get ('cliente/lista','Despensa\ClientesController@lista');
 
 /*****************************/
