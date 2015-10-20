@@ -21,11 +21,11 @@ class Curso extends Model
 
     public function estudiantes()
     {
-        return $this->belongsToMany('App\Escuela\Estudiante');
+        return $this->belongsToMany('RED\Escuela\Estudiante');
     }
 
     public function maestros()
     {
-        return $this->belongsToMany('App\Escuela\Maestro');
+        return $this->belongsToMany('RED\Escuela\Maestro');
     }
 }

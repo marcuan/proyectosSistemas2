@@ -21,11 +21,11 @@ class Maestro extends Model
 
     public function telefonos()
     {
-        return $this->hasMany('App\Escuela\Telefono');
+        return $this->hasMany('RED\Escuela\Telefono');
     }
 
     public function cursos()
     {
-        return $this->belongsToMany('App\Escuela\Curso');
+        return $this->belongsToMany('RED\Escuela\Curso');
     }
 }
