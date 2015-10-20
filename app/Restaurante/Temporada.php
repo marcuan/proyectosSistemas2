@@ -13,7 +13,7 @@ class Temporada extends Model
 	
     public function platillos()
     {
-    	return $this->hasMany('RED\Platillo','temporada_id'); 
+    	return $this->hasMany('RED\Restaurante\Platillo','temporada_id'); 
 	}
 	
 

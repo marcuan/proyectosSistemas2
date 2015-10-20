@@ -28,6 +28,10 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
     public function index()
     {
         //
+	   
+	     $materiaprima=$this->materiaprimarepo->findall();
+	
+	  return View('materiaprima.todamateriaprima',compact('materiaprima'));
     }
 
     /**
