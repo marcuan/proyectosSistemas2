@@ -41,3 +41,9 @@ Route::get('platillo/{id}', 'Restaurante\PlatilloController@mostrarplatillotempo
 Route::get('temporada', 'Restaurante\TemporadaController@mostrar');
 
 /*****************************/
+/******************************
+  MODULO DESPENSA
+******************************/
+Route::get ('cliente','ClientesController@index');
+
+/*****************************/
