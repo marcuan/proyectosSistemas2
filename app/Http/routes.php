@@ -50,15 +50,14 @@ Route::get ('cliente/crear','Despensa\ClientesController@crear');
 Route::get ('cliente/lista','Despensa\ClientesController@lista');
 
 
-Route::get('proveedores', 'proveedoresController@mostrar');
 Route::get ('cliente/editar','Despensa\ClientesController@editar');
 Route::get ('cliente/borrar','Despensa\ClientesController@borrar');
 /*--------------------------------------------------------------*/
 
 /*----------------------COMPRAS---------------------------------*/
 //Ruta para mostrar los proveedores
- Route::get('proveedores', 'Despensa\proveedoresController@mostrar');
+ Route::get('proveedores', 'Despensa\ProveedoresController@mostrar');
+ Route::get('proveedores/crear', 'Despensa\ProveedoresController@create');
 /*--------------------------------------------------------------*/
-
 
 /*****************************/

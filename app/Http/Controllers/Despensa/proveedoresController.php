@@ -2,14 +2,16 @@
 namespace RED\Http\Controllers\Despensa;
 
 use Illuminate\Http\Request;
-use RED;
+
+use RED\Despensa\Proveedore;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
+use Resources;
 
 /**
 * 
 */
-class proveedoresController extends Controller
+class ProveedoresController extends Controller
 {
 	
     /**
@@ -20,7 +22,7 @@ class proveedoresController extends Controller
     
     public function mostrar()
     {
-        $proveedor = RED\Despensa\Proveedore::all();
+        $proveedor = Proveedore::all();
         return View('proveedores.proveedor',compact('proveedor'));
     }
 
@@ -34,7 +36,8 @@ class proveedoresController extends Controller
 
     public function index()
     {
-        return view('proveedores/proveedor');
+        $proveedor = Proveedore::all();
+        return View('proveedores.proveedor',compact('proveedor'));
     }
 
     /**
@@ -45,6 +48,7 @@ class proveedoresController extends Controller
     public function create()
     {
         //
+        return view('proveedores.create');
     }
 
     /**
@@ -56,6 +60,12 @@ class proveedoresController extends Controller
     public function store(Request $request)
     {
         //
+        Proveedore::create([
+            'nombre' => $request['nombre_proveedor'],
+            'telefono' => $request['tel_proveedor'],
+            'direccion' => $request['dir_proveedor'],
+            ]);
+            return redirect('/proveedores')->with('message','store');
     }
 
     /**

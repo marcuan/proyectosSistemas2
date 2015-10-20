@@ -3,7 +3,7 @@
 namespace RED\Http\Controllers\Despensa;
 
 use Illuminate\Http\Request;
-
+use RED;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 
@@ -14,9 +14,14 @@ class ClientesController extends Controller
     {
         return 'hola miriam te amo';
     }
-    public function lista ()
+    public function crear ()
     {
         return 'hola miriam te extraño demasiado';
+    }
+    public function lista ()
+    {
+        $clientes = RED\Restaurante\Cliente::all();
+        return $clientes;
     }
     public function editar ()
     {
