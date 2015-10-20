@@ -1,10 +1,10 @@
 <?php 
-namespace RED\Http\Controllers;
+namespace RED\Http\Controllers\Despensa;
 
 use Illuminate\Http\Request;
-
+use RED;
 use RED\Http\Requests;
-use App\Http\Controllers\Controller;
+use RED\Http\Controllers\Controller;
 
 /**
 * 
@@ -20,13 +20,13 @@ class proveedoresController extends Controller
     
     public function mostrar()
     {
-        $proveedor = Proveedore::all();
+        $proveedor = RED\Despensa\Proveedore::all();
         return View('proveedores.proveedor',compact('proveedor'));
     }
 
 
     /**
-     * Desplegar platillos por temporada
+     * 
      *
      * @return Response
      */
