@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace RED\Escuela;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MateriaPrima extends Model
+class Estudiante extends Model
 {
     //
 }

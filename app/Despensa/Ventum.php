@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace RED\Despensa;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Temporada extends Model
+class Ventum extends Model
 {
     //
 }
