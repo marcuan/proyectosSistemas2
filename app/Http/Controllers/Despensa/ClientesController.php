@@ -18,4 +18,12 @@ class ClientesController extends Controller
     {
         return 'hola miriam te extraño demasiado';
     }
+    public function editar ()
+    {
+        return 'hola miriam te extraño demasiado mucho';
+    }
+    public function borrar ()
+    {
+        return 'hola miriam te extraño demasiado tu cucu';
+    }
 }
