@@ -16,7 +16,8 @@ class CursoController extends Controller
      */
     public function index()
     {
-        return view('Escuela.curso.index');
+        $course = \RED\Escuela\Curso::All();
+        return view('Escuela.curso.index',compact('course'));
     }
 
     /**
