@@ -6,5 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Curso extends Model
 {
-    //
+    protected $fillable = [
+    'codigo',
+    'nombre_curso',
+    'descripcion',
+    'fecha_inicio',
+    'fecha_fin',
+    'max_estudiantes'];
+
+    public function estudiantes()
+    {
+        return $this->belongsToMany('App\Escuela\Estudiante');
+    }
+
+    public function maestros()
+    {
+        return $this->belongsToMany('App\Escuela\Maestro');
+    }
 }

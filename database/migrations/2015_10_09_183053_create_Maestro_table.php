@@ -17,9 +17,10 @@ class CreateMaestroTable extends Migration
             $table->string('codigo');
             $table->string('nombre_maestro');
             $table->string('apellido_maestro');
-            $table->dateTime('fecha_maestro');
+            $table->dateTime('fecha_nacimiento');
             $table->string('direccion');
             $table->string('correo');
+            $table->boolean('activo');
             $table->timestamps();
 
 

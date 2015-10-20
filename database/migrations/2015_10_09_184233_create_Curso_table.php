@@ -17,11 +17,11 @@ class CreateCursoTable extends Migration
             $table->string('codigo');
             $table->string('nombre_curso');
             $table->string('descripcion');
+            $table->dateTime('fecha_inicio');
+            $table->dateTime('fecha_fin');
             $table->integer('max_estudiantes');    
-            $table->integer('num_estudiantes');  
-
-		    $table->integer('maestro_id')->unsigned();
-		    $table->foreign('maestro_id')->references('id')->on('Maestro');
+            $table->integer('num_estudiantes');
+            $table->boolean('activo');  
 		    $table->timestamps();
         });
     }

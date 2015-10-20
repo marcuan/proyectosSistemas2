@@ -19,8 +19,9 @@ class CreateEstudianteTable extends Migration
             $table->string('apellido_estudiante');
             $table->dateTime('fecha_nacimiento');
             $table->string('direccion');
+            $table->string('correo');
+            $table->boolean('activo');
             $table->timestamps();
-
 
             $table->integer('genero_id')->unsigned();
             $table->foreign('genero_id')->references('id')->on('genero');
