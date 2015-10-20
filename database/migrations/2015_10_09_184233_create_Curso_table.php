@@ -17,8 +17,8 @@ class CreateCursoTable extends Migration
             $table->string('codigo');
             $table->string('nombre_curso');
             $table->string('descripcion');
-            $table->dateTime('fecha_inicio');
-            $table->dateTime('fecha_fin');
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
             $table->integer('max_estudiantes');    
             $table->integer('num_estudiantes');
             $table->boolean('activo');  

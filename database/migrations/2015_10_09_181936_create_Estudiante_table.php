@@ -17,7 +17,7 @@ class CreateEstudianteTable extends Migration
             $table->string('codigo');
             $table->string('nombre_estudiante');
             $table->string('apellido_estudiante');
-            $table->dateTime('fecha_nacimiento');
+            $table->date('fecha_nacimiento');
             $table->string('direccion');
             $table->string('correo');
             $table->boolean('activo');
