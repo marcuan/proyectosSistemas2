@@ -48,9 +48,6 @@ Route::get('temporada', 'Restaurante\TemporadaController@mostrar');
 Route::get ('cliente','Despensa\ClientesController@index');
 Route::get ('cliente/crear','Despensa\ClientesController@crear');
 Route::get ('cliente/lista','Despensa\ClientesController@lista');
-<<<<<<< HEAD
-
-=======
 Route::get ('cliente/editar','Despensa\ClientesController@editar');
 Route::get ('cliente/borrar','Despensa\ClientesController@borrar');
 /*--------------------------------------------------------------*/
@@ -58,6 +55,5 @@ Route::get ('cliente/borrar','Despensa\ClientesController@borrar');
 /*----------------------COMPRAS---------------------------------*/
  Route::get('proveedores', 'proveedoresController@mostrar');
 /*--------------------------------------------------------------*/
->>>>>>> 9e76270ba558f0299dff94a343129940e5fe5348
 
 /*****************************/
