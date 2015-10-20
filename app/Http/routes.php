@@ -39,5 +39,6 @@ Route::get('platillo', 'platilloController@mostrar');
 Route::get('platillo/{id}', 'Restaurante\PlatilloController@mostrarplatillotemporada');
 //Rutas para mostrar las temporadas
 Route::get('temporada', 'Restaurante\TemporadaController@mostrar');
+Route::resource('temporada','Restaurante\TemporadaController');
 
 /*****************************/
