@@ -44,6 +44,8 @@ class EstudianteController extends Controller
             'direccion' => $request['direccion'],
             'correo' => $request['correo'],
         ]);
+
+    return redirect('/estudiantes')->with('message','store');
     }
 
     /**

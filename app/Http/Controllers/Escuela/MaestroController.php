@@ -44,6 +44,8 @@ class MaestroController extends Controller
             'direccion' => $request['direccion'],
             'correo' => $request['correo'],
         ]);
+
+    return redirect('/maestros')->with('message','store');
     }
 
     /**

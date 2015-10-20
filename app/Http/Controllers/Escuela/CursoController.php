@@ -46,6 +46,8 @@ class CursoController extends Controller
             'fecha_fin' => $request['fecha_fin'],
             'max_estudiantes' => $request['max_estudiantes'],
         ]);
+
+    return redirect('/cursos')->with('message','store');
     }
 
     /**
