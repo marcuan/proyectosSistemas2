@@ -16,7 +16,8 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        return view('Escuela.estudiante.index');
+        $student = \RED\Escuela\Estudiante::All();
+        return view('Escuela.estudiante.index',compact('student'));
     }
 
     /**
