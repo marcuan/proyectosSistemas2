@@ -14,4 +14,8 @@ class ClientesController extends Controller
     {
         return 'hola miriam te amo';
     }
+    public function lista ()
+    {
+        return 'hola miriam te extraño demasiado';
+    }
 }
