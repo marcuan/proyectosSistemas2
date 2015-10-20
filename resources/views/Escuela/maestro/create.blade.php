@@ -13,7 +13,7 @@
             </div>
             <div class="form-grup">
                 {!!Form::label('Fecha de Nacimiento:')!!}
-                {!!Form::date('fecha_maestro',null,['class'=>'form-control','placeholder'=>'Ingrese Fecha de Nacimiento','required'])!!}
+                {!!Form::date('fecha_nacimiento',null,['class'=>'form-control','placeholder'=>'Ingrese Fecha de Nacimiento','required'])!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Dirección:')!!}

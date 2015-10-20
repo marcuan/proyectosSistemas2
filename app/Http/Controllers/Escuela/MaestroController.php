@@ -44,6 +44,7 @@ class MaestroController extends Controller
             'fecha_nacimiento' => $request['fecha_nacimiento'],
             'direccion' => $request['direccion'],
             'correo' => $request['correo'],
+            'genero_id' => $request['genero'],
         ]);
 
     return redirect('/maestros')->with('message','store');
@@ -68,7 +69,8 @@ class MaestroController extends Controller
      */
     public function edit($id)
     {
-        return view('Escuela.maestro.edit');
+        $maestro = Maestro::find($id);
+        return view('Escuela.maestro.edit', ['maestro'=>$maestro]);
     }
 
     /**
@@ -81,16 +83,10 @@ class MaestroController extends Controller
     public function update(Request $request, $id)
     {
         $maestro = Maestro::find($id);
-
-        $maestro->codigo = $request['codigo'];
-        $maestro->nombre_maestro = $request['nombre_maestro'];
-        $maestro->apellido_maestro = $request['apellido_maestro'];
-        $maestro->fecha_nacimiento = $request['fecha_nacimiento'];
-        $maestro->direccion = $request['direccion'];
-        $maestro->correo = $request['correo'];
-        $maestro->activo = $request['activo'];
-
+        $maestro->fill($request->all());
         $maestro->save();
+
+    return redirect('/maestros')->with('message','edit');
     }
 
     /**
@@ -101,7 +97,6 @@ class MaestroController extends Controller
      */
     public function destroy($id)
     {
-        $maestro = Maestro::find($id);
-        $maestro->delete();
+        //
     }
 }

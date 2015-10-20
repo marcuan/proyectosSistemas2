@@ -44,6 +44,7 @@ class EstudianteController extends Controller
             'fecha_nacimiento' => $request['fecha_nacimiento'],
             'direccion' => $request['direccion'],
             'correo' => $request['correo'],
+            'genero_id' => $request['genero'],
         ]);
 
     return redirect('/estudiantes')->with('message','store');
@@ -68,7 +69,8 @@ class EstudianteController extends Controller
      */
     public function edit($id)
     {
-        return view('Escueala.estudiante.edit');
+        $estudiante = Estudiante::find($id);
+        return view('Escuela.estudiante.edit', ['estudiante'=>$estudiante]);
     }
 
     /**
@@ -81,16 +83,10 @@ class EstudianteController extends Controller
     public function update(Request $request, $id)
     {
         $estudiante = Estudiante::find($id);
-
-        $estudiante->codigo = $request['codigo'];
-        $estudiante->nombre_estudiante = $request['nombre_estudiante'];
-        $estudiante->apellido_estudiante = $request['apellido_estudiante'];
-        $estudiante->fecha_nacimiento = $request['fecha_nacimiento'];
-        $estudiante->direccion = $request['direccion'];
-        $estudiante->correo = $request['correo'];
-        $estudiante->activo = $request['activo'];
-
+        $estudiante->fill($request->all());
         $estudiante->save();
+
+    return redirect('/estudiantes')->with('message','edit');
     }
 
     /**
@@ -101,7 +97,6 @@ class EstudianteController extends Controller
      */
     public function destroy($id)
     {
-        $estudiante = Estudiante::find($id);
-        $estudiante->delete();
+        //
     }
 }
