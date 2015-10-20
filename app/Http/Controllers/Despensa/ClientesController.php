@@ -1,6 +1,6 @@
 <?php
 
-namespace RED\Http\Controllers;
+namespace RED\Http\Controllers\Despensa;
 
 use Illuminate\Http\Request;
 
