@@ -38,14 +38,7 @@ class MaestroController extends Controller
      */
     public function store(Request $request)
     {
-        Maestro::create([
-            'nombre_maestro' => $request['nombre_maestro'],
-            'apellido_maestro' => $request['apellido_maestro'],
-            'fecha_nacimiento' => $request['fecha_nacimiento'],
-            'direccion' => $request['direccion'],
-            'correo' => $request['correo'],
-            'genero_id' => $request['genero'],
-        ]);
+        Maestro::create($request->all());
 
     return redirect('/maestros')->with('message','store');
     }

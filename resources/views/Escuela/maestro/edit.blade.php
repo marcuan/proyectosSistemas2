@@ -25,7 +25,7 @@
             </div>
             <div class="form-grup">
                 {!!Form::label('Genéro:')!!}
-                {!!Form::select('genero',array('1'=>'Femenino','2'=>'Masculino'),null,['class'=>'form-control'])!!}
+                {!!Form::select('genero_id',array('1'=>'Femenino','2'=>'Masculino'),null,['class'=>'form-control'])!!}
             </div>
         
         {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}

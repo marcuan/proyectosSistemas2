@@ -38,14 +38,7 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        Curso::create([
-            'codigo' => $request['codigo'],
-            'nombre_curso' => $request['nombre_curso'],
-            'descripcion' => $request['descripcion'],
-            'fecha_inicio' => $request['fecha_inicio'],
-            'fecha_fin' => $request['fecha_fin'],
-            'max_estudiantes' => $request['max_estudiantes'],
-        ]);
+        Curso::create($request->all());
 
     return redirect('/cursos')->with('message','store');
     }

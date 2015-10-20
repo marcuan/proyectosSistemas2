@@ -12,10 +12,10 @@ class CreateAsignacionEstudianteTable extends Migration
      */
     public function up()
     {
-        Schema::create('Asignacion_Estudiante', function ($table) {
+        Schema::create('Curso_Estudiante', function ($table) {
             $table->increments('id');
-            $table->integer('id_curso');
-            $table->integer('id_estudiante');
+            $table->integer('curso_id');
+            $table->integer('estudiante_id');
             $table->dateTime('fecha_asignacion');
             $table->boolean('activo');
             $table->timestamps();
@@ -29,6 +29,6 @@ class CreateAsignacionEstudianteTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Asignacion_Estudiante');
+        Schema::drop('Curso_Estudiante');
     }
 }
