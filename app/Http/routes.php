@@ -50,6 +50,7 @@ Route::get ('cliente/crear','Despensa\ClientesController@crear');
 =======
 Route::get ('cliente/lista','Despensa\ClientesController@lista');
 >>>>>>> cdb4d39793a1a3ebab20e56928fcf654d4ee3718
+//Ruta para mostrar los proveedores
 Route::get('proveedores', 'proveedoresController@mostrar');
 
 /*****************************/
