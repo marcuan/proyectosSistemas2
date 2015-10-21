@@ -12,10 +12,10 @@ class CreateAsignacionMaestroTable extends Migration
      */
     public function up()
     {
-        Schema::create('Asignacion_Maestro', function ($table) {
+        Schema::create('Curso_Maestro', function ($table) {
             $table->increments('id');
-            $table->integer('id_curso');
-            $table->integer('id_maestro');
+            $table->integer('curso_id');
+            $table->integer('maestro_id');
             $table->dateTime('fecha_asignacion');
             $table->boolean('activo');
             $table->timestamps();
@@ -29,6 +29,6 @@ class CreateAsignacionMaestroTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Asignacion_Maestro');
+        Schema::drop('Curso_Maestro');
     }
 }

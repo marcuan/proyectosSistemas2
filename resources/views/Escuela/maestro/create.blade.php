@@ -13,7 +13,7 @@
             </div>
             <div class="form-grup">
                 {!!Form::label('Fecha de Nacimiento:')!!}
-                {!!Form::date('fecha_maestro',null,['class'=>'form-control','placeholder'=>'Ingrese Fecha de Nacimiento','required'])!!}
+                {!!Form::date('fecha_nacimiento',null,['class'=>'form-control','placeholder'=>'Ingrese Fecha de Nacimiento','required'])!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Dirección:')!!}
@@ -25,7 +25,7 @@
             </div>
             <div class="form-grup">
                 {!!Form::label('Genéro:')!!}
-                {!!Form::select('genero',array('1'=>'Femenino','2'=>'Masculino'),null,['class'=>'form-control'])!!}
+                {!!Form::select('genero_id',array('1'=>'Femenino','2'=>'Masculino'),null,['class'=>'form-control'])!!}
             </div>
             
             {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}

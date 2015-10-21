@@ -18,7 +18,6 @@ Route::get('/', function () {
 /******************
   MODULO ESCUELA
 ******************/
-
 Route::resource('estudiantes','Escuela\EstudianteController');
 Route::resource('maestros','Escuela\MaestroController');
 Route::resource('cursos','Escuela\CursoController');

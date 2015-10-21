@@ -38,14 +38,7 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        Curso::create([
-            'codigo' => $request['codigo'],
-            'nombre_curso' => $request['nombre_curso'],
-            'descripcion' => $request['descripcion'],
-            'fecha_inicio' => $request['fecha_inicio'],
-            'fecha_fin' => $request['fecha_fin'],
-            'max_estudiantes' => $request['max_estudiantes'],
-        ]);
+        Curso::create($request->all());
 
     return redirect('/cursos')->with('message','store');
     }
@@ -69,7 +62,8 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        return view('Escueala.curso.edit');
+        $curso = Curso::find($id);
+        return view('Escuela.curso.edit', ['curso'=>$curso]);
     }
 
     /**
@@ -82,16 +76,10 @@ class CursoController extends Controller
     public function update(Request $request, $id)
     {
         $curso = Curso::find($id);
-
-        $curso->codigo = $request['codigo'];
-        $curso->nombre_curso = $request['nombre_curso'];
-        $curso->descripcion = $request['descripcion'];
-        $curso->fecha_inicio = $request['fecha_inicio'];
-        $curso->fecha_fin = $request['fecha_fin'];
-        $curso->max_estudiantes = $request['max_estudiantes'];
-        $curso->num_estudiantes = $request['num_estudiantes'];
-
+        $curso->fill($request->all());
         $curso->save();
+
+     return redirect('/cursos')->with('message','edit');
     }
 
     /**
@@ -102,7 +90,6 @@ class CursoController extends Controller
      */
     public function destroy($id)
     {
-        $curso = Curso::find($id);
-        $curso->delete();
+        //
     }
 }
