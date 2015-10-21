@@ -8,6 +8,7 @@ use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 use RED\Repositories\MateriaPrimaRepo;
 use Resources;
+use RED\Restaurante\MateriaPrima;
 
 
 class MateriaPrimaController extends Controller
@@ -42,6 +43,9 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
     public function create()
     {
         //
+	   
+	     return view('materiaprima.create');
+		
     }
 
     /**
@@ -53,6 +57,14 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
     public function store(Request $request)
     {
         //
+	   MateriaPrima::create([
+            'nombre' => $request['nombre_materia'],
+            'existencia' => $request['existencia'],
+            'precio' => $request['precio'],
+        
+        ]);
+
+    return redirect('/materiaprima')->with('message','store');
     }
 
     /**
