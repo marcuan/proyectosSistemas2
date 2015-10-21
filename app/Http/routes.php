@@ -27,16 +27,17 @@ Route::resource('cursos','Escuela\CursoController');
 /******************************
   MODULO CAFETERÍA/RESTAURANTE
 ******************************/
+//Rutas Materia prima
+Route::resource('materiaprima','Restaurante\MateriaPrimaController');
 
-Route::get('/totalmateriaprima/',['as'=>'materiaprima','uses'=>'Restaurante\MateriaPrimaController@prueba']);
 //Rutas Compras
 //Ruta para obtener las compras de un proveedor
 Route::get('/comprasproveedor/{id}',['as'=>'compras','uses'=>'Restaurante\ComprasController@proveedor']);
 //Rutas para todos los platillos
-Route::get('platillo', 'platilloController@mostrar');
+Route::resource('platillo','Restaurante\PlatilloController');
 //Rutas para platillos de una temporada
-Route::get('platillo/{id}', 'Restaurante\PlatilloController@mostrarplatillotemporada');
+Route::get('temporadas/{id}', 'Restaurante\PlatilloController@mostrarplatillotemporada');
 //Rutas para mostrar las temporadas
-Route::get('temporada', 'Restaurante\TemporadaController@mostrar');
+Route::resource('temporada','Restaurante\TemporadaController');
 
 /*****************************/
