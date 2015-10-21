@@ -16,7 +16,7 @@
 
 @section('content')
     <div class="container col-xs-12">
-    <a href="/proyectosSistemas2/public/maestros/create" class="btn btn-danger">Crear Maestro</a>
+    <a href="maestros/create" class="btn btn-danger">Crear Maestro</a>
         <table class="table">
             <thead>
                 <th>Nombre</th>

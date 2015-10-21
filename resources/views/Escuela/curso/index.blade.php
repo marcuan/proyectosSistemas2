@@ -18,7 +18,7 @@
 
 @section('content')
     <div class="container col-xs-12">
-    <a href="/proyectosSistemas2/public/cursos/create" class="btn btn-danger">Crear Curso</a>
+    <a href="cursos/create" class="btn btn-danger">Crear Curso</a>
     
         <table class="table table-hover table-responsive">
             <thead>
