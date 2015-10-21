@@ -73,8 +73,10 @@ body {
     padding:10px;
     min-height:1200px;
 }
-
-.text-center {
+.form-btn{
+    float: right;
+}
+.text-center button {
     text-align:center;
 }
 .no-boder {

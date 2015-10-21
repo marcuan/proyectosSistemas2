@@ -20,7 +20,7 @@
     <div class="container col-xs-12">
     <a href="/proyectosSistemas2/public/cursos/create" class="btn btn-danger">Crear Curso</a>
     
-        <table class="table">
+        <table class="table table-hover table-responsive">
             <thead>
                 <th>Codigo</th>
                 <th>Nombre</th>

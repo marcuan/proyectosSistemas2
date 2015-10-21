@@ -25,28 +25,45 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Escuela</a>
+                    <li class="login">
+                        <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">Login</a>
                     </li>
-                    <li>
-                        <a href="#">ONG</a>
-                    </li>
-                    <li>
-                        <a href="#">Cafeteria</a>
-                    </li>
-                    <li>
-                        <a href="#">Despensa</a>
-                    </li>
-                    <li>
-                        <a href="#">Salir</a>
-                    </li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
-
+    <!-- Small Modal -->
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="title" style="background:#B71C1C; margin-bottom:5px; padding: 4px;">
+                    <span class="icon-logo_red"></span>
+                </div>
+                    <form action="" class="form-horizontal">
+                        <div class="login-cont">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Usuario">
+                            </div>
+                        
+                            <div class="form-group ">
+                                <input type="password" class="form-control" placeholder="Contraseña">
+                            </div>
+                            <div class="form-group">
+                                <div class="">
+                                    <a href="/proyectosSistemas2/public/cursos" type ="submit" class="btn btn-default">Ingresar</a>
+                                </div>
+                          </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+    <!-- end Samll modal -->
+    
+    
     <!-- Image Background Page Header -->
     <!-- Note: The background image is set within the business-casual.css file. -->
     <header class="business-header">
@@ -80,30 +97,23 @@
             <div class="col-sm-3">
                 {!! Html::image('images/ong.png', "Imagen no encontrada", ['title' => 'despensa']) !!}
                 <h2>ONG</h2>
-                <p>Gestión de Donantes, Control de Actividades, Estados Financieros</p>
-                <a href="#" class="btn btn-default">Ir al Modulo</a>
-                
+                <p>Gestión de Donantes, Control de Actividades, Estados Financieros</p>               
             </div>
             <div class="col-sm-3">
                 {!! Html::image('images/escuela.png', "Imagen no encontrada", ['title' => 'escuela']) !!}
                 <h2>Escuela</h2>
                 <p>Gestión de Estudiantes, Gestión Maestros y Gestión de Cursos</p>
-                <a href="#" class="btn btn-default">Ir al Modulo</a>
             </div>
             <div class="col-sm-3">
                 {!! Html::image('images/restaurante.png', "Imagen no encontrada", ['title' => 'restaurante']) !!}
                 <h2>Restaurante</h2>
                 <p>Control de Clientes, Manejos de Menú</p>
                 <br/>
-                <a href="#" class="btn btn-default">Ir al Modulo</a>
-                
             </div>
             <div class="col-sm-3">
                 {!!Html::image('images/despensa.png', "Imagen no encontrada", ['title' => 'despensa']) !!}
                 <h2>Despensa</h2>
                 <p>Gestión de Inventarios, Control de Proveedores, Clientes y Ventas</p>
-                <a href="#" class="btn btn-default">Ir al Modulo</a>
-                
             </div> 
         </div>
         <!-- /.row -->

@@ -24,14 +24,14 @@
             </div>
     <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;"> 
         -Café Red- &nbsp; 
-        <a href="#" class="btn btn-danger square-btn-adjust">Salir</a> 
+        <a href="/proyectosSistemas2/public/" class="btn btn-danger square-btn-adjust">Salir</a> 
     </div>
         </nav>   
            <!-- /. NAV TOP  -->
          <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-                    <li>
+                    <li style="text-align: center;">
                         <a class="active-menu"  href="index.html"><i class=""></i>Café RED</a>
                     </li>
                     <li>
@@ -50,54 +50,17 @@
                     </li>
                                  
                     <li>
-                        <a href="#"><i class="icon-escuela"></i>Escuela</a>
+                        <a href="#"><i class="icon-ong"></i> Escuela</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <li>
-                                    <a href="#"><i class=""></i>Estudiantes</a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="/proyectosSistemas2/public/estudiantes/create">Crear</a>
-                                        </li>
-                                        <li>
-                                            <a href="/proyectosSistemas2/public/estudiantes">Mostrar</a>
-                                        </li>
-                                        
-                                    </ul>
-                                </li>
+                                <a href="/proyectosSistemas2/public/estudiantes">Estudiante</a>
                             </li>
                             <li>
-                                <li>
-                                    <a href="#"><i class=""></i>Maestros</a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="/proyectosSistemas2/public/maestros/create">Crear</a>
-                                        </li>
-                                        <li>
-                                            <a href="/proyectosSistemas2/public/maestros">Mostrar</a>
-                                        </li>
-                                        
-                                    </ul>
-                                </li>
+                                <a href="/proyectosSistemas2/public/cursos">Curso</a>
                             </li>
                             <li>
-                                <li>
-                                    <a href="#"><i class=""></i>Cursos</a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="/proyectosSistemas2/public/cursos/create">Crear</a>
-                                        </li>
-                                        <li>
-                                            <a href="/proyectosSistemas2/public/cursos">Mostrar</a>
-                                        </li>
-                                        
-                                    </ul>
-                                </li>
+                                <a href="/proyectosSistemas2/public/maestros">Maestro</a>
                             </li>
-                            <li>
-                                <a href="#">Horario</a>
-                            </li>
-                            
                         </ul>
                     </li>
                     <li>

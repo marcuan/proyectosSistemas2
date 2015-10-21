@@ -21,14 +21,17 @@
             </div><br>
             <div class="form-grup">
                 {!!Form::label('Correo Electrónico:')!!}
-                {!!Form::text('correo',null,['class'=>'form-control','placeholder'=>'Ingrese Correo Electrónico','required'])!!}
+                {!!Form::email('correo',null,['class'=>'form-control','placeholder'=>'Ingrese Correo Electrónico','required'])!!}
             </div><br>
             <div class="form-grup">
                 {!!Form::label('Género:')!!}
                 {!!Form::select('genero_id', array('1'=>'Femenino','2'=>'Masculino'),null,['class'=>'form-control'])!!}
             </div><br>
-            {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
-        </div>
+            <div class="form-btn">
+                {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+            </div>
+        
     {!!form::close()!!}
+    </div>
 
 @stop

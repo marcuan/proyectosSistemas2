@@ -1,6 +1,5 @@
 @extends('layouts.principal')
 @section('content')
-<div class="container">
     {!!Form::open(['route'=>'cursos.store', 'method'=>'POST'])!!}
         <h3>Cursos</h3>
         <div class="container col-xs-12">
@@ -28,8 +27,10 @@
         		{!!Form::label('Maximo Estudiantes:')!!}
         		{!!Form::number('max_estudiantes',null,['class'=>'form-control','placeholder'=>'Ingrese Maximo de Estudiantes','required'])!!}
         	</div><br>
-        	{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
-        </div>
+            <div class="form-btn">
+        	   {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+            </div>
+        
     {!!form::close()!!}
-  </div>
+    </div>
 @stop

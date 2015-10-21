@@ -28,6 +28,9 @@
                 {!!Form::label('Maximo Estudiantes:')!!}
                 {!!Form::number('max_estudiantes',null,['class'=>'form-control','placeholder'=>'Ingrese Maximo de Estudiantes','required'])!!}
             </div><br>
-        {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
+        <div class="form-btn">
+            {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
+        </div>
     {!!form::close()!!}
+    </div>
 @stop
