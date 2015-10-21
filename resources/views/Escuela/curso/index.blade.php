@@ -2,6 +2,7 @@
 
 <?php $message=Session::get('message')?>
 
+
 @if($message == 'store')
 <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -16,8 +17,9 @@
 @endif
 
 @section('content')
+    <div class="container col-xs-12">
     <a href="/proyectosSistemas2/public/cursos/create" class="btn btn-danger">Crear Curso</a>
-    <div class="container">
+    
         <table class="table">
             <thead>
                 <th>Codigo</th>
@@ -41,4 +43,5 @@
             @endforeach
         </table>
     </div>
+
 @stop
