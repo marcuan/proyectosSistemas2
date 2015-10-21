@@ -39,5 +39,23 @@ Route::resource('platillo','Restaurante\PlatilloController');
 Route::get('temporadas/{id}', 'Restaurante\PlatilloController@mostrarplatillotemporada');
 //Rutas para mostrar las temporadas
 Route::resource('temporada','Restaurante\TemporadaController');
+//Ruta para llamar tabla clientes y deplegar
+Route::resource('clientes', 'Restaurante\ClientesController');
+
+/*****************************/
+/******************************
+  MODULO DESPENSA
+******************************/
+/*----------------------VENTAS----------------------------------*/
+Route::get ('venta','Despensa\VentasController@index');
+Route::get ('venta/crear','Despensa\VentasController@crear');
+Route::get ('venta/lista','Despensa\VentasController@lista');
+Route::get ('venta/editar','Despensa\VentasController@editar');
+Route::get ('venta/borrar','Despensa\VentasController@borrar');
+/*--------------------------------------------------------------*/
+
+/*----------------------COMPRAS---------------------------------*/
+ Route::get('proveedores', 'proveedoresController@mostrar');
+/*--------------------------------------------------------------*/
 
 /*****************************/
