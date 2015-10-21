@@ -53,7 +53,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="">
-                                    <a href="/proyectosSistemas2/public/cursos" type ="submit" class="btn btn-default">Ingresar</a>
+                                    <a href="cursos" type ="submit" class="btn btn-default">Ingresar</a>
                                 </div>
                           </div>
                         </div>
