@@ -8,12 +8,15 @@
 </div>
 @endif
 @section('content')
-    <div class="container">
+ <a href="../public/materiaprima/create" class="btn btn-danger">Crear Materia</a>
+   
+   <div class="container">
         <table class="table">
             <thead>
                 <th>Nombre</th>
                 <th>Existencia</th>
                 <th>Precio</th>
+			  <th>Operacion</th>
                 
             </thead>
              @foreach($materiaprima as $dato)
@@ -21,6 +24,7 @@
                 <td>{{$dato->nombre}}</td>
                 <td>{{$dato->existencia}}</td>
                 <td>{{$dato->precio}}</td>
+			 <td>{!!link_to_route('materiaprima.edit', $title = 'Editar', $parameters = $dato->id, $attributes = ['class'=>'btn btn-primary']);!!}
                  </tbody>
             @endforeach
         </table>

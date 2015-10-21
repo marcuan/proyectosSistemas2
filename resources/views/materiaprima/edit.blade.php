@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    {!!Form::open(['route'=>'materiaprima.store', 'method'=>'POST'])!!}
+  {!!Form::model($materiaprima,['route'=>['materiaprima.update', $materiaprima->id], 'method'=>'PUT'])!!}
         <h3>Materia Prima</h3>
        <div class="container">
             <div class="form-grup">
@@ -13,7 +13,7 @@
             </div>
         
             <div class="form-grup">
-                {!!Form::label('Precio unitario:')!!}
+                {!!Form::label('Precio Unitario:')!!}
                 {!!Form::number('precio',null,['class'=>'form-control','placeholder'=>'Ingrese precio','required','step' => 'any'])!!}
             </div>
       

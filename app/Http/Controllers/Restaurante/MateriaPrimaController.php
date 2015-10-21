@@ -58,7 +58,7 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
     {
         //
 	   MateriaPrima::create([
-            'nombre' => $request['nombre_materia'],
+            'nombre' => $request['nombre'],
             'existencia' => $request['existencia'],
             'precio' => $request['precio'],
         
@@ -87,6 +87,9 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
     public function edit($id)
     {
         //
+	   
+	      $materiaprima = MateriaPrima::find($id);
+        return view('materiaprima.edit', ['materiaprima'=>$materiaprima]);
     }
 
     /**
@@ -99,6 +102,12 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
     public function update(Request $request, $id)
     {
         //
+	     $materiaprima = MateriaPrima::find($id);
+	
+        $materiaprima->fill($request->all());
+        $materiaprima->save();
+
+    return redirect('/materiaprima')->with('message','edit');
     }
 
     /**
