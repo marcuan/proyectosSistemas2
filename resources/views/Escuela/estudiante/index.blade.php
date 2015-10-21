@@ -15,8 +15,9 @@
 @endif
 
 @section('content')
+    
+    <div class="container col-xs-12">
     <a href="/proyectosSistemas2/public/estudiantes/create" class="btn btn-danger">Crear Estudiante</a>
-    <div class="container">
         <table class="table">
             <thead>
                 <th>Nombre</th>
