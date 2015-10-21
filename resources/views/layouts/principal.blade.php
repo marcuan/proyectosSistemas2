@@ -61,6 +61,9 @@
                             <li>
                                 <a href="/proyectosSistemas2/public/maestros">Maestro</a>
                             </li>
+                            <li>
+                                <a href="#">Horario</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
