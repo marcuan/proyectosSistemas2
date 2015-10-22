@@ -40,7 +40,7 @@ Route::get('temporadas/{id}', 'Restaurante\PlatilloController@mostrarplatillotem
 //Rutas para mostrar las temporadas
 Route::resource('temporada','Restaurante\TemporadaController');
 //Ruta para llamar tabla clientes y deplegar
-Route::resource('clientes', 'Restaurante\ClientesController');
+Route::resource('clientes', 'Restaurante\ClienteController');
 //Rutas para mostrar las compras
 Route::resource('compra','Restaurante\ComprasController');
 
@@ -59,5 +59,7 @@ Route::get ('venta/borrar','Despensa\VentasController@borrar');
 /*----------------------COMPRAS---------------------------------*/
  Route::get('proveedores', 'proveedoresController@mostrar');
 /*--------------------------------------------------------------*/
+
+Route::resource('detallecompra', 'Restaurante\DetalleCompraController');
 
 /*****************************/

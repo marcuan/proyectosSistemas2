@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.principal')
 @section('content')
     {!!Form::open(['route'=>'temporada.store', 'method'=>'POST'])!!}
         <h3>Cursos</h3>

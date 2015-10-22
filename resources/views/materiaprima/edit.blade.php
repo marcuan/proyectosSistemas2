@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.principal')
 @section('content')
   {!!Form::model($materiaprima,['route'=>['materiaprima.update', $materiaprima->id], 'method'=>'PUT'])!!}
         <h3>Materia Prima</h3>
