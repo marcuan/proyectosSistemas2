@@ -41,6 +41,8 @@ Route::get('temporadas/{id}', 'Restaurante\PlatilloController@mostrarplatillotem
 Route::resource('temporada','Restaurante\TemporadaController');
 //Ruta para llamar tabla clientes y deplegar
 Route::resource('clientes', 'Restaurante\ClientesController');
+//Rutas para mostrar las compras
+Route::resource('compra','Restaurante\ComprasController');
 
 /*****************************/
 /******************************

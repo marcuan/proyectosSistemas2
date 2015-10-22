@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
+use RED\Restaurante\Compra;
 use RED\Repositories\ProveedorRepo;
 use Resources;
 
@@ -26,7 +27,8 @@ public function __construct(ProveedorRepo $proveedorrepo){
      */
     public function index()
     {
-        //
+        $compra = Compra::all();
+        return view('compra.index', compact('compra'));
     }
 
     /**
@@ -36,7 +38,7 @@ public function __construct(ProveedorRepo $proveedorrepo){
      */
     public function create()
     {
-        //
+        return view('compra.create');
     }
 
     /**
@@ -47,7 +49,8 @@ public function __construct(ProveedorRepo $proveedorrepo){
      */
     public function store(Request $request)
     {
-        //
+        Compra::create($request->all());
+        return redirect('/compra')->with('message','store');
     }
 
     /**
@@ -69,7 +72,8 @@ public function __construct(ProveedorRepo $proveedorrepo){
      */
     public function edit($id)
     {
-        //
+        $compra = Compra::find($id);
+        return view('compra.edit', ['compra'=>$compra]);
     }
 
     /**
@@ -81,7 +85,10 @@ public function __construct(ProveedorRepo $proveedorrepo){
      */
     public function update(Request $request, $id)
     {
-        //
+        $compra = Compra::find($id);
+        $compra->fill($request->all());
+        $compra->save();
+        return redirect('/compras')->with('message','edit');
     }
 
     /**
