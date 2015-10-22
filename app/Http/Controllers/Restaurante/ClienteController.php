@@ -3,6 +3,7 @@
 namespace RED\Http\Controllers;
 
 use Illuminate\Http\Request;
+use RED\Restaurante\Cliente;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 
@@ -16,6 +17,8 @@ class ClienteController extends Controller
     public function index()
     {
         //
+        $customer = Cliente::All();
+        return view ('cliente.index',compact('customer'));
     }
 
     /**
@@ -26,6 +29,7 @@ class ClienteController extends Controller
     public function create()
     {
         //
+        return view('cliente.create');
     }
 
     /**
@@ -37,6 +41,14 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         //
+        Cliente::create([
+            'nombre' => $request['nombre'],
+            'nit' => $request['nit'],
+            'telefono' => $request['telefono'],
+            'dirección' => $request['dirección'],
+            ]);
+
+        return redirect('/clientes')->with('message','store');
     }
 
     /**
@@ -59,6 +71,7 @@ class ClienteController extends Controller
     public function edit($id)
     {
         //
+        return view('cliente.edit');
     }
 
     /**
@@ -71,6 +84,14 @@ class ClienteController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $cliente = Cliente::find($nit);
+
+        $cliente->nombre = $request['nombre'];
+        $cliente->nit = $request['nit'];
+        $cliente->telefono = $request['telefono'];
+        $cliente->dirección = $request['dirección'];
+
+        $cliente->save();
     }
 
     /**
@@ -82,5 +103,7 @@ class ClienteController extends Controller
     public function destroy($id)
     {
         //
+        $cliente = Cliente::find($nit);
+        $cliente = delete();
     }
 }
