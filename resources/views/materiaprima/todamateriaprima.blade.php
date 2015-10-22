@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.principal')
 <?php $message=Session::get('message')?>
 
 @if($message == 'store')

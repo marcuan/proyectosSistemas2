@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.principal')
 @section('content')
     {!!Form::open(['route'=>'materiaprima.store', 'method'=>'POST'])!!}
         <h3>Materia Prima</h3>
