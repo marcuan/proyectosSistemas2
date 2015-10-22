@@ -45,8 +45,8 @@ class PlatilloController extends Controller
      */
     public function index()
     {
-        //$Platillo = Platillo::all();
-        //return View::make('index')->with('platillos', $platillos);
+       $platillo = Platillo::all();
+        return View('platillo.platillo',compact('platillo'));
     }
 
     /**
