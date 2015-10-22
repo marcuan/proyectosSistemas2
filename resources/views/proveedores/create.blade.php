@@ -6,7 +6,7 @@
       
         	<div class="form-grup">
         		{!!Form::label('Nombre:')!!}
-        		{!!Form::text('nombre_proveedor',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre de la temporada', 'required'])!!}
+        		{!!Form::text('nombre_proveedor',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre del proveedor', 'required'])!!}
         	</div>
       
         	{!!Form::submit('Guardar',['class'=>'btn btn-primary'])!!}
