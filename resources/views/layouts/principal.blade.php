@@ -67,16 +67,22 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="icon-restaurante"></i>Restaurante</a>
+                        <a href=""><i class="icon-restaurante"></i>Restaurante</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Second Level Link</a>
+                                <a href="materiaprima">Materia prima</a>
                             </li>
                             <li>
-                                <a href="#">Second Level Link</a>
+                                <a href="platillo">Platillo</a>
                             </li>
                             <li>
-                                <a href="#">Second Level Link</a>
+                                <a href="temporada">Temporadas</a>
+                            </li>
+					   <li>
+                                <a href="clientes">Clientes</a>
+                            </li>
+					    <li>
+                                <a href="compra">Compras</a>
                             </li>
                         </ul>
                     </li>

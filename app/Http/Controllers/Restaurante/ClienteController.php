@@ -1,6 +1,6 @@
 <?php
 
-namespace RED\Http\Controllers;
+namespace RED\Http\Controllers\Restaurante;
 
 use Illuminate\Http\Request;
 use RED\Restaurante\Cliente;
