@@ -1,12 +1,43 @@
 @extends('layouts.principal')
 
-@section('content')
-    <p>Platillos</p>
-	@foreach($platillo as $platillos) 
-            <p>Nombre: {{ $platillos->nombre }}</p>
-	        <p>Precio: {{ $platillos->precio }}</p>
-        	<p>Descripcion: {{ $platillos->descripcion }}</p>
-        	<p>Temporada: {{ $platillos->temporada_id }}</p>
-    @endforeach
+<?php $message=Session::get('message')?>
 
+@if($message == 'store')
+<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Creado</strong> Se ha creado nueva materia prima.
+</div>
+@endif
+
+@if($message == 'edit')
+<div class="alert alert-info alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>En horabuena!</strong> Compra editada exitosamente.
+</div>
+@endif
+
+@section('content')
+	<a href="../public/platillo/create" class="btn btn-danger">Crear platillo</a>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <th>Temporada</th>
+                <th>nombre</th>
+                <th>precio</th>
+                <th>descripcion</th>
+                
+            </thead>
+
+            @foreach($platillo as $dato)
+            <tbody>
+                <td>{{$dato->temporada_id}}</td>
+                <td>{{$dato->nombre}}</td>
+                <td>{{$dato->precio}}</td>
+                <td>{{$dato->descripcion}}</td>
+                <td>{!!link_to_route('platillo.edit', $title = 'Editar', $parameters = $dato->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
+            </tbody>
+            @endforeach
+
+        </table>
+    </div>
 @stop

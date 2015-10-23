@@ -8,23 +8,18 @@ use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 use RED\Restaurante\Platillo;
 use RED\Restaurante\Temporada;
+use RED\Repositories\PlatillosRepo;
 use Resources;
 
 
 class PlatilloController extends Controller
 {
-    /**
-     * Desplegar platillos
-     *
-     * @return Response
-     */
-    
-    public function mostrar()
-    {
-        $platillo = Platillo::all();
-        return View('platillo.platillo',compact('platillo'));
-    }
+    protected $platillorepo;
+    public function __construct(PlatillosRepo $platillorepo){
 
+        $this->platillorepo=$platillorepo;
+    }
+    
 
     /**
      * Desplegar platillos por temporada
@@ -45,7 +40,7 @@ class PlatilloController extends Controller
      */
     public function index()
     {
-       $platillo = Platillo::all();
+       $platillo=$this->platillorepo->findall();
         return View('platillo.platillo',compact('platillo'));
     }
 
@@ -56,7 +51,9 @@ class PlatilloController extends Controller
      */
     public function create()
     {
-        //
+        //  
+        return view('platillo.create');
+
     }
 
     /**
@@ -68,6 +65,13 @@ class PlatilloController extends Controller
     public function store(Request $request)
     {
         //
+        Platillo::create([
+            'temporada_id'  =>  $request['temporada_id'],
+            'nombre'        =>  $request['nombre'],
+            'precio'        =>  $request['precio'],
+            'descripcion'   =>  $request['descripcion'],
+            ]);
+        return redirect('/platillo')->with('message','store');
     }
 
     /**
@@ -90,6 +94,8 @@ class PlatilloController extends Controller
     public function edit($id)
     {
         //
+         $platillo = Platillo::find($id);
+        return view('platillo.edit', ['platillo'=>$platillo]);
     }
 
     /**
@@ -102,6 +108,11 @@ class PlatilloController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $platillo = Platillo::find($id);
+        $platillo->fill($request->all());
+        $platillo->save();
+
+        return redirect('/platillo')->with('message','edit');
     }
 
     /**
