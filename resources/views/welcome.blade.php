@@ -7,6 +7,8 @@
     <title>::CAFE RED::</title>
     {!!Html::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')!!}
     {!!Html::style('css/style.css')!!}
+    <link rel="shortcut icon" href="{{{ asset('images/loco-ico.ico') }}}">
+
 </head>
 <body style="padding-top: 50px;">
     <!-- Navigation -->

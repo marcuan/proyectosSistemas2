@@ -8,6 +8,7 @@
     {!!Html::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')!!}
     {!!Html::style('css/style.css')!!}
     {!!Html::style('https://fonts.googleapis.com/css?family=Lato:400,700')!!}
+    <link rel="shortcut icon" href="{{{ asset('images/loco-ico.ico') }}}">
 </head>
 <body>
 
