@@ -4,13 +4,19 @@
 @if($message == 'store')
 <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>En horabuena!</strong> Estudiante creado exitosamente.
+  <strong>Creado. </strong> Estudiante creado exitosamente.
 </div>
 @endif
 @if($message == 'edit')
 <div class="alert alert-info alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>En horabuena!</strong> Estudiante editado exitosamente.
+  <strong>Editado. </strong> Estudiante editado exitosamente.
+</div>
+@endif
+@if($message == 'assign')
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Asignado. </strong> Curso(s) Asignado(s) exitosamente.
 </div>
 @endif
 
@@ -35,7 +41,7 @@
                 <td>{{$estudiante->direccion}}</td>
                 <td>{{$estudiante->correo}}</td>
                 <td>{!!link_to_route('estudiantes.edit', $title = 'Editar', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-primary']);!!}
-                    {!!link_to('asignacionestudiantes/{{$estudiante->id}}', $title = 'Asignar Cursos', $attributes = ['class'=>'btn btn-success'], $secure = null);!!}</td>
+                    {!!link_to('asignacionestudiantes/'.$estudiante->id, $title = 'Asignar Cursos', $attributes = ['class'=>'btn btn-success'], $secure = null);!!}</td>
             </tbody>
             @endforeach
         </table>
