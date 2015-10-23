@@ -72,7 +72,8 @@ class MaestroController extends Controller
     public function edit($id)
     {
         $maestro = Maestro::find($id);
-        return view('Escuela.maestro.edit', ['maestro'=>$maestro]);
+        $telefono = $maestro->telefonos()->get()->first();
+        return view('Escuela.maestro.edit', compact(['maestro','telefono']));
     }
 
     /**
@@ -87,6 +88,10 @@ class MaestroController extends Controller
         $maestro = Maestro::find($id);
         $maestro->fill($request->all());
         $maestro->save();
+
+        $telefono = $maestro->telefonos()->get()->first();
+        $telefono->numero_telefono = $request['numero_telefono'];
+        $telefono->save();        
 
     return redirect('/maestros')->with('message','edit');
     }

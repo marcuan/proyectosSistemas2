@@ -27,6 +27,10 @@
                 {!!Form::label('Genéro:')!!}
                 {!!Form::select('genero_id',array('1'=>'Femenino','2'=>'Masculino'),null,['class'=>'form-control'])!!}
             </div><br>
+            <div class="form-grup">
+                {!!Form::label('Teléfono:')!!}
+                {!!Form::text('numero_telefono',$telefono->numero_telefono,['class'=>'form-control','placeholder'=>'Ingrese Teléfono','required'])!!}
+            </div><br>
         <div class="form-btn">
         {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
         </div>

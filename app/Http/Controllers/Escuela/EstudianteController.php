@@ -65,14 +65,14 @@ class EstudianteController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
      * @param  int  $id
      * @return Response
      */
     public function edit($id)
     {
         $estudiante = Estudiante::find($id);
-        return view('Escuela.estudiante.edit', ['estudiante'=>$estudiante]);
+        $telefono = $estudiante->telefonos()->get()->first();
+        return view('Escuela.estudiante.edit', compact(['estudiante','telefono']));
     }
 
     /**
@@ -87,6 +87,13 @@ class EstudianteController extends Controller
         $estudiante = Estudiante::find($id);
         $estudiante->fill($request->all());
         $estudiante->save();
+
+        $telefono = $estudiante->telefonos()->get()->first();
+        $telefono->numero_telefono = $request['numero_telefono'];
+        $telefono->save();        
+
+
+
 
     return redirect('/estudiantes')->with('message','edit');
     }
