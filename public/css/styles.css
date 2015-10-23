@@ -30,9 +30,7 @@
 	content: "\e800";
 }
 
-body {
-    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-}
+
 
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 
@@ -61,6 +59,14 @@ body {
 	width: 75%;
 	text-align: center;
 }
-.nav{
+.login{
 	float: right;
+}
+.login-cont
+{
+	text-align: center;
+	margin: 5px;
+}
+.login-cont input{
+	margin: 0 0 5px 0;
 }

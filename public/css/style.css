@@ -42,18 +42,22 @@
 
 .icon-logo_red{
     font-size:44px;
+    color: #fff;
 }
 .icon-despensa,
 .icon-escuela,
 .icon-restaurante,
 .icon-ong{
     font-size: 25px;
+    color: #fff;
+
 }
 /*END FONTS*/
 
 
 body {
     font-family: 'Lato', sans-serif;
+
 }
  #wrapper {
     width: 100%;
@@ -71,7 +75,7 @@ body {
     margin:10px 20px 10px 0px;
     background-color:#fff!important;
     padding:10px;
-    min-height:1200px;
+    min-height:760px;
 }
 .form-btn{
     float: right;
@@ -316,9 +320,7 @@ color:#fff;
 border:0px solid black;
      
 }
-.navbar-header {
-    background: #A70303;
-}
+
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
 background-color: #B40101;
 }
@@ -332,8 +334,11 @@ background-color: #FFF;
 .nav > li > a > i {
     margin-right:10px;
 }
+.navbar-header {
+        background: #A70303;
+    }
 
- 
+
  @media(min-width:768px) {
      #page-wrapper{
         margin: 0 0 0 260px;
@@ -341,8 +346,6 @@ background-color: #FFF;
         
 		
     }
-	
-	
     .navbar-side {
         z-index: 1;
         position: absolute;
@@ -353,5 +356,53 @@ background-color: #FFF;
         border-radius: 0px; 
     }
 }
+/*otro*/
+.business-header {
+    height: 400px;
+    background: url('../images/xela.png') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
 
+/* Customize the text color and shadow color and to optimize text legibility. */
+
+.tagline {
+    text-shadow: 0 0 10px #000;
+    color: #fff;
+}
+
+.img-center {
+    margin: 0 auto;
+}
+
+
+.form-group input{
+    width: 75%;
+    text-align: center;
+}
+.login{
+    float: right;
+}
+.login-cont
+{
+    text-align: center;
+    margin: 5px;
+}
+.login-cont input{
+    margin: 0 0 5px 0;
+}
+.administrativa{
+    text-align: center;
+}
+.administrativa .ad1 h2,
+.ad2 h2,
+.ad2 p{
+    color:#000;
+    text-align: center;
+}
+.lg7{
+    background: transparent;
+}
 

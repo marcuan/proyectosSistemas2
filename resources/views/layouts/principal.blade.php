@@ -50,7 +50,7 @@
                     </li>
                                  
                     <li>
-                        <a href="#"><i class="icon-ong"></i> Escuela</a>
+                        <a href="#"><i class="icon-escuela"></i> Escuela</a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="estudiantes">Estudiante</a>
