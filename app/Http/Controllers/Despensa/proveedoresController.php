@@ -20,11 +20,7 @@ class ProveedoresController extends Controller
      * @return Response
      */
     
-    public function mostrar()
-    {
-        $proveedor = Proveedore::all();
-        return View('proveedores.proveedor',compact('proveedor'));
-    }
+  
 
 
     /**
@@ -37,7 +33,7 @@ class ProveedoresController extends Controller
     public function index()
     {
         $proveedor = Proveedore::all();
-        return View('proveedores.proveedor',compact('proveedor'));
+        return View('Despensa.proveedores.index',compact('proveedor'));
     }
 
     /**

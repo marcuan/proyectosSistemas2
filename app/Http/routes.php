@@ -56,8 +56,8 @@ Route::get ('cliente/borrar','Despensa\ClientesController@borrar');
 
 /*----------------------COMPRAS---------------------------------*/
 //Ruta para mostrar los proveedores
- Route::get('proveedores', 'Despensa\ProveedoresController@mostrar');
- Route::get('proveedores/crear', 'Despensa\ProveedoresController@create');
+ Route::resource('proveedores','Despensa\ProveedoresController');
+
 /*--------------------------------------------------------------*/
 
 /*****************************/
