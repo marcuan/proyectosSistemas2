@@ -21,7 +21,10 @@ Route::get('/', function () {
 Route::resource('estudiantes','Escuela\EstudianteController');
 Route::resource('maestros','Escuela\MaestroController');
 Route::resource('cursos','Escuela\CursoController');
-Route::get('asignacionestudiantes/{id}', 'Escuela\AsignacionEstudianteController@asignar');
+Route::get('asignacionestudiantes/{id}', 'Escuela\AsignEstController@asignar');
+Route::resource('asignacionestudiantes', 'Escuela\AsignacionEstudianteController');
+Route::get('asignacionmaestros/{id}', 'Escuela\AsignMaestController@asignar');
+Route::resource('asignacionmaestros', 'Escuela\AsignacionMaestroController');
 /******************/
 
 /******************************

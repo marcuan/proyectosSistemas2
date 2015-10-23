@@ -2,18 +2,12 @@
 
 <?php $message=Session::get('message')?>
 
-
-@if($message == 'store')
-<div class="alert alert-success alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>En horabuena!</strong> Curso Asignado exitosamente.
-</div>
-@endif
-
 @section('content')
-    {!!Form::open([])!!}
+    {!!Form::open(['route'=>'asignacionmaestros.store', 'method'=>'POST'])!!}
         <div class="container col-xs-12">   
-        <a href="../maestros    " class="btn btn-danger">Regresar</a> 
+        <a href="../maestros" class="btn btn-danger">Regresar</a>
+        <label for=""> Maestro: {{$teacher->apellido_maestro}} , {{$teacher->nombre_maestro}}</label>
+        {!!Form::text('idmaestro',$teacher->id,['class'=>'hidden', 'id'=>'idmaestro'])!!}
             <table class="table table-hover table-responsive">
                 <thead>
                     <th>Codigo</th>
@@ -32,12 +26,13 @@
                     <td>{{$curso->fecha_inicio}}</td>
                     <td>{{$curso->fecha_fin}}</td>
                     <td>{{$curso->max_estudiantes}}</td>
-                    <td>{!!Form::checkbox('name', 'value');!!}</td>
+                    <td>{!!Form::checkbox('asignar', 'asignado');!!}
+                        {!!Form::text('idcurso',$curso->id,['class'=>'hidden', 'id'=>'idcurso'])!!}</td>
                 </tbody>
                 @endforeach
             </table> 
         </div>
-            <div class="form-btn">
+        <div class="form-btn">
                {!!Form::submit('Asignar Cursos',['class'=>'btn btn-primary'])!!}
             </div>
     {!!form::close()!!}
