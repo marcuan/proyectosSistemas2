@@ -27,10 +27,17 @@
                 {!!Form::label('Género:')!!}
                 {!!Form::select('genero_id', array('1'=>'Femenino','2'=>'Masculino'),null,['class'=>'form-control'])!!}
             </div><br>
+            <div class="form-grup">
+                {!!Form::label('Telefono:')!!}
+                {!!Form::text('numero_telefono',null,['class'=>'form-control','placeholder'=>'Ingrese Telefono','required'])!!}
+            </div><br>
+            <div class="form-grup">
+                {!!Form::label('Telefono:')!!}
+                {!!Form::text('numero_telefono',null,['class'=>'form-control','placeholder'=>'Ingrese Telefono','required'])!!}
+            </div><br>
             <div class="form-btn">
                 {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
             </div>
-        
     {!!form::close()!!}
     </div>
 

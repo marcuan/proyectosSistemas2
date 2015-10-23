@@ -1,10 +1,11 @@
 <?php
 
-namespace RED;
+namespace RED\Escuela;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Telefono extends Model
 {
-    protected $fillable = ['numero_telefono'];
+    protected $table = 'Telefono';
+    protected $fillable = ['numero_telefono, estudiante_id, maestro_id'];
 }

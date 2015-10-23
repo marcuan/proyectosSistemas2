@@ -10,7 +10,7 @@
 @section('content')
  <a href="../public/materiaprima/create" class="btn btn-danger">Crear Materia</a>
    
-   <div class="container">
+   <div class="container col-xs-12">
         <table class="table">
             <thead>
                 <th>Nombre</th>

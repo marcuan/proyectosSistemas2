@@ -5,6 +5,7 @@ namespace RED\Http\Controllers\Escuela;
 use Illuminate\Http\Request;
 use RED\Escuela\Maestro;
 use RED\Escuela\Curso;
+use RED\Escuela\Telefono;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 
@@ -39,7 +40,12 @@ class MaestroController extends Controller
      */
     public function store(Request $request)
     {
-        Maestro::create($request->all());
+        $maestro = Maestro::create($request->all());
+
+        $telefono = new Telefono;
+        $telefono->numero_telefono = $request['numero_telefono'];
+        $telefono->maestro_id = $maestro->id;
+        $telefono->save();
 
     return redirect('/maestros')->with('message','store');
     }
