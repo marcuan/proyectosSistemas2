@@ -27,16 +27,39 @@ Route::resource('cursos','Escuela\CursoController');
 /******************************
   MODULO CAFETERÍA/RESTAURANTE
 ******************************/
+//Rutas Materia prima
+Route::resource('materiaprima','Restaurante\MateriaPrimaController');
 
-Route::get('/totalmateriaprima/',['as'=>'materiaprima','uses'=>'Restaurante\MateriaPrimaController@prueba']);
 //Rutas Compras
 //Ruta para obtener las compras de un proveedor
 Route::get('/comprasproveedor/{id}',['as'=>'compras','uses'=>'Restaurante\ComprasController@proveedor']);
 //Rutas para todos los platillos
-Route::get('platillo', 'platilloController@mostrar');
+Route::resource('platillo','Restaurante\PlatilloController');
 //Rutas para platillos de una temporada
-Route::get('platillo/{id}', 'Restaurante\PlatilloController@mostrarplatillotemporada');
+Route::get('temporadas/{id}', 'Restaurante\PlatilloController@mostrarplatillotemporada');
 //Rutas para mostrar las temporadas
-Route::get('temporada', 'Restaurante\TemporadaController@mostrar');
+Route::resource('temporada','Restaurante\TemporadaController');
+//Ruta para llamar tabla clientes y deplegar
+Route::resource('clientes', 'Restaurante\ClienteController');
+//Rutas para mostrar las compras
+Route::resource('compra','Restaurante\ComprasController');
+
+/*****************************/
+/******************************
+  MODULO DESPENSA
+******************************/
+/*----------------------VENTAS----------------------------------*/
+Route::get ('venta','Despensa\VentasController@index');
+Route::get ('venta/crear','Despensa\VentasController@crear');
+Route::get ('venta/lista','Despensa\VentasController@lista');
+Route::get ('venta/editar','Despensa\VentasController@editar');
+Route::get ('venta/borrar','Despensa\VentasController@borrar');
+/*--------------------------------------------------------------*/
+
+/*----------------------COMPRAS---------------------------------*/
+ Route::get('proveedores', 'proveedoresController@mostrar');
+/*--------------------------------------------------------------*/
+
+Route::resource('detallecompra', 'Restaurante\DetalleCompraController');
 
 /*****************************/

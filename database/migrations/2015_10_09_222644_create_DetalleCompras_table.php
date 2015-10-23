@@ -19,6 +19,8 @@ class CreateDetalleComprasTable extends Migration
 		  $table->foreign('materia_prima_id')->references('id')->on('MateriaPrima');
 		  $table->integer('compras_id')->unsigned();
 		  $table->foreign('compras_id')->references('id')->on('Compras');
+          $table->integer('cantidad');
+          $table->float('costo');
 		  $table->timestamps();
         });
     }
