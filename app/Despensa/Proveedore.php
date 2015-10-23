@@ -8,6 +8,13 @@ class Proveedore extends Model
 {
     //Atributo necesario para modelos
     	 protected $table = 'Proveedores';
+
+    	 protected $fillable = [
+    	 	'nombre_proveedor',
+    	 	'telefonos',
+    	 	'direccion'
+
+    	 ];
 	 
 		//Funcion para obtener las compras de un proveedor
 	public function compras(){
