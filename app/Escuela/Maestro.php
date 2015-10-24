@@ -4,9 +4,11 @@ namespace RED\Escuela;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Maestro extends Model
 {
+    use SoftDeletes;
     
     protected $table = 'Maestro';
 
@@ -19,6 +21,8 @@ class Maestro extends Model
     	'correo',
         'activo',
     	'genero_id'];
+
+    protected $dates = ['deleted_at'];
 
     public function telefonos()
     {
