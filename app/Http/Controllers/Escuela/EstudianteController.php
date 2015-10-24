@@ -16,11 +16,26 @@ class EstudianteController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $student = Estudiante::All();
+        
+    
+        if($request->get('type') == "nombre")
+        {
+            $student = Estudiante::name($request->get('name'))->orderBy('id','DESC')->paginate();
+        }
+        else if($request->get('type') == "codigo")
+        {
+            $student = Estudiante::code($request->get('name'))->orderBy('id','DESC')->paginate();
+        }
+        else
+        {
+            $student = Estudiante::orderBy('id','DESC')->paginate();
+        }
         return view('Escuela.estudiante.index', compact('student'));
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
