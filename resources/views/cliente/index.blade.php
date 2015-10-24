@@ -10,8 +10,17 @@
 </div>
 @endif
 
-@section('content')
 
+@if($message == 'edit')
+<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Operación Exitosa!</strong> Cliente Modificado/Actualizado.
+</div>
+@endif
+
+
+
+@section('content')
 <!--
 Vista -> Cuadro para buscar clientes
 -->
@@ -38,6 +47,7 @@ Vista -> Cuadro para buscar clientes
                 <td>{{$cliente->nit}}</td>
                 <td>{{$cliente->telefono}}</td>
                 <td>{{$cliente->dirección}}</td>
+                <td>{!!link_to_route('clientes.edit', $title = 'Editar', $parameters = $cliente->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
         </table>
