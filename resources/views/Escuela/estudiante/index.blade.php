@@ -41,7 +41,8 @@
                 <td>{{$estudiante->direccion}}</td>
                 <td>{{$estudiante->correo}}</td>
                 <td>{!!link_to_route('estudiantes.edit', $title = 'Editar', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-primary']);!!}
-                    {!!link_to('asignacionestudiantes/'.$estudiante->id, $title = 'Asignar Cursos', $attributes = ['class'=>'btn btn-success'], $secure = null);!!}</td>
+                    {!!link_to('asignacionestudiantes/'.$estudiante->id, $title = 'Asignar Cursos', $attributes = ['class'=>'btn btn-success'], $secure = null);!!}
+                    {!!link_to_route('estudiantes.show', $title = 'Ver Cursos', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-warning']);!!}</td>
             </tbody>
             @endforeach
         </table>
