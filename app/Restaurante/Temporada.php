@@ -9,6 +9,7 @@ class Temporada extends Model
 	protected $table = 'Temporada';
 	protected $fillable = [
 		'nombre'
+	
 		];
 	
     public function platillos()
