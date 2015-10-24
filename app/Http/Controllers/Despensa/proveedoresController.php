@@ -20,15 +20,6 @@ class ProveedoresController extends Controller
      * @return Response
      */
     
-  
-
-
-    /**
-     * 
-     *
-     * @return Response
-     */
-    
 
     public function index()
     {
@@ -56,11 +47,7 @@ class ProveedoresController extends Controller
     public function store(Request $request)
     {
         //
-        Proveedore::create([
-            'nombre' => $request['nombre_proveedor'],
-            'telefono' => $request['tel_proveedor'],
-            'direccion' => $request['dir_proveedor'],
-            ]);
+        Proveedore::create($request->all());
             return redirect('/proveedores')->with('message','store');
     }
 
@@ -84,6 +71,8 @@ class ProveedoresController extends Controller
     public function edit($id)
     {
         //
+        $provider = Proveedore::find($id);
+        return view('proveedores.edit', ['proveedores'=>$provider]);
     }
 
     /**

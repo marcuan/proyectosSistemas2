@@ -1,4 +1,5 @@
 @extends('layouts.principal')
+
 <?php $message=Session::get('message')?>
 
 @if($message == 'store')
@@ -29,8 +30,7 @@
                 <td>{{$proveedores->nombre}}</td>
                 <td>{{$proveedores->telefono}}</td>
                 <td>{{$proveedores->direccion}}</td>
-                <td>{!!link_to_route('proveedores.edit', $title = 'Editar', $parameters = $proveedor->id, $attributes = ['class'=>'btn btn-primary']);!!}
-                    {!!link_to_route('proveedores.show', $title = 'Asignar', $parameters = $proveedor->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
+                <td>{!!link_to_route('proveedores.edit', $title = 'Editar', $parameters = $proveedores->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
         </table>
