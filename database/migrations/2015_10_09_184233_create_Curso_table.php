@@ -24,6 +24,17 @@ class CreateCursoTable extends Migration
             $table->boolean('activo');  
 		    $table->timestamps();
         });
+
+        Schema::create('Horario', function(Blueprint $table) {
+            $table->increments('id');
+            $table->string('dia');
+            $table->time('hora_inicio');
+            $table->time('hora_fin');
+            $table->string('salon');
+            $table->integer('curso_id');
+            $table->boolean('activo');  
+            $table->timestamps();
+        });
     }
 
     /**
@@ -34,5 +45,6 @@ class CreateCursoTable extends Migration
     public function down()
     {
         Schema::drop('Curso');
+        Schema::drop('Horario');
     }
 }

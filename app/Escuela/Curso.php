@@ -32,4 +32,9 @@ class Curso extends Model
     {
         return $this->belongsToMany('RED\Escuela\Maestro');
     }
+
+    public function horarios()
+    {
+        return $this->hasMany('RED\Escuela\horario');
+    }
 }
