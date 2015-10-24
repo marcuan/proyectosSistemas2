@@ -6,7 +6,10 @@
        <div class="container">
             <div class="form-grup">
                 {!!Form::label('Temporada:')!!}
-                {!!Form::text('temporada_id',null,['class'=>'form-control','placeholder'=>'Ingrese Temporada ','required'])!!}
+                {!!Form::select('temporada_id',$opciontemporada,['class'=>'form-control','placeholder'=>'Ingrese Temporada ','required'])!!}
+            </div>
+            <div class="form-grup">
+                {!!Form::label('')!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Nombre:')!!}

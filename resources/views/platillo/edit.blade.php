@@ -6,7 +6,7 @@
        <div class="container">
             <div class="form-grup">
                 {!!Form::label('Temporada:')!!}
-                {!!Form::text('temporada_id',null,['class'=>'form-control','placeholder'=>'Ingrese temporada ','required'])!!}
+                {!!Form::text('temporada_id',null,['class'=>'form-control','placeholder'=>'Ingrese temporada ','required',])!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Nombre:')!!}
