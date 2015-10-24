@@ -54,16 +54,16 @@
                         <a href="#"><i class="icon-escuela"></i> Escuela</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="estudiantes">Estudiante</a>
+                                <a href="/estudiantes">Estudiante</a>
                             </li>
                             <li>
-                                <a href="cursos">Curso</a>
+                                <a href="/cursos">Curso</a>
                             </li>
                             <li>
-                                <a href="maestros">Maestro</a>
+                                <a href="/maestros">Maestro</a>
                             </li>
                             <li>
-                                <a href="#">Horario</a>
+                                <a href="/#">Horario</a>
                             </li>
                         </ul>
                     </li>
@@ -71,19 +71,19 @@
                         <a href=""><i class="icon-restaurante"></i>Restaurante</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="materiaprima">Materia prima</a>
+                                <a href="/materiaprima">Materia prima</a>
                             </li>
                             <li>
-                                <a href="platillo">Platillo</a>
+                                <a href="/platillo">Platillo</a>
                             </li>
                             <li>
-                                <a href="temporada">Temporadas</a>
+                                <a href="/temporada">Temporadas</a>
                             </li>
 					   <li>
-                                <a href="clientes">Clientes</a>
+                                <a href="/clientes">Clientes</a>
                             </li>
 					    <li>
-                                <a href="compra">Compras</a>
+                                <a href="/compra">Compras</a>
                             </li>
                         </ul>
                     </li>
