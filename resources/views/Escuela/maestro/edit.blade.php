@@ -37,6 +37,9 @@
         {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
         </div>
     {!!form::close()!!}
+    {!!Form::open(['route'=>['maestros.destroy', $maestro->id], 'method'=>'DELETE'])!!}
+        {!!Form::submit('Inhabilitar Maestro',['class'=>'btn btn-danger'])!!}
+    {!!form::close()!!}
     </div>
 
 @stop

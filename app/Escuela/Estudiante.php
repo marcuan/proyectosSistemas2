@@ -4,9 +4,11 @@ namespace RED\Escuela;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Estudiante extends Model
 {
+    use SoftDeletes;
 
 	protected $table = 'Estudiante';
 
@@ -20,6 +22,8 @@ class Estudiante extends Model
 		'genero_id'
 		];
 
+    protected $dates = ['deleted_at'];
+    
     public function telefonos()
     {
         return $this->hasMany('RED\Escuela\Telefono');

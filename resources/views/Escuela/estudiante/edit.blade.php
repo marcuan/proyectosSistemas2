@@ -37,5 +37,8 @@
         {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
         </div>
     {!!form::close()!!}
+    {!!Form::open(['route'=>['estudiantes.destroy', $estudiante->id], 'method'=>'DELETE'])!!}
+        {!!Form::submit('Inhabilitar Estudiante',['class'=>'btn btn-danger'])!!}
+    {!!form::close()!!}
     </div>
 @stop
