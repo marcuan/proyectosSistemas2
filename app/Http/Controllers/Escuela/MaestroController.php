@@ -29,7 +29,7 @@ class MaestroController extends Controller
         }
         else 
         {
-            $teacher = Maestro::orderBy('id','DESC')->paginate(2);
+            $teacher = Maestro::orderBy('id','DESC')->paginate(10);
         }
 
         return view('Escuela.maestro.index',compact('teacher'));        
@@ -118,6 +118,9 @@ class MaestroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $maestro = Maestro::find($id);
+        $maestro->delete();  
+
+    return redirect('/maestros')->with('message','erase');
     }
 }
