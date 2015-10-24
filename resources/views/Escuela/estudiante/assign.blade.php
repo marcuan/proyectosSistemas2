@@ -12,7 +12,7 @@
                 <th>Fecha de Finalizacion</th>
                 <th>Maximo de Estudiantes</th>
             </thead>
-            @foreach($course as $key => $curso)
+            @foreach($courses as $key => $curso)
             <tbody>
                 <td>{{$curso->codigo}}</td>
                 <td>{{$curso->nombre_curso}}</td>
