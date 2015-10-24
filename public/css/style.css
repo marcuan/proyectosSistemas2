@@ -405,4 +405,11 @@ background-color: #FFF;
 .lg7{
     background: transparent;
 }
-
+.title{
+    border-radius: 5px;
+    background: #F5F5F5;
+    padding: 3px;
+}
+.select{
+    padding:7px 0 6px 0;
+}

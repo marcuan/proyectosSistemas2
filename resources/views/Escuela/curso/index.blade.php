@@ -18,8 +18,23 @@
 
 @section('content')
     <div class="container col-xs-12">
-    <a href="cursos/create" class="btn btn-danger">Crear Curso</a>
-    
+    <h3 class="title" selected="selected">Cursos</h3>
+    <div class="buscar">
+        <a href="cursos/create" class="btn btn-danger">Crear Curso</a>
+        <div class="col-lg-4">
+            <div class="input-group">
+                <input type="text" class="form-control">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                  </span>
+            </div>
+        </div>
+        <select name="" id="" class="btn btn-default select">
+            <option value="1">Codigo</option>
+            <option value="1">Nombre</option>
+        </select>
+    </div>
+    </div>
         <table class="table table-hover table-responsive">
             <thead>
                 <th>Codigo</th>

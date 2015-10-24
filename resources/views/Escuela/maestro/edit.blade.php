@@ -1,8 +1,10 @@
 @extends('layouts.principal')
 @section('content')
     {!!Form::model($maestro,['route'=>['maestros.update', $maestro->id], 'method'=>'PUT'])!!}
-        <h3>Maestros</h3>
+        
        <div class="container col-xs-12">
+        <h3 class="title" selected="selected">Maestros</h3>
+
             <div class="form-grup">
                 {!!Form::label('Nombre:')!!}
                 {!!Form::text('nombre_maestro',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre Maestro','required'])!!}
