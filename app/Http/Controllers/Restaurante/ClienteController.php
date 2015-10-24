@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use RED\Restaurante\Cliente;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
-use RED\Repositories\Cliente;
+//use RED\Repositories\Cliente;
 //uso de facades
 use Illuminate\Support\Facades\Session;
 
@@ -17,7 +17,7 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         //$customer = Cliente::All();
