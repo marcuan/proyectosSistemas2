@@ -56,6 +56,11 @@ Route::get ('venta/editar','Despensa\VentasController@editar');
 Route::get ('venta/borrar','Despensa\VentasController@borrar');
 /*--------------------------------------------------------------*/
 
+/*----------------------INVENTARIO------------------------------*/
+
+Route::resource('inventario','Despensa\InventarioController');
+/*--------------------------------------------------------------*/
+
 /*----------------------COMPRAS---------------------------------*/
  Route::resource('proveedores', 'Despensa\proveedoresController');
 /*--------------------------------------------------------------*/
