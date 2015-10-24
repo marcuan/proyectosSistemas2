@@ -6,11 +6,22 @@
 @if($message == 'store')
 <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>En horabuena!</strong> Cliente creado.
+  <strong>Operación Exitosa!</strong> Cliente creado.
 </div>
 @endif
 
 @section('content')
+
+<!--
+Vista -> Cuadro para buscar clientes
+-->
+{!! Form::open(['href' => '../public/clientes', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
+    <div class="form-group">
+        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre del cliente']) !!}
+    </div>
+        <button type="submit" class="btn btn-primary">Buscar</button> 
+{!! Form::close() !!}
+
 <a href="../public/clientes/create" class="btn btn-danger">Nuevo Cliente</a>
     <div class="container">
         <table class="table">

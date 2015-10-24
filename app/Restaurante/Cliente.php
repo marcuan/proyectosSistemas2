@@ -14,4 +14,10 @@ class Cliente extends Model
     'nit',
     'telefono',
     'dirección'];
+
+    public function scopeName($query, $name)
+    {
+
+        $query->where('nombre', $name);
+    }
 }

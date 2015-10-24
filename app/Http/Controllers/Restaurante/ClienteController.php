@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use RED\Restaurante\Cliente;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
+use RED\Repositories\Cliente;
+//uso de facades
+use Illuminate\Support\Facades\Session;
 
 class ClienteController extends Controller
 {
@@ -17,7 +20,8 @@ class ClienteController extends Controller
     public function index()
     {
         //
-        $customer = Cliente::All();
+        //$customer = Cliente::All();
+        $customer = Cliente::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate();
         return view ('cliente.index',compact('customer'));
     }
 
