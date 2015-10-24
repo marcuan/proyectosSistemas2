@@ -16,10 +16,23 @@ class MaestroController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $teacher = Maestro::All();
-        return view('Escuela.maestro.index',compact('teacher'));
+        
+        if($request->get('type') == "nombre")
+        {
+            $teacher = Maestro::name($request->get('name'))->orderBy('id','DESC')->paginate();
+        }
+        else if($request->get('type') == "codigo")
+        {
+            $teacher = Maestro::code($request->get('name'))->orderBy('id','DESC')->paginate();
+        }
+        else 
+        {
+            $teacher = Maestro::orderBy('id','DESC')->paginate();
+        }
+
+        return view('Escuela.maestro.index',compact('teacher'));        
     }
 
     /**
