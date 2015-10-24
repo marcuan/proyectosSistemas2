@@ -60,7 +60,8 @@ class EstudianteController extends Controller
     {
         $student = Estudiante::find($id);
         $courses = $student->cursos()->get();
-        return view('Escuela.estudiante.assign', compact('courses', 'student'));
+        $telefono = $student->telefonos()->get()->first();
+        return view('Escuela.estudiante.assign', compact(['courses', 'student', 'telefono']));
     }
 
     /**

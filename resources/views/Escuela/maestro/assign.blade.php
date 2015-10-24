@@ -9,11 +9,11 @@
                 <img src="{{{ asset('images/usuario.png') }}}" alt="" class="img-circle">
             </span>
             <div class="personales"> 
-                <h5><strong>Nombre: </strong></h5>
-                <h5><strong>Fecha Nacimiento: </strong></h5>
-                <h5><strong>Dirección: </strong></h5>
-                <h5><strong>Correo: </strong></h5>
-                <h5><strong>Teléfono: </strong></h5>
+                <h5><strong>Nombre: </strong>{{$teacher->nombre_maestro}}  {{$teacher->apellido_maestro}}</h5>
+                <h5><strong>Fecha Nacimiento: </strong>{{$teacher->fecha_nacimiento}}</h5>
+                <h5><strong>Dirección: </strong>{{$teacher->direccion}}</h5>
+                <h5><strong>Correo: </strong>{{$teacher->correo}}</h5>
+                <h5><strong>Teléfono: </strong>{{$telefono->numero_telefono}}</h5>
             </div>
         </div>       
     </div>

@@ -60,7 +60,8 @@ class MaestroController extends Controller
     {
         $teacher = Maestro::find($id);
         $courses = $teacher->cursos()->get();
-        return view('Escuela.maestro.assign', compact('courses', 'teacher'));
+        $telefono = $teacher->telefonos()->get()->first();
+        return view('Escuela.maestro.assign', compact(['courses', 'teacher', 'telefono']));
     }
 
     /**
