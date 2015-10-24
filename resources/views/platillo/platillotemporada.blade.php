@@ -1,13 +1,29 @@
 @extends('layouts.principal')
 
+
+
 @section('content')
-    <p>Platillos</p>
 	
-    @foreach($temporada->platillos as $platillos)  
-            <p>Nombre: {{ $platillos->nombre }}</p>
-	        <p>Precio: {{ $platillos->precio }}</p>
-        	<p>Descripcion: {{ $platillos->descripcion }}</p>
-    @endforeach
+    <div class="container">
+        <table class="table">
+            <thead>
+               
+                <th>nombre</th>
+                <th>precio</th>
+                <th>descripcion</th>
+                
+            </thead>
 
+             @foreach($temporada->platillos as $platillos)  
+            <tbody>
+                
+                <td>{{$platillos->nombre}}</td>
+                <td>{{$platillos->precio}}</td>
+                <td>{{$platillos->descripcion}}</td>
+               
+            </tbody>
+            @endforeach
 
+        </table>
+    </div>
 @stop
