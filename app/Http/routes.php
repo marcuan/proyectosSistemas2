@@ -57,7 +57,7 @@ Route::get ('venta/borrar','Despensa\VentasController@borrar');
 /*--------------------------------------------------------------*/
 
 /*----------------------COMPRAS---------------------------------*/
- Route::resource('proveedores', 'proveedoresController@');
+ Route::resource('proveedores', 'Despensa\proveedoresController');
 /*--------------------------------------------------------------*/
 
 Route::resource('detallecompra', 'Restaurante\DetalleCompraController');
