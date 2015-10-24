@@ -59,6 +59,8 @@
                 {!!link_to_route('maestros.show', $title = 'Ver Información', $parameters = $maestro->id, $attributes = ['class'=>'btn btn-warning']);!!}</td>
             </tbody>
             @endforeach
+            {!!$teacher->render()!!}
         </table>
+            {!!$teacher->render()!!}        
     </div>
 @stop

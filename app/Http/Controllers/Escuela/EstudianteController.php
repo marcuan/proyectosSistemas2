@@ -19,18 +19,17 @@ class EstudianteController extends Controller
     public function index(Request $request)
     {
         
-    
         if($request->get('type') == "nombre")
         {
-            $student = Estudiante::name($request->get('name'))->orderBy('id','DESC')->paginate();
+            $student = Estudiante::name($request->get('name'))->orderBy('id','DESC');
         }
         else if($request->get('type') == "codigo")
         {
-            $student = Estudiante::code($request->get('name'))->orderBy('id','DESC')->paginate();
+            $student = Estudiante::code($request->get('name'))->orderBy('id','DESC');
         }
         else
         {
-            $student = Estudiante::orderBy('id','DESC')->paginate();
+            $student = Estudiante::orderBy('id','DESC')->paginate(2);
         }
         return view('Escuela.estudiante.index', compact('student'));
     }

@@ -56,7 +56,9 @@
                 <td>{!!link_to_route('cursos.edit', $title = 'Editar', $parameters = $curso->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
+            {!!$course->render()!!}
         </table>
+            {!!$course->render()!!}
     </div>
 
 @stop

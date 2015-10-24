@@ -16,7 +16,7 @@ class CursoController extends Controller
      */
     public function index()
     {
-        $course = Curso::All();
+        $course = Curso::paginate(10);
         return view('Escuela.curso.index',compact('course'));
     }
 
