@@ -18,6 +18,13 @@
 
 @section('content')
 
+{!! Form::open(['href' => '../public/temporada', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
+    <div class="form-group">
+        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre de la Temporada']) !!}
+    </div>
+        <button type="submit" class="btn btn-primary">Buscar</button> 
+{!! Form::close() !!}
+
 <a href="../public/temporada/create" class="btn btn-danger">Nueva Temporada</a>
     <div class="container">
         <table class="table">

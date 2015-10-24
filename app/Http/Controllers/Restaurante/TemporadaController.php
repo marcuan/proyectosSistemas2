@@ -30,11 +30,11 @@ class TemporadaController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-	   
-	    $temporada = Temporada::all();
+        //$temporada = Temporada::all();
+  	//$temporada = temporada::All();
+        $temporada = temporada::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate();
         return View('temporada.temporada',compact('temporada'));
     }
 

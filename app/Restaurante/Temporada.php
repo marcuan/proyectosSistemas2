@@ -17,5 +17,13 @@ class Temporada extends Model
     	return $this->hasMany('RED\Restaurante\Platillo','temporada_id'); 
 	}
 	
+	public function scopeName($query, $name)
+    {
+        if (trim($name) != "") {
+            # code...
+            $query->where(\DB::raw("CONCAT(nombre)"), "LIKE", "%$name%");
+        }
+        
+    }
 
 }
