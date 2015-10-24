@@ -3,9 +3,12 @@
 namespace RED\Escuela;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Curso extends Model
 {
+
+    use SoftDeletes;
 
     protected $table = 'Curso';
 
@@ -18,6 +21,8 @@ class Curso extends Model
     'max_estudiantes',
     'num_estudiantes',
     'activo'];
+
+    protected $dates = ['deleted_at'];
 
     public function estudiantes()
     {
