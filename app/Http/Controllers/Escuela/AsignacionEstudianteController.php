@@ -39,9 +39,10 @@ class AsignacionEstudianteController extends Controller
     public function store(Request $request)
     {
         $estudiante = Estudiante::find($request['idestudiante']);
-        $idcurso = '1';
-
-        $estudiante->cursos()->attach($idcurso);
+        $idcurso = $request['curso'];
+        foreach ($request['check'] as $dato) {
+                $estudiante->cursos()->attach($idcurso[$dato]);
+        }
 
     return redirect('/estudiantes')->with('message','assign');
     }
