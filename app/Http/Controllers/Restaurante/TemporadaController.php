@@ -86,7 +86,9 @@ class TemporadaController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $temporada = temporada::find($id);
+        return view('temporada.edit', ['temporada'=>$temporada]);
     }
 
     /**
@@ -98,7 +100,10 @@ class TemporadaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $temporada = temporada::find($id);
+        $temporada->fill($request->all());
+        $temporada->save();
+        return redirect('/temporada')->with('message','edit');
     }
 
     /**
