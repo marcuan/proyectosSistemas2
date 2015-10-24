@@ -12,7 +12,7 @@
 @if($message == 'edit')
 <div class="alert alert-info alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Operación Exitosa!</strong> Temporada editado exitosamente.
+  <strong>Operación Exitosa!</strong> Temporada editada exitosamente.
 </div>
 @endif
 
