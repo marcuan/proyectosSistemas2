@@ -11,6 +11,7 @@
 @endif
 
 @section('content')
+<a href="../public/clientes/create" class="btn btn-danger">Nuevo Cliente</a>
     <div class="container">
         <table class="table">
             <thead>
