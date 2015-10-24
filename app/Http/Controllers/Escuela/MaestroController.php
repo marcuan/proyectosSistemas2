@@ -29,7 +29,7 @@ class MaestroController extends Controller
         }
         else 
         {
-            $teacher = Maestro::orderBy('id','DESC')->paginate(1);
+            $teacher = Maestro::orderBy('id','DESC')->paginate(10);
         }
 
         return view('Escuela.maestro.index',compact('teacher'));        

@@ -29,7 +29,7 @@ class EstudianteController extends Controller
         }
         else
         {
-            $student = Estudiante::orderBy('id','DESC')->paginate(2);
+            $student = Estudiante::orderBy('id','DESC')->paginate(10);
         }
         return view('Escuela.estudiante.index', compact('student'));
     }
