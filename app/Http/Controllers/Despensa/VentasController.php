@@ -7,7 +7,7 @@ use RED;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 
-class ClientesController extends Controller
+class VentasController extends Controller
 {
     //
     public function index ()
@@ -20,8 +20,8 @@ class ClientesController extends Controller
     }
     public function lista ()
     {
-        $clientes = RED\Restaurante\Cliente::all();
-        return $clientes;
+        $ventas =  RED\Despensa\Ventum::all();
+        return $ventas;
     }
     public function editar ()
     {
