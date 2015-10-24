@@ -33,7 +33,7 @@ class ProveedoresController extends Controller
     public function index()
     {
         $proveedor = Proveedore::all();
-        return View('Despensa.proveedores.index',compact('proveedor'));
+        return View('proveedores.index',compact('proveedor'));
     }
 
     /**
@@ -44,7 +44,7 @@ class ProveedoresController extends Controller
     public function create()
     {
         //
-        return view('Despensa.proveedores.create');
+        return view('proveedores.create');
     }
 
     /**
