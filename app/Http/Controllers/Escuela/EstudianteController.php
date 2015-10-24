@@ -58,9 +58,9 @@ class EstudianteController extends Controller
      */
     public function show($id)
     {
-        $course = Curso::All();
         $student = Estudiante::find($id);
-        return view('Escuela.estudiante.assign', compact('course', 'student'));
+        $courses = $student->cursos()->get();
+        return view('Escuela.estudiante.assign', compact('courses', 'student'));
     }
 
     /**

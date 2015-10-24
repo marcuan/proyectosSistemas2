@@ -26,8 +26,8 @@
                     <td>{{$curso->fecha_inicio}}</td>
                     <td>{{$curso->fecha_fin}}</td>
                     <td>{{$curso->max_estudiantes}}</td>
-                    <td>{!!Form::checkbox('asignar', 'asignado');!!}
-                        {!!Form::text('idcurso',$curso->id,['class'=>'hidden', 'id'=>'idcurso'])!!}</td>
+                    <td>{!!Form::checkbox('check[]', $key);!!}
+                        {!!Form::text('curso['.$key.']', $curso->id, ['class'=>'hidden', 'id'=>'idcurso'])!!}</td>
                 </tbody>
                 @endforeach
             </table> 
