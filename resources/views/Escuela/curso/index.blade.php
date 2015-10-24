@@ -6,13 +6,19 @@
 @if($message == 'store')
 <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>En horabuena!</strong> Curso creado exitosamente.
+  <strong>Creado.</strong> Curso creado exitosamente.
 </div>
 @endif
 @if($message == 'edit')
 <div class="alert alert-info alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>En horabuena!</strong> Curso editado exitosamente.
+  <strong>Editado.</strong> Curso editado exitosamente.
+</div>
+@endif
+@if($message == 'erase')
+<div class="alert alert-danger alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Eliminado.</strong> Curso eliminado exitosamente.
 </div>
 @endif
 

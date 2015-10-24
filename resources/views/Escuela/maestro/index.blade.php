@@ -23,21 +23,16 @@
 @section('content')
     <div class="container col-xs-12">
     <h3 class="title" selected="selected">Maestros</h3>
-    <div class="buscar">
-        <a href="maestros/create" class="btn btn-danger">Crear Maestro</a> 
-        <div class="col-lg-4">
-            <div class="input-group">
-                <input type="text" class="form-control">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                  </span>
-            </div>
+    <a href="maestros/create" class="btn btn-danger">Crear Maestro</a> 
+    {!!Form::open(['rout'=>'maestros.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
+        <div class="form-group">
+            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Ingrese'])!!}            
         </div>
-        <select name="" id="" class="btn btn-default select">
-            <option value="1">Codigo</option>
-            <option value="1">Nombre</option>
-        </select>
-    </div>
+        <div class="form-group">
+            {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
+        </div>
+        <button type="submit" class="btn btn-default">Buscar</button>
+    {!!Form::close()!!}
         <table class="table">
             <thead>
                 <th>Nombre</th>
