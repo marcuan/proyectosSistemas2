@@ -17,7 +17,10 @@ class Cliente extends Model
 
     public function scopeName($query, $name)
     {
-
-        $query->where('nombre', $name);
+        if ($name != "") {
+            # code...
+            $query->where('nombre', $name);
+        }
+        
     }
 }
