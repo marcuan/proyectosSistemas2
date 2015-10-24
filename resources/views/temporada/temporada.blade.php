@@ -12,7 +12,7 @@
 @if($message == 'edit')
 <div class="alert alert-info alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Operación Exitosa!</strong> Curso editado exitosamente.
+  <strong>Operación Exitosa!</strong> Temporada editado exitosamente.
 </div>
 @endif
 
@@ -36,6 +36,7 @@
             <tbody>
                 <td>{{$temporada->nombre}}</td>
   		<td>{!!link_to_route('temporada.edit', $title = 'Editar', $parameters = $temporada->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
+		<td>{!!link_to_action('Restaurante\PlatilloController@mostrarplatillotemporada', $title = 'Menu', $parameters = $temporada->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
         </table>
