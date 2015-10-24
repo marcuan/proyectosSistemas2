@@ -413,3 +413,15 @@ background-color: #FFF;
 .select{
     padding:7px 0 6px 0;
 }
+.info {
+    width: 75%;
+    margin: 0 auto;
+    border-radius: 5px; 
+    background: #FaFaFa; 
+    border: 2px outset #E0E0E0;  
+    text-shadow: -1px -1px rgba(0,0,0,.4);
+}
+.datos{
+    display: flex;
+    text-shadow:none;
+}
