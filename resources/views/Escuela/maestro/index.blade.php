@@ -39,6 +39,7 @@
         </div>
         <button type="submit" class="btn btn-default">Buscar</button>
     {!!Form::close()!!}
+    <div></div>
         <table class="table">
             <thead>
                 <th>Nombre</th>
