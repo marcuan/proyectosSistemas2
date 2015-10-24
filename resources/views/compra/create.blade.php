@@ -21,7 +21,7 @@
             </div>
             <div class="form-grup">
                 {!!Form::label('Proveedor:')!!}
-                {!!Form::text('proveedores_id',null,['class'=>'form-control','placeholder'=>'Ingrese Proveedor', 'required'])!!}
+                {!!Form::select('proveedores_id', $opcionproveedor,['class'=>'form-control','placeholder'=>'Ingrese Proveedor', 'required'])!!}
             </div>
         	{!!Form::submit('Guardar',['class'=>'btn btn-primary'])!!}
         </div>
