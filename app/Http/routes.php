@@ -15,13 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('redkat', function () {
+    return view('layouts.index');
+});
+
+
 /******************
   MODULO ESCUELA
 ******************/
 Route::resource('estudiantes','Escuela\EstudianteController');
 Route::resource('maestros','Escuela\MaestroController');
 Route::resource('cursos','Escuela\CursoController');
-
+Route::get('asignacionestudiantes/{id}', 'Escuela\AsignEstController@asignar');
+Route::resource('asignacionestudiantes', 'Escuela\AsignacionEstudianteController');
+Route::get('asignacionmaestros/{id}', 'Escuela\AsignMaestController@asignar');
+Route::resource('asignacionmaestros', 'Escuela\AsignacionMaestroController');
 /******************/
 
 /******************************

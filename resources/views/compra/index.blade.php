@@ -17,8 +17,10 @@
 @endif
 
 @section('content')
+
     <a href="compra/create" class="btn btn-danger">Crear Compra</a>
     <div class="container">
+
         <table class="table">
             <thead>
                 <th>Fecha</th>

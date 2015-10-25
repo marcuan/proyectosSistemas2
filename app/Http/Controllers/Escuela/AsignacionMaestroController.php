@@ -1,28 +1,23 @@
 <?php
 
-namespace RED\Http\Controllers\Restaurante;
+namespace RED\Http\Controllers\Escuela;
 
 use Illuminate\Http\Request;
-use RED\Restaurante\Cliente;
 use RED\Http\Requests;
+use RED\Escuela\Maestro;
+use RED\Escuela\Curso;
 use RED\Http\Controllers\Controller;
-//use RED\Repositories\Cliente;
-//uso de facades
-use Illuminate\Support\Facades\Session;
 
-class ClienteController extends Controller
+class AsignacionMaestroController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         //
-        //$customer = Cliente::All();
-        $customer = Cliente::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate();
-        return view ('cliente.index',compact('customer'));
     }
 
     /**
@@ -33,7 +28,6 @@ class ClienteController extends Controller
     public function create()
     {
         //
-        return view('cliente.create');
     }
 
     /**
@@ -44,15 +38,13 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        Cliente::create([
-            'nombre' => $request['nombre'],
-            'nit' => $request['nit'],
-            'telefono' => $request['telefono'],
-            'dirección' => $request['dirección'],
-            ]);
+        $maestro = Maestro::find($request['idmaestro']);
+        $idcurso = $request['curso'];
+        foreach ($request['check'] as $dato) {
+                $maestro->cursos()->attach($idcurso[$dato]);
+        }
 
-        return redirect('/clientes')->with('message','store');
+    return redirect('/maestros')->with('message','assign');
     }
 
     /**
@@ -75,8 +67,6 @@ class ClienteController extends Controller
     public function edit($id)
     {
         //
-        $cliente = Cliente::find($id);
-        return view('cliente.edit', ['cliente'=>$cliente]);
     }
 
     /**
@@ -89,15 +79,6 @@ class ClienteController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $cliente = Cliente::find($id);
-
-        $cliente->nombre = $request['nombre'];
-        $cliente->nit = $request['nit'];
-        $cliente->telefono = $request['telefono'];
-        $cliente->dirección = $request['dirección'];
-
-        $cliente->save();
-        return redirect('/clientes')->with('message','edit');
     }
 
     /**
@@ -109,7 +90,5 @@ class ClienteController extends Controller
     public function destroy($id)
     {
         //
-        $cliente = Cliente::find($nit);
-        $cliente = delete();
     }
 }

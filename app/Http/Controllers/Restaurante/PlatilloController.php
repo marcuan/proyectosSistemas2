@@ -9,15 +9,18 @@ use RED\Http\Controllers\Controller;
 use RED\Restaurante\Platillo;
 use RED\Restaurante\Temporada;
 use RED\Repositories\PlatillosRepo;
+use RED\Repositories\TemporadaRepo;
 use Resources;
 
 
 class PlatilloController extends Controller
 {
-    protected $platillorepo;
-    public function __construct(PlatillosRepo $platillorepo){
+    protected $temporadarepo;
+    public $opciontemporada;
 
-        $this->platillorepo=$platillorepo;
+    public function __construct(PlatillosRepo $temporadarepo){
+
+        $this->temporadarepo=$temporadarepo;
     }
     
 
@@ -40,7 +43,7 @@ class PlatilloController extends Controller
      */
     public function index()
     {
-       $platillo=$this->platillorepo->findall();
+       $platillo = Platillo::all();
         return View('platillo.platillo',compact('platillo'));
     }
 
@@ -52,7 +55,8 @@ class PlatilloController extends Controller
     public function create()
     {
         //  
-        return view('platillo.create');
+        $opciontemporada = Temporada::all()->lists('nombre','id');
+        return view('platillo.create',compact('opciontemporada'));
 
     }
 
@@ -111,7 +115,6 @@ class PlatilloController extends Controller
         $platillo = Platillo::find($id);
         $platillo->fill($request->all());
         $platillo->save();
-
         return redirect('/platillo')->with('message','edit');
     }
 

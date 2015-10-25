@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>::CAFE RED::</title>
     {!!Html::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')!!}
-    {!!Html::style('css/styles.css')!!}
+    {!!Html::style('css/style.css')!!}
+    <link rel="shortcut icon" href="{{{ asset('images/loco-ico.ico') }}}">
+
 </head>
-<body>
+<body style="padding-top: 50px;">
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
+            <div class="navbar-header lg7">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -24,7 +26,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav login navbar-nav">
                     <li class="login">
                         <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">Login</a>
                     </li>
@@ -44,18 +46,11 @@
                 </div>
                     <form action="" class="form-horizontal">
                         <div class="login-cont">
-                            <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Usuario">
-                            </div>
-                        
-                            <div class="form-group ">
+                           
                                 <input type="password" class="form-control" placeholder="Contraseña">
-                            </div>
-                            <div class="form-group">
-                                <div class="">
-                                    <a href="cursos" type ="submit" class="btn btn-default">Ingresar</a>
-                                </div>
-                          </div>
+                         
+                                <a href="redkat" type ="submit" class="btn btn-default">Ingresar</a>    
                         </div>
                     </form>
             </div>
@@ -80,20 +75,14 @@
     <div class="container">
 
         <hr>
-
-        <div class="row">
-            <div class="col-sm-8">
+        <div class="row administrativa">
+            <div class="ad1 col-sm-12">
                 <h2>Área Administrativa</h2>
-                <p></p>
-                <p></p>
             </div>
-            
         </div>
         <!-- /.row -->
-
         <hr>
-
-        <div class="row">
+        <div class="ad2 row">
             <div class="col-sm-3">
                 {!! Html::image('images/ong.png', "Imagen no encontrada", ['title' => 'despensa']) !!}
                 <h2>ONG</h2>

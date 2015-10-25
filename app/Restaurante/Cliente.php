@@ -17,9 +17,9 @@ class Cliente extends Model
 
     public function scopeName($query, $name)
     {
-        if ($name != "") {
+        if (trim($name) != "") {
             # code...
-            $query->where('nombre', $name);
+            $query->where(\DB::raw("CONCAT(nombre,' ',nit)"), "LIKE", "%$name%");
         }
         
     }

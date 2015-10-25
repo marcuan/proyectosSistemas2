@@ -5,19 +5,19 @@
 @if($message == 'store')
 <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Creado</strong> Se ha creado nueva materia prima.
+  <strong>Creado</strong> Se ha creado nuevo Platillo exitosamente.
 </div>
 @endif
 
 @if($message == 'edit')
 <div class="alert alert-info alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>En horabuena!</strong> Compra editada exitosamente.
+  <strong>En horabuena!</strong> platillo editado exitosamente.
 </div>
 @endif
 
 @section('content')
-	<a href="../public/platillo/create" class="btn btn-danger">Crear platillo</a>
+	<a href="/platillo/create" class="btn btn-danger">Crear platillo</a>
     <div class="container">
         <table class="table">
             <thead>
@@ -25,9 +25,7 @@
                 <th>nombre</th>
                 <th>precio</th>
                 <th>descripcion</th>
-                
             </thead>
-
             @foreach($platillo as $dato)
             <tbody>
                 <td>{{$dato->temporada_id}}</td>
@@ -37,7 +35,6 @@
                 <td>{!!link_to_route('platillo.edit', $title = 'Editar', $parameters = $dato->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
-
         </table>
     </div>
 @stop

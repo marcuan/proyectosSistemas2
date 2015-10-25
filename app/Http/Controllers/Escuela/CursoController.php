@@ -14,9 +14,43 @@ class CursoController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $course = Curso::All();
+        if($request->get('type') == "nombre")
+        {
+            if($request->get('active') == "activos")
+            {
+                $course = Curso::name($request->get('name'))->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "inhabilitados")
+            {
+                $course = Curso::name($request->get('name'))->onlyTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "todos")
+            {
+                $course = Curso::name($request->get('name'))->withTrashed()->orderBy('id','DESC')->paginate(10);    
+            }   
+            
+        }
+        else if($request->get('type') == "codigo")
+        {
+            if($request->get('active') == "activos")
+            {
+                $course = Curso::code($request->get('name'))->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "inhabilitados")
+            {
+                $course = Curso::code($request->get('name'))->onlyTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "todos")
+            {
+                $course = Curso::code($request->get('name'))->withTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
+        }
+        else
+        {
+            $course = Curso::orderBy('id','DESC')->paginate(10);
+        }
         return view('Escuela.curso.index',compact('course'));
     }
 
@@ -90,6 +124,9 @@ class CursoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $curso = Curso::find($id);
+        $curso->delete();  
+
+    return redirect('/cursos')->with('message','erase');
     }
 }
