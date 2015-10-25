@@ -12,8 +12,47 @@ class VentasController extends Controller
     //
     public function index ()
     {
-        return 'hola miriam te amo';
+        % venta = venta::All();
+        return;
+        view ('Despensa.venta.index',compact('course'));
     }
+    
+    public function create ()
+    {
+        return view ('Despensa.venta.create');;
+    }
+    
+    public function store (Request $request)
+    {
+        Venta::create ($request->all());
+        return redirect ('/ventas'->with('message','store'));
+    }
+    
+    public function show($id)
+    {
+        //
+    }
+    public function edit($id)
+    {
+        $venta = Venta::find($id);
+        return view('Despensa.venta.edit', ['venta'=>$venta]);
+    }
+    
+    
+   public function update(Request $request, $id)
+    {
+        $venta = Venta::find($id);
+        $venta->fill($request->all());
+        $venta->save();
+
+        return redirect('/ventas')->with('message','edit');
+    }
+    
+    public function destroy($id)
+    {
+        //
+    }
+    
     public function crear ()
     {
         return 'hola miriam te extraño demasiado';
