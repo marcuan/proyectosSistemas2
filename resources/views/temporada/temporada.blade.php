@@ -25,7 +25,7 @@
         <button type="submit" class="btn btn-primary">Buscar</button> 
 {!! Form::close() !!}
 
-<a href="../public/temporada/create" class="btn btn-danger">Nueva Temporada</a>
+<a href="/temporada/create" class="btn btn-danger">Nueva Temporada</a>
     <div class="container">
         <table class="table">
             <thead>
