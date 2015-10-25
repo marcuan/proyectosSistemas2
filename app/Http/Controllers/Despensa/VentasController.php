@@ -55,7 +55,9 @@ class VentasController extends Controller
     
     public function crear ()
     {
-        return 'hola miriam te extraño demasiado';
+        $ventas = new App\Cliente;
+        $ventas -> clientes_id = '1';
+        $ventas -> save();
     }
     public function lista ()
     {

@@ -49,11 +49,11 @@ Route::resource('compra','Restaurante\ComprasController');
   MODULO DESPENSA
 ******************************/
 /*----------------------VENTAS----------------------------------*/
-Route::get ('venta','Despensa\VentasController@index');
-Route::get ('venta/crear','Despensa\VentasController@crear');
+Route::resource ('venta','Despensa\VentasController@index');
+Route::resource ('venta/crear','Despensa\VentasController@crear');
 Route::resource ('venta/lista','Despensa\VentasController@lista');
-Route::get ('venta/editar','Despensa\VentasController@editar');
-Route::get ('venta/borrar','Despensa\VentasController@borrar');
+Route::resource ('venta/editar','Despensa\VentasController@editar');
+Route::resource ('venta/borrar','Despensa\VentasController@borrar');
 /*--------------------------------------------------------------*/
 
 /*----------------------INVENTARIO------------------------------*/
