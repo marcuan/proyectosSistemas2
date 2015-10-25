@@ -17,6 +17,7 @@ class PlatilloController extends Controller
 {
     protected $temporadarepo;
     public $opciontemporada;
+
     public function __construct(PlatillosRepo $temporadarepo){
 
         $this->temporadarepo=$temporadarepo;
@@ -114,7 +115,6 @@ class PlatilloController extends Controller
         $platillo = Platillo::find($id);
         $platillo->fill($request->all());
         $platillo->save();
-
         return redirect('/platillo')->with('message','edit');
     }
 
