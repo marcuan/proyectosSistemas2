@@ -15,7 +15,7 @@
 @endif
 
 @section('content')
-    <a href="/proyectosSistemas2/public/detallecompra/create" class="btn btn-danger">Crear DetalleCompra</a>
+    <a href="/detallecompra/create" class="btn btn-danger">Crear DetalleCompra</a>
     <div class="container">
         <table class="table">
             <thead>

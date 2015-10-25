@@ -31,7 +31,7 @@ Vista -> Cuadro para buscar clientes
         <button type="submit" class="btn btn-primary">Buscar</button> 
 {!! Form::close() !!}
 
-<a href="../public/clientes/create" class="btn btn-danger">Nuevo Cliente</a>
+<a href="/clientes/create" class="btn btn-danger">Nuevo Cliente</a>
     <div class="container">
         <table class="table">
             <thead>
