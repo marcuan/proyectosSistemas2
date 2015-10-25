@@ -21,11 +21,11 @@ class MaestroController extends Controller
         
         if($request->get('type') == "nombre")
         {
-            $teacher = Maestro::name($request->get('name'))->orderBy('id','DESC');
+            $teacher = Maestro::name($request->get('name'))->orderBy('id','DESC')->paginate();
         }
         else if($request->get('type') == "codigo")
         {
-            $teacher = Maestro::code($request->get('name'))->orderBy('id','DESC');
+            $teacher = Maestro::code($request->get('name'))->orderBy('id','DESC')->paginate();
         }
         else 
         {

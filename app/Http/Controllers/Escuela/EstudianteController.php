@@ -21,11 +21,11 @@ class EstudianteController extends Controller
         
         if($request->get('type') == "nombre")
         {
-            $student = Estudiante::name($request->get('name'))->orderBy('id','DESC');
+            $student = Estudiante::name($request->get('name'))->orderBy('id','DESC')->paginate();
         }
         else if($request->get('type') == "codigo")
         {
-            $student = Estudiante::code($request->get('name'))->orderBy('id','DESC');
+            $student = Estudiante::code($request->get('name'))->orderBy('id','DESC')->paginate();
         }
         else
         {
