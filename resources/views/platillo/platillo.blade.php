@@ -17,7 +17,7 @@
 @endif
 
 @section('content')
-	<a href="../public/platillo/create" class="btn btn-danger">Crear platillo</a>
+	<a href="/platillo/create" class="btn btn-danger">Crear platillo</a>
     <div class="container">
         <table class="table">
             <thead>
