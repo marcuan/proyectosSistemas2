@@ -3,10 +3,19 @@
 <?php $message=Session::get('message')?>
 
 @section('content')
+<div class="container col-xs-12">
+    <h3 class="title" selected="selected">Estudiantes</h3>
+
+    <a href="../estudiantes" class="btn btn-danger">Regresar</a>
+    {!!Form::open(['rout'=>'estudiantes.asignacionestudiantes','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
+    
+        <div class="form-group">
+            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
+        </div>
+        <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
+    {!!Form::close()!!}
     {!!Form::open(['route'=>'asignacionestudiantes.store', 'method'=>'POST'])!!}
-        <div class="container col-xs-12">   
-        <a href="../estudiantes" class="btn btn-danger">Regresar</a>
-        <label for=""> Estudiante: {{$student->apellido_estudiante}} , {{$student->nombre_estudiante}}</label>
+        <h4><strong>Estudiante: </strong>  {{$student->apellido_estudiante}} , {{$student->nombre_estudiante}}</h4>
         {!!Form::text('idestudiante',$student->id,['class'=>'hidden', 'id'=>'idestudiante'])!!}
             <table class="table table-hover table-responsive">
                 <thead>
