@@ -12,9 +12,8 @@ class VentasController extends Controller
     //
     public function index ()
     {
-        % venta = venta::All();
-        return;
-        view ('Despensa.venta.index',compact('course'));
+        $venta = RED\Despensa\Ventum::All();
+        return view ('Despensa.venta.index',compact('venta'));
     }
     
     public function create ()
@@ -24,8 +23,8 @@ class VentasController extends Controller
     
     public function store (Request $request)
     {
-        Venta::create ($request->all());
-        return redirect ('/ventas'->with('message','store'));
+        RED\Despensa\Ventum::create($request->all());
+        return redirect ('/venta')->with('message','store');
     }
     
     public function show($id)
@@ -34,18 +33,18 @@ class VentasController extends Controller
     }
     public function edit($id)
     {
-        $venta = Venta::find($id);
+        $venta = RED\Despensa\Ventum::find($id);
         return view('Despensa.venta.edit', ['venta'=>$venta]);
     }
     
     
    public function update(Request $request, $id)
     {
-        $venta = Venta::find($id);
+        $venta = RED\Despensa\Ventum::find($id);
         $venta->fill($request->all());
         $venta->save();
 
-        return redirect('/ventas')->with('message','edit');
+        return redirect('/venta')->with('message','edit');
     }
     
     public function destroy($id)
@@ -53,23 +52,4 @@ class VentasController extends Controller
         //
     }
     
-    public function crear ()
-    {
-        $ventas = new App\Cliente;
-        $ventas -> clientes_id = '1';
-        $ventas -> save();
-    }
-    public function lista ()
-    {
-        $ventas =  RED\Despensa\Ventum::all();
-        return $ventas;
-    }
-    public function editar ()
-    {
-        return 'hola miriam te extraño demasiado mucho';
-    }
-    public function borrar ()
-    {
-        return 'hola miriam te extraño demasiado tu cucu';
-    }
 }

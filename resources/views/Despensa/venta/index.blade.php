@@ -18,18 +18,18 @@
 
 @section('content')
     <div class="container col-xs-12">
-    <a href="ventas/create" class="btn btn-danger">Realizar Venta</a>
+    <a href="venta/create" class="btn btn-danger">Realizar Venta</a>
     
         <table class="table table-hover table-responsive">
             <thead>
                 <th>idVenta</th>
                 <th>idCliente</th>
             </thead>
-            @foreach($sell as $venta)
+            @foreach($venta as $venta)
             <tbody>
                 <td>{{$venta->idVenta}}</td>
                 <td>{{$venta->clientes_id}}</td>
-                <td>{!!link_to_route('ventas.edit', $title = 'Editar', $parameters = $venta->idVenta, $attributes = ['class'=>'btn btn-primary']);!!}</td>
+                <td>{!!link_to_route('venta.edit', $title = 'Editar', $parameters = $venta->idVenta, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
         </table>
