@@ -8,23 +8,21 @@ use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 use RED\Restaurante\Platillo;
 use RED\Restaurante\Temporada;
+use RED\Repositories\PlatillosRepo;
+use RED\Repositories\TemporadaRepo;
 use Resources;
 
 
 class PlatilloController extends Controller
 {
-    /**
-     * Desplegar platillos
-     *
-     * @return Response
-     */
-    
-    public function mostrar()
-    {
-        $platillo = Platillo::all();
-        return View('platillo.platillo',compact('platillo'));
-    }
+    protected $temporadarepo;
+    public $opciontemporada;
 
+    public function __construct(PlatillosRepo $temporadarepo){
+
+        $this->temporadarepo=$temporadarepo;
+    }
+    
 
     /**
      * Desplegar platillos por temporada
@@ -56,7 +54,10 @@ class PlatilloController extends Controller
      */
     public function create()
     {
-        //
+        //  
+        $opciontemporada = Temporada::all()->lists('nombre','id');
+        return view('platillo.create',compact('opciontemporada'));
+
     }
 
     /**
@@ -68,6 +69,13 @@ class PlatilloController extends Controller
     public function store(Request $request)
     {
         //
+        Platillo::create([
+            'temporada_id'  =>  $request['temporada_id'],
+            'nombre'        =>  $request['nombre'],
+            'precio'        =>  $request['precio'],
+            'descripcion'   =>  $request['descripcion'],
+            ]);
+        return redirect('/platillo')->with('message','store');
     }
 
     /**
@@ -90,6 +98,8 @@ class PlatilloController extends Controller
     public function edit($id)
     {
         //
+         $platillo = Platillo::find($id);
+        return view('platillo.edit', ['platillo'=>$platillo]);
     }
 
     /**
@@ -102,6 +112,10 @@ class PlatilloController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $platillo = Platillo::find($id);
+        $platillo->fill($request->all());
+        $platillo->save();
+        return redirect('/platillo')->with('message','edit');
     }
 
     /**

@@ -7,18 +7,21 @@ use Illuminate\Http\Request;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 use RED\Restaurante\Compra;
+use RED\Restaurante\DetalleCompra;
 use RED\Repositories\ProveedorRepo;
+use RED\Despensa\Proveedore;
 use Resources;
 
 class ComprasController extends Controller
 {
 	protected $proveedorrepo;
-public function __construct(ProveedorRepo $proveedorrepo){
-	
-	
-	$this->proveedorrepo=$proveedorrepo;
-}
-	
+    public $opcionproveedor;
+
+    public function __construct(ProveedorRepo $proveedorrepo){
+    	
+    	
+    	$this->proveedorrepo=$proveedorrepo;
+    }
 	
     /**
      * Display a listing of the resource.
@@ -38,7 +41,9 @@ public function __construct(ProveedorRepo $proveedorrepo){
      */
     public function create()
     {
-        return view('compra.create');
+        //Cargar nombre de proveedores
+        $opcionproveedor = Proveedore::all()->lists('nombre', 'id');
+        return view("compra.create", compact('opcionproveedor'));        
     }
 
     /**
@@ -50,7 +55,9 @@ public function __construct(ProveedorRepo $proveedorrepo){
     public function store(Request $request)
     {
         Compra::create($request->all());
-        return redirect('/compra')->with('message','store');
+        //Redirigir la compra al detalle de compra
+        return redirect('/detallecompra/create');
+        //return view("detallecompra.create");   
     }
 
     /**
@@ -61,7 +68,7 @@ public function __construct(ProveedorRepo $proveedorrepo){
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -72,6 +79,7 @@ public function __construct(ProveedorRepo $proveedorrepo){
      */
     public function edit($id)
     {
+        //$opcionproveedor = Proveedore::find($id)->lists('id');
         $compra = Compra::find($id);
         return view('compra.edit', ['compra'=>$compra]);
     }
@@ -88,7 +96,7 @@ public function __construct(ProveedorRepo $proveedorrepo){
         $compra = Compra::find($id);
         $compra->fill($request->all());
         $compra->save();
-        return redirect('/compras')->with('message','edit');
+        return redirect('/compra')->with('message','edit');
     }
 
     /**
@@ -106,7 +114,7 @@ public function __construct(ProveedorRepo $proveedorrepo){
     {
         //Buscamo al proveedor con ese id
 	   $proveedore=$this->proveedorrepo->find($id);
-	    return View('compras.comprasaproveedor',compact('proveedore'));
+	    return View('compra.comprasaproveedor',compact('proveedore'));
 	   //dd($proveedore);
     }
 }

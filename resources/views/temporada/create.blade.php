@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 @section('content')
     {!!Form::open(['route'=>'temporada.store', 'method'=>'POST'])!!}
-        <h3>Cursos</h3>
+        <h3>Temporadas</h3>
         <div class="container">
       
         	<div class="form-grup">

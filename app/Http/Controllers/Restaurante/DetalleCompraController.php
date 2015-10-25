@@ -8,6 +8,7 @@ use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 use RED\Restaurante\DetalleCompra;
 use RED\Restaurante\Compra;
+use RED\Restaurante\MateriaPrima;
 use Resources;
 
 
@@ -42,8 +43,13 @@ class DetalleCompraController extends Controller
      * @return Response
      */
     public function create()
-    {
-        return view('detallecompra.create');
+    {	
+        $compra = Compra::all()->last()->id;
+        $opcionmateria = MateriaPrima::all()->lists('nombre','id');
+
+        return view("detallecompra.create", compact('compra','opcionmateria'));  
+        //return view("detallecompra.create", compact('compra','opcionmateria'));  
+
     }
 
     /**
@@ -54,8 +60,17 @@ class DetalleCompraController extends Controller
      */
     public function store(Request $request)
     {
+        $opcionmateria = MateriaPrima::all()->lists('nombre','id');
         DetalleCompra::create($request->all());
-        return redirect('/detallecompra')->with('message','store');
+	   //Aqui se actualiza la compra
+	    $idcompra=$request['compras_id'];
+	    $costo=$request['costo'];//Obtenemos el costo de la transaccion 
+	   $compra = Compra::find($idcompra);//Buscamos la compra
+		$compra->total=$compra->total+$costo;
+	   $compra->save();//actualizar
+	   $compra=$idcompra;
+	   return view('detallecompra.create',compact('compra','opcionmateria'))->with('message','store');;
+      //  return redirect('/detallecompra')->with('message','store');
     }
 
     /**
