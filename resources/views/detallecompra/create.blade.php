@@ -1,6 +1,9 @@
 @extends('layouts.principal')
+
+
 @section('content')
     {!!Form::open(array ('route' => array('detallecompra.store'),'$compra', 'method'=>'POST'))!!}
+  
         <h3>DetalleCompras</h3>
         <div class="container">
             <div class="form-grup">

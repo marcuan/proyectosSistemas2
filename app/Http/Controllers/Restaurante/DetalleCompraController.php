@@ -62,7 +62,9 @@ class DetalleCompraController extends Controller
 	   $compra = Compra::find($idcompra);//Buscamos la compra
 		$compra->total=$compra->total+$costo;
 	   $compra->save();//actualizar
-        return redirect('/detallecompra')->with('message','store');
+	   $compra=$idcompra;
+	   return view('detallecompra.create',compact('compra'))->with('message','store');;
+      //  return redirect('/detallecompra')->with('message','store');
     }
 
     /**
