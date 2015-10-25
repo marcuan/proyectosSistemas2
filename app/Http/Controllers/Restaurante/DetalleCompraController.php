@@ -8,6 +8,7 @@ use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 use RED\Restaurante\DetalleCompra;
 use RED\Restaurante\Compra;
+use RED\Restaurante\MateriaPrima;
 use Resources;
 
 
@@ -43,8 +44,10 @@ class DetalleCompraController extends Controller
      */
     public function create()
     {	
-		 $compra = Compra::all()->last()->id;
-        return view('detallecompra.create',compact('compra'));
+        $compra = Compra::all()->last()->id;
+        $opcionmateria = MateriaPrima::all()->lists('nombre','id');
+        return view("detallecompra.create", compact('opcionmateria','compra'));  
+
     }
 
     /**

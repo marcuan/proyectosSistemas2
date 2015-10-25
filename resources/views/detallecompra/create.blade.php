@@ -8,7 +8,7 @@
         <div class="container">
             <div class="form-grup">
                 {!!Form::label('Materia prima:')!!}
-                {!!Form::text('materia_prima_id',null,['class'=>'form-control','placeholder'=>'Ingrese Materia prima','required'])!!}
+                {!! Form::select('materia_prima_id', $opcionmateria) !!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Compra:')!!}
