@@ -27,27 +27,27 @@ class VentasController extends Controller
         return redirect ('/venta')->with('message','store');
     }
     
-    public function show($id)
+    public function show($idVenta)
     {
         //
     }
-    public function edit($id)
+    
+    public function edit($idVenta)
     {
-        $venta = RED\Despensa\Ventum::find($id);
+        $venta = RED\Despensa\Ventum::find($idVenta);
         return view('Despensa.venta.edit', ['venta'=>$venta]);
     }
     
     
-   public function update(Request $request, $id)
+   public function update(Request $request, $idVenta)
     {
-        $venta = RED\Despensa\Ventum::find($id);
+        $venta = RED\Despensa\Ventum::find($idVenta);
         $venta->fill($request->all());
         $venta->save();
-
         return redirect('/venta')->with('message','edit');
     }
     
-    public function destroy($id)
+    public function destroy($idVenta)
     {
         //
     }
