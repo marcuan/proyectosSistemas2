@@ -18,7 +18,7 @@
 
 @section('content')
     <a href="/proyectosSistemas2/public/compra/create" class="btn btn-danger">Crear Compra</a>
-    <div class="container">
+    <div class="container col-xs-12">
         <table class="table">
             <thead>
                 <th>Fecha</th>

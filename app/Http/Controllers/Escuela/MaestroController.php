@@ -5,6 +5,7 @@ namespace RED\Http\Controllers\Escuela;
 use Illuminate\Http\Request;
 use RED\Escuela\Maestro;
 use RED\Escuela\Curso;
+use RED\Escuela\Telefono;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 
@@ -15,10 +16,46 @@ class MaestroController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $teacher = Maestro::All();
-        return view('Escuela.maestro.index',compact('teacher'));
+        
+        if($request->get('type') == "nombre")
+        {
+            if($request->get('active') == "activos")
+            {
+                $teacher = Maestro::name($request->get('name'))->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "inhabilitados")
+            {
+                $teacher = Maestro::name($request->get('name'))->onlyTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "todos")
+            {
+                $teacher = Maestro::name($request->get('name'))->withTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
+        }
+        else if($request->get('type') == "codigo")
+        {
+            if($request->get('active') == "activos")
+            {
+                $teacher = Maestro::code($request->get('name'))->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "inhabilitados")
+            {
+                $teacher = Maestro::code($request->get('name'))->onlyTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "todos")
+            {
+                $teacher = Maestro::code($request->get('name'))->withTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
+            
+        }
+        else 
+        {
+            $teacher = Maestro::orderBy('id','DESC')->paginate(10);
+        }
+
+        return view('Escuela.maestro.index',compact('teacher'));        
     }
 
     /**
@@ -39,7 +76,12 @@ class MaestroController extends Controller
      */
     public function store(Request $request)
     {
-        Maestro::create($request->all());
+        $maestro = Maestro::create($request->all());
+
+        $telefono = new Telefono;
+        $telefono->numero_telefono = $request['numero_telefono'];
+        $telefono->maestro_id = $maestro->id;
+        $telefono->save();
 
     return redirect('/maestros')->with('message','store');
     }
@@ -52,9 +94,10 @@ class MaestroController extends Controller
      */
     public function show($id)
     {
-        $course = Curso::All();
         $teacher = Maestro::find($id);
-        return view('Escuela.maestro.assign', compact('course', 'teacher'));
+        $courses = $teacher->cursos()->get();
+        $telefono = $teacher->telefonos()->get()->first();
+        return view('Escuela.maestro.assign', compact(['courses', 'teacher', 'telefono']));
     }
 
     /**
@@ -66,7 +109,8 @@ class MaestroController extends Controller
     public function edit($id)
     {
         $maestro = Maestro::find($id);
-        return view('Escuela.maestro.edit', ['maestro'=>$maestro]);
+        $telefono = $maestro->telefonos()->get()->first();
+        return view('Escuela.maestro.edit', compact(['maestro','telefono']));
     }
 
     /**
@@ -82,6 +126,10 @@ class MaestroController extends Controller
         $maestro->fill($request->all());
         $maestro->save();
 
+        $telefono = $maestro->telefonos()->get()->first();
+        $telefono->numero_telefono = $request['numero_telefono'];
+        $telefono->save();        
+
     return redirect('/maestros')->with('message','edit');
     }
 
@@ -93,6 +141,9 @@ class MaestroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $maestro = Maestro::find($id);
+        $maestro->delete();  
+
+    return redirect('/maestros')->with('message','erase');
     }
 }

@@ -1,8 +1,10 @@
 @extends('layouts.principal')
 @section('content')
     {!!Form::open(['route'=>'maestros.store', 'method'=>'POST'])!!}
-        <h3>Maestros</h3>
-       <div class="container col-xs-12">
+       
+        <div class="container col-xs-12">
+        <h3 class="title" selected="selected">Maestros</h3>
+
             <div class="form-grup">
                 {!!Form::label('Nombre:')!!}
                 {!!Form::text('nombre_maestro',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre Maestro','required'])!!}
@@ -26,6 +28,10 @@
             <div class="form-grup">
                 {!!Form::label('Genéro:')!!}
                 {!!Form::select('genero_id',array('1'=>'Femenino','2'=>'Masculino'),null,['class'=>'form-control'])!!}
+            </div><br>
+            <div class="form-grup">
+                {!!Form::label('Telefono:')!!}
+                {!!Form::text('numero_telefono',null,['class'=>'form-control','placeholder'=>'Ingrese Telefono','required'])!!}
             </div><br>
             <div class="form-btn">
             {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}

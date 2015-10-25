@@ -1,4 +1,7 @@
-;(function ($, window, document, undefined) {
+//esto sirve para quitar el alert automaticamente
+$(".alerta").fadeOut(4800);
+//aqui termina para quitar el alert automatico
+(function ($, window, document, undefined) {
 
     var pluginName = "metisMenu",
         defaults = {

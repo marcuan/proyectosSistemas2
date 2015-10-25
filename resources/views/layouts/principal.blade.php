@@ -8,6 +8,7 @@
     {!!Html::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')!!}
     {!!Html::style('css/style.css')!!}
     {!!Html::style('https://fonts.googleapis.com/css?family=Lato:400,700')!!}
+    <link rel="shortcut icon" href="{{{ asset('images/loco-ico.ico') }}}">
 </head>
 <body>
 
@@ -24,7 +25,7 @@
             </div>
     <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;"> 
         -Café Red- &nbsp; 
-        <a href="../public/" class="btn btn-danger square-btn-adjust">Salir</a> 
+        <a href="/" class="btn btn-danger square-btn-adjust">Salir</a> 
     </div>
         </nav>   
            <!-- /. NAV TOP  -->
@@ -50,19 +51,19 @@
                     </li>
                                  
                     <li>
-                        <a href="#"><i class="icon-ong"></i> Escuela</a>
+                        <a href="#"><i class="icon-escuela"></i> Escuela</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="estudiantes">Estudiante</a>
+                                <a href="/estudiantes">Estudiante</a>
                             </li>
                             <li>
-                                <a href="cursos">Curso</a>
+                                <a href="/cursos">Curso</a>
                             </li>
                             <li>
-                                <a href="maestros">Maestro</a>
+                                <a href="/maestros">Maestro</a>
                             </li>
                             <li>
-                                <a href="#">Horario</a>
+                                <a href="/#">Horario</a>
                             </li>
                         </ul>
                     </li>
@@ -70,19 +71,19 @@
                         <a href=""><i class="icon-restaurante"></i>Restaurante</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="materiaprima">Materia prima</a>
+                                <a href="/materiaprima">Materia prima</a>
                             </li>
                             <li>
-                                <a href="platillo">Platillo</a>
+                                <a href="/platillo">Platillo</a>
                             </li>
                             <li>
-                                <a href="temporada">Temporadas</a>
+                                <a href="/temporada">Temporadas</a>
                             </li>
 					   <li>
-                                <a href="clientes">Clientes</a>
+                                <a href="/clientes">Clientes</a>
                             </li>
 					    <li>
-                                <a href="compra">Compras</a>
+                                <a href="/compra">Compras</a>
                             </li>
                         </ul>
                     </li>
@@ -117,5 +118,6 @@
     {!!Html::script('https://code.jquery.com/jquery-1.11.3.min.js')!!}
     {!!Html::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')!!}
     {!!Html::script('js/jquery.metisMenu.js')!!}    
+    {!!Html::script('js/script.js')!!}
 </body>
 </html>

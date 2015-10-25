@@ -3,9 +3,11 @@
 namespace RED\Escuela;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Curso extends Model
 {
+    use SoftDeletes;
 
     protected $table = 'Curso';
 
@@ -19,6 +21,8 @@ class Curso extends Model
     'num_estudiantes',
     'activo'];
 
+    protected $dates = ['deleted_at'];
+
     public function estudiantes()
     {
         return $this->belongsToMany('RED\Escuela\Estudiante');
@@ -27,5 +31,26 @@ class Curso extends Model
     public function maestros()
     {
         return $this->belongsToMany('RED\Escuela\Maestro');
+    }
+
+    public function horarios()
+    {
+        return $this->hasMany('RED\Escuela\horario');
+    }
+
+    public function scopeName($query, $name){
+
+        if (trim($name) != "")
+        {
+            return $query->where("nombre_curso","LIKE","%$name%");    
+        }
+    }
+
+    public function scopeCode($query, $code){
+
+        if (trim($code) != "")
+        {
+            return $query->where("codigo","LIKE","%$code%");    
+        }
     }
 }
