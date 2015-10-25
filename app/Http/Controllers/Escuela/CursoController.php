@@ -14,9 +14,20 @@ class CursoController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $course = Curso::paginate(10);
+        if($request->get('type') == "nombre")
+        {
+            $course = Curso::name($request->get('name'))->orderBy('id','DESC')->paginate(10);
+        }
+        else if($request->get('type') == "codigo")
+        {
+            $course = Curso::code($request->get('name'))->orderBy('id','DESC')->paginate(10);
+        }
+        else
+        {
+            $course = Curso::orderBy('id','DESC')->paginate(10);
+        }
         return view('Escuela.curso.index',compact('course'));
     }
 

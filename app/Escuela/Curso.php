@@ -37,4 +37,20 @@ class Curso extends Model
     {
         return $this->hasMany('RED\Escuela\horario');
     }
+
+    public function scopeName($query, $name){
+
+        if (trim($name) != "")
+        {
+            return $query->where("nombre_curso","LIKE","%$name%");    
+        }
+    }
+
+    public function scopeCode($query, $code){
+
+        if (trim($code) != "")
+        {
+            return $query->where("codigo","LIKE","%$code%");    
+        }
+    }
 }
