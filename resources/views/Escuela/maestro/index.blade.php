@@ -35,6 +35,9 @@
             {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Ingrese'])!!}            
         </div>
         <div class="form-group">
+            {!!Form::select('active',['activos'=>'Activos','inhabilitados'=>'Inhabilitados','todos'=>'Todos'],null,['class'=>'form-control'])!!}
+        </div>
+        <div class="form-group">
             {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
         </div>
         <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
