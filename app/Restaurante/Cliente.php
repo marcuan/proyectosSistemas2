@@ -14,4 +14,13 @@ class Cliente extends Model
     'nit',
     'telefono',
     'dirección'];
+
+    public function scopeName($query, $name)
+    {
+        if (trim($name) != "") {
+            # code...
+            $query->where(\DB::raw("CONCAT(nombre,' ',nit)"), "LIKE", "%$name%");
+        }
+        
+    }
 }
