@@ -25,22 +25,20 @@
 @section('content')
     <div class="container col-xs-12">
     <h3 class="title" selected="selected">Cursos</h3>
-    <div class="buscar">
-        <a href="cursos/create" class="btn btn-danger">Crear Curso</a>
-        <div class="col-lg-4">
-            <div class="input-group">
-                <input type="text" class="form-control">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                  </span>
-            </div>
+    <a href="cursos/create" class="btn btn-danger">Crear Curso</a>
+    {!!Form::open(['rout'=>'estudiantes.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
+        <div class="form-group">
+            {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
         </div>
-        <select name="" id="" class="btn btn-default select">
-            <option value="1">Codigo</option>
-            <option value="1">Nombre</option>
-        </select>
-    </div>
-    </div>
+        <div class="form-group">
+            {!!Form::select('active',['activos'=>'Activos','inhabilitados'=>'Inhabilitados','todos'=>'Todos'],null,['class'=>'form-control'])!!}
+        </div>
+        <div class="form-group">
+            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Ingrese'])!!}            
+        </div>
+        <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
+    {!!Form::close()!!}
+    <div></div>
         <table class="table table-hover table-responsive">
             <thead>
                 <th>Codigo</th>

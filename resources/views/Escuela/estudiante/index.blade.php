@@ -34,12 +34,12 @@
     
     {!!Form::open(['rout'=>'estudiantes.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
         <div class="form-group">
-            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Ingrese'])!!}            
-        </div>
-        <div class="form-group">
             {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
         </div>
-        <button type="submit" class="btn btn-default">Buscar</button>
+        <div class="form-group">
+            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Ingrese'])!!}            
+        </div>
+        <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
     {!!Form::close()!!}
     <div></div>
         <table class="table">
