@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 @section('content')
     {!!Form::open(['route'=>'estudiantes.store', 'method'=>'POST'])!!}
-       
+        
             <div class="container col-xs-12">
             <h3 class="title" selected="selected">Estudiantes</h3>
 

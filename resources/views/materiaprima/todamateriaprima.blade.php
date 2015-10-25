@@ -9,7 +9,6 @@
 @endif
 @section('content')
  <a href="/materiaprima/create" class="btn btn-danger">Crear Materia</a>
-   
    <div class="container col-xs-12">
         <table class="table">
             <thead>

@@ -3,10 +3,18 @@
 <?php $message=Session::get('message')?>
 
 @section('content')
+    <div class="container col-xs-12">   
+    <h3 class="title" selected="selected">Maestros</h3>
+    
+    <a href="../maestros" class="btn btn-danger">Regresar</a>
+    {!!Form::open(['rout'=>'maestros.asignacionmaestros','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
+        <div class="form-group">
+            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
+        </div>
+        <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
+    {!!Form::close()!!}
     {!!Form::open(['route'=>'asignacionmaestros.store', 'method'=>'POST'])!!}
-        <div class="container col-xs-12">   
-        <a href="../maestros" class="btn btn-danger">Regresar</a>
-        <label for=""> Maestro: {{$teacher->apellido_maestro}} , {{$teacher->nombre_maestro}}</label>
+        <h4><strong>Maestro: </strong> {{$teacher->apellido_maestro}} , {{$teacher->nombre_maestro}}</h4>
         {!!Form::text('idmaestro',$teacher->id,['class'=>'hidden', 'id'=>'idmaestro'])!!}
             <table class="table table-hover table-responsive">
                 <thead>
