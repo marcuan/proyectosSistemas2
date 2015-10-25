@@ -22,16 +22,20 @@
     
         <table class="table table-hover table-responsive">
             <thead>
-                <th>idVenta</th>
+                <th>id</th>
                 <th>idCliente</th>
                 <th>Nombre</th>
             </thead>
             @foreach($venta as $venta)
             <tbody>
-                <td>{{$venta->idVenta}}</td>
+                <td>{{$venta->id}}</td>
                 <td>{{$venta->clientes_id}}</td>
+<<<<<<< HEAD
                 <td>{{$Cliente->nombre}}</td>
                 <td>{!!link_to_route('venta.edit', $title = 'Editar', $parameters = $venta->idVenta, $attributes = ['class'=>'btn btn-primary']);!!}</td>
+=======
+                <td>{!!link_to_route('venta.edit', $title = 'Editar', $parameters = $venta->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
+>>>>>>> 1834e2e5e72b784f40bacaf373a61ae7ba24cd02
             </tbody>
             @endforeach
         </table>

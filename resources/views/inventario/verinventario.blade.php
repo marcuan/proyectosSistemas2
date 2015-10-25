@@ -9,7 +9,7 @@
 @endif
 @section('content')
  
-   <div class="container">
+   <div class="container col-xs-12">
         <table class="table">
             <thead>
 				<th>Existencia</th>
@@ -17,14 +17,14 @@
 				<th>Detalle</th>
                 <th>Precio de Venta</th>
 				<th>Comision</th>
-			   </thead>
+			 </thead>
              @foreach($inventario as $productos)
             <tbody>
-				<td>{{$dato->existencia}}</td>
-                <td>{{$dato->nombre}}</td>
-                <td>{{$dato->detalle}}</td>
-                <td>{{$dato->precioVenta}}</td>
-				<td>{{$dato->comision}}</td>
+				<td>{{$productos->existencia}}</td>
+                <td>{{$productos->nombreProducto}}</td>
+                <td>{{$productos->detalleProducto}}</td>
+                <td>{{$productos->precioVenta}}</td>
+				<td>{{$productos->comision}}</td>
 		    </tbody>
             @endforeach
         </table>
