@@ -21,7 +21,7 @@ class CreateDetalleVentaTable extends Migration
              //Campo para llave foranea
                 $table->integer('venta_id')->unsigned();
                 //Referenciando la llave foranea con la otra tabla 
-                $table->foreign('venta_id')->references('idVenta')->on('Venta');
+                $table->foreign('venta_id')->references('id')->on('Venta');
                  
                  //Campo para llave foranea
               $table->integer('producto_id')->unsigned();
