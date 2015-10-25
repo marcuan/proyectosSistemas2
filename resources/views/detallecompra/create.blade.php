@@ -1,6 +1,6 @@
 @extends('layouts.principal')
 @section('content')
-    {!!Form::open(['route'=>'detallecompra.store', 'method'=>'POST'])!!}
+    {!!Form::open(array ('route' => array('detallecompra.store'),'$compra', 'method'=>'POST'))!!}
         <h3>DetalleCompras</h3>
         <div class="container">
             <div class="form-grup">
@@ -9,10 +9,10 @@
             </div>
             <div class="form-grup">
                 {!!Form::label('Compra:')!!}
-                {!!Form::text('compras_id',null,['class'=>'form-control','placeholder'=>'Ingrese No. de Compra','required'])!!}
-            </div>
+                {!!Form::text('compras_id',$compra,['class'=>'form-control','placeholder'=>'Ingrese No. de Compra','required'])!!}
+       		  </div>
             <div class="form-grup">
-                {!!Form::label('Cantidad:')!!}
+	                {!!Form::label('Cantidad:')!!}
                 {!!Form::text('cantidad',null,['class'=>'form-control','placeholder'=>'Ingrese Cantidad','required'])!!}
             </div>
             <div class="form-grup">

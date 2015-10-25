@@ -42,8 +42,9 @@ class DetalleCompraController extends Controller
      * @return Response
      */
     public function create()
-    {
-        return view('detallecompra.create');
+    {	
+		 $compra = Compra::all()->last()->id;
+        return view('detallecompra.create',compact('compra'));
     }
 
     /**
