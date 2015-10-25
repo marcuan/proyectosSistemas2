@@ -13,7 +13,7 @@ class CreateVentaTable extends Migration
     public function up()
     {
         Schema::create('Venta', function(Blueprint $table) {
-            $table->increments('idVenta');
+            $table->increments('id');
 
             $table->integer('clientes_id')->unsigned();                           //kkjkukj
             $table->foreign('clientes_id')->references('id')->on('Clientes');    //oiwjdfklajsdfkjasdf
