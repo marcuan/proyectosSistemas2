@@ -21,11 +21,34 @@ class MaestroController extends Controller
         
         if($request->get('type') == "nombre")
         {
-            $teacher = Maestro::name($request->get('name'))->orderBy('id','DESC')->paginate(10);
+            if($request->get('active') == "activos")
+            {
+                $teacher = Maestro::name($request->get('name'))->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "inhabilitados")
+            {
+                $teacher = Maestro::name($request->get('name'))->onlyTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "todos")
+            {
+                $teacher = Maestro::name($request->get('name'))->withTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
         }
         else if($request->get('type') == "codigo")
         {
-            $teacher = Maestro::code($request->get('name'))->orderBy('id','DESC')->paginate(10);
+            if($request->get('active') == "activos")
+            {
+                $teacher = Maestro::code($request->get('name'))->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "inhabilitados")
+            {
+                $teacher = Maestro::code($request->get('name'))->onlyTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "todos")
+            {
+                $teacher = Maestro::code($request->get('name'))->withTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
+            
         }
         else 
         {

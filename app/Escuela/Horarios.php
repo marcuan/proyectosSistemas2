@@ -12,7 +12,6 @@ class Horarios extends Model
     	'hora_inicio',
     	'hora_fin',
     	'salon',
-    	'curso_id',
-    	'hora_fin'];
+    	'curso_id'];
 
 }

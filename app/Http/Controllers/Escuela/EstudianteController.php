@@ -21,11 +21,33 @@ class EstudianteController extends Controller
         
         if($request->get('type') == "nombre")
         {
-            $student = Estudiante::name($request->get('name'))->orderBy('id','DESC')->paginate(10);
+            if($request->get('active') == "activos")
+            {
+                $student = Estudiante::name($request->get('name'))->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "inhabilitados")
+            {
+                $student = Estudiante::name($request->get('name'))->onlyTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "todos")
+            {
+                $student = Estudiante::name($request->get('name'))->withTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
         }
         else if($request->get('type') == "codigo")
         {
-            $student = Estudiante::code($request->get('name'))->orderBy('id','DESC')->paginate(10);
+            if($request->get('active') == "activos")
+            {
+                $student = Estudiante::code($request->get('name'))->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "inhabilitados")
+            {
+                $student = Estudiante::code($request->get('name'))->onlyTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
+            if($request->get('active') == "todos")
+            {
+                $student = Estudiante::code($request->get('name'))->withTrashed()->orderBy('id','DESC')->paginate(10);    
+            }
         }
         else
         {
