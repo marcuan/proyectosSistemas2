@@ -46,7 +46,9 @@ class DetalleCompraController extends Controller
     {	
         $compra = Compra::all()->last()->id;
         $opcionmateria = MateriaPrima::all()->lists('nombre','id');
-        return view("detallecompra.create", compact('opcionmateria','compra'));  
+
+        return view("detallecompra.create", compact('compra','opcionmateria'));  
+        //return view("detallecompra.create", compact('compra','opcionmateria'));  
 
     }
 
@@ -58,6 +60,7 @@ class DetalleCompraController extends Controller
      */
     public function store(Request $request)
     {
+        $opcionmateria = MateriaPrima::all()->lists('nombre','id');
         DetalleCompra::create($request->all());
 	   //Aqui se actualiza la compra
 	    $idcompra=$request['compras_id'];
@@ -66,7 +69,7 @@ class DetalleCompraController extends Controller
 		$compra->total=$compra->total+$costo;
 	   $compra->save();//actualizar
 	   $compra=$idcompra;
-	   return view('detallecompra.create',compact('compra'))->with('message','store');;
+	   return view('detallecompra.create',compact('compra','opcionmateria'))->with('message','store');;
       //  return redirect('/detallecompra')->with('message','store');
     }
 
