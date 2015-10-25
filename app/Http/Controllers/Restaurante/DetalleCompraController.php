@@ -56,6 +56,12 @@ class DetalleCompraController extends Controller
     public function store(Request $request)
     {
         DetalleCompra::create($request->all());
+	   //Aqui se actualiza la compra
+	    $idcompra=$request['compras_id'];
+	    $costo=$request['costo'];//Obtenemos el costo de la transaccion 
+	   $compra = Compra::find($idcompra);//Buscamos la compra
+		$compra->total=$compra->total+$costo;
+	   $compra->save();//actualizar
         return redirect('/detallecompra')->with('message','store');
     }
 
