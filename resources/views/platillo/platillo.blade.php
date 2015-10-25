@@ -18,13 +18,13 @@
 
 @section('content')
 	<a href="/platillo/create" class="btn btn-danger">Crear platillo</a>
-    <div class="container">
-        <table class="table">
+    <div class="container-fluid">
+        <table class="table table-condensed">
             <thead>
                 <th>Temporada</th>
-                <th>nombre</th>
-                <th>precio</th>
-                <th>descripcion</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Descripcion</th>
             </thead>
             @foreach($platillo as $dato)
             <tbody>
