@@ -9,6 +9,7 @@ use RED\Http\Controllers\Controller;
 use RED\Repositories\InventarioRepo;
 use Resources;
 use RED\Despensa\Inventario;
+use RED\Despensa\Producto;
 
 
 class InventarioController extends Controller
@@ -31,7 +32,7 @@ public function __construct(InventarioRepo $inventariorepo){
         //
 	   
 	 // $inventario=$this-inventariorepo->findall();
-	
+	  $inventario = Producto::all();
 	  return View('inventario.verinventario',compact('inventario'));
     }
 
@@ -115,8 +116,5 @@ public function __construct(InventarioRepo $inventariorepo){
     {
         //
     }
-    
-   
-
-   
+  
 }
