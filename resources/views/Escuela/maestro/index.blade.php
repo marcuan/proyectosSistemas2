@@ -2,25 +2,25 @@
 <?php $message=Session::get('message')?>
 
 @if($message == 'store')
-<div class="alert alert-success alert-dismissible" role="alert">
+<div class="alert alert-success alert-dismissible alerta" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Creado. </strong> Maestro creado exitosamente.
 </div>
 @endif
 @if($message == 'edit')
-<div class="alert alert-info alert-dismissible" role="alert">
+<div class="alert alert-info alert-dismissible alerta" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Editado. </strong> Maestro editado exitosamente.
 </div>
 @endif
 @if($message == 'erase')
-<div class="alert alert-danger alert-dismissible" role="alert">
+<div class="alert alert-danger alert-dismissible alerta" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Inhabilitado.</strong> Maestro inhabilitado exitosamente.
 </div>
 @endif
 @if($message == 'assign')
-<div class="alert alert-warning alert-dismissible" role="alert">
+<div class="alert alert-warning alert-dismissible alerta" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Asignado. </strong> Curso(s) Asignado(s) exitosamente.
 </div>
@@ -32,13 +32,13 @@
     <a href="maestros/create" class="btn btn-danger">Crear Maestro</a> 
     {!!Form::open(['rout'=>'maestros.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
         <div class="form-group">
-            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Ingrese'])!!}            
-        </div>
-        <div class="form-group">
             {!!Form::select('active',['activos'=>'Activos','inhabilitados'=>'Inhabilitados','todos'=>'Todos'],null,['class'=>'form-control'])!!}
         </div>
         <div class="form-group">
             {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
+        </div>
+        <div class="form-group">
+            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
         </div>
         <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
     {!!Form::close()!!}

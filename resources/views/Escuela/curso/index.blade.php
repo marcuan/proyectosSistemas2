@@ -4,19 +4,19 @@
 
 
 @if($message == 'store')
-<div class="alert alert-success alert-dismissible" role="alert">
+<div class="alert alert-success alert-dismissible alerta" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Creado.</strong> Curso creado exitosamente.
 </div>
 @endif
 @if($message == 'edit')
-<div class="alert alert-info alert-dismissible" role="alert">
+<div class="alert alert-info alert-dismissible alerta" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Editado.</strong> Curso editado exitosamente.
 </div>
 @endif
 @if($message == 'erase')
-<div class="alert alert-danger alert-dismissible" role="alert">
+<div class="alert alert-danger alert-dismissible alerta" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Inhabilitado.</strong> Curso inhabilitado exitosamente.
 </div>
@@ -34,7 +34,7 @@
             {!!Form::select('active',['activos'=>'Activos','inhabilitados'=>'Inhabilitados','todos'=>'Todos'],null,['class'=>'form-control'])!!}
         </div>
         <div class="form-group">
-            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Ingrese'])!!}            
+            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
         </div>
         <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
     {!!Form::close()!!}
