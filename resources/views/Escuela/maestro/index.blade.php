@@ -37,7 +37,7 @@
         <div class="form-group">
             {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
         </div>
-        <button type="submit" class="btn btn-default">Buscar</button>
+        <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
     {!!Form::close()!!}
     <div></div>
         <table class="table">
