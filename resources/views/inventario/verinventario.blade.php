@@ -9,6 +9,19 @@
 @endif
 @section('content')
  
+  <!-- probando Buscar Producto-->
+
+    {!! Form::open(['href' => '../public/inventario', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
+    <div class="form-group">
+        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre del Producto']) !!}
+    </div>
+        <button type="submit" class="btn btn-primary">Buscar</button> 
+    {!! Form::close() !!}
+   
+
+   <!-- fin buscar producto  -->
+
+
    <div class="container col-xs-12">
         <table class="table">
             <thead>

@@ -1,32 +1,14 @@
-<?php 
-namespace RED\Http\Controllers\Despensa;
+<?php
+
+namespace RED\Http\Controllers\Ong;
 
 use Illuminate\Http\Request;
-
-use RED\Despensa\Producto;
+use RED\Ong\Donation;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
-use Resources;
 
-/**
-* 
-*/
-class ProductosController extends Controller
+class DonationController extends Controller
 {
-	
-    /**
-     * Desplegar proveedores
-     *
-     * @return Response
-     */
-    
-
-    public function index()
-    {
-        $producto = Producto::all();
-        return View('productos.index',compact('producto'));
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -34,8 +16,7 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        //
-        return view('productos.create');
+        return view('Ong.Donation.create');
     }
 
     /**
@@ -46,9 +27,9 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        Producto::create($request->all());
-            return redirect('/producto')->with('message','store');
+        Donation::create($request->all());
+
+    return redirect('/donation')->with('message','store');
     }
 
     /**
@@ -59,7 +40,8 @@ class ProductosController extends Controller
      */
     public function show($id)
     {
-        //
+        $donation = Donation::find($id);
+        return view('Ong.donation.assign', compact(['donations']));
     }
 
     /**
@@ -68,11 +50,10 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($idProducto)
+    public function edit($id)
     {
-        //
-        $provider = Producto::find($idProducto);
-        return view('productos.edit', ['productos'=>$provider]);
+        $donation = Donation::find($id);
+        return view('Ong.Donation.edit', ['donation'=>$donation]);
     }
 
     /**
@@ -84,11 +65,11 @@ class ProductosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-            $provider = Producto::find($id);
-            $provider->fill($request->all());
-            $provider->save();
+        $donation = Donation::find($id);
+        $donation->fill($request->all());
+        $donation->save();
 
+     return redirect('/donation')->with('message','edit');
     }
 
     /**
@@ -99,7 +80,9 @@ class ProductosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $donation = Donation::find($id);
+        $donation->delete();  
+
+    return redirect('/donation')->with('message','erase');
     }
 }
-

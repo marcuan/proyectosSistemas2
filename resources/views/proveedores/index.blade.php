@@ -18,14 +18,22 @@
 @section('content')
     
     <div class="container col-xs-12">
+      <h3 class="title" selected="selected">Proveedores</h3>
     <a href="proveedores/create" class="btn btn-danger">Crear Proveedor</a>
+
+{!! Form::open(['rout'=>'proveedores.index', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
+    <div class="form-group">
+        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre del proveedor']) !!}
+    </div>
+        <button type="submit" class="btn btn-primary">Buscar</button> 
+{!! Form::close() !!}
         <table class="table">
             <thead>
                 <th>Nombre</th>
                 <th>Telefono</th>
                 <th>Direccion</th>
             </thead>
-            @foreach($prove edor as $proveedores)
+            @foreach($proveedor as $proveedores)
             <tbody>
                 <td>{{$proveedores->nombre}}</td>
                 <td>{{$proveedores->telefono}}</td>

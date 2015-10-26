@@ -18,7 +18,7 @@
 @section('content')
     
     <div class="container col-xs-12">
-    <a href="Producto/create" class="btn btn-danger">Crear Producto</a>
+    <a href="producto/create" class="btn btn-danger">Crear Producto</a>
         <table class="table">
             <thead>
                 <th>Nombre</th>
@@ -34,7 +34,7 @@
                 <td>{{$productos->precioVenta}}</td>
                 <td>{{$productos->existencia}}</td>
                 <td>{{$productos->comision}}</td>
-                <td>{!!link_to_route('productos.edit', $title = 'Editar', $parameters = $productos->idProducto, $attributes = ['class'=>'btn btn-primary']);!!}</td>
+                <td>{!!link_to_route('producto.edit', $title = 'Editar', $parameters = $productos->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
         </table>

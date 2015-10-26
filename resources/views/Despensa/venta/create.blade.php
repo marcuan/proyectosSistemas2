@@ -5,7 +5,6 @@
         <div class="container col-xs-12">   
         	<div class="form-grup">                
         		{!!Form::label('Nit Cliente:')!!}
- 
                 {!!Form::select('clientes_id',$clientes,['class'=>'form-control','placeholder'=>'Ingrese Cliente','required'])!!}
             </div><br>                   
             <div class="form-btn">

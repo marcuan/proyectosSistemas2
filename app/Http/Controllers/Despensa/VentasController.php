@@ -38,7 +38,7 @@ class VentasController extends Controller
         return redirect ('/venta')->with('message','store');
     }
     
-    public function show($idVenta)
+    public function show($id)
     {
         //
     }

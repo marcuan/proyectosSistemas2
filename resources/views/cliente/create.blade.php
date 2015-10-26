@@ -2,7 +2,7 @@
 @section('content')
     {!!Form::open(['route'=>'clientes.store', 'method'=>'POST'])!!}
         <h3>Clientes</h3>
-        <div class="container">
+        <div class="container col-xs-12">
             <div class="form-grup">
         		{!!Form::label('Nombre:')!!}
         		{!!Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre', 'required'])!!}
