@@ -57,15 +57,23 @@ Route::resource('compra','Restaurante\ComprasController');
   MODULO DESPENSA
 ******************************/
 /*----------------------VENTAS----------------------------------*/
-Route::get ('venta','Despensa\VentasController@index');
-Route::get ('venta/crear','Despensa\VentasController@crear');
-Route::get ('venta/lista','Despensa\VentasController@lista');
-Route::get ('venta/editar','Despensa\VentasController@editar');
-Route::get ('venta/borrar','Despensa\VentasController@borrar');
+Route::resource ('venta','Despensa\VentasController');
+//Route::resource ('venta/create','Despensa\VentasController@create');
+//Route::resource ('venta/lista','Despensa\VentasController@lista');
+//Route::resource ('venta/editar','Despensa\VentasController@editar');
+//Route::resource ('venta/borrar','Despensa\VentasController@borrar');
+/*--------------------------------------------------------------*/
+
+/*----------------------INVENTARIO------------------------------*/
+
+Route::resource('inventario','Despensa\InventarioController');
+Route::resource('producto','Despensa\productosController');
+
 /*--------------------------------------------------------------*/
 
 /*----------------------COMPRAS---------------------------------*/
- Route::get('proveedores', 'proveedoresController@mostrar');
+ Route::resource('proveedores', 'Despensa\proveedoresController');
+ Route::resource('consignaciones', 'Despensa\ConsignacionController');
 /*--------------------------------------------------------------*/
 
 Route::resource('detallecompra', 'Restaurante\DetalleCompraController');
