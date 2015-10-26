@@ -18,6 +18,7 @@
 
 @section('content')
 
+    <h3 class="title" selected="selected">Consignaciones</h3>
     <a href="consignaciones/create" class="btn btn-danger">Crear Consignaciones</a>
     <div class="container">
 
