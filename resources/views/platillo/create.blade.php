@@ -3,13 +3,10 @@
 @section('content')
     {!!Form::open(['route'=>'platillo.store', 'method'=>'POST'])!!}
         <h3>Platillo</h3>
-       <div class="container">
+        <div class="container col-xs-12">
             <div class="form-grup">
                 {!!Form::label('Temporada:')!!}
                 {!!Form::select('temporada_id',$opciontemporada,['class'=>'form-control','placeholder'=>'Ingrese Temporada ','required'])!!}
-            </div>
-            <div class="form-grup">
-                {!!Form::label('')!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Nombre:')!!}
@@ -21,10 +18,15 @@
             </div>
             <div class="form-grup">
                 {!!Form::label('Descripcion:')!!}
-                {!!Form::text('descripcion',null,['class'=>'form-control','placeholder'=>'Ingrese Una Descripcion','required','step' => 'any'])!!}
+                {!!Form::textarea('descripcion',null,['class'=>'form-control','size'=>'10x5','placeholder'=>'Ingrese Una Descripcion','required','step' => 'any'])!!}
             </div>
-            {!!Form::submit('Guardar',['class'=>'btn btn-primary'])!!}
+            <div class="form-grup">
+                {!!Form::label('')!!}
             </div>
+            <div class="form-grup">
+                {!!Form::submit('Guardar',['class'=>'btn btn-primary'])!!}
+            </div>
+        </div>
     {!!form::close()!!}
 
 @stop
