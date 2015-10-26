@@ -71,6 +71,7 @@ Route::resource('inventario','Despensa\InventarioController');
 
 /*----------------------COMPRAS---------------------------------*/
  Route::resource('proveedores', 'Despensa\proveedoresController');
+ Route::resource('consignaciones', 'Despensa\ConsignacionController');
 /*--------------------------------------------------------------*/
 
 Route::resource('detallecompra', 'Restaurante\DetalleCompraController');
