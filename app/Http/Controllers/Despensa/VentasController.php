@@ -21,7 +21,7 @@ class VentasController extends Controller
     
     public function create ()
     {
-        $clientes = RED\Restaurante\Cliente::All()->lists('nit');
+        $clientes = RED\Restaurante\Cliente::All()->lists('id');
         return view ('Despensa.venta.create', compact('clientes'));
     }
     
@@ -31,7 +31,7 @@ class VentasController extends Controller
         return redirect ('/venta')->with('message','store');
     }
     
-    public function show($idVenta)
+    public function show($id)
     {
         //
     }
