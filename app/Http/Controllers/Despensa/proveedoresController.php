@@ -7,7 +7,7 @@ use RED\Despensa\Proveedore;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 use Resources;
-
+use Illuminate\Support\Facades\Session;
 /**
 * 
 */
@@ -21,16 +21,19 @@ class ProveedoresController extends Controller
      */
     
 
-    public function index()
+    public function index(Request $request)
     {
-        $proveedor = Proveedore::all();
+       // $proveedor = Proveedore::all();
+        //return View('proveedores.index',compact('proveedor'));
+
+         $proveedor = Proveedore::orderBy('nombre', 'ASC')->paginate(10);
         return View('proveedores.index',compact('proveedor'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
