@@ -21,12 +21,8 @@ class VentasController extends Controller
     
     public function create ()
     {
-<<<<<<< HEAD
-        $clientes = RED\Restaurante\Cliente::All()->lists('id','nit');
-        return view ('Despensa.venta.create', compact('clientes'));;
-=======
-        return view ('Despensa.venta.create');
->>>>>>> origin/Despensa
+        $clientes = RED\Restaurante\Cliente::All()->lists('nit');
+        return view ('Despensa.venta.create', compact('clientes'));
     }
     
     public function store (Request $request)
