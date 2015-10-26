@@ -18,7 +18,7 @@ class VentasController extends Controller
     
     public function create ()
     {
-        return view ('Despensa.venta.create');;
+        return view ('Despensa.venta.create');
     }
     
     public function store (Request $request)
