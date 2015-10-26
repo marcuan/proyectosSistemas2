@@ -67,6 +67,8 @@ Route::resource ('venta','Despensa\VentasController');
 /*----------------------INVENTARIO------------------------------*/
 
 Route::resource('inventario','Despensa\InventarioController');
+Route::resource('producto','Despensa\productosController');
+
 /*--------------------------------------------------------------*/
 
 /*----------------------COMPRAS---------------------------------*/

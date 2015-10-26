@@ -34,20 +34,20 @@ class VentasController extends Controller
     
     public function edit($idVenta)
     {
-        $venta = RED\Despensa\Ventum::find($idVenta);
+        $venta = RED\Despensa\Ventum::find($id);
         return view('Despensa.venta.edit', ['venta'=>$venta]);
     }
     
     
-   public function update(Request $request, $idVenta)
+   public function update(Request $request, $id)
     {
-        $venta = RED\Despensa\Ventum::find($idVenta);
+        $venta = RED\Despensa\Ventum::find($id);
         $venta->fill($request->all());
         $venta->save();
         return redirect('/venta')->with('message','edit');
     }
     
-    public function destroy($idVenta)
+    public function destroy($id)
     {
         //
     }
