@@ -91,16 +91,16 @@
                         <a href="#"><i class="icon-despensa"></i>Despensa</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="proveedores">Proveedores</a>
+                                <a href="/proveedores">Proveedores</a>
                             </li>
                             <li>
-                                <a href="inventario">Inventario</a>
+                                <a href="/inventario">Inventario</a>
                             </li>
                             <li>
                                 <a href="#">Ventas</a>
                             </li>
                              <li>
-                                <a href="#">Productos</a>
+                                <a href="/producto">Productos</a>
                             </li>
                         </ul>
                     </li>  

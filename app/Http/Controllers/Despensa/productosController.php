@@ -35,7 +35,7 @@ class ProductosController extends Controller
     public function create()
     {
         //
-        return view('Productos.create');
+        return view('productos.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class ProductosController extends Controller
     {
         //
         Producto::create($request->all());
-            return redirect('/proveedores')->with('message','store');
+            return redirect('/producto')->with('message','store');
     }
 
     /**

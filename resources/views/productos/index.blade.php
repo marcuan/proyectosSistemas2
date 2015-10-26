@@ -18,7 +18,7 @@
 @section('content')
     
     <div class="container col-xs-12">
-    <a href="Producto/create" class="btn btn-danger">Crear Producto</a>
+    <a href="producto/create" class="btn btn-danger">Crear Producto</a>
         <table class="table">
             <thead>
                 <th>Nombre</th>

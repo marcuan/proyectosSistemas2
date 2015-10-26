@@ -1,23 +1,29 @@
 @extends('layouts.principal')
 @section('content')
-    {!!Form::open(['route'=>'proveedores.store', 'method'=>'POST'])!!}
-        <h3>Proveedores</h3>
+    {!!Form::open(['route'=>'producto.store', 'method'=>'POST'])!!}
+        <h3>Productos</h3>
         <div class="container col-xs-12">
             <div class="form-grup">
                 {!!Form::label('Nombre:')!!}
-                {!!Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre Proveedor','required'])!!}
+                {!!Form::text('nombreProducto',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre de su producto','required'])!!}
             </div>
             <div class="form-grup">
-                {!!Form::label('Telefono:')!!}
-                {!!Form::number('telefono',null,['class'=>'form-control','placeholder'=>'Ingrese Telefono','required'])!!}
+                {!!Form::label('Detalle:')!!}
+                {!!Form::number('detalleProducto',null,['class'=>'form-control','placeholder'=>'Ingrese Detalle de su producto','required'])!!}
             </div>
             <div class="form-grup">
-                {!!Form::label('Dirección:')!!}
-                {!!Form::text('direccion',null,['class'=>'form-control','placeholder'=>'Ingrese Direccion','required'])!!}
+                {!!Form::label('Precio:')!!}
+                {!!Form::text('precioVenta',null,['class'=>'form-control','placeholder'=>'Ingrese el precio','required'])!!}
             </div>
-            <div class="form-btn">
-                {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+            <div class="form-grup">
+                {!!Form::label('Existencia:')!!}
+                {!!Form::text('existencia',null,['class'=>'form-control','placeholder'=>'Ingrese la existencia del producto','required'])!!}
             </div>
+            <div class="form-grup">
+                {!!Form::label('Comision:')!!}
+                {!!Form::text('comision',null,['class'=>'form-control','placeholder'=>'Ingrese comision del producto','required'])!!}
+            </div>
+            
         
     {!!form::close()!!}
     </div>
