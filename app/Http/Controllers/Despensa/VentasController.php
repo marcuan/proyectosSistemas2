@@ -21,7 +21,12 @@ class VentasController extends Controller
     
     public function create ()
     {
+<<<<<<< HEAD
+        $clientes = RED\Restaurante\Cliente::All()->lists('id','nit');
+        return view ('Despensa.venta.create', compact('clientes'));;
+=======
         return view ('Despensa.venta.create');
+>>>>>>> origin/Despensa
     }
     
     public function store (Request $request)
@@ -35,7 +40,7 @@ class VentasController extends Controller
         //
     }
     
-    public function edit($idVenta)
+    public function edit($id)
     {
         $venta = RED\Despensa\Ventum::find($id);
         return view('Despensa.venta.edit', ['venta'=>$venta]);
