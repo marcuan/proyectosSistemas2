@@ -51,6 +51,8 @@ Route::resource('temporada','Restaurante\TemporadaController');
 Route::resource('clientes', 'Restaurante\ClienteController');
 //Rutas para mostrar las compras
 Route::resource('compra','Restaurante\ComprasController');
+//Rutas para mostrar los detalles de compras
+Route::resource('detallecompra/{id}', 'Restaurante\DetalleCompraController@mostrardetallecompra');
 
 /*****************************/
 /******************************

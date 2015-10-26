@@ -14,11 +14,11 @@ class DetalleCompra extends Model
 	'costo'
 	];
 	
-    public function compra()
+    /*public function compra()
     {
     	return $this->hasMany('RED\Compra','compras_id'); 
 	}
-
+*/
 	
 
 }
