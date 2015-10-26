@@ -23,12 +23,12 @@ class CreateProductosTable extends Migration
                 //Campo para llave foranea
                   $table->integer('consignacion_id')->unsigned();
                  
-                  $table->foreign('consignacion_id')->references('idConsignacion')->on('Consignacion');
+                  $table->foreign('consignacion_id')->references('id')->on('Consignacion');
                  
                  
                 //$table->float('total');
                 //$table->integer('cantidad');
-                $table->integer('tiendaorestaurante');
+                //$table->integer('tiendaorestaurante');
             $table->timestamps();
         });
     }
