@@ -6,13 +6,16 @@ use Illuminate\Http\Request;
 use RED;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
+use RED\Repositories\ClienteRepo;
+use RED\Despensa\Ventum;
 
 class VentasController extends Controller
 {
-    //
+    //   
+    
     public function index ()
     {
-        $venta = RED\Despensa\Ventum::All();
+        $venta = Ventum::All();
         return view ('Despensa.venta.index',compact('venta'));
     }
     
