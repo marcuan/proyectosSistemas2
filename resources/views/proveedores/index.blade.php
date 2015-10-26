@@ -25,7 +25,7 @@
                 <th>Telefono</th>
                 <th>Direccion</th>
             </thead>
-            @foreach($prove edor as $proveedores)
+            @foreach($proveedor as $proveedores)
             <tbody>
                 <td>{{$proveedores->nombre}}</td>
                 <td>{{$proveedores->telefono}}</td>
