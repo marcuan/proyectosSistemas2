@@ -6,19 +6,23 @@ use Illuminate\Http\Request;
 use RED;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
+use RED\Repositories\ClienteRepo;
+use RED\Despensa\Ventum;
 
 class VentasController extends Controller
 {
-    //
+    //   
+    
     public function index ()
     {
-        $venta = RED\Despensa\Ventum::All();
+        $venta = Ventum::All();
         return view ('Despensa.venta.index',compact('venta'));
     }
     
     public function create ()
     {
-        return view ('Despensa.venta.create');;
+        $clientes = RED\Restaurante\Cliente::All()->lists('nit');
+        return view ('Despensa.venta.create', compact('clientes'));
     }
     
     public function store (Request $request)
@@ -32,7 +36,7 @@ class VentasController extends Controller
         //
     }
     
-    public function edit($idVenta)
+    public function edit($id)
     {
         $venta = RED\Despensa\Ventum::find($id);
         return view('Despensa.venta.edit', ['venta'=>$venta]);

@@ -1,6 +1,5 @@
 @extends('layouts.principal')
 @section('content')
-        
     {!!Form::model($venta,['route'=>['venta.update', $venta->id], 'method'=>'PUT'])!!}
         <h3>Ventas</h3>
         <div class="container col-xs-12">

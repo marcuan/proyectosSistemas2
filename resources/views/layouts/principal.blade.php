@@ -91,16 +91,19 @@
                         <a href="#"><i class="icon-despensa"></i>Despensa</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="proveedores">Proveedores</a>
+                                <a href="/proveedores">Proveedores</a>
                             </li>
                             <li>
-                                <a href="inventario">Inventario</a>
+                                <a href="/inventario">Inventario</a>
                             </li>
                             <li>
                                 <a href="#">Ventas</a>
                             </li>
                              <li>
-                                <a href="#">Second Level Link</a>
+                                <a href="/producto">Productos</a>
+                            </li>
+                            <li>
+                                <a href="consignaciones">Consignaciones</a>
                             </li>
                         </ul>
                     </li>  

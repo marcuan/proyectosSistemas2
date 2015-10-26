@@ -13,7 +13,7 @@ class CreateConsignacionTable extends Migration
     public function up()
     {
          Schema::create('Consignacion', function(Blueprint $table) {
-            $table->increments('idConsignacion');
+            $table->increments('id');
                  $table->date('fechaInicial');
 		 $table->date('fechaFinal');
                  $table->string('detalleConsignacion');
