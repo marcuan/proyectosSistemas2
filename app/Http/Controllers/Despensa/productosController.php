@@ -71,8 +71,8 @@ class ProductosController extends Controller
     public function edit($id)
     {
         //
-        $provider = Proveedore::find($id);
-        return view('proveedores.edit', ['proveedores'=>$provider]);
+        $provider = Producto::find($id);
+        return view('productos.edit', ['productos'=>$provider]);
     }
 
     /**
