@@ -68,7 +68,9 @@ class ComprasController extends Controller
      */
     public function show($id)
     {
-        
+        $detalle = Compra::find($id);
+        return view('detallecompra.detallecompra',compact('detalle'));
+       //return redirect('detallescompra/'.$id);
     }
 
     /**
