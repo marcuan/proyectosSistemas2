@@ -26,16 +26,16 @@ class DetalleCompraController extends Controller
         return View('detallecompra.index',compact('DetalleCompra'));
     }
 
-/**
-     * Desplegar platillos por temporada
+    /**
+     * Desplegar detalles de la compra
      *
      * @return Response
      */
     
     public function mostrardetallecompra($id)
     {
-        $compra = Compra::find($id);
-        return View('compra.detallecompra',compact('compra'));
+        $detalle = Compra::find($id);
+        return View('detallecompra.detallecompra',compact('detalle'));
     }
     /**
      * Show the form for creating a new resource.

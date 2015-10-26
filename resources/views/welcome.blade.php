@@ -50,7 +50,7 @@
                            
                                 <input type="password" class="form-control" placeholder="Contraseña">
                          
-                                <a href="cursos" type ="submit" class="btn btn-default">Ingresar</a>    
+                                <a href="redkat" type ="submit" class="btn btn-default">Ingresar</a>    
                         </div>
                     </form>
             </div>

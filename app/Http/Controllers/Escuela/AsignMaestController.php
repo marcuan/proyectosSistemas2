@@ -10,9 +10,16 @@ use RED\Http\Controllers\Controller;
 
 class AsignMaestController extends Controller
 {
-	public function asignar($id) 
+	public function asignar($id, Request $request) 
 	{
-		$course = Curso::All();
+		if($request->get('name') != "")
+		{
+			$course = Curso::name($request->get('name'))->orderBy('id','DESC')->paginate(10);   
+		}
+		else
+		{
+			$course = Curso::All();	
+		}
 		$teacher = Maestro::find($id);
 		return view('Escuela.asignacionmaestro.index', compact(['course', 'teacher']));
 	}
