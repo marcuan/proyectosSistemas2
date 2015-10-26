@@ -12,7 +12,6 @@
             @foreach($detalle->detalles as $DetalleCompra)  
                 <tbody>
                     <td>{{$DetalleCompra->materia_prima_id}}</td>
-                    <td>{{$DetalleCompra->compras_id}}</td>
                     <td>{{$DetalleCompra->cantidad}}</td>
                     <td>{{$DetalleCompra->costo}}</td>
                 </tbody>

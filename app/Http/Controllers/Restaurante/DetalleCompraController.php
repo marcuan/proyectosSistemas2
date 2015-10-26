@@ -35,7 +35,7 @@ class DetalleCompraController extends Controller
     public function mostrardetallecompra($id)
     {
         $detalle = Compra::find($id);
-        return View('detallecompra.detallecompra',compact('detalle'));
+        return view('detallecompra.detallecompra',compact('detalle'));
     }
     /**
      * Show the form for creating a new resource.
