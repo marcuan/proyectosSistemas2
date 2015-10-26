@@ -17,7 +17,7 @@
             </div>
             <div class="form-grup">
                 {!!Form::label('Existencia:')!!}
-                {!!Form::text('existencia',null,['class'=>'form-control','placeholder'=>'Ingrese la existencia del producto','required'])!!}
+                {!!Form::number('existencia',null,['class'=>'form-control','placeholder'=>'Ingrese la existencia del producto','required'])!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Comision:')!!}
