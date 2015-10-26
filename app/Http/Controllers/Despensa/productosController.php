@@ -4,6 +4,7 @@ namespace RED\Http\Controllers\Despensa;
 use Illuminate\Http\Request;
 
 use RED\Despensa\Producto;
+use RED\Despensa\Consignacion;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 use Resources;
@@ -13,7 +14,8 @@ use Resources;
 */
 class ProductosController extends Controller
 {
-	
+
+	public $opcionConsignacion=1;
     /**
      * Desplegar proveedores
      *
@@ -34,8 +36,8 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        //
-        return view('productos.create');
+        $opcionConsignacion = Consignacion::all()->lists('id');
+        return view('productos.create',compact('opcionConsignacion'));
     }
 
     /**

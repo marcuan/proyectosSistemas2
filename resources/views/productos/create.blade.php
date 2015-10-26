@@ -9,7 +9,7 @@
             </div>
             <div class="form-grup">
                 {!!Form::label('Detalle:')!!}
-                {!!Form::number('detalleProducto',null,['class'=>'form-control','placeholder'=>'Ingrese Detalle de su producto','required'])!!}
+                {!!Form::textarea('detalleProducto',null,['class'=>'form-control','placeholder'=>'Ingrese Detalle de su producto','required'])!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Precio:')!!}
@@ -23,9 +23,14 @@
                 {!!Form::label('Comision:')!!}
                 {!!Form::text('comision',null,['class'=>'form-control','placeholder'=>'Ingrese comision del producto','required'])!!}
             </div>
-            
-        
-    {!!form::close()!!}
+            <div class="form-grup">
+                {!!Form::label('Consignacion:')!!}
+                {!!Form::select('consignacion_id',$opcionConsignacion,['class'=>'form-control','placeholder'=>'Ingrese Consignacion','required'])!!}
+            </div>
+            <div class="form-btn">
+                {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+            </div>
     </div>
+    {!!form::close()!!}
 
 @stop

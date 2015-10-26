@@ -12,7 +12,8 @@ class Producto extends Model
 		'detalleProducto',
 		'precioVenta',
 		'existencia',
-		'comision'
+		'comision',
+        'consignacion_id'
 		];
 	
 	 public function scopeName($query, $name)
