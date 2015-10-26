@@ -11,7 +11,6 @@ class Producto extends Model
 		'nombreProducto',
 		'detalleProducto',
 		'precioVenta',
-		'detalleProducto',
 		'existencia',
 		'comision'
 		];

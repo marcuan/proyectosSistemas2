@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 @section('content')
         
-    {!!Form::model($producto,['route'=>['producto.update', $producto->idProducto], 'method'=>'PUT'])!!}
+    {!!Form::model($productos,['route'=>['producto.update', $productos->idProducto], 'method'=>'PUT'])!!}
         <h3>Productos</h3>
         <div class="container col-xs-12">
             <div class="form-grup">

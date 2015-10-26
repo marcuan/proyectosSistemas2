@@ -68,10 +68,10 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function edit($idProducto)
     {
         //
-        $provider = Producto::find($id);
+        $provider = Producto::find($idProducto);
         return view('productos.edit', ['productos'=>$provider]);
     }
 
@@ -85,7 +85,7 @@ class ProductosController extends Controller
     public function update(Request $request, $id)
     {
         //
-            $provider = Proveedore::find($id);
+            $provider = Producto::find($id);
             $provider->fill($request->all());
             $provider->save();
 
