@@ -102,6 +102,9 @@
                              <li>
                                 <a href="#">Productos</a>
                             </li>
+                            <li>
+                                <a href="consignaciones">Consignaciones</a>
+                            </li>
                         </ul>
                     </li>  
                 </ul>
