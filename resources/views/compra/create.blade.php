@@ -21,7 +21,6 @@
             </div><br>
             <div class="form-grup">
                 {!!Form::label('Proveedor:')!!}
-
                 {!!Form::select('proveedores_id', $opcionproveedor,['class'=>'form-control','placeholder'=>'Ingrese Proveedor', 'required'])!!}
             </div>
 
