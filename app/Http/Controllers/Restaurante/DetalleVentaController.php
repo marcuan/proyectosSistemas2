@@ -2,7 +2,7 @@
 
 namespace RED\Http\Controllers\Restaurante;
 
-se Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use RED\Restaurante\DetalleVenta;
 //para temporadas¿¿¿¿¿¿????????
 use RED\Restaurante\Temporada;
