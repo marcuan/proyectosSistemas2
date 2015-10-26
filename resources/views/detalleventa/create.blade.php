@@ -7,7 +7,7 @@
         <h3>Detalle Venta</h3>
         <div class="container">
             <div class="form-grup">
-                {!!Form::label('Platillo:')!!}
+                {!!Form::label('Temporada:')!!}
                 {!!Form::select('temporada_id',$opciontemporada,['class'=>'form-control','placeholder'=>'Temporada ','required'])!!}
             </div>
             <div class="form-grup">
