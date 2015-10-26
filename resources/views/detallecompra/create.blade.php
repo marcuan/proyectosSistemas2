@@ -19,8 +19,8 @@
                 {!!Form::text('cantidad',null,['class'=>'form-control','placeholder'=>'Ingrese Cantidad','required'])!!}
             </div>
             <div class="form-grup">
-                {!!Form::label('Costo:')!!}
-                {!!Form::text('costo',null,['class'=>'form-control','placeholder'=>'Ingrese Costo','required'])!!}
+              {!!Form::label('Precio unitario:')!!}
+                {!!Form::text('costo',0,['class'=>'form-control','placeholder'=>'Ingrese Costo','required'])!!}
             </div>
             {!!Form::submit('Guardar',['class'=>'btn btn-primary'])!!}
         </div>
