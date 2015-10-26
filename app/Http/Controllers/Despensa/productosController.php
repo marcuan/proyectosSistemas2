@@ -88,6 +88,7 @@ class ProductosController extends Controller
             $provider = Producto::find($id);
             $provider->fill($request->all());
             $provider->save();
+            return redirect('/producto')->with('message','edit');
 
     }
 
