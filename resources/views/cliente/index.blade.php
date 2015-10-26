@@ -32,8 +32,8 @@ Vista -> Cuadro para buscar clientes
 {!! Form::close() !!}
 
 <a href="/clientes/create" class="btn btn-danger">Nuevo Cliente</a>
-    <div class="container">
-        <table class="table">
+    <div class="container-fluid">
+        <table class="table table-condensed">
             <thead>
             <h3>Clientes</h3>
                 <th>Nombre</th>

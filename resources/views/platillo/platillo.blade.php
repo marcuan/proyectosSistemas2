@@ -17,14 +17,23 @@
 @endif
 
 @section('content')
+    <!-- Vista -> Cuadro para buscar platillo-->
+    {!! Form::open(['href' => '../public/platillo', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
+    <div class="form-group">
+        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre del platillo']) !!}
+    </div>
+        <button type="submit" class="btn btn-primary">Buscar</button> 
+    {!! Form::close() !!}
+    <!-- .....  -->
+
 	<a href="/platillo/create" class="btn btn-danger">Crear platillo</a>
-    <div class="container">
-        <table class="table">
+    <div class="container-fluid">
+        <table class="table table-condensed">
             <thead>
                 <th>Temporada</th>
-                <th>nombre</th>
-                <th>precio</th>
-                <th>descripcion</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Descripcion</th>
             </thead>
             @foreach($platillo as $dato)
             <tbody>

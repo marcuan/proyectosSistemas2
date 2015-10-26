@@ -14,4 +14,13 @@ class Platillo extends Model
     	'precio',
     	'descripcion'
     ];
+
+    public function scopeName($query, $name)
+    {
+    	if(trim($name)!="")
+    	{
+    		#code...
+    		$query->where(\DB::raw("CONCAT(nombre)"), "LIKE", "%$name%");
+    	}
+    }
 }

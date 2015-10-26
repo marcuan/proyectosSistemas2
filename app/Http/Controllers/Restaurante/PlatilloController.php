@@ -11,7 +11,7 @@ use RED\Restaurante\Temporada;
 use RED\Repositories\PlatillosRepo;
 use RED\Repositories\TemporadaRepo;
 use Resources;
-
+use Illuminate\Support\Facades\Session;
 
 class PlatilloController extends Controller
 {
@@ -41,9 +41,9 @@ class PlatilloController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-       $platillo = Platillo::all();
+       $platillo = Platillo::name($request->get('name'))->orderBy('nombre','DESC')->paginate();
         return View('platillo.platillo',compact('platillo'));
     }
 
@@ -127,6 +127,7 @@ class PlatilloController extends Controller
     public function destroy($id)
     {
         //
+
     }
     
 }
