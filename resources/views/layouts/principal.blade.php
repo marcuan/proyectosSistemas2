@@ -97,7 +97,7 @@
                                 <a href="/inventario">Inventario</a>
                             </li>
                             <li>
-                                <a href="#">Ventas</a>
+                                <a href="/venta">Ventas</a>
                             </li>
                              <li>
                                 <a href="/producto">Productos</a>
