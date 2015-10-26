@@ -9,7 +9,7 @@ class Ventum extends Model
     protected $table = 'Venta';
 
     protected $fillable = [
-    'idVenta',
+    'id',
     'clientes_id'];
 
     protected $dates = ['deleted_at'];
@@ -32,7 +32,7 @@ class Ventum extends Model
 
         if (trim($code) != "")
         {
-            return $query->where("idVenta","LIKE","%$code%");    
+            return $query->where("id","LIKE","%$code%");    
         }
     }
 }
