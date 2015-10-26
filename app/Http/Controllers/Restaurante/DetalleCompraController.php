@@ -26,16 +26,16 @@ class DetalleCompraController extends Controller
         return View('detallecompra.index',compact('DetalleCompra'));
     }
 
-/**
-     * Desplegar platillos por temporada
+    /**
+     * Desplegar detalles de la compra
      *
      * @return Response
      */
     
     public function mostrardetallecompra($id)
     {
-        $compra = Compra::find($id);
-        return View('compra.detallecompra',compact('compra'));
+        $detalle = Compra::find($id);
+        return view('detallecompra.detallecompra',compact('detalle'));
     }
     /**
      * Show the form for creating a new resource.
@@ -61,12 +61,22 @@ class DetalleCompraController extends Controller
     public function store(Request $request)
     {
         $opcionmateria = MateriaPrima::all()->lists('nombre','id');
-        DetalleCompra::create($request->all());
+      
 	   //Aqui se actualiza la compra
 	    $idcompra=$request['compras_id'];
-	    $costo=$request['costo'];//Obtenemos el costo de la transaccion 
+	    $costo=$request['costo'];//Obtenemos el costo unitario 
+	    $cantidad=$request['cantidad'];
+	     $descuento=$request['descuento'];
+  	    $subtotal=$cantidad*$costo;
+	    DetalleCompra::create($request->all());
+	   
 	   $compra = Compra::find($idcompra);//Buscamos la compra
-		$compra->total=$compra->total+$costo;
+	
+		
+		$compra->subTotal=$compra->subTotal+$subtotal; //Actualizamos el subtotal
+		
+		$compra->total=$compra->subTotal-$descuento; //Descuento
+		
 	   $compra->save();//actualizar
 	   $compra=$idcompra;
 	   return view('detallecompra.create',compact('compra','opcionmateria'))->with('message','store');;
