@@ -14,4 +14,13 @@ class Producto extends Model
 		'existencia',
 		'comision'
 		];
+	
+	 public function scopeName($query, $name)
+    {
+    	if(trim($name)!="")
+    	{
+    		#code...
+    		$query->where(\DB::raw("CONCAT(nombreProducto)"), "LIKE", "%$name%");
+    	}
+    }
 }
