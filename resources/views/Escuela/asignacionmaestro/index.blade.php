@@ -38,10 +38,12 @@
                         {!!Form::text('curso['.$key.']', $curso->id, ['class'=>'hidden', 'id'=>'idcurso'])!!}</td>
                 </tbody>
                 @endforeach
+                {!!$course->render()!!}
             </table> 
         </div>
-        <div class="form-btn">
-               {!!Form::submit('Asignar Cursos',['class'=>'btn btn-primary'])!!}
+        <div class="">
+                {!!$course->render()!!}                
+               {!!Form::submit('Asignar Cursos',['class'=>'btn btn-primary pull-right'])!!}
             </div>
     {!!form::close()!!}
 @stop
