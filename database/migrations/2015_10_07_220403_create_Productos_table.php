@@ -28,7 +28,7 @@ class CreateProductosTable extends Migration
                  
                 //$table->float('total');
                 //$table->integer('cantidad');
-                $table->integer('tiendaorestaurante');
+                //$table->integer('tiendaorestaurante');
             $table->timestamps();
         });
     }
