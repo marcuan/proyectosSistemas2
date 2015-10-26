@@ -18,7 +18,7 @@ class AsignMaestController extends Controller
 		}
 		else
 		{
-			$course = Curso::All();	
+			$course = Curso::orderBy('id','DESC')->paginate(10);	
 		}
 		$teacher = Maestro::find($id);
 		return view('Escuela.asignacionmaestro.index', compact(['course', 'teacher']));

@@ -14,11 +14,11 @@ class AsignEstController extends Controller
 	{
 		if($request->get('name') != "")
 		{
-			$course = Curso::name($request->get('name'))->orderBy('id','DESC')->paginate(10);   
+			$course = Curso::name($request->get('name'))->orderBy('id','DESC');   
 		}
 		else
 		{
-			$course = Curso::All();	
+			$course = Curso::orderBy('id','DESC')->paginate(10);	
 		}
 		$student = Estudiante::find($id);
 		return view('Escuela.asignacionestudiante.index', compact(['course', 'student']));
