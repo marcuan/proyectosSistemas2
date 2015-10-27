@@ -65,7 +65,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="tagline">Café R.E.D</h1>
+                    <h1 class="tagline">RED KAT</h1>
                 </div>
             </div>
         </div>

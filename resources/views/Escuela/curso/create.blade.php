@@ -26,7 +26,7 @@
             </div><br>
         	<div class="form-grup">
         		{!!Form::label('Maximo Estudiantes:')!!}
-        		{!!Form::number('max_estudiantes',null,['class'=>'form-control','placeholder'=>'Ingrese Maximo de Estudiantes','required'])!!}
+        		{!!Form::number('max_estudiantes',null,['class'=>'form-control','placeholder'=>'Ingrese Maximo de Estudiantes','required','min'=>'1'])!!}
         	</div><br>
             <div class="form-btn">
         	   {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}

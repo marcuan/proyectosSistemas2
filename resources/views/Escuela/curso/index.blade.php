@@ -4,19 +4,19 @@
 
 
 @if($message == 'store')
-<div class="alert alert-success alert-dismissible alerta" role="alert">
+<div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Creado.</strong> Curso creado exitosamente.
 </div>
 @endif
 @if($message == 'edit')
-<div class="alert alert-info alert-dismissible alerta" role="alert">
+<div class="alert alert-info alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Editado.</strong> Curso editado exitosamente.
 </div>
 @endif
 @if($message == 'erase')
-<div class="alert alert-danger alert-dismissible alerta" role="alert">
+<div class="alert alert-danger alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Inhabilitado.</strong> Curso inhabilitado exitosamente.
 </div>
@@ -25,7 +25,7 @@
 @section('content')
     <div class="container col-xs-12">
     <h3 class="title" selected="selected">Cursos</h3>
-    <a href="cursos/create" class="btn btn-danger">Crear Curso</a>
+    <a href="/cursos/create" class="btn btn-danger">Crear Curso</a>
     {!!Form::open(['rout'=>'estudiantes.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
         <div class="form-group">
             {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}

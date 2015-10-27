@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><span class="icon-logo_red"></span></a> 
+                <a class="navbar-brand" href="/redkat"><span class="icon-logo_red"></span></a> 
             </div>
     <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;"> 
         -Café Red- &nbsp; 
@@ -33,7 +33,7 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li style="text-align: center;">
-                        <a class="active-menu"  href="index.html"><i class=""></i>Café RED</a>
+                        <a class="active-menu"  href="/redkat"><i class=""></i>RED KAT</a>
                     </li>
                     <li>
                         <a href="#"><i class="icon-ong"></i> ONG</a>
@@ -114,13 +114,11 @@
                    
           <div id="page-wrapper" >
             <div id="page-inner">
+                @yield('content') 
+                <p style="font-size:11px;">Copyright &copy; URL -proyectos-</p>
                 
-                    @yield('content')
-                   
             </div>
         </div>
-       
-    </div>
     {!!Html::script('https://code.jquery.com/jquery-1.11.3.min.js')!!}
     {!!Html::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')!!}
     {!!Html::script('js/jquery.metisMenu.js')!!}    
