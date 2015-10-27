@@ -88,7 +88,7 @@ class CursoController extends Controller
     {
         $curso = Curso::find($id);
         $horario = $curso->horarios()->get();
-        return view('Escuela.horario.index', compact(['curso', 'horario']));
+        return view('Escuela.curso.info', compact(['curso', 'horario']));
     }
 
     /**

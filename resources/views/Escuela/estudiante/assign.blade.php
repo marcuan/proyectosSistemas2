@@ -1,6 +1,6 @@
 @extends('layouts.principal')
 @section('content')
-{!!Form::model(['method'=>'POST'])!!}
+{!!Form::open()!!}
 	<div class="container col-xs-12">
     <h3 class="title" selected="selected">Estudiantes</h3>
     <a href="../estudiantes" class="btn btn-danger">Regresar</a>

@@ -31,6 +31,8 @@ Route::resource('asignacionestudiantes', 'Escuela\AsignacionEstudianteController
 Route::get('asignacionmaestros/{id}', 'Escuela\AsignMaestController@asignar');
 Route::resource('asignacionmaestros', 'Escuela\AsignacionMaestroController');
 Route::get('cursoestudiantes/{id}', 'Escuela\CursoEstudiantesController@verestudiantes');
+Route::get('agregarhorario/{id}', 'Escuela\CursoEstudiantesController@crearhorario');
+Route::resource('agregarhorario', 'Escuela\HorarioController');
 /******************/
 
 /******************************
