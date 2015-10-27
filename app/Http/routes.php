@@ -30,6 +30,7 @@ Route::get('asignacionestudiantes/{id}', 'Escuela\AsignEstController@asignar');
 Route::resource('asignacionestudiantes', 'Escuela\AsignacionEstudianteController');
 Route::get('asignacionmaestros/{id}', 'Escuela\AsignMaestController@asignar');
 Route::resource('asignacionmaestros', 'Escuela\AsignacionMaestroController');
+Route::get('cursoestudiantes/{id}', 'Escuela\CursoEstudiantesController@verestudiantes');
 /******************/
 
 /******************************

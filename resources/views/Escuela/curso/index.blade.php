@@ -44,8 +44,6 @@
                 <th>Codigo</th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
-                <th>Fecha de Inicio</th>
-                <th>Fecha de Finalizacion</th>
                 <th>Maximo de Estudiantes</th>
                 <th>Operación</th>
             </thead>
@@ -54,10 +52,10 @@
                 <td>{{$curso->codigo}}</td>
                 <td>{{$curso->nombre_curso}}</td>
                 <td>{{$curso->descripcion}}</td>
-                <td>{{$curso->fecha_inicio}}</td>
-                <td>{{$curso->fecha_fin}}</td>
                 <td>{{$curso->max_estudiantes}}</td>
-                <td>{!!link_to_route('cursos.edit', $title = 'Editar', $parameters = $curso->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
+                <td>{!!link_to_route('cursos.edit', $title = 'Editar', $parameters = $curso->id, $attributes = ['class'=>'btn btn-primary']);!!}
+                    {!!link_to_route('cursos.show', $title = 'Información', $parameters = $curso->id, $attributes = ['class'=>'btn btn-warning']);!!}
+                    {!!link_to('cursoestudiantes/'.$curso->id, $title = 'Estudiantes', $attributes = ['class'=>'btn btn-success'], $secure = null);!!}</td>
             </tbody>
             @endforeach
             {!!$course->render()!!}
