@@ -2,25 +2,25 @@
 <?php $message=Session::get('message')?>
 
 @if($message == 'store')
-<div class="alert alert-success alert-dismissible alerta" role="alert">
+<div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Creado. </strong> Estudiante creado exitosamente.
 </div>
 @endif
 @if($message == 'edit')
-<div class="alert alert-info alert-dismissible alerta" role="alert">
+<div class="alert alert-info alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Editado. </strong> Estudiante editado exitosamente.
 </div>
 @endif
 @if($message == 'erase')
-<div class="alert alert-danger alert-dismissible alerta" role="alert">
+<div class="alert alert-danger alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Inhabilitado.</strong> Estudiante inhabilitado exitosamente.
 </div>
 @endif
 @if($message == 'assign')
-<div class="alert alert-warning alert-dismissible alerta" role="alert">
+<div class="alert alert-warning alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Asignado. </strong> Curso(s) Asignado(s) exitosamente.
 </div>
@@ -30,7 +30,7 @@
     
     <div class="container col-xs-12">
     <h3 class="title" selected="selected">Estudiantes</h3>
-    <a href="estudiantes/create" class="btn btn-danger">Crear Estudiante</a>
+    <a href="/estudiantes/create" class="btn btn-danger">Crear Estudiante</a>
     
     {!!Form::open(['rout'=>'estudiantes.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
         <div class="form-group">
@@ -47,20 +47,20 @@
     <div></div>
         <table class="table">
             <thead>
+                <th>Código</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>Fecha de Nacimiento</th>
-                <th>Direccion</th>
                 <th>Correo</th>
+                <th>Teléfono</th>
                 <th>Operación</th>
             </thead>
             @foreach($student as $estudiante)
             <tbody>
+                <td>{{$estudiante->codigo}}</td>
                 <td>{{$estudiante->nombre_estudiante}}</td>
                 <td>{{$estudiante->apellido_estudiante}}</td>
-                <td>{{$estudiante->fecha_nacimiento}}</td>
-                <td>{{$estudiante->direccion}}</td>
                 <td>{{$estudiante->correo}}</td>
+                <td>{{$estudiante->telefonos()->get()->first()->numero_telefono}}</td>
                 <td>{!!link_to_route('estudiantes.edit', $title = 'Editar', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-primary']);!!}
                     {!!link_to('asignacionestudiantes/'.$estudiante->id, $title = 'Asignar Cursos', $attributes = ['class'=>'btn btn-success'], $secure = null);!!}
                     {!!link_to_route('estudiantes.show', $title = 'Ver Información', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-warning']);!!}</td>

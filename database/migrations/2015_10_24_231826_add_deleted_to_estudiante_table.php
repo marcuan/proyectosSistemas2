@@ -24,8 +24,6 @@ class AddDeletedToEstudianteTable extends Migration
      */
     public function down()
     {
-        Schema::table('Estudiante', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('Estudiante');
     }
 }

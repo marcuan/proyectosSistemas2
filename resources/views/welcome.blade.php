@@ -12,7 +12,7 @@
 </head>
 <body style="padding-top: 50px;">
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top nav-principal" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header lg7">
@@ -65,7 +65,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="tagline">Café R.E.D</h1>
+                    <h1 class="tagline">RED KAT</h1>
                 </div>
             </div>
         </div>

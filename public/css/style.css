@@ -72,10 +72,10 @@ body {
 }
 #page-inner {
     width:100%;
-    margin:10px 20px 10px 0px;
+    margin:5px 5px 5px 0px;
     background-color:#fff!important;
     padding:10px;
-    min-height:760px;
+    min-height:820px;
 }
 .form-btn{
     float: right;
@@ -208,7 +208,7 @@ max-width:170px;
 .navbar-cls-top .navbar-brand {
 	color: #fff;
 background: #C90000;
-width: 260px;
+width: 180px;
 text-align: center;
 height: 60px;
 font-size: 30px;
@@ -318,7 +318,7 @@ color:#fff;
 
 .navbar-default {
 border:0px solid black;
-     
+width: 100%;
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
@@ -341,19 +341,18 @@ background-color: #FFF;
 
  @media(min-width:768px) {
      #page-wrapper{
-        margin: 0 0 0 260px;
-        padding: 15px 30px;
-        
-		
+        margin: 59px 0 0 180px;
+        padding: 10px 15px;
     }
     .navbar-side {
         z-index: 1;
-        position: absolute;
-        width: 260px;
+        position: fixed;
+        width: 180px;
     }
-
     .navbar {
         border-radius: 0px; 
+        position: fixed;
+        margin:-59px 0 0 0;
     }
 }
 /*otro*/
@@ -424,4 +423,7 @@ background-color: #FFF;
 .datos{
     display: flex;
     text-shadow:none;
+}
+.nav-principal{
+    margin: 0;
 }

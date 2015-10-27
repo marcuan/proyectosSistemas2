@@ -35,7 +35,7 @@ class Curso extends Model
 
     public function horarios()
     {
-        return $this->hasMany('RED\Escuela\horario');
+        return $this->hasMany('RED\Escuela\horarios');
     }
 
     public function scopeName($query, $name){
