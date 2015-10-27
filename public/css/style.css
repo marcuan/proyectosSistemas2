@@ -424,6 +424,6 @@ background-color: #FFF;
     display: flex;
     text-shadow:none;
 }
-.navbar-brand{
-    
+.nav-principal{
+    margin: 0;
 }
