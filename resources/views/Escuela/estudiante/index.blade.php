@@ -47,20 +47,20 @@
     <div></div>
         <table class="table">
             <thead>
+                <th>Código</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>Fecha de Nacimiento</th>
-                <th>Direccion</th>
                 <th>Correo</th>
+                <th>Teléfono</th>
                 <th>Operación</th>
             </thead>
             @foreach($student as $estudiante)
             <tbody>
+                <td>{{$estudiante->codigo}}</td>
                 <td>{{$estudiante->nombre_estudiante}}</td>
                 <td>{{$estudiante->apellido_estudiante}}</td>
-                <td>{{$estudiante->fecha_nacimiento}}</td>
-                <td>{{$estudiante->direccion}}</td>
                 <td>{{$estudiante->correo}}</td>
+                <td>{{$estudiante->telefonos()->get()->first()->numero_telefono}}</td>
                 <td>{!!link_to_route('estudiantes.edit', $title = 'Editar', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-primary']);!!}
                     {!!link_to('asignacionestudiantes/'.$estudiante->id, $title = 'Asignar Cursos', $attributes = ['class'=>'btn btn-success'], $secure = null);!!}
                     {!!link_to_route('estudiantes.show', $title = 'Ver Información', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-warning']);!!}</td>

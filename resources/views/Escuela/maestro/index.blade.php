@@ -45,20 +45,20 @@
     <div></div>
         <table class="table">
             <thead>
+                <th>Código</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>Fecha de Nacimiento</th>
-                <th>Direccion</th>
                 <th>Correo</th>
+                <th>Teléfono</th>
                 <th>Operación</th>
             </thead>
             @foreach($teacher as $maestro)
             <tbody>
+                <td>{{$maestro->codigo}}</td>
                 <td>{{$maestro->nombre_maestro}}</td>
                 <td>{{$maestro->apellido_maestro}}</td>
-                <td>{{$maestro->fecha_nacimiento}}</td>
-                <td>{{$maestro->direccion}}</td>
                 <td>{{$maestro->correo}}</td>
+                <td>{{$maestro->telefonos()->get()->first()->numero_telefono}}</td>
                 <td>{!!link_to_route('maestros.edit', $title = 'Editar', $parameters = $maestro->id, $attributes = ['class'=>'btn btn-primary']);!!}
                 {!!link_to('asignacionmaestros/'.$maestro->id, $title = 'Asignar Cursos', $attributes = ['class'=>'btn btn-success'], $secure = null);!!}
                 {!!link_to_route('maestros.show', $title = 'Ver Información', $parameters = $maestro->id, $attributes = ['class'=>'btn btn-warning']);!!}</td>

@@ -24,8 +24,6 @@ class AddDeletedToMaestroTable extends Migration
      */
     public function down()
     {
-        Schema::table('Maestro', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('Maestro');
     }
 }
