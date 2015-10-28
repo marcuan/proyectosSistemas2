@@ -51,8 +51,9 @@
         <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
     {!!Form::close()!!}
     <div></div>
-        <table class="table">
+        <table class="table table-hover table-responsive">
             <thead>
+                <th></th>
                 <th>Código</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
@@ -62,6 +63,7 @@
             </thead>
             @foreach($student as $estudiante)
             <tbody>
+                <td><img src="/profile-pictures/{{$estudiante->path}}" alt="maestro" class="img-circle img-total"></td>
                 <td>{{$estudiante->codigo}}</td>
                 <td>{{$estudiante->nombre_estudiante}}</td>
                 <td>{{$estudiante->apellido_estudiante}}</td>

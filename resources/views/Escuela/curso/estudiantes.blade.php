@@ -19,7 +19,7 @@
             </div>       
         </div>
         <h4>Estudiantes Asignados al Curso</h4>
-        <table class="table">
+        <table class="table table-hover table-responsive">
             <thead>
                 <th>Nombre</th>
                 <th>Apellido</th>

@@ -7,7 +7,7 @@
         <div class="info card">
             <div class="datos">
                 <span class="foto">
-                    <img src="/profile-pictures/{{$student->path}}" alt="" class="img-circle">
+                    <img src="/profile-pictures/{{$student->path}}" alt="" class="img-circle img-datos">
                 </span>
                 <div class="personales"> 
                     <h5><strong>Nombre: </strong>{{$student->nombre_estudiante}} {{$student->apellido_estudiante}}</h5>
@@ -19,7 +19,7 @@
             </div>       
         </div>
         <h4>Cursos Asignados</h4>
-        <table class="table">
+        <table class="table table-hover table-responsive">
             <thead>
                 <th>Codigo</th>
                 <th>Nombre</th>
