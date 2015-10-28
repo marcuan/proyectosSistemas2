@@ -37,7 +37,7 @@
             </thead>
             @foreach($platillo as $dato)
             <tbody>
-                <td>{{$dato->temporada_id}}</td>
+                <td>{{$dato->temporada->nombre}}</td>
                 <td>{{$dato->nombre}}</td>
                 <td>{{$dato->precio}}</td>
                 <td>{{$dato->descripcion}}</td>
