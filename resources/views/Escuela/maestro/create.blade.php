@@ -4,10 +4,7 @@
        
         <div class="container col-xs-12">
         <h3 class="title" selected="selected">Maestros</h3>
-            <div class="form-grup">
-                {!!Form::label('Seleccione foto de perfil:')!!}
-                {!!Form::file('path')!!}
-            </div><br>
+            
             <div class="form-grup">
                 {!!Form::label('Nombre:')!!}
                 {!!Form::text('nombre_maestro',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre Maestro','required'])!!}
@@ -35,6 +32,10 @@
             <div class="form-grup">
                 {!!Form::label('Telefono:')!!}
                 {!!Form::tel('numero_telefono',null,['class'=>'form-control','placeholder'=>'Ingrese Telefono ej. 54545454','required','pattern'=>'[0-9]{8}'])!!}
+            </div><br>
+            <div class="form-grup">
+                {!!Form::label('Seleccione foto de perfil:')!!}
+                {!!Form::file('path')!!}
             </div><br>
             <div class="form-btn">
             {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
