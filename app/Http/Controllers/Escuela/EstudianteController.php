@@ -83,7 +83,7 @@ class EstudianteController extends Controller
         $telefono->estudiante_id = $estudiante->id;
         $telefono->save();
         
-    return redirect('/estudiantes')->with('message', 'store');
+        return redirect('/estudiantes')->with('message', 'store');
     }
 
     /**
