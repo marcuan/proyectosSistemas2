@@ -56,8 +56,8 @@ class Maestro extends Model
     {
         if(!(empty($path)))
         {
-            $this->attributes['path'] = Carbon::now()->year.Carbon::now()->month.Carbon::now()->day.Carbon::now()->hour.Carbon::now()->minute.Carbon::now()->second.$path->getClientOriginalName();
-            $name = Carbon::now()->year.Carbon::now()->month.Carbon::now()->day.Carbon::now()->hour.Carbon::now()->minute.Carbon::now()->second.$path->getClientOriginalName();
+            $this->attributes['path'] = Carbon::now()->year.Carbon::now()->month.Carbon::now()->day.Carbon::now()->hour.Carbon::now()->minute.Carbon::now()->second.'maestro-'.$path->getClientOriginalName();
+            $name = Carbon::now()->year.Carbon::now()->month.Carbon::now()->day.Carbon::now()->hour.Carbon::now()->minute.Carbon::now()->second.'maestro-'.$path->getClientOriginalName();
             \Storage::disk('local')->put($name, \File::get($path));
         }
     }
