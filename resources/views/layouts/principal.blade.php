@@ -12,8 +12,8 @@
 </head>
 <body>
 
-    <div id="wrapper">
-        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+    <div id="wrapper" style="">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0; z-index:100;">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -23,10 +23,10 @@
                 </button>
                 <a class="navbar-brand" href="/redkat"><span class="icon-logo_red"></span></a> 
             </div>
-    <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;"> 
-        -Café Red- &nbsp; 
-        <a href="/" class="btn btn-danger square-btn-adjust">Salir</a> 
-    </div>
+            <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;"> 
+                -Café Red- &nbsp; 
+                <a href="/" class="btn btn-danger square-btn-adjust">Salir</a> 
+            </div>
         </nav>   
            <!-- /. NAV TOP  -->
          <nav class="navbar-default navbar-side" role="navigation">
@@ -112,13 +112,13 @@
         </nav>  
         <!-- /. NAV SIDE  -->
                    
-          <div id="page-wrapper" >
+        <div id="page-wrapper" >
             <div id="page-inner">
                 @yield('content') 
-                <p style="font-size:11px;">Copyright &copy; URL -proyectos-</p>
-                
+                <p style="font-size:11px;">Copyright &copy; URL -proyectos-</p>        
             </div>
         </div>
+    </div>
     {!!Html::script('https://code.jquery.com/jquery-1.11.3.min.js')!!}
     {!!Html::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')!!}
     {!!Html::script('js/jquery.metisMenu.js')!!}    

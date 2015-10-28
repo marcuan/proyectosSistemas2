@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="container col-xs-12">
+<div class="z-ind container col-xs-12" style="">
 
         <hr>
         <div class="row administrativa">
