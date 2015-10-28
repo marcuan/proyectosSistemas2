@@ -5,6 +5,7 @@ namespace RED\Escuela;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class Maestro extends Model
 {
@@ -20,6 +21,7 @@ class Maestro extends Model
     	'direccion',
     	'correo',
         'activo',
+        'path',
     	'genero_id'];
 
     protected $dates = ['deleted_at'];
@@ -48,5 +50,12 @@ class Maestro extends Model
         {
             return $query->where("codigo","LIKE","%$code%");    
         }
+    }
+
+    public function setPathAttribute($path)
+    {
+        $this->attributes['path'] = Carbon::now()->second.$path->getClientOriginalName();
+        $name = Carbon::now()->second.$path->getClientOriginalName();
+        \Storage::disk('local')->put($name, \File::get($path));
     }
 }

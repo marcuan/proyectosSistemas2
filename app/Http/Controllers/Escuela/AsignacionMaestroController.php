@@ -40,11 +40,15 @@ class AsignacionMaestroController extends Controller
     {
         $maestro = Maestro::find($request['idmaestro']);
         $idcurso = $request['curso'];
-        foreach ($request['check'] as $dato) {
+        if($request['check'] != null) {
+            foreach ($request['check'] as $dato) {
                 $maestro->cursos()->attach($idcurso[$dato]);
-        }
+            }
 
-    return redirect('/maestros')->with('message','assign');
+            return redirect('/maestros')->with('message','assign');
+        } else {
+            return redirect('/maestros')->with('message','no-assign');
+        }
     }
 
     /**

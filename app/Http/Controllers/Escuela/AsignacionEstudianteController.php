@@ -40,11 +40,15 @@ class AsignacionEstudianteController extends Controller
     {
         $estudiante = Estudiante::find($request['idestudiante']);
         $idcurso = $request['curso'];
-        foreach ($request['check'] as $dato) {
+        if($request['check'] != null) {
+            foreach ($request['check'] as $dato) {
                 $estudiante->cursos()->attach($idcurso[$dato]);
-        }
+            }
 
-    return redirect('/estudiantes')->with('message','assign');
+            return redirect('/estudiantes')->with('message','assign');
+        } else {
+            return redirect('/estudiantes')->with('message','no-assign');
+        }
     }
 
     /**

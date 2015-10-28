@@ -6,7 +6,7 @@
     <div class="info card">
         <div class="datos">
             <span class="foto">
-                <img src="{{{ asset('images/usuario.png') }}}" alt="" class="img-circle">
+                <img src="/profile-pictures/{{$teacher->path}}" alt="" class="img-circle">
             </span>
             <div class="personales"> 
                 <h5><strong>Nombre: </strong>{{$teacher->nombre_maestro}}  {{$teacher->apellido_maestro}}</h5>

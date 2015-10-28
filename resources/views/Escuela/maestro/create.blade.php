@@ -1,10 +1,13 @@
 @extends('layouts.principal')
 @section('content')
-    {!!Form::open(['route'=>'maestros.store', 'method'=>'POST'])!!}
+    {!!Form::open(['route'=>'maestros.store', 'method'=>'POST', 'files'=>true])!!}
        
         <div class="container col-xs-12">
         <h3 class="title" selected="selected">Maestros</h3>
-
+            <div class="form-grup">
+                {!!Form::label('Seleccione foto de perfil:')!!}
+                {!!Form::file('path')!!}
+            </div><br>
             <div class="form-grup">
                 {!!Form::label('Nombre:')!!}
                 {!!Form::text('nombre_maestro',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre Maestro','required'])!!}
