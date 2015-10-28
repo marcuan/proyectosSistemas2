@@ -122,6 +122,7 @@ class EstudianteController extends Controller
     public function update(Request $request, $id)
     {
         $estudiante = Estudiante::find($id);
+        \Storage::delete($estudiante->path);
         $estudiante->fill($request->all());
         $estudiante->save();
 
