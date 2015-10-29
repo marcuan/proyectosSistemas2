@@ -8,7 +8,7 @@ use RED\Escuela\Maestro;
 use RED\Escuela\Curso;
 use RED\Http\Controllers\Controller;
 
-class AsignacionMaestroController extends Controller
+class DesasignacionMaestroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -43,10 +43,10 @@ class AsignacionMaestroController extends Controller
         $idcurso = $request['curso'];
         if($request['check'] != null) {
             foreach ($request['check'] as $dato) {
-                $maestro->cursos()->attach($idcurso[$dato]);
+                $maestro->cursos()->detach($idcurso[$dato]);
             }
 
-            return redirect('/maestros/'.$idmaestro)->with('message','assign');
+            return redirect('/maestros/'.$idmaestro)->with('message','unassign');
         } else {
             return redirect('/maestros/'.$idmaestro)->with('message','no-assign');
         }

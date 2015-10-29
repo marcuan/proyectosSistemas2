@@ -38,16 +38,17 @@ class AsignacionEstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        $estudiante = Estudiante::find($request['idestudiante']);
+        $idestudiante = $request['idestudiante'];
+        $estudiante = Estudiante::find($idestudiante);
         $idcurso = $request['curso'];
         if($request['check'] != null) {
             foreach ($request['check'] as $dato) {
                 $estudiante->cursos()->attach($idcurso[$dato]);
             }
 
-            return redirect('/estudiantes')->with('message','assign');
+            return redirect('/estudiantes/'.$idestudiante)->with('message','assign');
         } else {
-            return redirect('/estudiantes')->with('message','no-assign');
+            return redirect('/estudiantes/'.$idestudiante)->with('message','no-assign');
         }
     }
 

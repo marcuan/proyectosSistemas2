@@ -19,18 +19,6 @@
   <strong>Inhabilitado.</strong> Estudiante inhabilitado exitosamente.
 </div>
 @endif
-@if($message == 'assign')
-<div class="alert alert-warning alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Asignado. </strong> Curso(s) Asignado(s) exitosamente.
-</div>
-@endif
-@if($message == 'no-assign')
-<div class="alert alert-warning alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>No Asignado </strong> No se seleccionó ningún curso.
-</div>
-@endif
 
 @section('content')
     
@@ -70,8 +58,7 @@
                 <td>{{$estudiante->correo}}</td>
                 <td>{{$estudiante->telefonos()->get()->first()->numero_telefono}}</td>
                 <td>{!!link_to_route('estudiantes.edit', $title = 'Editar', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-primary']);!!}
-                    {!!link_to('asignacionestudiantes/'.$estudiante->id, $title = 'Asignar Cursos', $attributes = ['class'=>'btn btn-success'], $secure = null);!!}
-                    {!!link_to_route('estudiantes.show', $title = 'Ver Información', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-warning']);!!}</td>
+                    {!!link_to_route('estudiantes.show', $title = 'Ver Información', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
             </tbody>
             @endforeach
             {!!$student->render()!!}
