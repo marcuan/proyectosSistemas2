@@ -11,8 +11,17 @@ class Producto extends Model
 		'nombreProducto',
 		'detalleProducto',
 		'precioVenta',
-		'detalleProducto',
 		'existencia',
-		'comision'
+		'comision',
+        'consignacion_id'
 		];
+	
+	 public function scopeName($query, $name)
+    {
+    	if(trim($name)!="")
+    	{
+    		#code...
+    		$query->where(\DB::raw("CONCAT(nombreProducto)"), "LIKE", "%$name%");
+    	}
+    }
 }

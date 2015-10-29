@@ -23,4 +23,9 @@ class Platillo extends Model
     		$query->where(\DB::raw("CONCAT(nombre)"), "LIKE", "%$name%");
     	}
     }
+    public function temporada(){
+	    return $this->belongsTo('RED\Restaurante\Temporada');
+	    
+	    
+    }
 }

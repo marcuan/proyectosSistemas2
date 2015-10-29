@@ -99,6 +99,7 @@ class ConsignacionController extends Controller
             $consignacion = Consignacion::find($id);
             $consignacion->fill($request->all());
             $consignacion->save();
+            return redirect('/consignaciones')->with('message','edit');
 
     }
 

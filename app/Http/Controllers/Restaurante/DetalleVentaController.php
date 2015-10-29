@@ -4,11 +4,10 @@ namespace RED\Http\Controllers\Restaurante;
 
 use Illuminate\Http\Request;
 use RED\Restaurante\DetalleVenta;
-//para temporadas¿¿¿¿¿¿????????
+
 use RED\Restaurante\Temporada;
 use RED\Repositories\TemporadaRepo;
 
-//Para platillos// ¿¿¿¿¿¿¿¿??????????
 use RED\Repositories\PlatillosRepo;
 use RED\Restaurante\Platillo;
 
@@ -19,28 +18,6 @@ use RED\Http\Controllers\Controller;
 class DetalleVentaController extends Controller
 {
 
-     //mostrando temporadas
-    protected $temporadarepo;
-    public $opciontemporada;
-
-    //mostrando platillos // para desplegar en combo todos los platillos (modificado)
-    protected $listaplatillos;
-    public $opcionesplatillos;  
-    
-    ///no se porque uso PlatillosRepo
-    public function __construct(PlatillosRepo $temporadarepo){
-
-        $this->temporadarepo=$temporadarepo;
-    }
-
-    //usando el mismo combo box a ver si no da problemas
-    public function __construct(PlatillosRepo $listaplatillos)
-    {
-        $this->listaplatillos=$listaplatillos;
-    }
-
-    ////y esto no se para que sirve?
-    //depliega platillos por temporada¿?
     public function mostrarplatillotemporada($id)
     {
         $temporada = Temporada::find($id);
@@ -66,9 +43,15 @@ class DetalleVentaController extends Controller
     public function create()
     {
         //
-         $opciontemporada = Temporada::all()->lists('nombre','id');
-        $opcionesplatillos = Platillo::all()->lists('nombre', 'id');  /// modificado para platillos
-        return view('detalleventa.create', compact('opciontemporada'));
+        $opciontemporada = Temporada::all()->lists('nombre','id');
+        $numtemporada = $opciontemporada->first();
+        //(int) $numtemporada;
+        //echo ($numtemporada);
+        $opcionesplatillos = Platillo::where('temporada_id', '=', $numtemporada)->lists('nombre', 'id');
+        //echo($numero);
+        
+
+        return view('detalleventa.create', compact('opciontemporada'), compact('opcionesplatillos'));
     }
 
     /**
@@ -81,8 +64,8 @@ class DetalleVentaController extends Controller
     {
         //
         DetalleVenta::create([
-            'temporada_id' => $request['temporada_id'],
-            'nombre' => $request['nombre'];                 //aquí se supone se deplegaran los platillos
+            //'temporada_id' => $request['temporada_id'],
+            //'nombre' => $request['nombre'];                 //aquí se supone se deplegaran los platillos
             'cantidad' => $request['cantidad'],
             'total' => $request['total'],
             'tiendaorestaurante' => $request['tiendaorestaurante'],
