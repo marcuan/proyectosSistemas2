@@ -17,9 +17,8 @@ class ComprasController extends Controller
 	protected $proveedorrepo;
     public $opcionproveedor;
 
-    public function __construct(ProveedorRepo $proveedorrepo){
-    	
-    	
+    public function __construct(ProveedorRepo $proveedorrepo)
+    {
     	$this->proveedorrepo=$proveedorrepo;
     }
 	
