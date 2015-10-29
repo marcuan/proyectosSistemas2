@@ -14,7 +14,11 @@ class CreateVentaTable extends Migration
     {
         Schema::create('Venta', function(Blueprint $table) {
             $table->increments('id');
-
+			$table->date('fechaVenta');
+			$table->float('descuento');
+		    $table->float('subtotal');			
+			$table->float('total');
+			$table->boolean('anulado')->default('0');
             $table->integer('clientes_id')->unsigned();                           //kkjkukj
             $table->foreign('clientes_id')->references('id')->on('Clientes');    //oiwjdfklajsdfkjasdf
             $table->timestamps();
