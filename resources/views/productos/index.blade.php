@@ -21,6 +21,7 @@
     <a href="producto/create" class="btn btn-danger">Crear Producto</a>
         <table class="table">
             <thead>
+                <th>Codigo</th>
                 <th>Nombre</th>
                 <th>Detalle</th>
                 <th>Precio de Venta</th>
