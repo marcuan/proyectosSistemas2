@@ -8,6 +8,7 @@ use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 use RED\Repositories\ClienteRepo;
 use RED\Despensa\Ventum;
+use RED\Restaurante\Cliente;
 
 class VentasController extends Controller
 {
@@ -19,9 +20,15 @@ class VentasController extends Controller
         return view ('Despensa.venta.index',compact('venta'));
     }
     
+    public function buscarClientePorId ($idCliente)
+    {
+        $clienteComp = RED\Restaurante\Cliente::find(idCliente);
+        return $clienteComp;
+    }
+    
     public function create ()
     {
-        $clientes = RED\Restaurante\Cliente::All()->lists('nit');
+        $clientes = RED\Restaurante\Cliente::All()->lists('id','nit');
         return view ('Despensa.venta.create', compact('clientes'));
     }
     
@@ -31,7 +38,7 @@ class VentasController extends Controller
         return redirect ('/venta')->with('message','store');
     }
     
-    public function show($idVenta)
+    public function show($id)
     {
         //
     }

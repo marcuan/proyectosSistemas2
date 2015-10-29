@@ -27,13 +27,15 @@ public function __construct(InventarioRepo $inventariorepo){
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
 	   
 	 // $inventario=$this-inventariorepo->findall();
-	  $inventario = Producto::all();
-	  return View('inventario.verinventario',compact('inventario'));
+	  $inventario = Producto::name($request->get('name'))->orderBy('nombreProducto','DESC')->paginate();
+        return View('inventario.verinventario',compact('inventario'));
+	 // $inventario = Producto::all();
+	 // return View('inventario.verinventario',compact('inventario'));
     }
 
     /**

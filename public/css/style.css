@@ -427,6 +427,8 @@ background-color: #FFF;
 .nav-principal{
     margin: 0;
 }
+
+
 .img-datos{
     width: 125px;
     height:125px;
@@ -443,4 +445,62 @@ background-color: #FFF;
 table thead th,
 table tbody, td{
     text-align: center;
+
+
+/*
+ *  Custom Styles
+ */
+#login {
+    background-color: #4D4D4D;
+    padding-top: 20px;
+}
+#login ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#login .form-group input {
+    width: auto;
+}
+#login .form-group input[type="password"],
+#login .form-group input[type="email"] {
+    text-align: left;
+    width: 100% !important;
+}
+#login .icon-logo_red {
+    font-size: 120px;
+}
+#loginBody {
+    z-index: 10;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    text-align: center;
+    width: 60%;
+    margin: 10px auto;
+    padding: 30px;
+}
+#loginBarra {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 130px;
+    top: 270px;
+    z-index: -10;
+    background: #C90000;
+}
+#loginFooter {
+    color: #FFFFFF;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 10;
+}
+p.olvido, p.olvido a {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: #999;
 }

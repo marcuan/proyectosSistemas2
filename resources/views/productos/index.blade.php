@@ -26,15 +26,17 @@
                 <th>Precio de Venta</th>
                 <th>Existencia</th>
                 <th>Comision</th>
+                <th>Consignacion</th>
             </thead>
             @foreach($producto as $productos)
             <tbody>
                 <td>{{$productos->nombreProducto}}</td>
                 <td>{{$productos->detalleProducto}}</td>
-                <td>{{$productos->precioVenta}}</td>
+                <td>{{$productos->precioVenta}}</td>s
                 <td>{{$productos->existencia}}</td>
                 <td>{{$productos->comision}}</td>
-                <td>{!!link_to_route('productos.edit', $title = 'Editar', $parameters = $productos->idProducto, $attributes = ['class'=>'btn btn-primary']);!!}</td>
+                <td>{{$productos->consignacion_id}}</td>
+                <td>{!!link_to_route('producto.edit', $title = 'Editar', $parameters = $productos->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
         </table>
