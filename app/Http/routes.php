@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
 	]);
 
 	/**
-	 *	Escuela
+	 *	Modulo Escuela
 	 */
 	Route::resource('estudiantes','Escuela\EstudianteController');
 	Route::resource('maestros','Escuela\MaestroController');
@@ -51,7 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('agregarhorario', 'Escuela\HorarioController');
 
 	/**
-	 *	Restaurante
+	 *	Modulo Restaurante
 	 */
 	Route::resource('materiaprima','Restaurante\MateriaPrimaController');
 	Route::get('/comprasproveedor/{id}',['as'=>'compras','uses'=>'Restaurante\ComprasController@proveedor']);
@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('detallecompra', 'Restaurante\DetalleCompraController');
 
 	/**
-	 *	Despensa
+	 *	Modulo Despensa
 	 */
 	Route::resource ('venta','Despensa\VentasController');
 	Route::resource('inventario','Despensa\InventarioController');
