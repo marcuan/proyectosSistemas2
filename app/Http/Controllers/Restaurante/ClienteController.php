@@ -22,7 +22,7 @@ class ClienteController extends Controller
         //
         //$customer = Cliente::All();
         $customer = Cliente::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate(7);
-        return view ('cliente.index',compact('customer'));
+        return view ('cliente.index', compact('customer'));
     }
 
     /**
