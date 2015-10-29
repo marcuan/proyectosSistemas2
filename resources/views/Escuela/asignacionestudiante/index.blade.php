@@ -6,7 +6,7 @@
 <div class="container col-xs-12">
     <h3 class="title" selected="selected">Estudiantes</h3>
 
-    <a href="../estudiantes" class="btn btn-danger">Regresar</a>
+    <a href="../estudiantes/{{$student->id}}" class="btn btn-danger">Regresar</a>
     {!!Form::open(['rout'=>'estudiantes.asignacionestudiantes','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
     
         <div class="form-group">

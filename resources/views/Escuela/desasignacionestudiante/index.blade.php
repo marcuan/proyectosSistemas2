@@ -3,7 +3,7 @@
 <div class="container col-xs-12">
     <h3 class="title" selected="selected">Estudiantes</h3>
 
-    <a href="../estudiantes" class="btn btn-danger">Regresar</a>
+    <a href="../estudiantes/{{$student->id}}" class="btn btn-danger">Regresar</a>
     
     {!!Form::open(['route'=>'desasignacionestudiantes.store', 'method'=>'POST'])!!}
         <h4><strong>Estudiante: </strong>  {{$student->apellido_estudiante}} , {{$student->nombre_estudiante}}</h4>

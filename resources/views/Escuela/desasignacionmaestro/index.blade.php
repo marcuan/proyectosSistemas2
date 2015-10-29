@@ -6,7 +6,7 @@
     <div class="container col-xs-12">   
     <h3 class="title" selected="selected">Maestros</h3>
     
-    <a href="../maestros" class="btn btn-danger">Regresar</a>
+    <a href="../maestros/{{$teacher->id}}" class="btn btn-danger">Regresar</a>
 
     {!!Form::open(['route'=>'desasignacionmaestros.store', 'method'=>'POST'])!!}
         <h4><strong>Maestro: </strong> {{$teacher->apellido_maestro}} , {{$teacher->nombre_maestro}}</h4>
