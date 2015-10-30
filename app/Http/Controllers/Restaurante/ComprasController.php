@@ -10,6 +10,7 @@ use RED\Restaurante\Compra;
 use RED\Restaurante\DetalleCompra;
 use RED\Repositories\ProveedorRepo;
 use RED\Despensa\Proveedore;
+use RED\Restaurante\MateriaPrima;
 use Resources;
 
 class ComprasController extends Controller
@@ -42,7 +43,8 @@ class ComprasController extends Controller
     {
         //Cargar nombre de proveedores
         $opcionproveedor = Proveedore::all()->lists('nombre', 'id');
-        return view("compra.create", compact('opcionproveedor'));        
+	   $materiaprima=Materiaprima::all();
+        return view("compra.create", compact('opcionproveedor','materiaprima'));        
     }
 
     /**
