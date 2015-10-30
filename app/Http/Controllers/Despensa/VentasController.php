@@ -20,22 +20,21 @@ class VentasController extends Controller
         return view ('Despensa.venta.index',compact('venta'));
     }
     
-    
     public function buscarClientePorId ($idCliente)
     {
         $clienteComp = RED\Restaurante\Cliente::find(idCliente);
         return $clienteComp;
     }
     
-    public function create (Request $request)
+    public function create ()
     {
-        $clientes = RED\Restaurante\Cliente::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate(7);
-        return view ('Despensa.venta.create',compact('clientes'));
+        $clientes = RED\Restaurante\Cliente::All()->lists('id','nit');
+        return view ('Despensa.venta.create', compact('clientes'));
     }
     
     public function store (Request $request)
     {
-        RED\Despensa\Ventum::create($request.All());
+        RED\Despensa\Ventum::create($request->all('nit','id'));
         return redirect ('/venta')->with('message','store');
     }
     
