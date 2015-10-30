@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
 	 *	Ong
 	 */
 	Route::resource('users','Ong\UserController');
+	Route::resource('donantes','Ong\DonorController');
 
 	/**
 	 *	User Authentication
