@@ -19,6 +19,8 @@ class CreateDetalleConsignacionTable extends Migration
                  $table->integer('consignacion_id')->unsigned();
                  //Referenciando la llave foranea con la otra tabla Proveedores
                  $table->foreign('consignacion_id')->references('id')->on('Consignacion');
+				 $table->integer('cantidad');
+				 $table->float('precio');
             
 			      //Campo para llave foranea
               $table->integer('producto_id')->unsigned();
