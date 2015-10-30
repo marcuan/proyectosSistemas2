@@ -21,12 +21,6 @@ class CreateProductosTable extends Migration
                 $table->integer('existencia');
                 $table->float('comision');
 				$table->boolean('estado')->default('0');
-                
-                //Campo para llave foranea
-                  $table->integer('consignacion_id')->unsigned();
-                 
-                  $table->foreign('consignacion_id')->references('id')->on('Consignacion');
-                 
                  
                 //$table->float('total');
                 //$table->integer('cantidad');
