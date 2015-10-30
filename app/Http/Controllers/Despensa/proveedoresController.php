@@ -104,5 +104,14 @@ class ProveedoresController extends Controller
     {
         //
     }
+	public function getIndex($id)
+		{
+			$result = \DB::table('proveedores')
+				->select('proveedores.nombre')
+				->where('id','=',$id)
+				->get();
+				
+			return  $result;
+		}
 }
 

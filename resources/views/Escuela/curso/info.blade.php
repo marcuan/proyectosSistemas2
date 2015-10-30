@@ -22,7 +22,8 @@
         </div>
         <h4>Horarios del Curso</h4>
         {!!link_to('/agregarhorario/'.$curso->id, $title = 'Añadir Horario', $attributes = ['class'=>'btn btn-primary'], $secure = null);!!}
-        <table class="table">
+        {!!link_to('cursoestudiantes/'.$curso->id, $title = 'Ver Estudiantes', $attributes = ['class'=>'btn btn-warning'], $secure = null);!!}
+        <table class="table table-hover table-responsive">
             <thead>
                 <th>Día</th>
                 <th>Hora de Inicio</th>

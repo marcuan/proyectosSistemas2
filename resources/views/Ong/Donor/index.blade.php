@@ -4,27 +4,27 @@
 @if($message == 'store')
 <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Creado. </strong> Maestro creado exitosamente.
+  <strong>Creado. </strong> Donador creado exitosamente.
 </div>
 @endif
 @if($message == 'edit')
 <div class="alert alert-info alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Editado. </strong> Maestro editado exitosamente.
+  <strong>Editado. </strong> Donador editado exitosamente.
 </div>
 @endif
 @if($message == 'erase')
 <div class="alert alert-danger alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Inhabilitado.</strong> Maestro inhabilitado exitosamente.
+  <strong>Inhabilitado.</strong> Donador inhabilitado exitosamente.
 </div>
 @endif
 
 @section('content')
     <div class="container col-xs-12">
-    <h3 class="title" selected="selected">Maestros</h3>
-    <a href="/maestros/create" class="btn btn-danger">Crear Maestro</a> 
-    {!!Form::open(['rout'=>'maestros.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
+    <h3 class="title" selected="selected">Donadores</h3>
+    <a href="/donantes/create" class="btn btn-danger">Crear Donador</a> 
+    {!!Form::open(['rout'=>'Donadores.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
         <div class="form-group">
             {!!Form::select('active',['activos'=>'Activos','inhabilitados'=>'Inhabilitados','todos'=>'Todos'],null,['class'=>'form-control'])!!}
         </div>
@@ -37,30 +37,24 @@
         <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
     {!!Form::close()!!}
     <div></div>
-        <table class="table table-hover table-responsive">
+        <table class="table">
             <thead>
-                <th></th>
-                <th>Código</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Correo</th>
-                <th>Teléfono</th>
                 <th>Operación</th>
             </thead>
-            @foreach($teacher as $maestro)
+            @foreach($donor as $Donador)
             <tbody>
-                <td><img src="/profile-pictures/{{$maestro->path}}" alt="maestro" class="img-circle img-total"></td>
-                <td>{{$maestro->codigo}}</td>
-                <td>{{$maestro->nombre_maestro}}</td>
-                <td>{{$maestro->apellido_maestro}}</td>
-                <td>{{$maestro->correo}}</td>
-                <td>{{$maestro->telefonos()->get()->first()->numero_telefono}}</td>
-                <td>{!!link_to_route('maestros.edit', $title = 'Editar', $parameters = $maestro->id, $attributes = ['class'=>'btn btn-primary']);!!}
-                {!!link_to_route('maestros.show', $title = 'Ver Información', $parameters = $maestro->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
+                <td>{{$Donador->donor_name}}</td>
+                <td>{{$Donador->donor_lastname}}</td>
+                <td>{{$Donador->e_mail}}</td>
+                <td>{!!link_to_route('donantes.edit', $title = 'Editar', $parameters = $Donador->id, $attributes = ['class'=>'btn btn-primary']);!!}
+                {!!link_to_route('donantes.show', $title = 'Ver Información', $parameters = $Donador->id, $attributes = ['class'=>'btn btn-warning']);!!}</td>
             </tbody>
             @endforeach
-            {!!$teacher->render()!!}
+            {!!$donor->render()!!}
         </table>
-            {!!$teacher->render()!!}        
+            {!!$donor->render()!!}        
     </div>
 @stop

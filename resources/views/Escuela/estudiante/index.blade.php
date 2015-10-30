@@ -19,12 +19,6 @@
   <strong>Inhabilitado.</strong> Estudiante inhabilitado exitosamente.
 </div>
 @endif
-@if($message == 'assign')
-<div class="alert alert-warning alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Asignado. </strong> Curso(s) Asignado(s) exitosamente.
-</div>
-@endif
 
 @section('content')
     
@@ -45,8 +39,9 @@
         <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
     {!!Form::close()!!}
     <div></div>
-        <table class="table">
+        <table class="table table-hover table-responsive">
             <thead>
+                <th></th>
                 <th>Código</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
@@ -56,14 +51,14 @@
             </thead>
             @foreach($student as $estudiante)
             <tbody>
+                <td><img src="/profile-pictures/{{$estudiante->path}}" alt="maestro" class="img-circle img-total"></td>
                 <td>{{$estudiante->codigo}}</td>
                 <td>{{$estudiante->nombre_estudiante}}</td>
                 <td>{{$estudiante->apellido_estudiante}}</td>
                 <td>{{$estudiante->correo}}</td>
                 <td>{{$estudiante->telefonos()->get()->first()->numero_telefono}}</td>
                 <td>{!!link_to_route('estudiantes.edit', $title = 'Editar', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-primary']);!!}
-                    {!!link_to('asignacionestudiantes/'.$estudiante->id, $title = 'Asignar Cursos', $attributes = ['class'=>'btn btn-success'], $secure = null);!!}
-                    {!!link_to_route('estudiantes.show', $title = 'Ver Información', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-warning']);!!}</td>
+                    {!!link_to_route('estudiantes.show', $title = 'Ver Información', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
             </tbody>
             @endforeach
             {!!$student->render()!!}

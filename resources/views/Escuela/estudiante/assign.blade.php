@@ -1,4 +1,25 @@
 @extends('layouts.principal')
+<?php $message=Session::get('message')?>
+
+@if($message == 'assign')
+<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Asignado. </strong> Curso(s) Asignado(s) exitosamente.
+</div>
+@endif
+@if($message == 'unassign')
+<div class="alert alert-danger alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Desasignado. </strong> Curso(s) Desasignado(s) exitosamente.
+</div>
+@endif
+@if($message == 'no-assign')
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>No Asignado </strong> No se seleccionó ningún curso.
+</div>
+@endif
+
 @section('content')
 {!!Form::open()!!}
 	<div class="container col-xs-12">
@@ -7,7 +28,7 @@
         <div class="info card">
             <div class="datos">
                 <span class="foto">
-                    <img src="{{{ asset('images/usuario.png') }}}" alt="" class="img-circle">
+                    <img src="/profile-pictures/{{$student->path}}" alt="" class="img-circle img-datos">
                 </span>
                 <div class="personales"> 
                     <h5><strong>Nombre: </strong>{{$student->nombre_estudiante}} {{$student->apellido_estudiante}}</h5>
@@ -19,7 +40,9 @@
             </div>       
         </div>
         <h4>Cursos Asignados</h4>
-        <table class="table">
+        {!!link_to('asignacionestudiantes/'.$student->id, $title = 'Asignar Cursos', $attributes = ['class'=>'btn btn-success'], $secure = null);!!}
+        {!!link_to('desasignacionestudiantes/'.$student->id, $title = 'Desasignar Cursos', $attributes = ['class'=>'btn btn-warning'], $secure = null);!!}
+        <table class="table table-hover table-responsive">
             <thead>
                 <th>Codigo</th>
                 <th>Nombre</th>

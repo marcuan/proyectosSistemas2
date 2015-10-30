@@ -21,6 +21,7 @@ class CreateEstudianteTable extends Migration
             $table->string('direccion');
             $table->string('correo');
             $table->boolean('activo');
+            $table->string('path');
             $table->timestamps();
 
             $table->integer('genero_id')->unsigned();

@@ -3,7 +3,7 @@
     {!!Form::open()!!}
         <div class="container col-xs-12">
     <h3 class="title" selected="selected">Cursos</h3>
-    <a href="../cursos" class="btn btn-danger">Regresar</a>
+    <a href="../cursos/{{$curso->id}}" class="btn btn-danger">Regresar</a>
         <div class="info card">
             <div class="datos">
                 <span class="foto">
@@ -19,7 +19,7 @@
             </div>       
         </div>
         <h4>Estudiantes Asignados al Curso</h4>
-        <table class="table">
+        <table class="table table-hover table-responsive">
             <thead>
                 <th>Nombre</th>
                 <th>Apellido</th>

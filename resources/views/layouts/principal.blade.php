@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div id="wrapper">
-		<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+		<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0; z-index:100;">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
 					<span class="sr-only">Toggle navigation</span>
@@ -32,11 +32,14 @@
 			<div class="sidebar-collapse">
 				<ul class="nav" id="main-menu">
 					<li style="text-align: center;">
-						<a class="active-menu"  href="/"><i class=""></i>Café RED</a>
+						<a class="active-menu"  href="/"><i class=""></i>RED KAT</a>
 					</li>
 					<li>
 						<a href="#"><i class="icon-ong"></i> ONG</a>
 						<ul class="nav nav-second-level">
+							<li>
+								<a href="/donantes">Donantes</a>
+							</li>
 							<li>
 								<a href="/users">Usuarios</a>
 							</li>
@@ -107,6 +110,7 @@
 		<div id="page-wrapper" >
 			<div id="page-inner">
 					@yield('content')
+					<div>.</div>
 			</div>
 		</div>
 
