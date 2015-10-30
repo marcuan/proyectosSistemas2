@@ -5,6 +5,7 @@ namespace RED\Escuela;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class Estudiante extends Model
 {
@@ -19,6 +20,7 @@ class Estudiante extends Model
 		'fecha_nacimiento',
 		'direccion',
 		'correo',
+        'path',
 		'genero_id'
 		];
 
@@ -48,5 +50,15 @@ class Estudiante extends Model
     	{
     		return $query->where("codigo","LIKE","%$code%");	
     	}
+    }
+
+    public function setPathAttribute($path)
+    {
+        if(!(empty($path)))
+        {
+            $this->attributes['path'] = Carbon::now()->year.Carbon::now()->month.Carbon::now()->day.Carbon::now()->hour.Carbon::now()->minute.Carbon::now()->second.'-estudiante-'.$path->getClientOriginalName();
+            $name = Carbon::now()->year.Carbon::now()->month.Carbon::now()->day.Carbon::now()->hour.Carbon::now()->minute.Carbon::now()->second.'-estudiante-'.$path->getClientOriginalName();
+            \Storage::disk('local')->put($name, \File::get($path));
+        }
     }
 }

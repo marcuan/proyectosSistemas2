@@ -124,13 +124,10 @@ class EstudianteController extends Controller
         $estudiante = Estudiante::find($id);
         $estudiante->fill($request->all());
         $estudiante->save();
-
+        
         $telefono = $estudiante->telefonos()->get()->first();
         $telefono->numero_telefono = $request['numero_telefono'];
         $telefono->save();        
-
-
-
 
     return redirect('/estudiantes')->with('message','edit');
     }

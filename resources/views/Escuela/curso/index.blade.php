@@ -54,8 +54,7 @@
                 <td>{{$curso->descripcion}}</td>
                 <td>{{$curso->max_estudiantes}}</td>
                 <td>{!!link_to_route('cursos.edit', $title = 'Editar', $parameters = $curso->id, $attributes = ['class'=>'btn btn-primary']);!!}
-                    {!!link_to_route('cursos.show', $title = 'Información', $parameters = $curso->id, $attributes = ['class'=>'btn btn-warning']);!!}
-                    {!!link_to('cursoestudiantes/'.$curso->id, $title = 'Estudiantes', $attributes = ['class'=>'btn btn-success'], $secure = null);!!}</td>
+                    {!!link_to_route('cursos.show', $title = 'Ver Información', $parameters = $curso->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
             </tbody>
             @endforeach
             {!!$course->render()!!}

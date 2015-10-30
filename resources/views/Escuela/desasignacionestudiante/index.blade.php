@@ -1,20 +1,11 @@
 @extends('layouts.principal')
-
-<?php $message=Session::get('message')?>
-
 @section('content')
 <div class="container col-xs-12">
     <h3 class="title" selected="selected">Estudiantes</h3>
 
     <a href="../estudiantes/{{$student->id}}" class="btn btn-danger">Regresar</a>
-    {!!Form::open(['rout'=>'estudiantes.asignacionestudiantes','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
     
-        <div class="form-group">
-            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
-        </div>
-        <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
-    {!!Form::close()!!}
-    {!!Form::open(['route'=>'asignacionestudiantes.store', 'method'=>'POST'])!!}
+    {!!Form::open(['route'=>'desasignacionestudiantes.store', 'method'=>'POST'])!!}
         <h4><strong>Estudiante: </strong>  {{$student->apellido_estudiante}} , {{$student->nombre_estudiante}}</h4>
         {!!Form::text('idestudiante',$student->id,['class'=>'hidden', 'id'=>'idestudiante'])!!}
             <table class="table table-hover table-responsive">
@@ -39,12 +30,10 @@
                         {!!Form::text('curso['.$key.']', $curso->id, ['class'=>'hidden', 'id'=>'idcurso'])!!}</td>
                 </tbody>
                 @endforeach
-                {!!$course->render()!!}
             </table> 
         </div>
         <div class="">
-                {!!$course->render()!!}
-               {!!Form::submit('Asignar Cursos',['class'=>'btn btn-primary pull-right'])!!}
+               {!!Form::submit('Desasignar Cursos',['class'=>'btn btn-primary pull-right'])!!}
             </div>
     {!!form::close()!!}
 @stop

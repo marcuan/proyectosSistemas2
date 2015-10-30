@@ -1,10 +1,10 @@
 @extends('layouts.principal')
 @section('content')
-    {!!Form::model($maestro,['route'=>['maestros.update', $maestro->id], 'method'=>'PUT'])!!}
+    {!!Form::model($maestro,['route'=>['maestros.update', $maestro->id], 'method'=>'PUT', 'files'=>true])!!}
         
        <div class="container col-xs-12">
         <h3 class="title" selected="selected">Maestros</h3>
-
+            
             <div class="form-grup">
                 {!!Form::label('Nombre:')!!}
                 {!!Form::text('nombre_maestro',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre Maestro','required'])!!}
@@ -32,6 +32,10 @@
             <div class="form-grup">
                 {!!Form::label('Teléfono:')!!}
                 {!!Form::text('numero_telefono',$telefono->numero_telefono,['class'=>'form-control','placeholder'=>'Ingrese Teléfono','required'])!!}
+            </div><br>
+            <div class="form-grup">
+                {!!Form::label('Seleccione foto de perfil:')!!}
+                {!!Form::file('path')!!}
             </div><br>
         <div class="form-btn">
         {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}

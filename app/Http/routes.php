@@ -14,6 +14,7 @@
 Route::get('/', 'Auth\AuthController@getLogin');
 Route::post('/auth/login', 'Auth\AuthController@postLogin');
 
+
 /**
  *	Rutas que requieren autenticación en el sistema.
  */
@@ -47,9 +48,14 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('asignacionestudiantes', 'Escuela\AsignacionEstudianteController');
 	Route::get('asignacionmaestros/{id}', 'Escuela\AsignMaestController@asignar');
 	Route::resource('asignacionmaestros', 'Escuela\AsignacionMaestroController');
+	Route::get('desasignacionestudiantes/{id}', 'Escuela\DesasignEstController@desasignar');
+	Route::resource('desasignacionestudiantes', 'Escuela\DesasignacionEstudianteController');
+	Route::get('desasignacionmaestros/{id}', 'Escuela\DesasignMaestController@desasignar');
+	Route::resource('desasignacionmaestros', 'Escuela\DesasignacionMaestroController');
 	Route::get('cursoestudiantes/{id}', 'Escuela\CursoEstudiantesController@verestudiantes');
 	Route::get('agregarhorario/{id}', 'Escuela\CursoEstudiantesController@crearhorario');
 	Route::resource('agregarhorario', 'Escuela\HorarioController');
+	
 
 	/**
 	 *	Modulo Restaurante
