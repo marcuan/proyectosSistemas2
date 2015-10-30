@@ -1,7 +1,10 @@
 @extends('layouts.principal')
 @section('content')
-	<div class="container col-xs-12 table-responsive">
 
+<div class="container col-xs-12">
+<h3 class="title" selected="selected">Horarios</h3>
+	<hr> 
+	<div class=" table-responsive">
 		<table class="table table-condensed">
   			<thead>
 	  			<th>Lunes</th>
@@ -157,4 +160,5 @@
 				</tbody>
 		</table>
 	</div>
+</div>
 @stop
