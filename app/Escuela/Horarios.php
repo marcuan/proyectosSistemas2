@@ -14,7 +14,9 @@ class Horarios extends Model
     	'salon',
     	'curso_id'];
 
-    public function curso(){
-    	return $this->belongsTo('RED\Escuela\Curso');
+    public function curso()
+    {
+        return $this->belongsTo('RED\Escuela\Curso');
     }
+
 }
