@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Consignacion extends Model
 {
-    
     protected $table = 'Consignacion';
 
     protected $fillable = [
