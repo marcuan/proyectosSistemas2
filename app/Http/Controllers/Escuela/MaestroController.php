@@ -8,6 +8,7 @@ use RED\Escuela\Curso;
 use RED\Escuela\Telefono;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class MaestroController extends Controller
 {
@@ -77,6 +78,11 @@ class MaestroController extends Controller
     public function store(Request $request)
     {
         $maestro = Maestro::create($request->all());
+        $carbon = new Carbon();
+        $date = $carbon->now()->year-2000;
+        $codigo = $maestro->id + 100;
+        $maestro->codigo = "cat-".$codigo ."". $date;
+        $maestro->save();        
 
         $telefono = new Telefono;
         $telefono->numero_telefono = $request['numero_telefono'];
