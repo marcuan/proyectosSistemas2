@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -70,4 +70,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('producto','Despensa\productosController');
 	Route::resource('proveedores', 'Despensa\proveedoresController');
 	Route::resource('consignaciones', 'Despensa\ConsignacionController');
+	Route::resource('detalleconsignacion', 'Despensa\DetalleConsignacionController');
+	Route::get('/consignacionproveedor/{id}',['as'=>'consignacion','uses'=>'Restaurante\ConsignacionController@proveedor']);
+	
+	//Route::resource('proveedores', 'Despensa\proveedoresController@getIndex');
 });
