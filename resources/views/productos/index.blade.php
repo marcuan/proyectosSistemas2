@@ -19,6 +19,18 @@
     
     <div class="container col-xs-12">
     <a href="producto/create" class="btn btn-danger">Crear Producto</a>
+        {!!Form::open(['rout'=>'producto.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
+        <div class="form-group">
+            {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
+        </div>
+        <div class="form-group">
+            {!!Form::select('active',[0=>'Activos',1=>'Inhabilitados',2=>'Todos'],null,['class'=>'form-control'])!!}
+        </di
+        <div class="form-group">
+            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
+        </div>
+        <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
+    	{!!Form::close()!!}
         <table class="table">
             <thead>
                 <th>Codigo</th>
@@ -27,16 +39,17 @@
                 <th>Precio de Venta</th>
                 <th>Existencia</th>
                 <th>Comision</th>
-                <th>Consignacion</th>
+                <th>Estado</th>
             </thead>
             @foreach($producto as $productos)
             <tbody>
+            	<td>{{$productos->codigo}}</td>
                 <td>{{$productos->nombreProducto}}</td>
                 <td>{{$productos->detalleProducto}}</td>
-                <td>{{$productos->precioVenta}}</td>s
+                <td>{{$productos->precioVenta}}</td>
                 <td>{{$productos->existencia}}</td>
                 <td>{{$productos->comision}}</td>
-                <td>{{$productos->consignacion_id}}</td>
+                <td>{{$productos->estado}}</td>
                 <td>{!!link_to_route('producto.edit', $title = 'Editar', $parameters = $productos->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
