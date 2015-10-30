@@ -116,6 +116,5 @@
 	{!!Html::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')!!}
 	{!!Html::script('js/jquery.metisMenu.js')!!}    
 	{!!Html::script('js/script.js')!!}
->>>>>>> b9c0624f9c357af442dcfd72d83d436020b4f8ef
 </body>
 </html>
