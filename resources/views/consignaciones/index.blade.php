@@ -22,6 +22,13 @@
     <a href="consignaciones/create" class="btn btn-danger">Crear Consignaciones</a>
 
     <div class="container">
+        {!!Form::open(['rout'=>'consignacion.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
+        <div class="form-group">
+            <label for="exampleInputName2">Codigo :        </label>
+            {!!Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
+        </div>
+        <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
+        {!!Form::close()!!}
 
         <table class="table">
             <thead>
