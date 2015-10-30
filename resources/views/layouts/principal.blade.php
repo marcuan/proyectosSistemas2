@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	  <meta charset="utf-8" />
+	 <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>::Cafe RED::</title> 
 
@@ -9,6 +9,7 @@
 	{!!Html::style('css/style.css')!!}
 	{!!Html::style('https://fonts.googleapis.com/css?family=Lato:400,700')!!}
 	<link rel="shortcut icon" href="{{{ asset('images/loco-ico.ico') }}}">
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div id="wrapper">
@@ -107,7 +108,7 @@
 		<div id="page-wrapper" >
 			<div id="page-inner">
 					@yield('content')
-					<div>.</div>
+					<div class="principal-final">.</div>
 			</div>
 		</div>
 

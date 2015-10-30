@@ -529,6 +529,16 @@ a:hover{
     color: #fff;
     border-radius: 4px;
 }
-.info_horario{
- 
+
+.lunes .nombre_horario,
+.martes .nombre_horario,
+.miercoles .nombre_horario,
+.jueves .nombre_horario,
+.viernes .nombre_horario,
+.sabado .nombre_horario,
+.domingo .nombre_horario{
+    font-size: 16px;
+}
+.principal-final{
+    color: #fff;
 }
