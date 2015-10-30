@@ -13,6 +13,5 @@ class Consignacion extends Model
     	'fechaFinal',
     	'detalleConsignacion', //servira escribir un pequeño detalle de la consignacion que se hace
     	'proveedores_id'
-
     ];
 }
