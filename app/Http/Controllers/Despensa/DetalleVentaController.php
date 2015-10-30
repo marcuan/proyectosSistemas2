@@ -10,7 +10,7 @@ use RED\Repositories\ClienteRepo;
 use RED\Despensa\Ventum;
 use RED\Restaurante\Cliente;
 
-class VentasController extends Controller
+class DetalleVentasController extends Controller
 {
     //   
     
