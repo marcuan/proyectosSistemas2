@@ -26,6 +26,12 @@
     <h3 class="title" selected="selected">Estudiantes</h3>
     <a href="/estudiantes/create" class="btn btn-danger">Crear Estudiante</a>
     
+    <a href="reposiEstu" class="btn btn-danger">Descargar Reporte</a>
+    
+
+
+
+
     {!!Form::open(['rout'=>'estudiantes.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
         <div class="form-group">
             {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
