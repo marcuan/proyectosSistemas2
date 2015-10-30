@@ -83,13 +83,14 @@ class HorarioController extends Controller
     public function update(Request $request, $id)
     {
         $horario = Horarios::find($id);
+        $idcurso = $horario->curso_id;
         $horario->dia = $request['dia'];
         $horario->hora_inicio = $request['hora_inicio'];
         $horario->hora_fin = $request['hora_fin'];
         $horario->salon = $request['salon'];
         $horario->save();
 
-     return redirect('/cursos')->with('message','edit');
+     return redirect('/cursos/'.$idcurso)->with('message','edit');
     }
 
     /**

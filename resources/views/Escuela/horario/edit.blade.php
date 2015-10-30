@@ -1,6 +1,6 @@
 @extends('layouts.principal')
 @section('content')
-    {!!Form::model($horario,['route'=>['horarios.update', '$horario->id'], 'method'=>'PUT'])!!}
+    {!!Form::model($horario,['route'=>['horarios.update', $horario->id], 'method'=>'PUT'])!!}
         <div class="container col-xs-12">
         <h3 class="title" selected="selected">Horario</h3>
             <div class="form-grup">
