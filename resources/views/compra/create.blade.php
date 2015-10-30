@@ -24,7 +24,31 @@
                 {!!Form::select('proveedores_id', $opcionproveedor,['class'=>'form-control','placeholder'=>'Ingrese Proveedor', 'required'])!!}
             </div>
 
-        	{!!Form::submit('Guardar',['class'=>'btn btn-primary'])!!}
+        	 <table class="table">
+            <thead>
+                <th>Nombre</th>
+               <th>Cantidad</th>
+		       <th>Precio unitario</th>   
+			<th>Comprar</th>			  
+            </thead>
+             @foreach($materiaprima as $key => $dato)
+            <tbody>
+                <td>{{$dato->nombre}}</td>
+              <td>{!!Form::number('cantidad',null,['class'=>'form-control','placeholder'=>'Ingrese Cantidad','required'])!!}</td>
+ <td> {!!Form::number('costo',0,['class'=>'form-control','placeholder'=>'Ingrese Costo','required'])!!}</td>
+ <td>{!!Form::checkbox('check[]', $key);!!}
+                        {!!Form::text('dato['.$key.']', $dato->id, ['class'=>'hidden', 'id'=>'iddato'])!!}</td>		
+		</tbody>
+            @endforeach
+        </table>
+		
+		
+		{!!Form::submit('Guardar',['class'=>'btn btn-primary'])!!}
+		
+		
+		
+		
+		
             </div>
         </div>
     {!!form::close()!!} 
