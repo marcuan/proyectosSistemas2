@@ -23,6 +23,7 @@ class ProductosController extends Controller
 
     public function index(Request $request)
     {   
+        $producto = Producto::all();
         if($request->get('type') == "nombre")
         {
         if($request->get('active') == 0)
@@ -56,7 +57,7 @@ class ProductosController extends Controller
 
         
         
-        //$producto = Producto::all();
+        
         return View('productos.index',compact('producto'));
     }
 
