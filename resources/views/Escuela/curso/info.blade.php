@@ -19,7 +19,7 @@
                     <h5><strong>Estudiantes Asignados: </strong>{{$curso->num_estudiantes}}</h5>
                     <h5><strong>Maestros: </strong><br> 
                     @foreach($maestros as $maestro) 
-                        {{$maestro->nombre_maestro}} , {{$maestro->apellido_maestro}}<br> 
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$maestro->nombre_maestro}} , {{$maestro->apellido_maestro}}<br> 
                     @endforeach</h5>
                 </div>
             </div>       
