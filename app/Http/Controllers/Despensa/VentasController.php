@@ -34,7 +34,7 @@ class VentasController extends Controller
     
     public function store (Request $request)
     {
-        RED\Despensa\Ventum::create($request->all());
+        RED\Despensa\Ventum::create($request->all('nit','id'));
         return redirect ('/venta')->with('message','store');
     }
     
