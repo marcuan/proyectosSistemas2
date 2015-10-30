@@ -52,8 +52,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('desasignacionmaestros/{id}', 'Escuela\DesasignMaestController@desasignar');
 	Route::resource('desasignacionmaestros', 'Escuela\DesasignacionMaestroController');
 	Route::get('cursoestudiantes/{id}', 'Escuela\CursoEstudiantesController@verestudiantes');
-	Route::get('agregarhorario/{id}', 'Escuela\CursoEstudiantesController@crearhorario');
-	Route::resource('agregarhorario', 'Escuela\HorarioController');
+	Route::get('horarios/{id}', 'Escuela\CursoEstudiantesController@crearhorario');
+	Route::resource('horarios', 'Escuela\HorarioController');
 	
 
 	/**

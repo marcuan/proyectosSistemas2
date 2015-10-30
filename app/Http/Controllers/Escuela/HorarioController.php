@@ -69,7 +69,8 @@ class HorarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $horario = Horarios::find($id);
+        return view('Escuela.horario.edit', compact('horario'));
     }
 
     /**
@@ -81,7 +82,14 @@ class HorarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $horario = Horarios::find($id);
+        $horario->dia = $request['dia'];
+        $horario->hora_inicio = $request['hora_inicio'];
+        $horario->hora_fin = $request['hora_fin'];
+        $horario->salon = $request['salon'];
+        $horario->save();
+
+     return redirect('/cursos')->with('message','edit');
     }
 
     /**

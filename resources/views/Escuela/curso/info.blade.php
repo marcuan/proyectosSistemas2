@@ -21,14 +21,15 @@
             </div>       
         </div>
         <h4>Horarios del Curso</h4>
-        {!!link_to('/agregarhorario/'.$curso->id, $title = 'Añadir Horario', $attributes = ['class'=>'btn btn-primary'], $secure = null);!!}
+        {!!link_to('/horarios/'.$curso->id, $title = 'Añadir Horario', $attributes = ['class'=>'btn btn-primary'], $secure = null);!!}
         {!!link_to('cursoestudiantes/'.$curso->id, $title = 'Ver Estudiantes', $attributes = ['class'=>'btn btn-warning'], $secure = null);!!}
         <table class="table table-hover table-responsive">
             <thead>
                 <th>Día</th>
                 <th>Hora de Inicio</th>
                 <th>Hora de Finalización</th>
-                <th>Salón </th>                
+                <th>Salón </th>
+                <th>Operación </th>   
             </thead>
             @foreach($horario as $horario)
             <tbody>
@@ -36,6 +37,7 @@
                 <td>{{$horario->hora_inicio}}</td>
                 <td>{{$horario->hora_fin}}</td>
                 <td>{{$horario->salon}}</td>
+                <td>{!!link_to_route('horarios.edit', $title = 'Editar', $parameters = $horario->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
         </table>
