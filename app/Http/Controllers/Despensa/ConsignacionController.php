@@ -35,8 +35,11 @@ class ConsignacionController extends Controller
     {
 
         $consignacion = Consignacion::all();
-        $consignacion = Consignacion::code($request->get('codigo'))->orderBy('id','DESC')->paginate(10);    
+        $consignacion = Consignacion::code($request->get('codigo'))->orderBy('id','DESC')->paginate(10);
+        $consignacion = Consignacion::fechai($request->get('fechaInicial'))->orderBy('id','DESC')->paginate(10);    
         return View('consignaciones.index',compact('consignacion'));
+
+
     }
 
     /**
