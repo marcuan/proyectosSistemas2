@@ -14,17 +14,13 @@ class CreateProductosTable extends Migration
     {
         Schema::create('Productos', function(Blueprint $table) {
             $table->increments('id');
+			    $table->string('codigo');
                 $table->string('nombreProducto');
                 $table->string('detalleProducto');
                 $table->float('precioVenta');
                 $table->integer('existencia');
                 $table->float('comision');
-                
-                //Campo para llave foranea
-                  $table->integer('consignacion_id')->unsigned();
-                 
-                  $table->foreign('consignacion_id')->references('id')->on('Consignacion');
-                 
+				$table->boolean('estado')->default('0');
                  
                 //$table->float('total');
                 //$table->integer('cantidad');

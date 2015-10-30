@@ -14,8 +14,6 @@ use Resources;
 */
 class ProductosController extends Controller
 {
-
-	public $opcionConsignacion=1;
     /**
      * Desplegar proveedores
      *
@@ -23,9 +21,43 @@ class ProductosController extends Controller
      */
     
 
-    public function index()
-    {
+    public function index(Request $request)
+    {   
         $producto = Producto::all();
+        if($request->get('type') == "nombre")
+        {
+        if($request->get('active') == 0)
+            {
+                $producto = Producto::name($request->get('name'))->active($request->get('active'))->orderBy('id','DESC')->paginate(10);    
+            }
+        if($request->get('active') == 1)
+            {
+                $producto = Producto::name($request->get('name'))->active($request->get('active'))->orderBy('id','DESC')->paginate(10);    
+            }
+        else if($request->get('active') == 2)
+            {
+                $producto = Producto::all();
+            }
+        }
+        if($request->get('type') == "codigo")
+        {
+        if($request->get('active') == 0)
+            {
+                $producto = Producto::code($request->get('name'))->active($request->get('active'))->orderBy('id','DESC')->paginate(10);    
+            }
+        if($request->get('active') == 1)
+            {
+                $producto = Producto::code($request->get('name'))->active($request->get('active'))->orderBy('id','DESC')->paginate(10);    
+            }
+        else if($request->get('active') == 2)
+            {
+                $producto = Producto::all();
+            }
+        }
+
+        
+        
+        
         return View('productos.index',compact('producto'));
     }
 
@@ -36,8 +68,7 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        $opcionConsignacion = Consignacion::all()->lists('id');
-        return view('productos.create',compact('opcionConsignacion'));
+        return view('productos.create');
     }
 
     /**

@@ -4,11 +4,11 @@ namespace RED\Http\Controllers\Ong;
 
 use Illuminate\Http\Request;
 use RED\Ong\Donor;
-use RED\Ong\Donations;
+use RED\Ong\Donation;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 
-class MaestroController extends Controller
+class DonorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -77,7 +77,7 @@ class MaestroController extends Controller
     {
         $donor = Donor::create($request->all());
 
-    return redirect('/donor')->with('message','store');
+    return redirect('/donantes')->with('message','store');
     }
 
     /**
@@ -89,7 +89,7 @@ class MaestroController extends Controller
     public function show($id)
     {
         $donor = Donor::find($id);
-        $donations = $Donor->donations()->get();
+        $donations = $donor->donations()->get();
         return view('Ong.donor.assign', compact(['donations', 'donor']));
     }
 
@@ -118,7 +118,7 @@ class MaestroController extends Controller
         $donor->fill($request->all());
         $donor->save();
 
-    return redirect('/donor')->with('message','edit');
+    return redirect('/donantes')->with('message','edit');
     }
 
     /**
@@ -132,6 +132,6 @@ class MaestroController extends Controller
         $donor = Donor::find($id);
         $donor->delete();  
 
-    return redirect('/donor')->with('message','erase');
+    return redirect('/donantes')->with('message','erase');
     }
 }

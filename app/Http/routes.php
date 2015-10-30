@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
 	 *	Ong
 	 */
 	Route::resource('users','Ong\UserController');
+	Route::resource('donantes','Ong\DonorController');
 
 	/**
 	 *	User Authentication
@@ -38,7 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
 	]);
 
 	/**
-	 *	Escuela
+	 *	Modulo Escuela
 	 */
 	Route::resource('estudiantes','Escuela\EstudianteController');
 	Route::resource('maestros','Escuela\MaestroController');
@@ -57,7 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
 	
 
 	/**
-	 *	Restaurante
+	 *	Modulo Restaurante
 	 */
 	Route::resource('materiaprima','Restaurante\MateriaPrimaController');
 	Route::get('/comprasproveedor/{id}',['as'=>'compras','uses'=>'Restaurante\ComprasController@proveedor']);
@@ -69,11 +70,15 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('detallecompra', 'Restaurante\DetalleCompraController');
 
 	/**
-	 *	Despensa
+	 *	Modulo Despensa
 	 */
 	Route::resource ('venta','Despensa\VentasController');
 	Route::resource('inventario','Despensa\InventarioController');
 	Route::resource('producto','Despensa\productosController');
 	Route::resource('proveedores', 'Despensa\proveedoresController');
 	Route::resource('consignaciones', 'Despensa\ConsignacionController');
+	Route::resource('detalleconsignacion', 'Despensa\DetalleConsignacionController');
+	Route::get('/consignacionproveedor/{id}',['as'=>'consignacion','uses'=>'Despensa\ConsignacionController@proveedor']);
+	
+	//Route::resource('proveedores', 'Despensa\proveedoresController@getIndex');
 });

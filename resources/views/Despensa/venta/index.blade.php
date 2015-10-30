@@ -25,6 +25,7 @@
                 <th>id</th>
                 <th>idCliente</th>
                 <th>Nombre</th>
+                <th>Operación</th>
             </thead>
             @foreach($venta as $venta)
             {{-- */$clienteComp = RED\Restaurante\Cliente::find($venta->clientes_id)/* --}}
@@ -32,7 +33,6 @@
                 <td>{{$venta->idVenta}}</td>
                 <td>{{$venta->clientes_id}}</td>
                 <td>{{$clienteComp->nombre}}</td>
-                
                 <td>{!!link_to_route('venta.edit', $title =                       'Editar', $parameters = $venta->idVenta,      $attributes=['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach

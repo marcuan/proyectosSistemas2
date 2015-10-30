@@ -4,6 +4,10 @@
         <h3>Productos</h3>
         <div class="container col-xs-12">
             <div class="form-grup">
+                {!!Form::label('Codigo:')!!}
+                {!!Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Ingrese Codigo de su producto','required'])!!}
+            </div>
+            <div class="form-grup">
                 {!!Form::label('Nombre:')!!}
                 {!!Form::text('nombreProducto',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre de su producto','required'])!!}
             </div>
@@ -23,14 +27,9 @@
                 {!!Form::label('Comision:')!!}
                 {!!Form::text('comision',null,['class'=>'form-control','placeholder'=>'Ingrese comision del producto','required'])!!}
             </div>
-            <div class="form-grup">
-                {!!Form::label('Consignacion:')!!}
-                {!!Form::select('consignacion_id',$opcionConsignacion,['class'=>'form-control','placeholder'=>'Ingrese Consignacion','required'])!!}
-            </div>
             <div class="form-btn">
                 {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
             </div>
+        {!!form::close()!!}
     </div>
-    {!!form::close()!!}
-
 @stop

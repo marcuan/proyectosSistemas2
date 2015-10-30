@@ -31,9 +31,11 @@ class ConsignacionController extends Controller
      * @return Response
      */
 
-    public function index()
+    public function index(Request $request)
     {
+
         $consignacion = Consignacion::all();
+        $consignacion = Consignacion::code($request->get('codigo'))->orderBy('id','DESC')->paginate(10);    
         return View('consignaciones.index',compact('consignacion'));
     }
 
@@ -57,11 +59,20 @@ class ConsignacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        Consignacion::create($request->all());
-            return redirect('/consignaciones')->with('message','store');
+    
+		Consignacion::create($request->all());
+          return redirect('/detalleconsignacion/create');
+	 
+        /*Consignacion::create($request->all());
+            return redirect('/consignaciones')->with('message','store');*/
     }
-
+	
+	 public function detalle(Request $request)
+    {
+       
+		 Consignacion::create($request->all());
+          return redirect('/detalleconsignacion/create');
+	 }
     /**
      * Display the specified resource.
      *
@@ -70,7 +81,8 @@ class ConsignacionController extends Controller
      */
     public function show($id)
     {
-        //
+         $detalle = Consignacion::find($id);
+        return view('detalleconsignacion.detalleconsignacion',compact('detalle'));
     }
 
     /**
@@ -82,8 +94,10 @@ class ConsignacionController extends Controller
     public function edit($id)
     {
         //
+		
+		
         $consignacion = Consignacion::find($id);
-        return view('consignaciones.edit', ['consignaciones'=>$consignacion]);
+	    return view('consignaciones.edit', ['consignaciones'=>$consignacion]);
     }
 
     /**
@@ -96,6 +110,8 @@ class ConsignacionController extends Controller
     public function update(Request $request, $id)
     {
         //
+			
+			
             $consignacion = Consignacion::find($id);
             $consignacion->fill($request->all());
             $consignacion->save();
@@ -113,6 +129,16 @@ class ConsignacionController extends Controller
     {
         //
     }
+	
+	public function getNombreProveedor($id)
+		{
+			$result = \DB::table('proveedores')
+				->select('proveedores.nombre')
+				->where('id','=',$id)
+				->get();
+				
+			return  $result;
+		}
 
     public function proveedor($id)
     {
