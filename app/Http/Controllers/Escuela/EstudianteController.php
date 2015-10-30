@@ -122,16 +122,12 @@ class EstudianteController extends Controller
     public function update(Request $request, $id)
     {
         $estudiante = Estudiante::find($id);
-        \Storage::delete($estudiante->path);
         $estudiante->fill($request->all());
         $estudiante->save();
-
+        
         $telefono = $estudiante->telefonos()->get()->first();
         $telefono->numero_telefono = $request['numero_telefono'];
         $telefono->save();        
-
-
-
 
     return redirect('/estudiantes')->with('message','edit');
     }
