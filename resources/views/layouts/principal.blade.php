@@ -38,6 +38,9 @@
 						<a href="#"><i class="icon-ong"></i> ONG</a>
 						<ul class="nav nav-second-level">
 							<li>
+								<a href="/donantes">Donantes</a>
+							</li>
+							<li>
 								<a href="/users">Usuarios</a>
 							</li>
 						</ul>
