@@ -71,7 +71,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('proveedores', 'Despensa\proveedoresController');
 	Route::resource('consignaciones', 'Despensa\ConsignacionController');
 	Route::resource('detalleconsignacion', 'Despensa\DetalleConsignacionController');
-	Route::get('/consignacionproveedor/{id}',['as'=>'consignacion','uses'=>'Restaurante\ConsignacionController@proveedor']);
+	Route::get('/consignacionproveedor/{id}',['as'=>'consignacion','uses'=>'Despensa\ConsignacionController@proveedor']);
 	
 	//Route::resource('proveedores', 'Despensa\proveedoresController@getIndex');
 });
