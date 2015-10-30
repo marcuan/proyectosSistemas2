@@ -31,7 +31,7 @@
                 <td>{{$cliente->nit}}</td>
                 <!-- <td>{{$cliente->telefono}}</td> -->
                 <td>{{$cliente->dirección}}</td>
-                <td>{!!link_to_route('RED/Http/Controllers/Despensa/VentaController.store', $title = 'Realizar Venta', $parameters = $cliente->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
+                <td>{!!link_to_route('venta.store', $title = 'Realizar Venta', $parameters = $cliente->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
         </table>
