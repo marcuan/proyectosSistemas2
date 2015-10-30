@@ -23,5 +23,8 @@
         	   {!!Form::submit('Guardar y Asignar Horario',['class'=>'btn btn-primary'])!!}
             </div>        
     {!!form::close()!!}
+    {!!Form::open(['route'=>['horarios.destroy', $horario->id], 'method'=>'DELETE'])!!}
+        {!!Form::submit('Eliminar Horario',['class'=>'btn btn-danger'])!!}
+    {!!form::close()!!}
     </div>
 @stop

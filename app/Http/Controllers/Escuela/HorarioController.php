@@ -102,6 +102,10 @@ class HorarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $horario = Horarios::find($id);
+        $idcurso = $horario->curso_id;
+        $horario->delete();  
+
+    return redirect('/cursos/'.$idcurso)->with('message','erase');
     }
 }
