@@ -22,17 +22,19 @@
     
         <table class="table table-hover table-responsive">
             <thead>
-                <th>id</th>
-                <th>idCliente</th>
+                <th>No. Venta</th>
                 <th>Nombre</th>
-                <th>Operación</th>
+                <th>Direccion</th>
+                <th>Nit</th>
+                <th>Anulación</th>
             </thead>
             @foreach($venta as $venta)
             {{-- */$clienteComp = RED\Restaurante\Cliente::find($venta->clientes_id)/* --}}
             <tbody>
                 <td>{{$venta->idVenta}}</td>
-                <td>{{$venta->clientes_id}}</td>
-                <td>{{$clienteComp->nombre}}</td>
+                <td>{{$venta->nombre}</td>
+                <td>{{$clienteComp->dirección}}</td>
+                <td>{{$clienteComp->nit}}</td>
                 <td>{!!link_to_route('venta.edit', $title =                       'Editar', $parameters = $venta->idVenta,      $attributes=['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
