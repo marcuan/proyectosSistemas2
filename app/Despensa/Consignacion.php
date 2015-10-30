@@ -42,4 +42,11 @@ class Consignacion extends Model
             return $query->where("codigo","LIKE","%$code%");    
         }
     }
+    public function scopeFechai($query, $fechaini){
+
+        if ($fechaini != "")
+        {
+            return $query->where("fechaInicial",'>',$fechaini);    
+        }
+    }
 }
