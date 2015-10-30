@@ -17,7 +17,8 @@ class HorarioController extends Controller
      */
     public function index()
     {
-        //
+        $horarios = Horarios::orderBy('hora_inicio')->get();
+        return view('Escuela.horario.index', compact('horarios'));
     }
 
     /**

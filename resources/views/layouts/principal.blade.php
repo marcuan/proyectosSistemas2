@@ -56,7 +56,7 @@
 								<a href="/maestros">Maestro</a>
 							</li>
 							<li>
-								<a href="#">Horario</a>
+								<a href="/horarios">Horarios</a>
 							</li>
 						</ul>
 					</li>
