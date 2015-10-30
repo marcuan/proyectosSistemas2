@@ -5,8 +5,8 @@
         <h3>Productos</h3>
         <div class="container col-xs-12">
             <div class="form-grup">
-                {!!Form::label('Consignacion:')!!}
-                {!!Form::text('consignacion_id',null,['class'=>'form-control','placeholder'=>'Ingrese Temporada ','required'])!!}
+                {!!Form::label('Codigo:')!!}
+                {!!Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Ingrese Codigo ','required'])!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Nombre:')!!}
@@ -27,6 +27,10 @@
             <div class="form-grup">
                 {!!Form::label('Comision:')!!}
                 {!!Form::text('comision',null,['class'=>'form-control','placeholder'=>'Ingrese comision del producto','required'])!!}
+            </div>
+            <div class="form-grup">
+                {!!Form::label('Estado:')!!}
+                {!!Form::select('estado',array('0'=>'Activo','1'=>'Inactivo'),null,['class'=>'form-control'])!!}
             </div>
             <div class="form-btn">
             {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}

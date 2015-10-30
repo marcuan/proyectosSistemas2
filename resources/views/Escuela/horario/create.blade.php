@@ -1,6 +1,6 @@
 @extends('layouts.principal')
 @section('content')
-    {!!Form::open(['route'=>'agregarhorario.store', 'method'=>'POST'])!!}
+    {!!Form::open(['route'=>'horarios.store', 'method'=>'POST'])!!}
     {!!Form::text('curso',$curso->id,['class'=>'hidden', 'id'=>'curso'])!!}
         <div class="container col-xs-12">
         <h3 class="title" selected="selected">Horario</h3>

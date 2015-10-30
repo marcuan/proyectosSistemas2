@@ -27,6 +27,13 @@ class CreateDetalleVentaTable extends Migration
               $table->integer('producto_id')->unsigned();
                  //Referenciando la llave foranea con la otra tabla 
               $table->foreign('producto_id')->references('id')->on('Productos');
+		   
+		   		//campo para relacion con tabla platillo
+		        //Campo para llave foranea
+              $table->integer('platillo_id')->unsigned();
+                 //Referenciando la llave foranea con la otra tabla 
+              $table->foreign('platillo_id')->references('id')->on('Platillos');
+		   
                 // $this->hasOne('DetalleVenta','idDetalleVenta','id');
                  //$table->hasOne('Producto', 'idDetalleVenta');
             $table->timestamps();

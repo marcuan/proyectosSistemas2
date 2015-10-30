@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
 	 *	Ong
 	 */
 	Route::resource('users','Ong\UserController');
+	Route::resource('donantes','Ong\DonorController');
 
 	/**
 	 *	User Authentication
@@ -41,7 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
 	]);
 
 	/**
-	 *	Escuela
+	 *	Modulo Escuela
 	 */
 	Route::resource('estudiantes','Escuela\EstudianteController');
 	Route::resource('maestros','Escuela\MaestroController');
@@ -55,8 +56,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('desasignacionmaestros/{id}', 'Escuela\DesasignMaestController@desasignar');
 	Route::resource('desasignacionmaestros', 'Escuela\DesasignacionMaestroController');
 	Route::get('cursoestudiantes/{id}', 'Escuela\CursoEstudiantesController@verestudiantes');
-	Route::get('agregarhorario/{id}', 'Escuela\CursoEstudiantesController@crearhorario');
-	Route::resource('agregarhorario', 'Escuela\HorarioController');
+	Route::get('horarios/{id}', 'Escuela\CursoEstudiantesController@crearhorario');
+	Route::resource('horarios', 'Escuela\HorarioController');
+
 
 	// direccion para reportes 
 	
@@ -65,21 +67,14 @@ Route::group(['middleware' => 'auth'], function () {
 		//return "aca llamar a la vista ReporteEstu en resouse /views/escuela/estudiante/Reporte.php";
 		// llega a la vista de los reportes 
 		return view('\Escuela\estudiante\Reporte');
-
-
-
 	});
 
 	 // ejemplo 
 
-
-
-
-
 	
 
 	/**
-	 *	Restaurante
+	 *	Modulo Restaurante
 	 */
 	Route::resource('materiaprima','Restaurante\MateriaPrimaController');
 	Route::get('/comprasproveedor/{id}',['as'=>'compras','uses'=>'Restaurante\ComprasController@proveedor']);
@@ -91,11 +86,15 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('detallecompra', 'Restaurante\DetalleCompraController');
 
 	/**
-	 *	Despensa
+	 *	Modulo Despensa
 	 */
 	Route::resource ('venta','Despensa\VentasController');
 	Route::resource('inventario','Despensa\InventarioController');
 	Route::resource('producto','Despensa\productosController');
 	Route::resource('proveedores', 'Despensa\proveedoresController');
 	Route::resource('consignaciones', 'Despensa\ConsignacionController');
+	Route::resource('detalleconsignacion', 'Despensa\DetalleConsignacionController');
+	Route::get('/consignacionproveedor/{id}',['as'=>'consignacion','uses'=>'Despensa\ConsignacionController@proveedor']);
+	
+	//Route::resource('proveedores', 'Despensa\proveedoresController@getIndex');
 });

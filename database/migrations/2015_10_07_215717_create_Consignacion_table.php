@@ -14,9 +14,11 @@ class CreateConsignacionTable extends Migration
     {
          Schema::create('Consignacion', function(Blueprint $table) {
             $table->increments('id');
+			 	 $table->string('codigo');
                  $table->date('fechaInicial');
-		 $table->date('fechaFinal');
+			 	 $table->date('fechaFinal');
                  $table->string('detalleConsignacion');
+			 
                  //Campo para llave foranea
                  $table->integer('proveedores_id')->unsigned();
                  //Referenciando la llave foranea con la otra tabla Proveedores

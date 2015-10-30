@@ -8,6 +8,7 @@ use RED\Escuela\Curso;
 use RED\Escuela\Telefono;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class EstudianteController extends Controller
 {
@@ -77,11 +78,18 @@ class EstudianteController extends Controller
     public function store(Request $request)
     {
         $estudiante = Estudiante::create($request->all());
+        $carbon = new Carbon();
+        $date = $carbon->now()->year-2000;
+        $codigo = $estudiante->id + 100;
+        $estudiante->codigo = "est-".$codigo ."". $date;
+        $estudiante->save();        
 
         $telefono = new Telefono;
         $telefono->numero_telefono = $request['numero_telefono'];
         $telefono->estudiante_id = $estudiante->id;
         $telefono->save();
+
+
         
         return redirect('/estudiantes')->with('message', 'store');
     }
@@ -122,16 +130,12 @@ class EstudianteController extends Controller
     public function update(Request $request, $id)
     {
         $estudiante = Estudiante::find($id);
-        \Storage::delete($estudiante->path);
         $estudiante->fill($request->all());
         $estudiante->save();
-
+        
         $telefono = $estudiante->telefonos()->get()->first();
         $telefono->numero_telefono = $request['numero_telefono'];
         $telefono->save();        
-
-
-
 
     return redirect('/estudiantes')->with('message','edit');
     }
