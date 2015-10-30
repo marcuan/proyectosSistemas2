@@ -10,7 +10,7 @@ class Consignacion extends Model
     protected $fillable = [
     	'fechaInicial',
     	'fechaFinal',
-    	'detalleConsignacion', //servira escribir un pequeño detalle de la consignacion que se hace
+    	'detalleConsignacion',
     	'proveedores_id'
     ];
 }
