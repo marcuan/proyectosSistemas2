@@ -3,19 +3,18 @@
 namespace RED\Ong;
 
 use Illuminate\Database\Eloquent\Model;
-use Illiminate\Database\Eloquent\SoftDeleters;
+use Illiminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 class Activity extends Model
 {
-	use SoftDeletes;
 
 	protected $table = 'Activity';
 
-	protected $filltable = [
-		'id_Activity',
-		'name_activity',
+	protected $fillable = [
+		'id',
+		'name',
 		'description',
-		'place',
 		'date_start',
 		'date_end',
 		'capacity',
