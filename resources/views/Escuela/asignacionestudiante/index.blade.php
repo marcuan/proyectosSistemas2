@@ -16,7 +16,9 @@
     {!!Form::open(['route'=>'asignacionestudiantes.store', 'method'=>'POST'])!!}
         <h4><strong>Estudiante: </strong>  {{$student->apellido_estudiante}} , {{$student->nombre_estudiante}}</h4>
         {!!Form::text('idestudiante',$student->id,['class'=>'hidden', 'id'=>'idestudiante'])!!}
+            <div>{!!$course->render()!!}</div>
             <div class="table-responsive">
+            
             <table class="table table-hover">
                 <thead>
                     <th>Codigo</th>
@@ -39,7 +41,7 @@
                         {!!Form::text('curso['.$key.']', $curso->id, ['class'=>'hidden', 'id'=>'idcurso'])!!}</td>
                 </tbody>
                 @endforeach
-                {!!$course->render()!!}
+               
             </table> 
         </div>
         <div class="">
