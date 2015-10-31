@@ -16,6 +16,7 @@
                     <td>{{$DetalleCompra->costo}}</td>
                 </tbody>
             @endforeach
+		    <h1>Total: {{$detalle->total}}</h1>
             <a href="/detallecompra/create" class="btn btn-danger">Crear Detalle</a>
             <a href="/compra" class="btn btn-danger">Regresar</a>
         </table>
