@@ -89,7 +89,7 @@ class DonorController extends Controller
     public function show($id)
     {
         $donor = Donor::find($id);
-        $donations = $donor->donations()->get();
+        $donations = Donation::all();
         return view('Ong.donor.assign', compact(['donations', 'donor']));
     }
 

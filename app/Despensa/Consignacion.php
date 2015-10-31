@@ -3,6 +3,9 @@
 namespace RED\Despensa;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Consignacion extends Model
 {
@@ -31,5 +34,19 @@ class Consignacion extends Model
 	   public function dconsignacion()
     {
         return $this->belongsToMany('RED\Despensa\DetalleConsignacion');
+    }
+    public function scopeCode($query, $code){
+
+        if ($code != "")
+        {
+            return $query->where("codigo","LIKE","%$code%");    
+        }
+    }
+    public function scopeFechai($query, $fechaini){
+
+        if ($fechaini != "")
+        {
+            return $query->where("fechaInicial",'>',$fechaini);    
+        }
     }
 }
