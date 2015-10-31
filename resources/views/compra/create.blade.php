@@ -26,6 +26,7 @@
 
         	 <table class="table">
             <thead>
+		   <th>id</th>
                 <th>Nombre</th>
                <th>Cantidad</th>
 		       <th>Precio unitario</th>   
@@ -33,9 +34,10 @@
             </thead>
              @foreach($materiaprima as $key => $dato)
             <tbody>
+			<td> {!!Form::hidden('materiaprima_id',$dato->id,['class'=>'form-control','placeholder'=>'Ingrese Total', 'hidden'])!!}</td>
                 <td>{{$dato->nombre}}</td>
-              <td>{!!Form::number('cantidad',null,['class'=>'form-control','placeholder'=>'Ingrese Cantidad','required'])!!}</td>
- <td> {!!Form::number('costo',0,['class'=>'form-control','placeholder'=>'Ingrese Costo','required'])!!}</td>
+              <td>{!!Form::number('cantidad[]',0,['class'=>'form-control','placeholder'=>'Ingrese Cantidad','required'])!!}</td>
+ <td> {!!Form::number('costo[]',0,['class'=>'form-control','placeholder'=>'Ingrese Costo','required'])!!}</td>
  <td>{!!Form::checkbox('check[]', $key);!!}
                         {!!Form::text('dato['.$key.']', $dato->id, ['class'=>'hidden', 'id'=>'iddato'])!!}</td>		
 		</tbody>
