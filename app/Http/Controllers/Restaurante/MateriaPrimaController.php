@@ -30,7 +30,7 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
     {
         //
 	   
-	     $materiaprima=MateriaPrima::name($request->get('name'))->orderBy('nombre','DESC')->paginate();
+	     $materiaprima=MateriaPrima::name($request->get('name'))->orderBy('nombre','DESC')->paginate(10);
 	
 	  return View('materiaprima.todamateriaprima',compact('materiaprima'));
     }

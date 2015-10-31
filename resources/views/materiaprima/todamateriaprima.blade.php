@@ -35,6 +35,8 @@
 			 <td>{!!link_to_route('materiaprima.edit', $title = 'Editar', $parameters = $dato->id, $attributes = ['class'=>'btn btn-primary']);!!}
                  </tbody>
             @endforeach
+		  {!!$materiaprima->render()!!}
         </table>
+	    {!!$materiaprima->render()!!}
     </div>
 @stop
