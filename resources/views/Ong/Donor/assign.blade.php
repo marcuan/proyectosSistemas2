@@ -4,7 +4,7 @@
 {!!Form::open()!!}
 	<div class="container col-xs-12">
     <h3 class="title" selected="selected">Donadores</h3>
-    <a href="../estudiantes" class="btn btn-danger">Regresar</a>
+    <a href="/donantes" class="btn btn-danger">Regresar</a>
         <div class="info card">
             <div class="datos">
                 <div class="personales"> 
