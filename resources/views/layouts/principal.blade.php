@@ -42,9 +42,6 @@
 								<a href="/donantes">Donantes</a>
 							</li>
 							<li>
-								<a href="/donaciones">Donaciones</a>
-							</li>
-							<li>
 								<a href="/users">Usuarios</a>
 							</li>
 						</ul>

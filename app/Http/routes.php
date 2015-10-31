@@ -32,6 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
 	 */
 	Route::resource('users','Ong\UserController');
 	Route::resource('donaciones','Ong\DonationController');
+	Route::get('donaciones/create/{id}','Ong\DonationController@create');
 	Route::resource('donantes','Ong\DonorController');
 
 	/**

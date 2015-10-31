@@ -17,7 +17,7 @@
 @section('content')
     <div class="container col-xs-12">
     <h3 class="title" selected="selected">Donaciones</h3>
-    <a href="/donaciones/create" class="btn btn-danger">Crear Donación</a> 
+    
     {!!Form::open(['rout'=>'Donaciones.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
         <div class="form-group">
             {!!Form::select('type',['donacion'=>'Donación','codigo'=>'Código'],null,['class'=>'form-control'])!!}
