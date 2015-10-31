@@ -14,7 +14,7 @@
             </div>
             <div class="form-grup">
                 {!!Form::label('Precio:')!!}
-                {!!Form::number('precio',null,['class'=>'form-control','placeholder'=>'Ingrese Precio','required'])!!}
+                {!!Form::number('precio',null,['class'=>'form-control','placeholder'=>'Ingrese Precio','required','step' => 'any'])!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Descripcion:')!!}
