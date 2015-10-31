@@ -50,7 +50,7 @@
 					<td>{{$consignaciones->fechaInicial}}</td>
                     <td>{{$consignaciones->fechaFinal}}</td>
                     <td>{{$consignaciones->detalleConsignacion}}</td>
-                    <td>{{$consignaciones->proveedores_id}}</td>
+                    <td>{{$consignaciones->proveedores->nombre}}</td>
                     <td> <td>{!!link_to_route('consignaciones.show', $title = 'Ver Detalles', $parameters = $consignaciones->id, $attributes = ['class'=>'btn btn-primary']);!!}
 						{!!link_to_route('consignaciones.edit', $title = 'Editar', $parameters = $consignaciones->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
                 </tbody>
