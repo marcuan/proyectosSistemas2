@@ -10,12 +10,17 @@ class Ventum extends Model
 
     protected $fillable = [
     'id',
+    'fechaVenta',
+    'descuento',
+    'subtotal',
+    'total',
+    'anulado',
     'clientes_id'];
 
-    protected $dates = ['deleted_at'];
+       protected $dates = ['deleted_at'];
 
     
-    public function ventass()
+    public function ventas()
     {
         return $this->hasMany('RED\Despensa\Ventum');
     }
@@ -35,6 +40,7 @@ class Ventum extends Model
             return $query->where("id","LIKE","%$code%");    
         }
     }
+    
     public function compra()
     {
         return $this->hasMany('RED\Restaurante\Compra','proveedores_id'); 
