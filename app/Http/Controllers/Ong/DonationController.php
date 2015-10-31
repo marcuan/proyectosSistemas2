@@ -3,6 +3,7 @@
 namespace RED\Http\Controllers\Ong;
 
 use Illuminate\Http\Request;
+use RED\Ong\Donor;
 use RED\Ong\Donation;
 use RED\Http\Requests;  
 use RED\Http\Controllers\Controller;
@@ -17,7 +18,8 @@ class DonationController extends Controller
     public function index(Request $request)
     {
         $donation = Donation::all();
-        return view('Ong.donation.index',compact('donation'));
+        $donor = Donor::all();
+        return view('Ong.donation.index',compact(['donation', 'donor']));
     }
 
     /**
@@ -40,7 +42,7 @@ class DonationController extends Controller
     {
         Donation::create($request->all());
 
-    return redirect('/donaciones')->with('message','store');
+    return redirect('/donantes')->with('message','store');
     }
 
     /**
@@ -80,7 +82,7 @@ class DonationController extends Controller
         $donation->fill($request->all());
         $donation->save();
 
-     return redirect('/donaciones')->with('message','edit');
+     return redirect('/donantes')->with('message','edit');
     }
 
     /**
@@ -94,6 +96,6 @@ class DonationController extends Controller
         $donation = Donation::find($id);
         $donation->delete();  
 
-    return redirect('/donaciones')->with('message','erase');
+    return redirect('/donantes')->with('message','erase');
     }
 }
