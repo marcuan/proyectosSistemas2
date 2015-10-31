@@ -91,7 +91,10 @@ class DetalleCompraController extends Controller
      */
     public function show($id)
     {
-        //
+        //asignar # a la casilla compra
+        $compra = $id;
+        $opcionmateria = MateriaPrima::all()->lists('nombre','id');
+        return view("detallecompra.create", compact('compra','opcionmateria'));  
     }
 
     /**

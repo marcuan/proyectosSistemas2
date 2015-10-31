@@ -13,4 +13,9 @@ class MateriaPrima extends Model
 		'existencia',
 		'precio'
 		];
+	public function detallecompra()
+	{
+     return $this->hasMany('RED\Restaurante\DetalleCompra','materia_prima_id');	 
+	}
+
 }

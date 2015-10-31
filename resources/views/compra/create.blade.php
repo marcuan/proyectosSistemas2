@@ -5,7 +5,7 @@
         <div class="container col-xs-12">
             <div class="form-grup">
         		{!!Form::label('Fecha:')!!}
-        		{!!Form::date('fecha',null,['class'=>'form-control','placeholder'=>'Ingrese fecha', 'required'])!!}
+        		{!!Form::date('fecha',$fecha,['class'=>'form-control','placeholder'=>'Ingrese fecha', 'required'])!!}
         	</div><br>
         	<div class="form-grup">
         	<!--	{!!Form::label('Sub Total:')!!}-->

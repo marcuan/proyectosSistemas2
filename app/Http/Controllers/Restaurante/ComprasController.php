@@ -41,10 +41,12 @@ class ComprasController extends Controller
      */
     public function create()
     {
+        //mostrar fecha actual
+        $fecha = date('Y-m-d');
         //Cargar nombre de proveedores
         $opcionproveedor = Proveedore::all()->lists('nombre', 'id');
 	   $materiaprima=Materiaprima::all();
-        return view("compra.create", compact('opcionproveedor','materiaprima'));        
+        return view("compra.create", compact('opcionproveedor','materiaprima','fecha'));        
     }
 
     /**

@@ -20,8 +20,12 @@ class Compra extends Model
     	return $this->hasMany('RED\Restaurante\DetalleCompra','compras_id'); 
 	}
 
-	   public function dcompras()
+	public function dcompras()
     {
-        return $this->belongsToMany('RED\Restaurante\DetalleCompra');
+        return $this->belongsTo('RED\Restaurante\DetalleCompra');
+    }
+    public function proveedores()
+    {
+        return $this->belongsTo('RED\Despensa\Proveedore');
     }
 }
