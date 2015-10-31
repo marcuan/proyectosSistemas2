@@ -10,16 +10,17 @@ class Ventum extends Model
 
     protected $fillable = [
     'id',
-    'clientes_id',
     'fechaVenta',
-    'total',
+    'descuento',
     'subtotal',
-    'anulado'];
+    'total',
+    'anulado',
+    'clientes_id'];
 
-    protected $dates = ['deleted_at'];
+       protected $dates = ['deleted_at'];
 
     
-    public function ventass()
+    public function ventas()
     {
         return $this->hasMany('RED\Despensa\Ventum');
     }
@@ -31,22 +32,6 @@ class Ventum extends Model
             return $query->where("clientes_id","LIKE","%$name%");    
         }
     }
-    
-    public function scopeCode($query, $type){
-
-        if (trim($type) != "")
-        {
-            return $query->where("id","LIKE","%$type%");    
-        }
-    }
-    
-    public function scopeFecha($query, $fecha){
-
-        if (trim($fecha) != "")
-        {
-            return $query->where("fechaVenta","LIKE","%$fecha%");    
-        }
-    }
 
     public function scopeId($query, $code){
 
@@ -56,30 +41,8 @@ class Ventum extends Model
         }
     }
     
-    public function scopeName($query, $name)
+    public function compra()
     {
-        if (trim($name) != "") {
-            # code...
-            return $query->where("id","LIKE","%$name%");
-        }
-        
-    }
-    
-            public function scopeDate($query, $date)
-    {
-        if (trim($date) != "") {
-            # code...
-            $query->where("fechaVenta","LIKE","%$date%");
-        }
-        
-    }
-    
-        public function scopeAnular($query, $id)
-    {
-        if (trim($name) != "") {
-            # code...
-            return $query->where("id","LIKE","%$name%");
-        }
-        
+        return $this->hasMany('RED\Restaurante\Compra','proveedores_id'); 
     }
 }
