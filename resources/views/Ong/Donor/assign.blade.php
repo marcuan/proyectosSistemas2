@@ -21,10 +21,12 @@
                 <th>Descripción</th>
             </thead>
             @foreach($donations as $key => $donation)
-            <tbody>
-                <td>{{$donation->monto}}</td>
-                <td>{{$donation->descripcion}}</td>
-            </tbody>
+                @if ($donation->id_donor == $donor->id)
+                    <tbody>
+                        <td>{{$donation->monto}}</td>
+                        <td>{{$donation->descripcion}}</td>
+                    </tbody>
+                @endif
             @endforeach
         </table>
     </div>
