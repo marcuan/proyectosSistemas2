@@ -92,10 +92,7 @@
 							<li>
 								<a href="/proveedores">Proveedores</a>
 							</li>
-							<li>
-								<a href="/inventario">Inventario</a>
-							</li>
-							<li>
+						    <li>
 								<a href="/venta">Ventas</a>
 							</li>
 							 <li>

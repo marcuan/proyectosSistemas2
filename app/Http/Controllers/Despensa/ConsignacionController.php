@@ -34,7 +34,7 @@ class ConsignacionController extends Controller
     public function index()
     {
         $consignacion = Consignacion::all();
-        return View('consignaciones.index',compact('consignacion'));
+        return view('consignaciones.index',compact('consignacion'));
     }
 
     /**
@@ -141,6 +141,8 @@ class ConsignacionController extends Controller
     public function proveedor($id)
     {
         $proveedore=$this->proveedorrepo->find($id);
+		return View('consignacion.comprasaproveedor',compact('proveedore'));
+	   //dd($proveedore);
         
     }
 }

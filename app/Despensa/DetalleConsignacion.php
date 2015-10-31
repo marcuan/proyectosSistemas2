@@ -9,9 +9,9 @@ class DetalleConsignacion extends Model
    protected $table = 'DetalleConsignacion';
     protected $fillable = [
 	'consignacion_id',
-	'producto_id',
 	'cantidad',
-	'costo'
+	'precio',
+	'producto_id'	
 	];
 	
     public function consignacion()

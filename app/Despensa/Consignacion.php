@@ -10,6 +10,7 @@ class Consignacion extends Model
     protected $table = 'Consignacion';
 
     protected $fillable = [
+	
 		'codigo',
     	'fechaInicial',
     	'fechaFinal',
@@ -19,9 +20,7 @@ class Consignacion extends Model
     ];
 	
 	public function verConsignacion(){
-    
-
-    return DB::select($rawQuery);   
+     return DB::select($rawQuery);   
 }
 	public function detalles()
     {
