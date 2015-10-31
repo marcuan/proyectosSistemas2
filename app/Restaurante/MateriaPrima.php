@@ -18,4 +18,13 @@ class MateriaPrima extends Model
      return $this->hasMany('RED\Restaurante\DetalleCompra','materia_prima_id');	 
 	}
 
+	public function scopeName($query, $name)
+    {
+    	if(trim($name)!="")
+    	{
+    		#code...
+    		$query->where(\DB::raw("CONCAT(nombre)"), "LIKE", "%$name%");
+    	}
+    }
+
 }
