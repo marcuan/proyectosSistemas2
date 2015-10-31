@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             {!!Form::select('active',[0=>'Activos',1=>'Inhabilitados',2=>'Todos'],null,['class'=>'form-control'])!!}
-        </di
+        </div>
         <div class="form-group">
             {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
         </div>
