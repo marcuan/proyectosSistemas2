@@ -21,6 +21,8 @@ class CreateActivityTable extends Migration
             $table->datetime('date_end');
             $table->integer('capacity');
             $table->timestamps();
+            $table->softDeletes();
+            
         });
     }
 
