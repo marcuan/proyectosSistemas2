@@ -58,8 +58,8 @@
             @foreach($horarios as $horario)
             <tbody>
                 <td>{{$horario->dia}}</td>
-                <td>{{$horario->hora_inicio}}</td>
-                <td>{{$horario->hora_fin}}</td>
+                <td><?php echo date('g:i a', strtotime($horario->hora_inicio)); ?></td>
+                <td><?php echo date('g:i a', strtotime($horario->hora_fin)); ?></td>
                 <td>{{$horario->salon}}</td>
                 <td>{!!link_to_route('horarios.edit', $title = 'Editar', $parameters = $horario->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>

@@ -27,7 +27,9 @@
 								</div>
 								<div class = "info_horario">
 									<strong>Hora:</strong><br>
-									{{$horario->hora_inicio}} - {{$horario->hora_fin}}
+									<?php echo date('g:i a', strtotime($horario->hora_inicio)); ?>
+									&nbsp;-&nbsp;
+									<?php echo date('g:i a', strtotime($horario->hora_fin)); ?>
 									<br>
 									<strong>Salón:</strong><br>
 									{{$horario->salon}} 
