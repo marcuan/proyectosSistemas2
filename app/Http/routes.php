@@ -65,12 +65,22 @@ Route::group(['middleware' => 'auth'], function () {
 	
 	Route::get('reposiEstu',function ()
 	{
-		//return "aca llamar a la vista ReporteEstu en resouse /views/escuela/estudiante/Reporte.php";
 		// llega a la vista de los reportes 
 		return view('\Escuela\estudiante\Reporte');
 	});
+	Route::get('reposiCurso',function ()
+	{
+		// llega a la vista de los reportes 
+		return view('\Escuela\curso\Reportes');
+	});
+	Route::get('reposiMaestro',function ()
+	{
+		// llega a la vista de los reportes 
+		return view('\Escuela\maestro\Reporte');
+	});
 
-	 // ejemplo 
+
+	 
 
 	
 

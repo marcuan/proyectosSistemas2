@@ -29,7 +29,7 @@
 									<strong>Hora:</strong><br>
 									{{$horario->hora_inicio}} - {{$horario->hora_fin}}
 									<br>
-									<strong>Salon:</strong><br>
+									<strong>Salón:</strong><br>
 									{{$horario->salon}} 
 								</div>
 							@endif
@@ -40,7 +40,7 @@
 				<td>
 					@foreach($horarios as $horario)
 					<a href="/cursos/{{$horario->curso_id}}">
-						<div class ="martes">
+						<div class ="martes" style="margin: 10px 0 0px 0;">
 							@if($horario->dia == 'Martes')
 								<div class="nombre_horario">
 								{{$horario->curso->nombre_curso}}
@@ -49,7 +49,7 @@
 									<strong>Hora:</strong><br>
 									{{$horario->hora_inicio}} - {{$horario->hora_fin}}
 									<br>
-									<strong>Salon:</strong><br>
+									<strong>Salón:</strong><br>
 									{{$horario->salon}} 
 								</div>
 							@endif
@@ -60,7 +60,7 @@
 				<td>
 					@foreach($horarios as $horario)
 					<a href="/cursos/{{$horario->curso_id}}">
-						<div class ="miercoles">
+						<div class ="miercoles" style="margin: 10px 0 0px 0;">
 							@if($horario->dia == 'Miércoles')
 								<div class="nombre_horario">
 								{{$horario->curso->nombre_curso}}
@@ -69,7 +69,7 @@
 									<strong>Hora:</strong><br>
 									{{$horario->hora_inicio}} - {{$horario->hora_fin}}
 									<br>
-									<strong>Salon:</strong><br>
+									<strong>Salón:</strong><br>
 									{{$horario->salon}} 
 								</div>
 							@endif
@@ -80,7 +80,7 @@
 				<td>
 					@foreach($horarios as $horario)
 					<a href="/cursos/{{$horario->curso_id}}">
-						<div class ="jueves">
+						<div class ="jueves" style="margin: 10px 0 0px 0;">
 							@if($horario->dia == 'Jueves')
 								<div class="nombre_horario">
 								{{$horario->curso->nombre_curso}}
@@ -89,7 +89,7 @@
 									<strong>Hora:</strong><br>
 									{{$horario->hora_inicio}} - {{$horario->hora_fin}}
 									<br>
-									<strong>Salon:</strong><br>
+									<strong>Salón:</strong><br>
 									{{$horario->salon}} 
 								</div>
 							@endif
@@ -100,7 +100,7 @@
 				<td>
 					@foreach($horarios as $horario)
 					<a href="/cursos/{{$horario->curso_id}}">
-						<div class ="viernes">
+						<div class ="viernes" style="margin: 10px 0 0px 0;">
 							@if($horario->dia == 'Viernes')
 								<div class="nombre_horario">
 								{{$horario->curso->nombre_curso}}
@@ -109,7 +109,7 @@
 									<strong>Hora:</strong><br>
 									{{$horario->hora_inicio}} - {{$horario->hora_fin}}
 									<br>
-									<strong>Salon:</strong><br>
+									<strong>Salón:</strong><br>
 									{{$horario->salon}} 
 								</div>
 							@endif
@@ -120,7 +120,7 @@
 				<td>
 					@foreach($horarios as $horario)
 					<a href="/cursos/{{$horario->curso_id}}">
-						<div class ="sabado">
+						<div class ="sabado" style="margin: 10px 0 0px 0;">
 							@if($horario->dia == 'Sábado')
 								<div class="nombre_horario">
 								{{$horario->curso->nombre_curso}}
@@ -129,7 +129,7 @@
 									<strong>Hora:</strong><br>
 									{{$horario->hora_inicio}} - {{$horario->hora_fin}}
 									<br>
-									<strong>Salon:</strong><br>
+									<strong>Salón:</strong><br>
 									{{$horario->salon}} 
 								</div>
 							@endif
@@ -149,7 +149,7 @@
 									<strong>Hora:</strong><br>
 									{{$horario->hora_inicio}} - {{$horario->hora_fin}}
 									<br>
-									<strong>Salon:</strong><br>
+									<strong>Salón:</strong><br>
 									{{$horario->salon}} 
 								</div>
 							@endif
