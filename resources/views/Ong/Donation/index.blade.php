@@ -34,11 +34,8 @@
             <tbody>
                 <td>{{$Donacion->monto}}</td>
                 <td>{{$Donacion->descripcion}}</td>
-                <td>{!!link_to_route('donaciones.edit', $title = 'Editar', $parameters = $Donacion->id, $attributes = ['class'=>'btn btn-primary']);!!}
             </tbody>
             @endforeach
-            {!!$donation->render()!!}
         </table>
-            {!!$donation->render()!!}        
     </div>
 @stop
