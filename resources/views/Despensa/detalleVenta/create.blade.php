@@ -4,14 +4,17 @@
         <table class="table table-hover table-responsive">
             <thead>
                 <th>No. Venta</th>
+                <th>Fecha</th>
                 <th>Cliente</th>
+                <th>Nit</th>
             </thead>
-            @foreach($venta as $venta)
+            {{-- */$clienteComp = RED\Restaurante\Cliente::find($venta->clientes_id)/* --}}
             <tbody>
                 <td>{{$venta->id}}</td>
-                <td>{{$venta->clientes_id}}</td>
+                <td>{{$venta->fechaVenta}}</td>
+                <td>{{$clienteComp->nombre}}</td>
+                <td>{{$clienteComp->nit}}</td>
             </tbody>
-            @endforeach
         </table>
     </div>
 
@@ -19,10 +22,10 @@
         <table class="table table-condensed">
             <thead>
             <h3>Detalle de Venta</h3>
-                <th>Nombre</th>
-                <th>Nit</th>
-                <!-- <th>Telefono</th> -->
-                <th>Dirección</th>
+                <th>Codigo</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
             </thead>
         </table>
     </div>
