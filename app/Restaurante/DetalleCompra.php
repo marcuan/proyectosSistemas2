@@ -16,9 +16,12 @@ class DetalleCompra extends Model
 	
     public function compra()
     {
-    	return $this->hasMany('RED\Compra','compras_id'); 
+    	return $this->hasMany('RED\Restaurante\Compra','compras_id'); 
 	}
 
-	
+	public function materia_prima()
+    {
+        return $this->belongsTo('RED\Restaurante\MateriaPrima');
+    }
 
 }

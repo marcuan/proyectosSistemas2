@@ -20,13 +20,13 @@
         <table class="table">
             <thead>
                 <th>Materia prima</th>
-                <th>Id compra</th>
+                <th># Compra</th>
                 <th>Cantidad</th>
                 <th>Costo</th>
             </thead>
             @foreach($DetalleCompra as $DetalleCompra)
             <tbody>
-                <td>{{$DetalleCompra->materia_prima_id}}</td>
+                <td>{{$DetalleCompra->materia_prima->nombre}}</td>
                 <td>{{$DetalleCompra->compras_id}}</td>
                 <td>{{$DetalleCompra->cantidad}}</td>
                 <td>{{$DetalleCompra->costo}}</td>

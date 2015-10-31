@@ -35,4 +35,8 @@ class Ventum extends Model
             return $query->where("id","LIKE","%$code%");    
         }
     }
+    public function compra()
+    {
+        return $this->hasMany('RED\Restaurante\Compra','proveedores_id'); 
+    }
 }
