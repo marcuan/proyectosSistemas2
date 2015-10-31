@@ -21,11 +21,8 @@
                 {!!Form::label('Observaciones:')!!}
                 {!!Form::text('detalleConsignacion',null,['class'=>'form-control','placeholder'=>'Observaciones', 'required'])!!}
             </div><br>
-            <div class="form-grup">
-                {!!Form::label('Proveedor:')!!}
-                {!!Form::text('proveedores_id',null,['class'=>'form-control','placeholder'=>'Ingrese Proveedor', 'required'])!!}
-            </div><br>
-        <div class="form-btn">
+			
+ <div class="form-btn">
             {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
         </div>
 			<div class="container">
@@ -34,8 +31,8 @@
 			<h3>DetalleConsignacion</h3>
            	 <div class="container">
 			<thead>
+				<th>Cantidad</th>
 				<th>Producto</th>
-                <th>Cantidad</th>
                 <th>Precio U</th>
                 
             </thead>
