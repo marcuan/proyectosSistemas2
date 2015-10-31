@@ -80,7 +80,13 @@ class ProductosController extends Controller
     public function store(Request $request)
     {
         //
-        Producto::create($request->all());
+        
+		$producto=Producto::create($request->all());
+		//concatena la P al codigo
+		$codigo =$producto->id+1000;
+		$codigo = "P-".$codigo;
+		$producto->codigo=$codigo;
+		$producto->save();
             return redirect('/producto')->with('message','store');
     }
 

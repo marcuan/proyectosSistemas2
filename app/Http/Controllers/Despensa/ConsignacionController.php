@@ -61,7 +61,11 @@ class ConsignacionController extends Controller
     public function store(Request $request)
     {
     
-		Consignacion::create($request->all());
+		$consignacion=Consignacion::create($request->all());
+		$codigo = $consignacion->id+100;
+		$codigo = "C-".$codigo;
+		$consignacion->codigo= $codigo;
+		$consignacion->save();
           return redirect('/detalleconsignacion/create');
 	 
         /*Consignacion::create($request->all());

@@ -65,16 +65,18 @@ class DetalleConsignacionController extends Controller
     public function store(Request $request)
     {
         $opcionproducto = Producto::all()->lists('nombreProducto','id');
-      
+      	$producto = Producto::find($request->input('producto_id'));
 	   
 	    $idconsignacion=$request['consignacion_id'];
 		$costo=$request['costo'];//Obtenemos el costo unitario 
 	    $cantidad=$request['cantidad'];
 	    DetalleConsignacion::create($request->all());
-		
+		$producto->existencia = $producto->existencia + $cantidad;
+// pruebas debug and die		dd($producto->save());
+		$producto->save();
 	   $consignacion = Consignacion::find($idconsignacion);//Buscamos la compra
 		
-	   $consignacion->save();//actualizar
+//	   $consignacion->save();//actualizar
 	   $consignacion=$idconsignacion;
 	   return view('detalleconsignacion.create',compact('consignacion','opcionproducto'))->with('message','store');;
       //  return redirect('/detallecompra')->with('message','store');

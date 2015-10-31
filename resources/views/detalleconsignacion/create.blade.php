@@ -11,7 +11,7 @@
 		<div class="form-grup ">
              
        {!!Form::label('No. Consignacion:')!!}
-	{!!Form::text('consignacion_id',$consignacion,['class'=>'form-control','placeholder'=>'No.','required'])!!}
+	   {!!Form::text('consignacion_id',$consignacion,['class'=>'form-control','placeholder'=>'No.','readonly'])!!}
 			
        		  </div>
 		</div><br/>
@@ -30,7 +30,8 @@
                 {!!Form::label('Seleccione un Producto:')!!}
                 {!! Form::select('producto_id', $opcionproducto) !!}
 <!--            </div><br/>-->
-            {!!Form::submit('Guardar',['class'=>'btn btn-primary'])!!}
+<!--            {!!Form::submit('Guardar',['class'=>'btn btn-primary'])!!}-->
+			<a href="/detalleconsignacion/create" class="btn btn-primary">Guardar</a>
 			<a href="/consignaciones" class="btn btn-danger">Terminar</a>
 
 
@@ -38,19 +39,6 @@
 
 <!-- LLenando Tabla con el detalle de la consignacion   -->
 
- <div class="container">
-			<table class="table">
-			<h3>DetalleConsignacion</h3>
-           	 <div class="container">
-			<thead>
-				<th>Producto</th>
-                <th>Cantidad</th>
-                <th>Precio U</th>
-                
-            </thead>
-		</div>
-			
-    </div>
 	 
   {!!form::close()!!}
 @stop
