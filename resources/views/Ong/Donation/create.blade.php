@@ -14,8 +14,7 @@
                 {!!Form::text('descripcion',null,['class'=>'form-control','placeholder'=>'Ingrese Descripción de Donación','required'])!!}
             </div><br>
             <div class="form-grup">
-                {!!Form::label('ID Donador:')!!}
-                {!!Form::text('id_donor',null,['class'=>'form-control','placeholder'=>'Ingrese ID del Donador','required'])!!}
+                {!!Form::hidden('id_donor',$id)!!}
             </div><br>
             <div class="form-btn">
             {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}

@@ -25,9 +25,9 @@ class DonationController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function create($id = 0)
     {
-        return view('Ong.donation.create');
+        return view('Ong.donation.create', compact('id'));
     }
 
     /**
