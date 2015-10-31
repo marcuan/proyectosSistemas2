@@ -24,6 +24,14 @@
     <div class="container col-xs-12">
     <h3 class="title" selected="selected">Maestros</h3>
     <a href="/maestros/create" class="btn btn-danger">Crear Maestro</a> 
+
+
+
+    <a href="reposiMaestro" class="btn btn-danger">Descargar Reporte</a>
+
+
+
+
     {!!Form::open(['rout'=>'maestros.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
         <div class="form-group">
             {!!Form::select('active',['activos'=>'Activos','inhabilitados'=>'Inhabilitados','todos'=>'Todos'],null,['class'=>'form-control'])!!}
