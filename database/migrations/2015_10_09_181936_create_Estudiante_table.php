@@ -23,6 +23,7 @@ class CreateEstudianteTable extends Migration
             $table->boolean('activo');
             $table->string('path');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->integer('genero_id')->unsigned();
             $table->foreign('genero_id')->references('id')->on('genero');
