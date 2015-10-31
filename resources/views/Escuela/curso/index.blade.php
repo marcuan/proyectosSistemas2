@@ -24,8 +24,10 @@
 
 @section('content')
     <div class="container col-xs-12">
+
         <h3 class="title" selected="selected">Cursos</h3>
         <a href="/cursos/create" class="btn btn-danger">Crear Curso</a>
+        <a href="reposiCurso" class="btn btn-danger">Descargar Reporte</a>
         {!!Form::open(['rout'=>'estudiantes.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
         <div class="form-group">
             {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
