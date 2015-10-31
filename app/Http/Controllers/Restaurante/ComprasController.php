@@ -10,6 +10,7 @@ use RED\Restaurante\Compra;
 use RED\Restaurante\DetalleCompra;
 use RED\Repositories\ProveedorRepo;
 use RED\Despensa\Proveedore;
+use RED\Restaurante\MateriaPrima;
 use Resources;
 
 class ComprasController extends Controller
@@ -40,9 +41,12 @@ class ComprasController extends Controller
      */
     public function create()
     {
+        //mostrar fecha actual
+        $fecha = date('Y-m-d');
         //Cargar nombre de proveedores
         $opcionproveedor = Proveedore::all()->lists('nombre', 'id');
-        return view("compra.create", compact('opcionproveedor'));        
+	   $materiaprima=Materiaprima::all();
+        return view("compra.create", compact('opcionproveedor','materiaprima','fecha'));        
     }
 
     /**
@@ -53,9 +57,45 @@ class ComprasController extends Controller
      */
     public function store(Request $request)
     {
+	 
         Compra::create($request->all());
+	      Compra::create([
+            'fecha' => $request['fecha'],
+            'subtotal' => $request['subTotal'],
+            'descuento' => $request['descuento'],
+		 'proveedores_id' => $request['proveedores_id'],
+		  'total' => $request['total'],
+        ]);
+	     
+	   
+	     $compra = Compra::all()->last();
+	//  dd($compra);
+	       if($request['check'] != null) {		  
+            foreach ($request['check'] as $datos) {		  
+			   DetalleCompra::create([          
+            'compras_id' => $compra->id,
+            'cantidad' => $request['cantidad'][$datos],
+		 'costo' => $request['costo'][$datos],
+		  'materia_prima_id' => $request['dato'][$datos],
+        ]);
+	   $subtotaldetalle= $request['cantidad'][$datos]*$request['costo'][$datos];
+	   $subtotal=$compra->subtotal;
+	   $compra->subtotal=$subtotal+$subtotaldetalle;
+	  
+	  $total=$compra->total;
+	  $compra->total=$total+$subtotaldetalle;
+	
+	   $compra->save();
+		   
+               // $estudiante->cursos()->attach($idcurso[$dato]);
+            }}
+		  
+	
+		  
+		  
         //Redirigir la compra al detalle de compra
-        return redirect('/detallecompra/create');
+	   return redirect('/compra/'.$compra->id);
+      //  return redirect('/detallecompra/create');
         //return view("detallecompra.create");   
     }
 
