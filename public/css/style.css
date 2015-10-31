@@ -504,3 +504,41 @@ p.olvido, p.olvido a {
     font-size: 12px;
     color: #999;
 }
+/*
+    Horarios
+*/
+a, 
+a:hover{
+    text-decoration: none;
+}
+.lunes,
+.martes,
+.miercoles,
+.jueves,
+.viernes,
+.sabado,
+.domingo{
+    margin: 0 0 10px 0;
+    background: #EEEEEE;
+    border-bottom-width-radius: 7px;
+    color: #000;
+}
+
+.nombre_horario{
+    background: #9E9E9E;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.lunes .nombre_horario,
+.martes .nombre_horario,
+.miercoles .nombre_horario,
+.jueves .nombre_horario,
+.viernes .nombre_horario,
+.sabado .nombre_horario,
+.domingo .nombre_horario{
+    font-size: 16px;
+}
+.principal-final{
+    color: #fff;
+}
