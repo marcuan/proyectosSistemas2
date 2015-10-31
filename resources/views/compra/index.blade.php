@@ -29,7 +29,7 @@
                 <th>Total</th>
                 <th>Proveedor</th>
             </thead>
-            @foreach($compra as $compra)
+            @foreach($compras as $compra)
                 <tbody>
                     <td>{{$compra->fecha}}</td>
                     <td>{{$compra->subTotal}}</td>
@@ -40,6 +40,8 @@
                     {!!link_to_route('compra.edit', $title = 'Editar', $parameters = $compra->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
                 </tbody>
             @endforeach
+		  {!!$compras->render()!!}
         </table>
+	   {!!$compras->render()!!}
     </div>
 @stop

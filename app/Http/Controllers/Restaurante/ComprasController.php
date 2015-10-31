@@ -30,8 +30,8 @@ class ComprasController extends Controller
      */
     public function index()
     {
-        $compra = Compra::all();
-        return view('compra.index', compact('compra'));
+        $compras = Compra::orderBy('fecha','DESC')->paginate(10);
+        return view('compra.index', compact('compras'));
     }
 
     /**

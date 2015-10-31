@@ -44,6 +44,8 @@
                 <td>{!!link_to_route('platillo.edit', $title = 'Editar', $parameters = $dato->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
+		  {!!$platillo->render()!!}
         </table>
+	   {!!$platillo->render()!!}
     </div>
 @stop
