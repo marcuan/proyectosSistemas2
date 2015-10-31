@@ -14,17 +14,27 @@ class VentasController extends Controller
 {
     //   
     
-    public function index ()
+    public function index (Request $request)
     {
+        if ($request->get('type')=='' && $request->get('fecha')=='')
+        {       
+            
         $venta = Ventum::All();
-        return view ('Despensa.venta.index',compact('venta'));
+             return view ('Despensa.venta.index',compact('venta'));
+        }
+        if ($request->get('type')!='' && $request->get('fecha')=='')
+        {   
+            $venta = Ventum::code($request->get('type'))->orderBy('id')->paginate(10);
+           return view ('Despensa.venta.index',compact('venta'));
+        }
+        if ($request->get('fecha')!='' && $request->get('type')=='')
+        {   
+            $venta = Ventum::fecha($request->get('fecha'))->orderBy('fechaVenta')->paginate(10);
+           return view ('Despensa.venta.index',compact('venta'));
+        }
+        
     }
-    
-    public function buscarClientePorId ($idCliente)
-    {
-        $clienteComp = RED\Restaurante\Cliente::find(idCliente);
-        return $clienteComp;
-    }
+ 
     
     public function create ()
     {
@@ -44,6 +54,12 @@ class VentasController extends Controller
     }
     
     public function edit($id)
+    {
+        $venta = RED\Despensa\Ventum::find($id);
+        return view('Despensa.venta.edit', ['venta'=>$venta]);
+    }
+    
+    public function anular($id)
     {
         $venta = RED\Despensa\Ventum::find($id);
         return view('Despensa.venta.edit', ['venta'=>$venta]);

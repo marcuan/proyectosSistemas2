@@ -1,4 +1,4 @@
-<?php
+!<?php
 
 namespace RED\Http\Controllers\Escuela;
 
