@@ -3,8 +3,9 @@
 <div class="container col-xs-12">
     {!!Form::model($curso,['route'=>['cursos.update', $curso->id], 'method'=>'PUT'])!!}
             <h3 class="title" selected="selected">Cursos</h3>
-
+            <a href="/cursos" class="btn btn-danger">Regresar</a>
             <div class="form-grup">
+                <br>
                 {!!Form::label('Codigo:')!!}
                 {!!Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Ingrese Codigo', 'required'])!!}
             </div><br>
