@@ -21,6 +21,7 @@
 		
         </div>
     {!!form::close()!!}
-				<a href="/proveedores" class="btn btn-primary">Actualizar</a>
+<!--				<a href="/proveedores" class="btn btn-primary">Actualizar</a>-->
+			 {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
     </div>
 @stop

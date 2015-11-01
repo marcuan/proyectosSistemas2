@@ -2,7 +2,7 @@
 @section('content')
         
     {!!Form::model($productos,['route'=>['producto.update', $productos->id], 'method'=>'PUT'])!!}
-        <h3>Productos</h3>
+        <h3 class="title" selected="selected">Productos</h3>
         <div class="container col-xs-12">
             <div class="form-grup">
                 {!!Form::label('Codigo:')!!}

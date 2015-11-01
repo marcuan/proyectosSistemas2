@@ -28,7 +28,7 @@ class ProductosController extends Controller
         {
         if($request->get('active') == 0)
             {
-                $producto = Producto::name($request->get('name'))->active($request->get('active'))->orderBy('id','DESC')->paginate(10);    
+                $producto = Producto::name($request->get('name'))->orderBy('id','DESC')->paginate(10);
             }
         if($request->get('active') == 1)
             {

@@ -4,16 +4,17 @@
 @section('content')
    
 {!!Form::open(array ('route' => array('detalleconsignacion.store'),'$consignacion', 'method'=>'POST'))!!}
-  
-        <h3>DetalleConsignacion</h3>
+  	
+		<h3 class="title" selected="selected">DetalleConsignacion</h3>
         <div class="form-grup ">
             
-		<div class="form-grup ">
+		<!--<div class="form-grup ">
              
        {!!Form::label('No. Consignacion:')!!}
 	   {!!Form::text('consignacion_id',$consignacion,['class'=>'form-control','placeholder'=>'No.','readonly'])!!}
 			
-       		  </div>
+       		  </div>-->
+			<h4>Nuevo Detalle</h4>
 		</div><br/>
 			
 	   <div class="form-grup"> 

@@ -17,23 +17,24 @@
 @endif
 
 @section('content')
-
-    <h3 class="title" selected="selected">Consignaciones</h3>
+ 
+	<h3 class="title" selected="selected">Consignaciones</h3>
     <a href="consignaciones/create" class="btn btn-danger">Crear Consignaciones</a>
 
     <div class="container">
         {!!Form::open(['rout'=>'consignacion.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
+		
         <div class="form-group">
             <label for="exampleInputName2">Codigo :        </label>
             {!!Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
         </div>
-        <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
+        <button type="submit" class="btn btn-default glyphicon glyphicon-search"></button>
 
         <div class="form-group">
-            <label for="exampleInputName2">Fecha :        </label>
-            {!!Form::date('fechaInicial',null,['class'=>'form-control','placeholder'=>'Ingrese fecha Inicial'])!!}        
+            <label for="exampleInputName2">Fecha Inicial:        </label>
+            {!!Form::date('fechaIni',null,['class'=>'form-control','placeholder'=>'Ingrese fecha Inicial'])!!}        
         </div>
-        <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
+        <button type="submit" class="btn btn-default glyphicon glyphicon-search"></button>
         {!!Form::close()!!}
 
         <table class="table">
@@ -54,10 +55,11 @@
                     <td>{{$consignaciones->fechaFinal}}</td>
                     <td>{{$consignaciones->detalleConsignacion}}</td>
 					<td>{{$proveedorComp->nombre}}</td>
-                    <td> <td>{!!link_to_route('consignaciones.show', $title = 'Ver Detalles', $parameters = $consignaciones->id, $attributes = ['class'=>'btn btn-primary']);!!}
-					
-						{!!link_to_route('consignaciones.edit', $title = 'Editar', $parameters = $consignaciones->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
+                    <td> <td>{!!link_to_route('consignaciones.edit', $title = 'Editar', $parameters = $consignaciones->id, $attributes = ['class'=>'btn btn-primary']);!!}
+					{!!link_to_route('consignaciones.show', $title = 'Ver Detalles', $parameters = $consignaciones->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
                 </tbody>
+					
+						
 			
             @endforeach
         </table>

@@ -44,7 +44,7 @@ class Consignacion extends Model
 
         if ($fechaini != "")
         {
-            return $query->where("fechaInicial",'>',$fechaini);    
+            return $query->where("fechaInicial",'=>',$fechaini);    
         }
     }
 

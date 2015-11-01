@@ -27,9 +27,10 @@ class VentasController extends Controller
         }
         if ($request->get('fecha')!='' && $request->get('type')=='')
         {   
-            $venta = Ventum::fecha($request->get('fecha'))->orderBy('fechaVenta')->paginate(10);
+            $venta = Ventum::fecha($request->get('fecha'))->orderBy('id')->paginate(10);
            return view ('Despensa.venta.index',compact('venta'));
         }
+		
     }
     
     public function buscarClientePorId ($idCliente)

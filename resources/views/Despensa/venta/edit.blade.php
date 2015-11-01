@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 @section('content')
     {!!Form::model($venta,['route'=>['venta.update', $venta->id], 'method'=>'PUT'])!!}
-        <h3>Ventas</h3>
+       <h3 class="title" selected="selected">Ventas</h3>
         <div class="container col-xs-10">
             <div class="form-grup">
                 

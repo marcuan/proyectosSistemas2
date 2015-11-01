@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 @section('content')
     {!!Form::open(['route'=>'consignaciones.store', 'method'=>'POST'])!!}
-        <h3>Consignaciones</h3>
+      <h3 class="title" selected="selected">Consignaciones</h3>
 	
 	<div class="form-grup">
 			     

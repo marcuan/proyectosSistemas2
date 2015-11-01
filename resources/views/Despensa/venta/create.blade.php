@@ -1,7 +1,8 @@
 @extends('layouts.principal')
 @section('content')
-
+<h3 class="title" selected="selected">Ventas</h3>
 {!! Form::open(['route' => 'venta.create', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
+
     <div class="form-group">
         {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nit del Cliente']) !!}
     </div>

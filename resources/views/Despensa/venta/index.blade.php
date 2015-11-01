@@ -20,7 +20,7 @@
 <!----------------------------------------------------------------
 Vista -> Cuadro para filtrar ventas
 ----------------------------------------------------------------->
-
+<h3 class="title" selected="selected">Ventas</h3>
 
 {!! Form::open(['href' => '../public/venta', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
     <div class="form-group">

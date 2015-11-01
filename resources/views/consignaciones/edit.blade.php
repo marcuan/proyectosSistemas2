@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 @section('content')
     {!!Form::model($consignaciones,['route'=>['consignaciones.update', $consignaciones->id], 'method'=>'PUT'])!!}
-        <h3>Consignaciones</h3>
+       <h3 class="title" selected="selected">Consignaciones</h3>
 		 <div class="col-sm-3">
 				{!!Form::label('Codigo de Consignacion:')!!}
 			 
