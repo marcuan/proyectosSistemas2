@@ -4,10 +4,6 @@
         <h3>Productos</h3>
         <div class="container col-xs-12">
             <div class="form-grup">
-                {!!Form::label('Codigo:')!!}
-                {!!Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Ingrese Codigo de su producto','required'])!!}
-            </div>
-            <div class="form-grup">
                 {!!Form::label('Nombre:')!!}
                 {!!Form::text('nombreProducto',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre de su producto','required'])!!}
             </div>

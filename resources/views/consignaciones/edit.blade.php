@@ -2,9 +2,11 @@
 @section('content')
     {!!Form::model($consignaciones,['route'=>['consignaciones.update', $consignaciones->id], 'method'=>'PUT'])!!}
         <h3>Consignaciones</h3>
-		<div class="col-sm-3">
+		 <div class="col-sm-3">
 				{!!Form::label('Codigo de Consignacion:')!!}
-				{!!Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Codigo', 'required'])!!}
+			 
+			    {!!Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Codigo','readonly'])!!}
+			 	
 	     </div>
         <div class="container col-xs-12">
 			
@@ -25,20 +27,7 @@
  <div class="form-btn">
             {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
         </div>
-			<div class="container">
-	 
-			<table class="table">
-			<h3>DetalleConsignacion</h3>
-           	 <div class="container">
-			<thead>
-				<th>Cantidad</th>
-				<th>Producto</th>
-                <th>Precio U</th>
-                
-            </thead>
-		</div>
-			
-    </div>
+	
 			
 			
     {!!form::close()!!}

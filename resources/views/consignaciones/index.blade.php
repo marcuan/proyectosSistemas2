@@ -31,7 +31,7 @@
 
         <div class="form-group">
             <label for="exampleInputName2">Fecha :        </label>
-            {!!Form::date('fechaInicial',null,['class'=>'form-control','placeholder'=>'Ingrese fecha Inicial', 'required'])!!}        
+            {!!Form::date('fechaInicial',null,['class'=>'form-control','placeholder'=>'Ingrese fecha Inicial'])!!}        
         </div>
         <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
         {!!Form::close()!!}

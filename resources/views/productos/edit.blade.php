@@ -6,7 +6,7 @@
         <div class="container col-xs-12">
             <div class="form-grup">
                 {!!Form::label('Codigo:')!!}
-                {!!Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Ingrese Codigo ','required'])!!}
+                {!!Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Ingrese Codigo ','readonly'])!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Nombre:')!!}

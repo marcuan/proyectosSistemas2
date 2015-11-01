@@ -3,22 +3,12 @@
     {!!Form::open(['route'=>'consignaciones.store', 'method'=>'POST'])!!}
         <h3>Consignaciones</h3>
 	
-	<div class="container col-xs-16">
-			 
-      <div class="col-sm-3">
-				{!!Form::label('Codigo de Consignacion:')!!}
-  
-				{!!Form::text('codigo','C-001 ' ,['class'=>'form-control','placeholder'=>'Codigo', 'required'])!!}
-	  </div><br/>
-		
-    <div class="col-md-4 col-md-offset-1">	
+	<div class="form-grup">
+			     
                 {!!Form::label('Proveedor:')!!}
 
                 {!!Form::select('proveedores_id', $opcionproveedor,['class'=>'form-control','placeholder'=>'Ingrese Proveedor', 'required'])!!}
-		
-		
-            </div><br>
-      </div>
+	</div><br>
 		
 
 	<div class="container col-xs-16">
