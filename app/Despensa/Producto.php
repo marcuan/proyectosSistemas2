@@ -24,7 +24,7 @@ class Producto extends Model
     	if(trim($name)!="")
     	{
     		#code...
-    		$query->where(\DB::raw("CONCAT(nombreProducto)"), "LIKE", "%$name%");
+    		return $query->where(\DB::raw("CONCAT(nombreProducto)"), "LIKE", "%$name%");
     	}
     }
     public function scopeCode($query, $code){

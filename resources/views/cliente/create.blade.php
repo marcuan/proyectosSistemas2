@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 @section('content')
     {!!Form::open(['route'=>'clientes.store', 'method'=>'POST'])!!}
-        <h3>Clientes</h3>
+      <h3 class="title" selected="selected">Clientes</h3>
         <div class="container col-xs-12">
             <div class="form-grup">
         		{!!Form::label('Nombre:')!!}

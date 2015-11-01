@@ -13,6 +13,14 @@ class Proveedore extends Model
     	 	'nombre',
     	 	'telefono',
     	 	'direccion'];
+	
+	public function scopeName($query, $name){
+
+    	if (trim($name) != "")
+    	{
+    		return $query->where(\DB::raw("CONCAT(nombre)"),"LIKE","%$name%");	
+    	}
+    }
 	 
 		//Funcion para obtener las compras de un proveedor
 	public function compras(){

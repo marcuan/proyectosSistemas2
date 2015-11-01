@@ -25,8 +25,9 @@ class ProveedoresController extends Controller
     {
        // $proveedor = Proveedore::all();
         //return View('proveedores.index',compact('proveedor'));
-
-         $proveedor = Proveedore::orderBy('nombre', 'ASC')->paginate(10);
+		
+		$proveedor = Proveedore::name($request->get('name'))->orderBy('nombre','DESC')->paginate();
+         //$proveedor = Proveedore::orderBy('nombre', 'ASC')->paginate(10);
         return View('proveedores.index',compact('proveedor'));
     }
 
@@ -91,6 +92,8 @@ class ProveedoresController extends Controller
             $provider = Proveedore::find($id);
             $provider->fill($request->all());
             $provider->save();
+		
+			return redirect('/proveedores')->with('message','edit');
 
     }
 

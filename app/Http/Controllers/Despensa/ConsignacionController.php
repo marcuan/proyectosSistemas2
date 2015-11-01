@@ -33,11 +33,25 @@ class ConsignacionController extends Controller
 
     public function index(Request $request)
     {
-        
-        $consignacion = Consignacion::all();
-        $consignacion = Consignacion::code($request->get('codigo'))->orderBy('id','DESC')->paginate(10);
-        $consignacion = Consignacion::fechai($request->get('fechaInicial'))->orderBy('id','DESC')->paginate(10);    
-        return View('consignaciones.index',compact('consignacion'));
+         if ($request->get('codigo')=='' && $request->get('fechaIni')=='')
+        {           
+        $consignacion = Consignacion::All();
+             return View('consignaciones.index',compact('consignacion'));
+        }
+       
+		if ($request->get('codigo')!='' && $request->get('fechaIni')=='')
+        {   
+            
+		   $consignacion = Consignacion::code($request->get('codigo'))->orderBy('id')->paginate(10);
+			
+         return View('consignaciones.index',compact('consignacion'));
+        }
+      
+		if ($request->get('fechaIni')!='' && $request->get('codigo')=='')
+        {   
+           $consignacion = Consignacion::fechai($request->get('fechaInicial'))->orderBy('fechaInicial')->paginate(10);
+           return View('consignaciones.index',compact('consignacion'));
+        }
     }
 
     /**

@@ -18,8 +18,10 @@
 @section('content')
     
     <div class="container col-xs-12">
+    <h3 class="title" selected="selected">Productos</h3>
     <a href="producto/create" class="btn btn-danger">Crear Producto</a>
         {!!Form::open(['rout'=>'producto.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
+	
         <div class="form-group">
             {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
         </div>
