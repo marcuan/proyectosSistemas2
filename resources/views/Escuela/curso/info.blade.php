@@ -1,33 +1,33 @@
 @extends('layouts.principal')
-<?php $message=Session::get('message')?>
-@if($message == 'store')
-<div class="alert alert-success alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Creado.</strong> Horario creado exitosamente.
-</div>
-@endif
-@if($message == 'edit')
-<div class="alert alert-info alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Editado.</strong> Horario editado exitosamente.
-</div>
-@endif
-@if($message == 'erase')
-<div class="alert alert-danger alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Borrado.</strong> Horario borrado exitosamente.
-</div>
-@endif
 @section('content')
     {!!Form::open()!!}
-        <div class="container col-xs-12">
+    <div class="container col-xs-12">
     <h3 class="title" selected="selected">Cursos</h3>
-    <a href="../cursos" class="btn btn-danger">Regresar</a>
+    <?php $message=Session::get('message')?>
+    @if($message == 'store')
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Creado.</strong> Horario creado exitosamente.
+    </div>
+    @endif
+    @if($message == 'edit')
+    <div class="alert alert-info alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Editado.</strong> Horario editado exitosamente.
+    </div>
+    @endif
+    @if($message == 'erase')
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Borrado.</strong> Horario borrado exitosamente.
+    </div>
+    @endif
+    <a href="/cursos" class="btn btn-danger">Regresar</a>
         <div class="info card">
             <div class="datos">
-                <span class="foto">
+                <figure class="foto">
                     <img src="{{{ asset('images/usuario.png') }}}" alt="" class="img-circle">
-                </span>
+                </figure>
                 <div class="personales"> 
                     <h5><strong>Codigo: </strong>{{$curso->codigo}}</h5>
                     <h5><strong>Nombre del Curso: </strong>{{$curso->nombre_curso}}</h5>

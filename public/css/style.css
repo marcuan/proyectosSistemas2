@@ -165,31 +165,7 @@ color:#fff;
 font-size: 16px;
 line-height: 30px;
 }
-     /*CHAT PANEL*/
- .chat-panel .panel-body {
-height: 450px;
-overflow-y: scroll;
-}
- .chat-box {
-margin: 0;
-padding: 0;
-list-style: none;
-}
- .chat-box li {
-margin-bottom: 15px;
-padding-bottom: 5px;
-border-bottom: 1px dotted #808080;
-}
- .chat-box li.left .chat-body {
-margin-left: 90px;
-}
- .chat-box li .chat-body p {
-margin: 0;
-color: #8d8888;
-}
-.chat-img>img {
-    margin-left:20px;
-}
+
 
 /*==============================================
     MENU STYLES    
@@ -339,22 +315,7 @@ background-color: #FFF;
     }
 
 
- @media(min-width:768px) {
-     #page-wrapper{
-        margin: 59px 0 0 180px;
-        padding: 10px 15px;
-    }
-    .navbar-side {
-        z-index: 1;
-        position: fixed;
-        width: 180px;
-    }
-    .navbar {
-        border-radius: 0px; 
-        position: fixed;
-        margin:-59px 0 0 0;
-    }
-}
+
 /*otro*/
 .business-header {
     height: 400px;
@@ -400,9 +361,6 @@ background-color: #FFF;
 .ad2 p{
     color:#000;
     text-align: center;
-}
-.lg7{
-    background: transparent;
 }
 .title{
     border-radius: 5px;
@@ -541,4 +499,25 @@ a:hover{
 }
 .principal-final{
     color: #fff;
+}
+@media screen and (min-width: 768px) {
+     #page-wrapper{
+        margin: 59px 0 0 180px;
+        padding: 10px 15px;
+    }
+    .navbar-side {
+        z-index: 1;
+        position: fixed;
+        width: 180px;
+    }
+    .navbar {
+        border-radius: 0px; 
+        position: fixed;
+        margin:-59px 0 0 0;
+    }
+}
+@media screen and (max-width: 637px) {
+    .info .datos .foto{
+        display: none;
+    }
 }

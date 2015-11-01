@@ -1,34 +1,33 @@
 @extends('layouts.principal')
-<?php $message=Session::get('message')?>
-
-@if($message == 'assign')
-<div class="alert alert-success alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Asignado. </strong> Curso(s) Asignado(s) exitosamente.
-</div>
-@endif
-@if($message == 'unassign')
-<div class="alert alert-danger alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Desasignado. </strong> Curso(s) Desasignado(s) exitosamente.
-</div>
-@endif
-@if($message == 'no-assign')
-<div class="alert alert-warning alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>No Asignado </strong> No se seleccionó ningún curso.
-</div>
-@endif
-
 @section('content')
     <div class="container col-xs-12">
     <h3 class="title" selected="selected">Maestros</h3>
-    <a href="../maestros" class="btn btn-danger">Regresar</a>
+    <?php $message=Session::get('message')?>
+
+    @if($message == 'assign')
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Asignado. </strong> Curso(s) Asignado(s) exitosamente.
+    </div>
+    @endif
+    @if($message == 'unassign')
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Desasignado. </strong> Curso(s) Desasignado(s) exitosamente.
+    </div>
+    @endif
+    @if($message == 'no-assign')
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>No Asignado </strong> No se seleccionó ningún curso.
+    </div>
+    @endif
+    <a href="/maestros" class="btn btn-danger">Regresar</a>
     <div class="info card">
         <div class="datos">
-            <span class="foto">
+            <figure class="foto">
                 <img src="/profile-pictures/{{$teacher->path}}" alt="" class="img-circle img-datos">
-            </span>
+            </figure>
             <div class="personales"> 
                 <h5><strong>Nombre: </strong>{{$teacher->nombre_maestro}}  {{$teacher->apellido_maestro}}</h5>
                 <h5><strong>Fecha Nacimiento: </strong>{{$teacher->fecha_nacimiento}}</h5>

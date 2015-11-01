@@ -1,29 +1,27 @@
 @extends('layouts.principal')
-<?php $message=Session::get('message')?>
-
-@if($message == 'store')
-<div class="alert alert-success alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Creado. </strong> Estudiante creado exitosamente.
-</div>
-@endif
-@if($message == 'edit')
-<div class="alert alert-info alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Editado. </strong> Estudiante editado exitosamente.
-</div>
-@endif
-@if($message == 'erase')
-<div class="alert alert-danger alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Inhabilitado.</strong> Estudiante inhabilitado exitosamente.
-</div>
-@endif
-
 @section('content')
     
     <div class="container col-xs-12">
     <h3 class="title" selected="selected">Estudiantes</h3>
+    <?php $message=Session::get('message')?>
+    @if($message == 'store')
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Creado. </strong> Estudiante creado exitosamente.
+    </div>
+    @endif
+    @if($message == 'edit')
+    <div class="alert alert-info alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Editado. </strong> Estudiante editado exitosamente.
+    </div>
+    @endif
+    @if($message == 'erase')
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Inhabilitado.</strong> Estudiante inhabilitado exitosamente.
+    </div>
+    @endif
     <a href="/estudiantes/create" class="btn btn-danger">Crear Estudiante</a>
     
     <a href="reposiEstu" class="btn btn-danger">Descargar Reporte</a>

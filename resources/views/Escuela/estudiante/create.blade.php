@@ -4,8 +4,9 @@
         
             <div class="container col-xs-12">
             <h3 class="title" selected="selected">Estudiantes</h3>
-            
+            <a href="/estudiantes" class="btn btn-danger">Regresar</a>
             <div class="form-grup">
+                <br>
                 {!!Form::label('Nombre:')!!}
                 {!!Form::text('nombre_estudiante',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre estudiante','required'])!!}
             </div><br>
