@@ -21,7 +21,13 @@
             </div><br>
             <div class="form-grup">
                 {!!Form::label('Proveedor:')!!}
-                {!!Form::text('proveedores_id',null,['class'=>'form-control','placeholder'=>'Ingrese Proveedor', 'required'])!!}
+                <select required class="form-control" id="proveedores_id" name="proveedores_id" >
+                    <option value="" selected disabled="">Seleccione Proveedor</option>
+                    @foreach ($opcionproveedor as $opcionproveedor)
+                        <option value="{{$opcionproveedor->id}}" >{{$opcionproveedor->nombre}}</option>
+                    @endforeach
+                </select>
+               <!--{!!Form::text('proveedores_id',null,['class'=>'form-control','placeholder'=>'Ingrese Proveedor', 'required'])!!}-->
             </div><br>
         <div class="form-btn">
             {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}

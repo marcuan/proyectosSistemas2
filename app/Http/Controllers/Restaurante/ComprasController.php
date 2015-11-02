@@ -43,8 +43,9 @@ class ComprasController extends Controller
         //mostrar fecha actual
         $fecha = date('Y-m-d');
         //Cargar nombre de proveedores
-        $opcionproveedor = Proveedore::all()->lists('nombre', 'id');
-	   $materiaprima=Materiaprima::all();
+        $opcionproveedor = Proveedore::all();
+        //$opcionproveedor = Proveedore::all()->lists('nombre', 'id');
+	    $materiaprima=Materiaprima::all();
         return view("compra.create", compact('opcionproveedor','materiaprima','fecha'));        
     }
 
@@ -57,13 +58,13 @@ class ComprasController extends Controller
     public function store(Request $request)
     {
 	 
-        Compra::create($request->all());
-	      Compra::create([
+        //Compra::create($request->all());
+        Compra::create([
             'fecha' => $request['fecha'],
             'subtotal' => $request['subTotal'],
             'descuento' => $request['descuento'],
-		 'proveedores_id' => $request['proveedores_id'],
-		  'total' => $request['total'],
+            'proveedores_id' => $request['proveedores_id'],
+            'total' => $request['total'],
         ]);
 	     
 	   
@@ -120,8 +121,9 @@ class ComprasController extends Controller
     public function edit($id)
     {
         //$opcionproveedor = Proveedore::find($id)->lists('id');
+        $opcionproveedor = Proveedore::all();
         $compra = Compra::find($id);
-        return view('compra.edit', ['compra'=>$compra]);
+        return view('compra.edit', ['compra'=>$compra],['opcionproveedor'=>$opcionproveedor]);
     }
 
     /**
