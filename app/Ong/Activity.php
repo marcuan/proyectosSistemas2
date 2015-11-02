@@ -23,6 +23,12 @@ class Activity extends Model
 
 	protected $dates = ['deleted_at'];
 
-	
+	public function scopeName($query, $name){
+
+    	if (trim($name) != "")
+    	{
+    		return $query->where(DB::raw("CONCAT(name) "),"LIKE","%$name%");	
+    	}
+    }
 
 }
