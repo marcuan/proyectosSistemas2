@@ -20,13 +20,12 @@ class DetalleVentaController extends Controller
     
     public function create (Request $request)
     {
-        $clientes = RED\Restaurante\Cliente::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate(7);
-        return view ('Despensa.detalleVenta.create',compact('clientes'));
+       return view ('Despensa.detalleVenta.create');
     }
     
     public function store (Request $request)
     {
-        RED\Despensa\DetalleVentum::create($request.All());
+        RED\Despensa\DetalleVentum::create($request.All()); 
         return redirect ('/venta')->with('message','store');
     }
     

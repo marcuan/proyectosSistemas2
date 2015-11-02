@@ -3,7 +3,6 @@
 namespace RED\Http\Controllers\Restaurante;
 
 use Illuminate\Http\Request;
-
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 use RED\Restaurante\Compra;

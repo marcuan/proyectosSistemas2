@@ -47,11 +47,7 @@
 		
 		{!!Form::submit('Guardar',['class'=>'btn btn-primary'])!!}
 		
-		
-		
-		
-		
-            </div>
+			
         </div>
     {!!form::close()!!} 
 @stop
