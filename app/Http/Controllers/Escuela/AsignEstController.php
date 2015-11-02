@@ -13,6 +13,7 @@ class AsignEstController extends Controller
 {
 	public function asignar($id, Request $request) 
 	{
+
 		$this->authorize('cursos', new Estudiante());
 
 		$carbon = new Carbon();
