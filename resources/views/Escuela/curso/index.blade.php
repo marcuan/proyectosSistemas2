@@ -27,7 +27,7 @@
         <a href="reposiCurso" class="btn btn-danger">Descargar Reporte</a>
         {!!Form::open(['rout'=>'estudiantes.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
         <div class="form-group">
-            {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
+            {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código','fecha'=>'Fecha'],null,['class'=>'form-control'])!!}
         </div>
         <div class="form-group">
             {!!Form::select('active',['activos'=>'Activos','inhabilitados'=>'Inhabilitados','todos'=>'Todos'],null,['class'=>'form-control'])!!}
@@ -36,6 +36,13 @@
             {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
         </div>
         <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
+        <br></br>
+        <div class="form-group">
+            {!!Form::date('init_date',null,['class'=>'form-control','placeholder'=>''])!!}            
+        </div>
+        <div class="form-group">
+            {!!Form::date('finish_date',null,['class'=>'form-control','placeholder'=>''])!!}            
+        </div>
     {!!Form::close()!!}
     <div>{!!$course->render()!!}</div>
     <div class="table-responsive col-xs-12"> 

@@ -48,6 +48,41 @@ class CursoController extends Controller
                 $course = Curso::code($request->get('name'))->withTrashed()->orderBy('id','DESC')->paginate(10);    
             }
         }
+        else if($request->get('type') == "fecha")
+        {
+            if($request->get('active') == "activos")
+            {
+                if($request->get('finish_date')=="" && $request->get('finish_date') == null)
+                {
+                    $course = Curso::code($request->get('name'))->where('fecha_inicio',">=" ,$request->get('init_date'))->orderBy('id','DESC')->paginate(10);    
+                }else
+                {
+                    $course = Curso::code($request->get('name'))->whereBetween('fecha_inicio', array($request->get('init_date'), $request->get('finish_date')))->orderBy('id','DESC')->paginate(10);    
+                }
+                
+            }
+            if($request->get('active') == "inhabilitados")
+            {
+                if($request->get('finish_date')=="" && $request->get('finish_date') == null)
+                {
+                    $course = Curso::code($request->get('name'))->onlyTrashed()->where('fecha_inicio',">=" ,$request->get('init_date'))->orderBy('id','DESC')->paginate(10);    
+                }else
+                {
+                    $course = Curso::code($request->get('name'))->onlyTrashed()->whereBetween('fecha_inicio', array($request->get('init_date'), $request->get('finish_date')))->orderBy('id','DESC')->paginate(10);    
+                }
+            }
+            if($request->get('active') == "todos")
+            {
+                if($request->get('finish_date')=="" && $request->get('finish_date') == null)
+                {
+                    $course = Curso::code($request->get('name'))->withTrashed()->where('fecha_inicio',">=" ,$request->get('init_date'))->orderBy('id','DESC')->paginate(10);    
+                }else
+                {
+                    $course = Curso::code($request->get('name'))->withTrashed()->whereBetween('fecha_inicio', array($request->get('init_date'), $request->get('finish_date')))->orderBy('id','DESC')->paginate(10);    
+                }
+                
+            }
+        }
         else
         {
             $course = Curso::orderBy('id','DESC')->paginate(10);

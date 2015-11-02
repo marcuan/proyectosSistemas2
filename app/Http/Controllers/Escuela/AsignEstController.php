@@ -17,11 +17,11 @@ class AsignEstController extends Controller
         $date = $carbon->now();
 		if($request->get('name') != "")
 		{
-			$course = Curso::name($request->get('name'))->where('fecha_fin','>',$date)->where('num_estudiantes','<=','max_estudiantes')->orderBy('id','DESC')->paginate(10);   
+			$course = Curso::name($request->get('name'))->where('fecha_fin','>',$date)->where('num_estudiantes','>',0)->orderBy('id','DESC')->paginate(10);   
 		}
 		else
 		{
-			$course = Curso::where('fecha_fin','>',$date)->where('num_estudiantes','<=','max_estudiantes')->orderBy('id','DESC')->paginate(10);
+			$course = Curso::where('fecha_fin','>',$date)->where('num_estudiantes','>',0)->orderBy('id','DESC')->paginate(10);
 
 		}
 		$student = Estudiante::find($id);
