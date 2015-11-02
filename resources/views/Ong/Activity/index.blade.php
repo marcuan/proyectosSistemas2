@@ -20,7 +20,10 @@
     <a href="/actividades/create" class="btn btn-danger">Crear Actividad</a> 
     {!!Form::open(['rout'=>'Actividades.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
         <div class="form-group">
-            {!!Form::select('type',['actividad'=>'Actividad','codigo'=>'Código'],null,['class'=>'form-control'])!!}
+            {!!Form::select('type',['actividad'=>'Actividad'],null,['class'=>'form-control'])!!}
+        </div>
+        <div class="form-group">
+            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
         </div>
         <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
     {!!Form::close()!!}
@@ -45,6 +48,8 @@
                 <td>{!!link_to_route('actividades.edit', $title = 'Editar', $parameters = $Activity->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
-        </table>
+            {!!$activities->render()!!}
+        </table>            
+        {!!$activities->render()!!}
     </div>
 @stop

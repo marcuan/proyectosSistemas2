@@ -6,17 +6,14 @@ use Illuminate\Http\Request;
 use RED\Http\Requests;
 use RED\Ong\Activity;
 use RED\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class ActivityController extends Controller{
 
 	public function index(Request $request){
-       if($request->get('type') == "nombre")
+       	if($request->get('type') == "actividad")
         {
-            $activities = Activity::name($request->get('name'))->orderBy('id','DESC')->paginate(10);    
-        }
-        else if($request->get('type') == "address")
-        {
-            $activities = Activity::address($request->get('address'))->orderBy('id','DESC')->paginate(10);             
+            $activities = Activity::name($request->get('name'))->orderBy('id','DESC')->paginate(10);   
         }
         else 
         {
