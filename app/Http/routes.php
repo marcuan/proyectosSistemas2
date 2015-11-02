@@ -39,10 +39,34 @@ Route::group(['middleware' => 'auth'], function () {
 	/**
 	 *	User Authentication
 	 */
+
+	//Rutas para los Reportes
 	Route::controllers([
 		'auth' => 'Auth\AuthController',
 		'password' => 'Auth\PasswordController',
 	]);
+
+	Route::get('Ong/Reporte/Donantes', function(){
+
+		return view('Ong.Reportes.Donadores');
+
+	});
+
+	Route::get('Ong/Reporte/Actividades', function(){
+
+		return view('Ong.Reportes.Actividades');
+
+	});
+
+	Route::get('Ong/Reporte/Historial/{id}', function($id){
+
+		return view('Ong.Reportes.Historial', compact('id'));
+	});
+
+	Route::get('Ong/Reporte/DescripcionActividades/{fecha}', function($fecha){
+
+		return view('Ong.Reportes.DescripcionAct', compact('fecha'));
+	});
 
 	/**
 	 *	Modulo Escuela

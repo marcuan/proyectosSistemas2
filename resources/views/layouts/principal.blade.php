@@ -48,6 +48,12 @@
 								<a href="/actividades">Actividades</a>
 							</li>
 							<li>
+								<a href="Ong/Reporte/Donantes">Reporte de Donantes</a>
+							</li>
+							<li>
+								<a href="Ong/Reporte/Actividades">Reporte de Actividades</a>
+							</li>
+							<li>
 								<a href="/users">Usuarios</a>
 							</li>
 						</ul>
