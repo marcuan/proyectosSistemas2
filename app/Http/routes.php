@@ -58,6 +58,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('cursoestudiantes/{id}', 'Escuela\CursoEstudiantesController@verestudiantes');
 	Route::get('horarios/{id}', 'Escuela\CursoEstudiantesController@crearhorario');
 	Route::resource('horarios', 'Escuela\HorarioController');
+	Route::get('asignacioncursoestudiantes/{id}', 'Escuela\AsignCursoController@asignarestudiantes');
+	Route::resource('asignacioncursos', 'Escuela\AsignacionCursoController');
 
 
 	// direccion para reportes 
