@@ -24,7 +24,6 @@ class AsignEstController extends Controller
 		else
 		{
 			$course = Curso::where('fecha_fin','>',$date)->where('num_estudiantes','>',0)->orderBy('id','DESC')->paginate(10);
-
 		}
 		$student = Estudiante::find($id);
 		return view('Escuela.asignacionestudiante.index', compact(['course', 'student']));
