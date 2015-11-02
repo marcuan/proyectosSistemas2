@@ -21,7 +21,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="tablero"><span class="icon-logo_red"></span></a> 
+				<a class="navbar-brand" href="/tablero"><span class="icon-logo_red"></span></a> 
 			</div>
 	<div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;"> 
 		-Café Red- &nbsp; 
@@ -46,12 +46,6 @@
 							</li>
 							<li>
 								<a href="/actividades">Actividades</a>
-							</li>
-							<li>
-								<a href="Ong/Reporte/Donantes">Reporte de Donantes</a>
-							</li>
-							<li>
-								<a href="Ong/Reporte/Actividades">Reporte de Actividades</a>
 							</li>
 							<li>
 								<a href="/users">Usuarios</a>
