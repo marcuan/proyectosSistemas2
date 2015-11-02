@@ -108,7 +108,9 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        Curso::create($request->all());
+        $curso = Curso::create($request->all());
+        $curso->num_estudiantes = $curso->max_estudiantes;
+        $curso->save();
 
     return redirect('/cursos')->with('message','store');
     }

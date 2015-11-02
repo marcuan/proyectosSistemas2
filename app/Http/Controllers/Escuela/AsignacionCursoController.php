@@ -43,7 +43,7 @@ class AsignacionCursoController extends Controller
         if($request['check'] != null) {
             foreach ($request['check'] as $dato) {
                 $curso->estudiantes()->attach($idestudiante[$dato]);
-                $curso->num_estudiantes = $curso->num_estudiantes + 1;
+                $curso->num_estudiantes = $curso->num_estudiantes - 1;
                 $curso->save();
             }
 
