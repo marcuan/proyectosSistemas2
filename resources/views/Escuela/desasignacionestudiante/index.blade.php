@@ -3,11 +3,12 @@
 <div class="container col-xs-12">
     <h3 class="title" selected="selected">Estudiantes</h3>
 
-    <a href="../estudiantes/{{$student->id}}" class="btn btn-danger">Regresar</a>
+    <a href="/estudiantes/{{$student->id}}" class="btn btn-danger">Regresar</a>
     
     {!!Form::open(['route'=>'desasignacionestudiantes.store', 'method'=>'POST'])!!}
         <h4><strong>Estudiante: </strong>  {{$student->apellido_estudiante}} , {{$student->nombre_estudiante}}</h4>
         {!!Form::text('idestudiante',$student->id,['class'=>'hidden', 'id'=>'idestudiante'])!!}
+            <div class="table-responsive">
             <table class="table table-hover table-responsive">
                 <thead>
                     <th>Codigo</th>
@@ -31,9 +32,11 @@
                 </tbody>
                 @endforeach
             </table> 
-        </div>
-        <div class="">
+            </div>
+       
+            <div class="">
                {!!Form::submit('Desasignar Cursos',['class'=>'btn btn-primary pull-right'])!!}
             </div>
     {!!form::close()!!}
+ </div>
 @stop

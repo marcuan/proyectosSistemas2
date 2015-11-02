@@ -17,28 +17,27 @@
 @section('content')
     <div class="container col-xs-12">
     <h3 class="title" selected="selected">Donaciones</h3>
-    <a href="/donaciones/create" class="btn btn-danger">Crear Donación</a> 
+    
     {!!Form::open(['rout'=>'Donaciones.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
-        <div class="form-group">
-            {!!Form::select('type',['donacion'=>'Donación','codigo'=>'Código'],null,['class'=>'form-control'])!!}
-        </div>
-        <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
     {!!Form::close()!!}
     <div></div>
         <table class="table">
             <thead>
                 <th>Monto</th>
                 <th>Descripcion</th>
+                <th>Nombre del Donante</th>
                 </thead>
             @foreach($donation as $Donacion)
             <tbody>
                 <td>{{$Donacion->monto}}</td>
                 <td>{{$Donacion->descripcion}}</td>
-                <td>{!!link_to_route('donaciones.edit', $title = 'Editar', $parameters = $Donacion->id, $attributes = ['class'=>'btn btn-primary']);!!}
+                @foreach($donor as $Donante)
+                    @if($Donante->id == $Donacion->id_donor)
+                        <td>{{$Donante->donor_name}}</td>
+                    @endif
+                @endforeach
             </tbody>
             @endforeach
-            {!!$donation->render()!!}
         </table>
-            {!!$donation->render()!!}        
     </div>
 @stop

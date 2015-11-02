@@ -9,15 +9,28 @@ use RED\Http\Controllers\Controller;
 use RED\Repositories\ClienteRepo;
 use RED\Despensa\Ventum;
 use RED\Restaurante\Cliente;
+use Carbon\Carbon;
 
 class VentasController extends Controller
 {
-    //   
-    
-    public function index ()
+    public function index (Request $request)
     {
+        if ($request->get('type')=='' && $request->get('fecha')=='')
+        {           
         $venta = Ventum::All();
-        return view ('Despensa.venta.index',compact('venta'));
+             return view ('Despensa.venta.index',compact('venta'));
+        }
+        if ($request->get('type')!='' && $request->get('fecha')=='')
+        {   
+            $venta = Ventum::code($request->get('type'))->orderBy('id')->paginate(10);
+           return view ('Despensa.venta.index',compact('venta'));
+        }
+        if ($request->get('fecha')!='' && $request->get('type')=='')
+        {   
+            $venta = Ventum::fecha($request->get('fecha'))->orderBy('id')->paginate(10);
+           return view ('Despensa.venta.index',compact('venta'));
+        }
+		
     }
     
     public function buscarClientePorId ($idCliente)
@@ -26,21 +39,31 @@ class VentasController extends Controller
         return $clienteComp;
     }
     
-    public function create ()
+    public function create (Request $request)
     {
-        $clientes = RED\Restaurante\Cliente::All()->lists('id','nit');
-        return view ('Despensa.venta.create', compact('clientes'));
+         $clientes = RED\Restaurante\Cliente::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate(7);
+        return view ('Despensa.venta.create',compact('clientes'));
     }
     
     public function store (Request $request)
     {
-        RED\Despensa\Ventum::create($request->all('nit','id'));
-        return redirect ('/venta')->with('message','store');
+        RED\Despensa\Ventum::create($request.All());
+        return view ('Despensa.venta.create',compact('clientes'));
     }
     
     public function show($id)
     {
-        //
+        $date = Carbon::now();
+        $date = $date->format('Y-m-d');
+        $venta = new  RED\Despensa\Ventum;
+        $venta -> fechaVenta = $date;
+        $venta -> descuento = '0.00';
+        $venta -> subtotal = '0.00';
+        $venta -> total = '0.00';
+        $venta -> anulado = '0';
+        $venta -> clientes_id = $id;  
+        $venta -> save();
+        return view('Despensa.detalleVenta.create',compact('venta'));
     }
     
     public function edit($id)
@@ -49,8 +72,13 @@ class VentasController extends Controller
         return view('Despensa.venta.edit', ['venta'=>$venta]);
     }
     
+    public function anular($id)
+    {
+        $venta = RED\Despensa\Ventum::find($id);
+        return view('Despensa.venta.edit', ['venta'=>$venta]);
+    }
     
-   public function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $venta = RED\Despensa\Ventum::find($id);
         $venta->fill($request->all());

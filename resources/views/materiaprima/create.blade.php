@@ -13,7 +13,7 @@
             </div><br>
         
             <div class="form-grup">
-                {!!Form::label('Precio unitario:')!!}
+                {!!Form::label('Precio promedio en mercado:')!!}
                 {!!Form::number('precio',null,['class'=>'form-control','placeholder'=>'Ingrese precio','required','step' => 'any'])!!}
             </div><br>
       

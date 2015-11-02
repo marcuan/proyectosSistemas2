@@ -6,12 +6,13 @@
     <div class="container col-xs-12">   
     <h3 class="title" selected="selected">Maestros</h3>
     
-    <a href="../maestros/{{$teacher->id}}" class="btn btn-danger">Regresar</a>
+    <a href="/maestros/{{$teacher->id}}" class="btn btn-danger">Regresar</a>
 
     {!!Form::open(['route'=>'desasignacionmaestros.store', 'method'=>'POST'])!!}
         <h4><strong>Maestro: </strong> {{$teacher->apellido_maestro}} , {{$teacher->nombre_maestro}}</h4>
         {!!Form::text('idmaestro',$teacher->id,['class'=>'hidden', 'id'=>'idmaestro'])!!}
-            <table class="table table-hover table-responsive">
+            <div class="table-responsive">
+            <table class="table table-hover">
                 <thead>
                     <th>Codigo</th>
                     <th>Nombre</th>
@@ -33,10 +34,11 @@
                         {!!Form::text('curso['.$key.']', $curso->id, ['class'=>'hidden', 'id'=>'idcurso'])!!}</td>
                 </tbody>
                 @endforeach
-            </table> 
-        </div>
+            </table>
+            </div> 
         <div class="">
                {!!Form::submit('Desasignar Cursos',['class'=>'btn btn-primary pull-right'])!!}
-            </div>
+        </div>
     {!!form::close()!!}
+</div>
 @stop

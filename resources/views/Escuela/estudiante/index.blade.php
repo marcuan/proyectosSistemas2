@@ -1,31 +1,31 @@
 @extends('layouts.principal')
-<?php $message=Session::get('message')?>
-
-@if($message == 'store')
-<div class="alert alert-success alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Creado. </strong> Estudiante creado exitosamente.
-</div>
-@endif
-@if($message == 'edit')
-<div class="alert alert-info alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Editado. </strong> Estudiante editado exitosamente.
-</div>
-@endif
-@if($message == 'erase')
-<div class="alert alert-danger alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Inhabilitado.</strong> Estudiante inhabilitado exitosamente.
-</div>
-@endif
-
 @section('content')
     
     <div class="container col-xs-12">
     <h3 class="title" selected="selected">Estudiantes</h3>
+    <?php $message=Session::get('message')?>
+    @if($message == 'store')
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Creado. </strong> Estudiante creado exitosamente.
+    </div>
+    @endif
+    @if($message == 'edit')
+    <div class="alert alert-info alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Editado. </strong> Estudiante editado exitosamente.
+    </div>
+    @endif
+    @if($message == 'erase')
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Inhabilitado.</strong> Estudiante inhabilitado exitosamente.
+    </div>
+    @endif
     <a href="/estudiantes/create" class="btn btn-danger">Crear Estudiante</a>
     
+    <a href="reposiEstu" class="btn btn-danger">Descargar Reporte</a>
+
     {!!Form::open(['rout'=>'estudiantes.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
         <div class="form-group">
             {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
@@ -38,8 +38,9 @@
         </div>
         <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
     {!!Form::close()!!}
-    <div></div>
-        <table class="table table-hover table-responsive">
+    <div>{!!$student->render()!!}</div>
+    <div class="table-responsive col-xs-12">
+        <table class="table table-hover">
             <thead>
                 <th></th>
                 <th>Código</th>
@@ -58,12 +59,13 @@
                 <td>{{$estudiante->correo}}</td>
                 <td>{{$estudiante->telefonos()->get()->first()->numero_telefono}}</td>
                 <td>{!!link_to_route('estudiantes.edit', $title = 'Editar', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-primary']);!!}
-                    {!!link_to_route('estudiantes.show', $title = 'Ver Información', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
+                    {!!link_to_route('estudiantes.show', $title = 'Información', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
             </tbody>
             @endforeach
-            {!!$student->render()!!}
+           
         </table>
-        {!!$student->render()!!}
-
+        
+    </div>
+        <div>{!!$student->render()!!}</div>
     </div>
 @stop

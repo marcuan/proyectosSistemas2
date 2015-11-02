@@ -33,13 +33,25 @@ class ConsignacionController extends Controller
 
     public function index(Request $request)
     {
-
-        $consignacion = Consignacion::all();
-        $consignacion = Consignacion::code($request->get('codigo'))->orderBy('id','DESC')->paginate(10);
-        $consignacion = Consignacion::fechai($request->get('fechaInicial'))->orderBy('id','DESC')->paginate(10);    
-        return View('consignaciones.index',compact('consignacion'));
-
-
+         if ($request->get('codigo')=='' && $request->get('fechaIni')=='')
+        {           
+        $consignacion = Consignacion::All();
+             return View('consignaciones.index',compact('consignacion'));
+        }
+       
+		if ($request->get('codigo')!='' && $request->get('fechaIni')=='')
+        {   
+            
+		   $consignacion = Consignacion::code($request->get('codigo'))->orderBy('id')->paginate(10);
+			
+         return View('consignaciones.index',compact('consignacion'));
+        }
+      
+		if ($request->get('fechaIni')!='' && $request->get('codigo')=='')
+        {   
+           $consignacion = Consignacion::fechai($request->get('fechaInicial'))->orderBy('fechaInicial')->paginate(10);
+           return View('consignaciones.index',compact('consignacion'));
+        }
     }
 
     /**
@@ -63,7 +75,11 @@ class ConsignacionController extends Controller
     public function store(Request $request)
     {
     
-		Consignacion::create($request->all());
+		$consignacion=Consignacion::create($request->all());
+		$codigo = $consignacion->id+100;
+		$codigo = "C-".$codigo;
+		$consignacion->codigo= $codigo;
+		$consignacion->save();
           return redirect('/detalleconsignacion/create');
 	 
         /*Consignacion::create($request->all());
@@ -146,6 +162,8 @@ class ConsignacionController extends Controller
     public function proveedor($id)
     {
         $proveedore=$this->proveedorrepo->find($id);
+		return View('consignacion.comprasaproveedor',compact('proveedore'));
+	   //dd($proveedore);
         
     }
 }

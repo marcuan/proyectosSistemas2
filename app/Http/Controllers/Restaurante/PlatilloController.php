@@ -43,7 +43,7 @@ class PlatilloController extends Controller
      */
     public function index(Request $request)
     {
-       $platillo = Platillo::name($request->get('name'))->orderBy('nombre','DESC')->paginate();
+       $platillo = Platillo::name($request->get('name'))->orderBy('nombre','DESC')->paginate(10);
         return View('platillo.platillo',compact('platillo'));
     }
 

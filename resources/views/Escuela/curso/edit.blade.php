@@ -1,11 +1,11 @@
 @extends('layouts.principal')
 @section('content')
-        
+<div class="container col-xs-12">
     {!!Form::model($curso,['route'=>['cursos.update', $curso->id], 'method'=>'PUT'])!!}
-        <div class="container col-xs-12">
             <h3 class="title" selected="selected">Cursos</h3>
-
+            <a href="/cursos" class="btn btn-danger">Regresar</a>
             <div class="form-grup">
+                <br>
                 {!!Form::label('Codigo:')!!}
                 {!!Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Ingrese Codigo', 'required'])!!}
             </div><br>
@@ -27,7 +27,7 @@
             </div><br>
             <div class="form-grup">
                 {!!Form::label('Maximo Estudiantes:')!!}
-                {!!Form::number('max_estudiantes',null,['class'=>'form-control','placeholder'=>'Ingrese Maximo de Estudiantes','required'])!!}
+                {!!Form::number('max_estudiantes',null,['class'=>'form-control','placeholder'=>'Ingrese Maximo de Estudiantes','required','min'=>'1'])!!}
             </div><br>
         <div class="form-btn">
             {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
@@ -36,5 +36,5 @@
     {!!Form::open(['route'=>['cursos.destroy', $curso->id], 'method'=>'DELETE'])!!}
         {!!Form::submit('Inhabilitar Curso',['class'=>'btn btn-danger'])!!}
     {!!form::close()!!}
-    </div>
+</div>
 @stop

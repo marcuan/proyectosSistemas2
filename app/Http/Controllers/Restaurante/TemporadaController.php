@@ -20,7 +20,7 @@ class TemporadaController extends Controller
      */
     public function mostrar()
     {
-        $temporada = Temporada::all();
+        $temporada = temporada::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate(10);
         return View('temporada.temporada',compact('temporada'));
     }
 
@@ -34,8 +34,8 @@ class TemporadaController extends Controller
     {
         //$temporada = Temporada::all();
   	//$temporada = temporada::All();
-        $temporada = temporada::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate();
-        return View('temporada.temporada',compact('temporada'));
+        $temporadas = temporada::orderBy('nombre', 'DESC')->paginate(10);
+        return View('temporada.temporada',compact('temporadas'));
     }
 
 

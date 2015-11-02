@@ -18,7 +18,7 @@
 
 @section('content')
 
-{!! Form::open(['href' => '../public/temporada', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
+{!! Form::open(['href' => '../temporada', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
     <div class="form-group">
         {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre de la Temporada']) !!}
     </div>
@@ -32,14 +32,16 @@
             <h3>Temporada</h3>
                 <th>Nombre</th>
             </thead>
-            @foreach($temporada as $temporada)
+            @foreach($temporadas as $temporada)
             <tbody>
                 <td>{{$temporada->nombre}}</td>
   		<td>{!!link_to_route('temporada.edit', $title = 'Editar', $parameters = $temporada->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
 		<td>{!!link_to_action('Restaurante\PlatilloController@mostrarplatillotemporada', $title = 'Menu', $parameters = $temporada->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
+		  {!!$temporadas->render()!!}
         </table>
+	   {!!$temporadas->render()!!}
     </div>
 
 @stop

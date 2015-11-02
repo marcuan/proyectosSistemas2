@@ -17,8 +17,11 @@
                 {!!Form::text('direccion',null,['class'=>'form-control','placeholder'=>'Ingrese Direccion','required'])!!}
             </div><br>
         <div class="form-btn">
-            {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
+<!--            {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}-->
+		
         </div>
     {!!form::close()!!}
+<!--				<a href="/proveedores" class="btn btn-primary">Actualizar</a>-->
+			 {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
     </div>
 @stop

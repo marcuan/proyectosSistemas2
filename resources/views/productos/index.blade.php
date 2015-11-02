@@ -18,14 +18,16 @@
 @section('content')
     
     <div class="container col-xs-12">
+    <h3 class="title" selected="selected">Productos</h3>
     <a href="producto/create" class="btn btn-danger">Crear Producto</a>
         {!!Form::open(['rout'=>'producto.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
+	
         <div class="form-group">
             {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
         </div>
         <div class="form-group">
             {!!Form::select('active',[0=>'Activos',1=>'Inhabilitados',2=>'Todos'],null,['class'=>'form-control'])!!}
-        </di
+        </div>
         <div class="form-group">
             {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
         </div>
@@ -49,7 +51,6 @@
                 <td>{{$productos->precioVenta}}</td>
                 <td>{{$productos->existencia}}</td>
                 <td>{{$productos->comision}}</td>
-                <td>{{$productos->estado}}</td>
                 <td>{!!link_to_route('producto.edit', $title = 'Editar', $parameters = $productos->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach

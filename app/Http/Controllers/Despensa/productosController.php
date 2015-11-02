@@ -28,7 +28,7 @@ class ProductosController extends Controller
         {
         if($request->get('active') == 0)
             {
-                $producto = Producto::name($request->get('name'))->active($request->get('active'))->orderBy('id','DESC')->paginate(10);    
+                $producto = Producto::name($request->get('name'))->orderBy('id','DESC')->paginate(10);
             }
         if($request->get('active') == 1)
             {
@@ -80,7 +80,13 @@ class ProductosController extends Controller
     public function store(Request $request)
     {
         //
-        Producto::create($request->all());
+        
+		$producto=Producto::create($request->all());
+		//concatena la P al codigo
+		$codigo =$producto->id+1000;
+		$codigo = "P-".$codigo;
+		$producto->codigo=$codigo;
+		$producto->save();
             return redirect('/producto')->with('message','store');
     }
 
