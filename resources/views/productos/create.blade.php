@@ -12,7 +12,7 @@
                 {!!Form::textarea('detalleProducto',null,['class'=>'form-control','placeholder'=>'Ingrese Detalle de su producto','required'])!!}
             </div>
             <div class="form-grup">
-                {!!Form::label('Precio de Venta:')!!}
+                {!!Form::label('Precio de Venta (Q):')!!}
                 {!!Form::text('precioVenta',null,['class'=>'form-control','placeholder'=>'Ingrese el precio','required'])!!}
             </div>
             <div class="form-grup">
@@ -20,7 +20,7 @@
                 {!!Form::number('existencia',null,['class'=>'form-control','placeholder'=>'Ingrese la existencia del producto','required'])!!}
             </div>
             <div class="form-grup">
-                {!!Form::label('Comision en Quetzales:')!!}
+                {!!Form::label('Comision en Quetzales (Q):')!!}
                 {!!Form::text('comision',null,['class'=>'form-control','placeholder'=>'Ingrese comision del producto','required'])!!}
             </div>
             <div class="form-btn">
