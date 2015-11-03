@@ -146,6 +146,7 @@ return [
         RED\Providers\EventServiceProvider::class,
         RED\Providers\RouteServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
+        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -198,6 +199,7 @@ return [
 
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
+        'PDF' => 'Barryvdh\DomPDF\Facade',
 
     ],
 
