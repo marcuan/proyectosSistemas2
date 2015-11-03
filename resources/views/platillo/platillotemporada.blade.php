@@ -9,7 +9,7 @@
             <thead>
                
                 <th>nombre</th>
-                <th>precio</th>
+                <th>precio (Q)</th>
                 <th>descripcion</th>
                 
             </thead>

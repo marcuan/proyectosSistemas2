@@ -17,7 +17,7 @@ class CreatePlatillosTable extends Migration
             $table->integer('temporada_id')->unsigned();
 		    $table->foreign('temporada_id')->references('id')->on('Temporada');
             $table->string('nombre');
-            $table->float('precio');
+            $table->decimal('precio', 10, 2);
             $table->string('descripcion');
             $table->timestamps();
         });

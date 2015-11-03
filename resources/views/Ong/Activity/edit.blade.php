@@ -23,11 +23,11 @@
             </div><br>
             <div class="form-grup">
                 {!!Form::label('Fecha de Inicio:')!!}
-                {!!Form::date('date_start',null,['class'=>'form-control','placeholder'=>'Ingrese Fecha de Inicio','required'])!!}
+                {!!Form::text('date_start',null,['class'=>'form-control','placeholder'=>'aaaa-mm-dd hh:mm:ss','pattern'=>'[0-9]{4}[-][0-1][0-9][-][0-3][0-9][ ][0-2][0-9][:][0-5][0-9]|[0-9]{4}[-][0-1][0-9][-][0-3][0-9][ ][0-2][0-9][:][0-5][0-9][:][0-5][0-9]','required'])!!}
             </div><br>
             <div class="form-grup">
                 {!!Form::label('Fecha de Fin:')!!}
-                {!!Form::date('date_end',null,['class'=>'form-control','placeholder'=>'Ingrese Fecha de Inicio','required'])!!}
+                {!!Form::text('date_end',null,['class'=>'form-control','placeholder'=>'aaaa-mm-dd hh:mm:ss','pattern'=>'[0-9]{4}[-][0-1][0-9][-][0-3][0-9][ ][0-2][0-9][:][0-5][0-9]|[0-9]{4}[-][0-1][0-9][-][0-3][0-9][ ][0-2][0-9][:][0-5][0-9][:][0-5][0-9]','required'])!!}
             </div><br>
             <div class="form-btn">
         {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}

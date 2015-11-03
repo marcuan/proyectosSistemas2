@@ -13,7 +13,7 @@
             </div>
         
             <div class="form-grup">
-                {!!Form::label('Precio Unitario:')!!}
+                {!!Form::label('Precio Unitario (Q):')!!}
                 {!!Form::number('precio',null,['class'=>'form-control','placeholder'=>'Ingrese precio','required','step' => 'any'])!!}
             </div>
       

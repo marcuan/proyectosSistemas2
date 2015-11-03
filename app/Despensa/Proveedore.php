@@ -10,6 +10,7 @@ class Proveedore extends Model
     	 protected $table = 'Proveedores';
 
     	 protected $fillable = [
+            'id',
     	 	'nombre',
     	 	'telefono',
     	 	'direccion'];

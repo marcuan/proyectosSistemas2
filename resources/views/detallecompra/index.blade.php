@@ -16,13 +16,13 @@
 
 @section('content')
     <a href="/detallecompra/create" class="btn btn-danger">Crear DetalleCompra</a>
-    <div class="container">
+    <div class="container col-xs-12">
         <table class="table">
             <thead>
                 <th>Materia prima</th>
-                <th># Compra</th>
+                <th>No. Compra</th>
                 <th>Cantidad</th>
-                <th>Costo</th>
+                <th>Costo (Q)</th>
             </thead>
             @foreach($DetalleCompra as $DetalleCompra)
             <tbody>

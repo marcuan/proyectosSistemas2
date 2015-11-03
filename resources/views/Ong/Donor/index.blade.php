@@ -50,7 +50,7 @@
                 <td>{{$Donador->donor_lastname}}</td>
                 <td>{{$Donador->e_mail}}</td>
                 <td>{!!link_to_route('donantes.edit', $title = 'Editar', $parameters = $Donador->id, $attributes = ['class'=>'btn btn-primary']);!!}
-                <a href="/donaciones/create/{{$Donador->id}}" class="btn btn-primary">Hacer Donación</a>
+                <a href="/donaciones/create/{{$Donador->id}}" class="btn btn-primary">Registrar Donación</a>
                 {!!link_to_route('donantes.show', $title = 'Ver Información', $parameters = $Donador->id, $attributes = ['class'=>'btn btn-warning']);!!}</td>
             </tbody>
             @endforeach
