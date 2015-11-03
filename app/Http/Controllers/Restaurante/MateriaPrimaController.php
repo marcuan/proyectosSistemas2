@@ -92,6 +92,14 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
         return view('materiaprima.edit', ['materiaprima'=>$materiaprima]);
     }
 
+        public function cierre($id)
+    {
+        //
+	   
+	      $materiaprima = MateriaPrima::find($id);
+        return view('materiaprima.cierre', ['materiaprima'=>$materiaprima]);
+    }
+    
     /**
      * Update the specified resource in storage.
      *

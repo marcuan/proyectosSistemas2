@@ -33,7 +33,9 @@
                 <td>{{$dato->existencia}}</td>
                 <td>{{$dato->precio}}</td>
 			 <td>{!!link_to_route('materiaprima.edit', $title = 'Editar', $parameters = $dato->id, $attributes = ['class'=>'btn btn-primary']);!!}
-                 </tbody>
+			<td>{!!link_to_action('Restaurante\MateriaPrimaController@cierre', $title = 'Cierre', $parameters = $dato->id, $attributes = ['class'=>'btn btn-primary']);!!}
+
+			</tbody>
             @endforeach
 		  {!!$materiaprima->render()!!}
         </table>

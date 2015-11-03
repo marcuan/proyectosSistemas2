@@ -94,6 +94,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('clientes', 'Restaurante\ClienteController');
 	Route::resource('compra','Restaurante\ComprasController');
 	Route::resource('detallecompra', 'Restaurante\DetalleCompraController');
+	Route::get('cierre/{id}', 'Restaurante\MateriaPrimaController@cierre');
 
 	/**
 	 *	Modulo Despensa
