@@ -32,7 +32,7 @@
             <thead>
                 <th>Temporada</th>
                 <th>Nombre</th>
-                <th>Precio</th>
+                <th>Precio (Q)</th>
                 <th>Descripcion</th>
             </thead>
             @foreach($platillo as $dato)

@@ -9,15 +9,15 @@
         	</div>
         	<div class="form-grup">
         		{!!Form::label('Nit:')!!}
-        		{!!Form::text('nit',null,['class'=>'form-control','placeholder'=>'Ingrese Numero Nit', 'required'])!!}
+        		{!!Form::text('nit','C/F',['class'=>'form-control','placeholder'=>'Ingrese Numero Nit', 'required'])!!}
         	</div>
         	<div class="form-grup">
         		{!!Form::label('Telefono:')!!}
-        		{!!Form::text('telefono',null,['class'=>'form-control','placeholder'=>'Ingrese No. Telefono', 'required'])!!}
+        		{!!Form::text('telefono',null,['class'=>'form-control','placeholder'=>'Ingrese No. Telefono'])!!}
         	</div>
             <div class="form-grup">
                 {!!Form::label('Dirección:')!!}
-                {!!Form::text('dirección',null,['class'=>'form-control','placeholder'=>'Ingrese dirección', 'required'])!!}
+                {!!Form::text('dirección','CIUDAD',['class'=>'form-control','placeholder'=>'Ingrese dirección', 'required'])!!}
             </div>
         	{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
         </div>

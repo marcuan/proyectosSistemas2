@@ -13,7 +13,7 @@
                 {!!Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre platillo','required'])!!}
             </div><br>
             <div class="form-grup">
-                {!!Form::label('Precio Unitario:')!!}
+                {!!Form::label('Precio Unitario (Q):')!!}
                 {!!Form::number('precio',null,['class'=>'form-control','placeholder'=>'Ingrese precio','required','step' => 'any'])!!}
             </div><br>
             <div class="form-grup">

@@ -19,18 +19,35 @@
 @section('content')
 
     <a href="compra/create" class="btn btn-danger">Crear Compra</a>
-    <div class="container">
+     {!! Form::open(['href' => '../public/compra', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
+
+    <div class="form-group">
+        {!!Form::Date('fecha',null,['class'=>'form-control','placeholder'=>'Ingrese o Seleccione Fecha'])!!}
+                <button type="submit" class="btn btn-primary">Buscar</button> 
+    </div>
+
+{!! Form::close() !!}
+{!! Form::open(['href' => '../public/compra', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
+    <div class="form-group">
+        {!! Form::text('type',null,['class' => 'form-control', 'placeholder' => 'Numero de Compra']) !!}
+    <button type="submit" class="btn btn-primary">Buscar</button> 
+    </div>
+
+{!! Form::close() !!}
+    <div class="container col-xs-12">
 
         <table class="table">
             <thead>
+                <th>No. Compra</th>
                 <th>Fecha</th>
-                <th>Sub Total</th>
+                <th>Sub Total (Q)</th>
                 <th>Descuento</th>
-                <th>Total</th>
+                <th>Total (Q)</th>
                 <th>Proveedor</th>
             </thead>
             @foreach($compras as $compra)
                 <tbody>
+                    <td>{{$compra->id}}</td>
                     <td>{{$compra->fecha}}</td>
                     <td>{{$compra->subTotal}}</td>
                     <td>{{$compra->descuento}}</td>
@@ -44,4 +61,5 @@
         </table>
 	   {!!$compras->render()!!}
     </div>
+   
 @stop

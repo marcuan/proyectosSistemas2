@@ -27,10 +27,31 @@ class ComprasController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $compras = Compra::orderBy('fecha','DESC')->paginate(10);
-        return view('compra.index', compact('compras'));
+        if ($request->get('type')=='' && $request->get('fecha')=='')
+        {           
+            //$compras = Compra::All();
+            $compras = Compra::orderBy('fecha','DESC')->paginate(10);
+             return view ('compra.index',compact('compras'));
+        }
+
+        if ($request->get('type')!='' && $request->get('fecha')=='')
+        {   
+            $compras = Compra::code($request->get('type'))->orderBy('id')->paginate(10);
+           return view ('compra.index',compact('compras'));
+        }
+
+        if ($request->get('fecha')!='' && $request->get('type')=='')
+        {   
+            $compras = Compra::fecha($request->get('fecha'))->orderBy('id')->paginate(10);
+           return view ('compra.index',compact('compras'));
+        }
+
+
+
+        //
+        //return view('compra.index', compact('compras'));
     }
 
     /**
@@ -109,7 +130,6 @@ class ComprasController extends Controller
     {
         $detalle = Compra::find($id);
         return view('detallecompra.detallecompra',compact('detalle'));
-       //return redirect('detallescompra/'.$id);
     }
 
     /**

@@ -23,7 +23,7 @@
             <thead>
                 <th>Nombre</th>
                 <th>Existencia</th>
-                <th>Precio</th>
+                <th>Precio (Q)</th>
 			  <th>Operacion</th>
                 
             </thead>
