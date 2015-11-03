@@ -7,7 +7,7 @@
 
             <div class="form-grup">
                 {!!Form::label('Monto:')!!}
-                {!!Form::number('monto',null,['class'=>'form-control','placeholder'=>'Ingrese Monto de Donación','required'])!!}
+                {!!Form::number('monto',null,['class'=>'form-control','placeholder'=>'Ingrese Monto de Donación','step'=>'0.01','required'])!!}
             </div><br>
             <div class="form-grup">
                 {!!Form::label('Descripción:')!!}

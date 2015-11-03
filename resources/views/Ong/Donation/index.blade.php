@@ -23,19 +23,21 @@
     <div></div>
         <table class="table">
             <thead>
-                <th>Monto</th>
-                <th>Descripcion</th>
                 <th>Nombre del Donante</th>
+                <th>Descripcion</th>
+                <th>Monto</th>
+                <th>Fecha</th>
                 </thead>
             @foreach($donation as $Donacion)
             <tbody>
-                <td>{{$Donacion->monto}}</td>
-                <td>{{$Donacion->descripcion}}</td>
                 @foreach($donor as $Donante)
                     @if($Donante->id == $Donacion->id_donor)
                         <td>{{$Donante->donor_name}}</td>
                     @endif
                 @endforeach
+                <td>{{$Donacion->descripcion}}</td>
+                <td>Q {{$Donacion->monto}}</td>
+                <th>{{$Donacion->created_at}}</th>
             </tbody>
             @endforeach
         </table>

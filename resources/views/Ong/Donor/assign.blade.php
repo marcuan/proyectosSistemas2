@@ -17,14 +17,16 @@
         <h4>Donaciones Hechas</h4>
         <table class="table table-hover table-responsive">
             <thead>
-                <th>Monto</th>
                 <th>Descripción</th>
+                <th>Monto</th>
+                <td>Fecha</td>
             </thead>
             @foreach($donations as $key => $donation)
                 @if ($donation->id_donor == $donor->id)
                     <tbody>
-                        <td>{{$donation->monto}}</td>
                         <td>{{$donation->descripcion}}</td>
+                        <td>Q {{$donation->monto}}</td>
+                        <td>{{$donation->created_at}}</td>
                     </tbody>
                 @endif
             @endforeach
