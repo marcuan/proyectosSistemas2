@@ -22,7 +22,8 @@ class DetalleCompraController extends Controller
      */
     public function index()
     {
-        $DetalleCompra = DetalleCompra::all();
+        //$DetalleCompra = DetalleCompra::all();
+        $DetalleCompra = DetalleCompra::orderBy('id','DESC')->paginate(10);
         return View('detallecompra.index',compact('DetalleCompra'));
     }
 

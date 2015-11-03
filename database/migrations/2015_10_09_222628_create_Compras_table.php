@@ -15,10 +15,10 @@ class CreateComprasTable extends Migration
         Schema::create('Compras', function(Blueprint $table) {
             $table->increments('id');
             $table->date('fecha');
-            $table->float('subTotal');
-            $table->float('descuento');
-            $table->float('total');
-		    $table->integer('proveedores_id')->unsigned();
+            $table->decimal('subTotal', 10, 2);
+            $table->decimal('descuento', 10, 2);
+		    $table->decimal('total', 10, 2);
+            $table->integer('proveedores_id')->unsigned();
             $table->foreign('proveedores_id')->references('id')->on('Proveedores');
             $table->timestamps();
         });

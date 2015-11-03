@@ -28,4 +28,27 @@ class Compra extends Model
     {
         return $this->belongsTo('RED\Despensa\Proveedore');
     }
+    public function scopeFecha($query, $fecha)
+    {
+        if (trim($fecha) != "")
+        {
+            return $query->where("fecha","LIKE","%$fecha%");    
+        }
+    }
+        public function scopeId($query, $code)
+    {
+        if (trim($code) != "")
+        {
+              return $query->where("id","LIKE","%$code%");    
+        }
+
+
+    }
+    public function scopeCode($query, $type)
+    {
+        if (trim($type) != "")
+        {
+            return $query->where("id","LIKE","%$type%");    
+        }
+    }
 }

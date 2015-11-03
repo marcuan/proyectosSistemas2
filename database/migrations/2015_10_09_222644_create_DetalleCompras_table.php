@@ -20,8 +20,8 @@ class CreateDetalleComprasTable extends Migration
 		  $table->integer('compras_id')->unsigned();
 		  $table->foreign('compras_id')->references('id')->on('Compras');
           $table->integer('cantidad');
-          $table->float('costo');
-		  $table->timestamps();
+		  $table->decimal('costo', 10, 2);
+          $table->timestamps();
         });
     }
 
