@@ -4,7 +4,7 @@
     <div class="container col-xs-12">
     <h3 class="title" selected="selected">Cursos</h3>
     <?php $message=Session::get('message')?>
-    @if($message == 'store')
+    @if($message == 'assign')
     <div class="alert alert-success alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <strong>Creado.</strong> Horario creado exitosamente.
@@ -45,6 +45,7 @@
         </div>
         <h4>Horarios del Curso</h4>
         {!!link_to('/horarios/'.$curso->id, $title = 'Añadir Horario', $attributes = ['class'=>'btn btn-primary'], $secure = null);!!}
+        {!!link_to('/asignacioncursoestudiantes/'.$curso->id, $title = 'Asignar Estudiantes', $attributes = ['class'=>'btn btn-success'], $secure = null);!!}
         {!!link_to('cursoestudiantes/'.$curso->id, $title = 'Ver Estudiantes', $attributes = ['class'=>'btn btn-warning'], $secure = null);!!}
         <div class="table-responsive">
         <table class="table table-hover table-responsive">

@@ -24,5 +24,24 @@
         	   {!!Form::submit('Guardar y Asignar Horario',['class'=>'btn btn-primary'])!!}
             </div>        
     {!!form::close()!!}
+    <h4>Horarios del Curso</h4>
+    <div class="table-responsive">
+        <table class="table table-hover table-responsive">
+            <thead>
+                <th>Día</th>
+                <th>Hora de Inicio</th>
+                <th>Hora de Finalización</th>
+                <th>Salón </th>
+            </thead>
+            @foreach($horarios as $horario)
+            <tbody>
+                <td>{{$horario->dia}}</td>
+                <td><?php echo date('g:i a', strtotime($horario->hora_inicio)); ?></td>
+                <td><?php echo date('g:i a', strtotime($horario->hora_fin)); ?></td>
+                <td>{{$horario->salon}}</td>
+            </tbody>
+            @endforeach
+        </table>
+        </div>
     </div>
 @stop

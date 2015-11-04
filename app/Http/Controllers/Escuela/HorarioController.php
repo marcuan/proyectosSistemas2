@@ -48,7 +48,7 @@ class HorarioController extends Controller
         $horario->curso_id = $idcurso;
         $horario->save();
 
-    return redirect('/cursos/'.$idcurso)->with('message','assign');
+    return redirect('/horarios/'.$idcurso)->with('message','assign');
     }
 
     /**

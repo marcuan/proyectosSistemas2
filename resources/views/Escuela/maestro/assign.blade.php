@@ -48,7 +48,7 @@
                 <th>Descripcion</th>
                 <th>Fecha de Inicio</th>
                 <th>Fecha de Finalizacion</th>
-                <th>Maximo de Estudiantes</th>
+                <th>Cupo Restante</th>
             </thead>
             @foreach($courses as $curso)
             <tbody>
@@ -57,7 +57,7 @@
                 <td>{{$curso->descripcion}}</td>
                 <td>{{$curso->fecha_inicio}}</td>
                 <td>{{$curso->fecha_fin}}</td>
-                <td>{{$curso->max_estudiantes}}</td>
+                <td>{{$curso->max_estudiantes - $curso->num_estudiantes}}</td>
             </tbody>
             @endforeach
         </table>

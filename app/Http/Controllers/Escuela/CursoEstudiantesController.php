@@ -21,6 +21,7 @@ class CursoEstudiantesController extends Controller
 	public function crearhorario($id) 
 	{
 		$curso = Curso::find($id);
-		return view('Escuela.horario.create', compact('curso'));
+		$horarios = $curso->horarios()->get();
+		return view('Escuela.horario.create', compact(['curso', 'horarios']));
 	}
 }

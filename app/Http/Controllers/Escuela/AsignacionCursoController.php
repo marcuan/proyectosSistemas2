@@ -3,12 +3,11 @@
 namespace RED\Http\Controllers\Escuela;
 
 use Illuminate\Http\Request;
-use RED\Http\Requests;
-use RED\Escuela\Estudiante;
 use RED\Escuela\Curso;
+use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 
-class AsignacionEstudianteController extends Controller
+class AsignacionCursoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,20 +37,19 @@ class AsignacionEstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        $idestudiante = $request['idestudiante'];
-        $estudiante = Estudiante::find($idestudiante);
-        $idcurso = $request['curso'];
+        $idcurso = $request['idcurso'];
+        $curso = Curso::find($idcurso);
+        $idestudiante = $request['estudiante'];
         if($request['check'] != null) {
             foreach ($request['check'] as $dato) {
-                $estudiante->cursos()->attach($idcurso[$dato]);
-                $curso = Curso::find($idcurso[$dato]);
+                $curso->estudiantes()->attach($idestudiante[$dato]);
                 $curso->num_estudiantes = $curso->num_estudiantes - 1;
                 $curso->save();
             }
 
-            return redirect('/estudiantes/'.$idestudiante)->with('message','assign');
+            return redirect('/cursos/'.$idcurso)->with('message','assign');
         } else {
-            return redirect('/estudiantes/'.$idestudiante)->with('message','no-assign');
+            return redirect('/cursos/'.$idcurso)->with('message','no-assign');
         }
     }
 
