@@ -17,11 +17,12 @@
                 {!!Form::text('direccion',null,['class'=>'form-control','placeholder'=>'Ingrese Direccion','required'])!!}
             </div><br>
         <div class="form-btn">
-<!--            {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}-->
+           {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
 		
         </div>
     {!!form::close()!!}
-<!--				<a href="/proveedores" class="btn btn-primary">Actualizar</a>-->
-			 {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
+                {!!Form::open(['route'=>['proveedores.destroy', $proveedores->id], 'method'=>'DELETE'])!!}
+                {!!Form::submit('Inhabilitar Proveedor',['class'=>'btn btn-danger'])!!}
+                {!!form::close()!!}
     </div>
 @stop

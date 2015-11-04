@@ -42,4 +42,5 @@
             @endforeach
         </table>
     </div>
+        <div>{!!$proveedor->render()!!}</div>
 @stop
