@@ -3,10 +3,13 @@
 namespace RED\Despensa;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Proveedore extends Model
 {
+    use SoftDeletes;
     //Atributo necesario para modelos
+
     	 protected $table = 'Proveedores';
 
     	 protected $fillable = [
@@ -14,6 +17,8 @@ class Proveedore extends Model
     	 	'nombre',
     	 	'telefono',
     	 	'direccion'];
+
+        protected $dates = ['deleted_at'];
 	
 	public function scopeName($query, $name){
 

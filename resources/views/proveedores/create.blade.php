@@ -9,11 +9,11 @@
             </div>
             <div class="form-grup">
                 {!!Form::label('Telefono:')!!}
-                {!!Form::number('telefono',null,['class'=>'form-control','placeholder'=>'Ingrese Telefono','required'])!!}
+                {!!Form::number('telefono',null,['class'=>'form-control','placeholder'=>'Ingrese Telefono'])!!}
             </div>
             <div class="form-grup">
                 {!!Form::label('Dirección:')!!}
-                {!!Form::text('direccion',null,['class'=>'form-control','placeholder'=>'Ingrese Direccion','required'])!!}
+                {!!Form::text('direccion','CIUDAD',['class'=>'form-control','placeholder'=>'Ingrese Direccion','required'])!!}
             </div>
             <div class="form-btn">
                 {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}

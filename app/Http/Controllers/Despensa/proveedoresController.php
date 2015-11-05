@@ -23,10 +23,9 @@ class ProveedoresController extends Controller
 
     public function index(Request $request)
     {
-       // $proveedor = Proveedore::all();
-        //return View('proveedores.index',compact('proveedor'));
+       // 
 		
-		$proveedor = Proveedore::name($request->get('name'))->orderBy('nombre','DESC')->paginate();
+		$proveedor = Proveedore::name($request->get('name'))->orderBy('nombre','ASC')->paginate(10);
          //$proveedor = Proveedore::orderBy('nombre', 'ASC')->paginate(10);
         return View('proveedores.index',compact('proveedor'));
     }
@@ -51,7 +50,13 @@ class ProveedoresController extends Controller
     public function store(Request $request)
     {
         //
-        Proveedore::create($request->all());
+        Proveedore::create([    
+            'nombre' => $request['nombre'],
+            'telefono' => $request['telefono'],
+            'direccion' => $request['direccion'],
+            ]);
+
+     
             return redirect('/proveedores')->with('message','store');
     }
 
@@ -106,6 +111,10 @@ class ProveedoresController extends Controller
     public function destroy($id)
     {
         //
+        $proveedor = Proveedore::find($id);
+        $proveedor->delete();  
+
+    return redirect('/proveedores')->with('message','erase');
     }
 	public function getIndex($id)
 		{
