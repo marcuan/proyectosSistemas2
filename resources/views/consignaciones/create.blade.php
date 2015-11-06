@@ -29,7 +29,7 @@
 	
         	<div class="form-grup">
         		{!!Form::label('Observaciones:')!!}
-        		{!!Form::textarea('detalleConsignacion',null,['class'=>'form-control','placeholder'=>'Observaciones', 'required'])!!}
+        		{!!Form::textarea('detalleConsignacion',null,['class'=>'form-control','placeholder'=>'Observaciones'])!!}
         	</div><br>
           
             <div class="form-btn">

@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GeneroTableSeeder::class);
         $this->call(OngTableSeeder::class);
         $this->call(ProveedorTableSeeder::class);
+		$this->call(DespensaTableSeeder::class);
 
         Model::reguard();
     }

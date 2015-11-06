@@ -50,11 +50,12 @@ class DetalleConsignacionController extends Controller
     {	
         $consignacion = Consignacion::all()->last()->id;
         $opcionproducto = Producto::all()->lists('nombreProducto','id');
+		$producto = Producto::all();
 
-        return view("detalleconsignacion.create", compact('consignacion','opcionproducto'));  
-        //return view("detallecompra.create", compact('compra','opcionmateria'));  
-
-    }
+        return view("detalleconsignacion.create", compact('consignacion','opcionproducto','producto'));  
+    
+	
+	}
 
     /**
      * Store a newly created resource in storage.
@@ -66,8 +67,10 @@ class DetalleConsignacionController extends Controller
     {
         $opcionproducto = Producto::all()->lists('nombreProducto','id');
       	$producto = Producto::find($request->input('producto_id'));
-	   
+	    
 	    $idconsignacion=$request['consignacion_id'];
+        	
+
 		$costo=$request['costo'];//Obtenemos el costo unitario 
 	    $cantidad=$request['cantidad'];
 	    DetalleConsignacion::create($request->all());
@@ -78,8 +81,10 @@ class DetalleConsignacionController extends Controller
 		
 //	   $consignacion->save();//actualizar
 	   $consignacion=$idconsignacion;
-	   return view('detalleconsignacion.create',compact('consignacion','opcionproducto'))->with('message','store');;
-      //  return redirect('/detallecompra')->with('message','store');
+	 //  return view('detalleconsignacion.create',compact('consignacion','opcionproducto'))->with('message','store');;
+      //  return redirect('/consignaciones')->with('message','store');
+		$detalle = Consignacion::find($idconsignacion);
+		return view('detalleconsignacion.detalleconsignacion',compact('detalle'));
     }
 
     /**
@@ -90,7 +95,11 @@ class DetalleConsignacionController extends Controller
      */
     public function show($id)
     {
-        //
+        //asignar # a la casilla compra
+        $consignacion = $id;
+         $opcionproducto = Producto::all()->lists('nombreProducto','id');
+		$producto = Producto::all();
+        return view("detalleconsignacion.create", compact('consignacion','opcionproducto','producto'));   
     }
 
     /**

@@ -2,9 +2,10 @@
 
 @section('content')
     <div class="container">
-        <table class="table">
-       <h1>No. Consignacion: {{$detalle->id}}</h1>
-            <thead>
+        <table class="table table-hover">
+<!--       <h1>No. Consignacion: {{$detalle->id}}</h1>-->
+	   <h1>Codigo Consignacion: {{$detalle->codigo}}</h1>
+			<thead> 
 				<th>Cantidad</th>
                 <th>Producto </th>
                 <th>Costo Unitario</th>                
@@ -18,7 +19,9 @@
                     <td>{{$DetalleConsignacion->precio}}</td>
                 </tbody>
             @endforeach
-            <a href="/detalleconsignacion/create" class="btn btn-primary">Crear otro Detalle</a>
+		
+     <a class="btn btn-primary" {!!link_to_route('detalleconsignacion.show', $title = 'Crear Detalle', $parameters = $detalle->id, $attributes = ['class'=>'btn btn-primary']);!!}</a>
+         
           	<a href="/consignaciones" class="btn btn-danger">Regresar</a>
 	</div>
 @stop
