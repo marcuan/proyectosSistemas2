@@ -35,7 +35,8 @@ class ConsignacionController extends Controller
     {
          if ($request->get('codigo')=='' && $request->get('fechaIni')=='')
         {           
-        $consignacion = Consignacion::All();
+        $consignacion = Consignacion::orderBy('id','DESC')->paginate(10);
+			 
              return View('consignaciones.index',compact('consignacion'));
         }
        

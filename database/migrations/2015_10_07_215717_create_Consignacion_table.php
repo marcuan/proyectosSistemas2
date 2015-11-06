@@ -17,7 +17,7 @@ class CreateConsignacionTable extends Migration
 			 	 $table->string('codigo');
                  $table->date('fechaInicial');
 			 	 $table->date('fechaFinal');
-                 $table->string('detalleConsignacion');
+                 $table->string('detalleConsignacion')->nullable();
 			 
                  //Campo para llave foranea
                  $table->integer('proveedores_id')->unsigned();

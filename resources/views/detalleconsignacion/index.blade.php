@@ -17,7 +17,7 @@
 @section('content')
     <a href="/detallecompra/create" class="btn btn-danger">Crear DetalleCompra</a>
     <div class="container">
-        <table class="table">
+        <table class="table table-hover">
             <thead>
                 <th>Producto</th>
                 <th>Id consignacion</th>

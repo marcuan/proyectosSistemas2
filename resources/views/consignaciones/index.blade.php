@@ -20,7 +20,7 @@
  
 	<h3 class="title" selected="selected">Consignaciones</h3>
     <a href="consignaciones/create" class="btn btn-danger">Crear Consignaciones</a>
-
+	<div>{!!$consignacion ->render()!!}</div>
     <div class="container">
         {!!Form::open(['rout'=>'consignacion.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
 		
@@ -34,10 +34,9 @@
             <label for="exampleInputName2">Fecha Inicial:        </label>
             {!!Form::date('fechaIni',null,['class'=>'form-control','placeholder'=>'Ingrese fecha Inicial'])!!}        
         </div>
-        <button type="submit" class="btn btn-default glyphicon glyphicon-search"></button>
+		<button type="submit" class="btn btn-default glyphicon glyphicon-search"></button>
         {!!Form::close()!!}
-
-        <table class="table">
+		<table class="table table-hover">
             <thead>
 				<th>Codigo</th>
                 <th>Fecha Inicio</th>
@@ -64,4 +63,5 @@
             @endforeach
         </table>
     </div>
+	<div>{!!$consignacion ->render()!!}</div>
 @stop
