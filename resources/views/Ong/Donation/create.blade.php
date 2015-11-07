@@ -7,19 +7,18 @@
 
             <div class="form-grup">
                 {!!Form::label('Monto:')!!}
-                {!!Form::text('monto',null,['class'=>'form-control','placeholder'=>'Ingrese Monto de Donación','required'])!!}
+                {!!Form::number('monto',null,['class'=>'form-control','placeholder'=>'Ingrese Monto de Donación','required'])!!}
             </div><br>
             <div class="form-grup">
                 {!!Form::label('Descripción:')!!}
-                {!!Form::email('descripcion',null,['class'=>'form-control','placeholder'=>'Ingrese Descripción de Donación','required'])!!}
+                {!!Form::text('descripcion',null,['class'=>'form-control','placeholder'=>'Ingrese Descripción de Donación','required'])!!}
+            </div><br>
+            <div class="form-grup">
+                {!!Form::hidden('id_donor',$id)!!}
             </div><br>
             <div class="form-btn">
             {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
             </div>
-            <div class="form-grup">
-                {!!Form::label('ID Donador:')!!}
-                {!!Form::text('id',null,['class'=>'form-control','placeholder'=>'Ingrese ID del Donador','required'])!!}
-            </div><br>
         
              {!!form::close()!!}
      </div>

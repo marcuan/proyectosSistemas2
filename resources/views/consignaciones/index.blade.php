@@ -45,15 +45,20 @@
                 <th>Proveedor</th>
             </thead>
             @foreach($consignacion as $consignaciones)
+			
+		{{-- */$proveedorComp = RED\Despensa\Proveedore::find($consignaciones->proveedores_id)/* --}}
+			
                 <tbody>
                     <td>{{$consignaciones->codigo}}</td>
 					<td>{{$consignaciones->fechaInicial}}</td>
                     <td>{{$consignaciones->fechaFinal}}</td>
                     <td>{{$consignaciones->detalleConsignacion}}</td>
-                    <td>{{$consignaciones->proveedores_id}}</td>
+					<td>{{$proveedorComp->nombre}}</td>
                     <td> <td>{!!link_to_route('consignaciones.show', $title = 'Ver Detalles', $parameters = $consignaciones->id, $attributes = ['class'=>'btn btn-primary']);!!}
+					
 						{!!link_to_route('consignaciones.edit', $title = 'Editar', $parameters = $consignaciones->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
                 </tbody>
+			
             @endforeach
         </table>
     </div>

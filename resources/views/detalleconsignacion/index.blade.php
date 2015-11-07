@@ -23,10 +23,13 @@
                 <th>Id consignacion</th>
                
             </thead>
-         @foreach($DetalleConsignacion as $DetalleConsignacion)
+         @foreach($DetalleConsignacion as $DetalleConsignacions)
+		
+			{{-- */$productoComp = RED\Despensa\Producto::find($DetalleConsignacions->productoid)/* --}}
             <tbody>
-                <td>{{$DetalleConsignacion->productoid}}</td>
-                <td>{{$DetalleConsignacion->compras_id}}</td>
+				<td>{{$productoComp->nombreProducto}}</td>
+                <td>{{$DetalleConsignacions->productoid}}</td>
+                <td>{{$DetalleConsignacions->compras_id}}</td>
                 <td>{!!link_to_route('detalleconsignacion.edit', $title = 'Editar', $parameters = $DetalleCompra->id, $attributes = ['class'=>'btn btn-primary']);!!}
             </tbody>
             @endforeach

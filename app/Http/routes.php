@@ -22,13 +22,19 @@ Route::group(['middleware' => 'auth'], function () {
 	# Vista principal o tablero de usuario
 	Route::get('tablero',  function () {
 		return view('layouts.index');
+
 	});
+
+
 
 	/**
 	 *	Ong
 	 */
 	Route::resource('users','Ong\UserController');
+	Route::resource('donaciones','Ong\DonationController');
+	Route::get('donaciones/create/{id}','Ong\DonationController@create');
 	Route::resource('donantes','Ong\DonorController');
+	Route::resource('actividades','Ong\ActivityController');
 
 	/**
 	 *	User Authentication
@@ -53,8 +59,31 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('desasignacionmaestros/{id}', 'Escuela\DesasignMaestController@desasignar');
 	Route::resource('desasignacionmaestros', 'Escuela\DesasignacionMaestroController');
 	Route::get('cursoestudiantes/{id}', 'Escuela\CursoEstudiantesController@verestudiantes');
-	Route::get('agregarhorario/{id}', 'Escuela\CursoEstudiantesController@crearhorario');
-	Route::resource('agregarhorario', 'Escuela\HorarioController');
+	Route::get('horarios/{id}', 'Escuela\CursoEstudiantesController@crearhorario');
+	Route::resource('horarios', 'Escuela\HorarioController');
+
+
+	// direccion para reportes 
+	
+	Route::get('reposiEstu',function ()
+	{
+		// llega a la vista de los reportes 
+		return view('\Escuela\estudiante\Reporte');
+	});
+	Route::get('reposiCurso',function ()
+	{
+		// llega a la vista de los reportes 
+		return view('\Escuela\curso\Reportes');
+	});
+	Route::get('reposiMaestro',function ()
+	{
+		// llega a la vista de los reportes 
+		return view('\Escuela\maestro\Reporte');
+	});
+
+
+	 
+
 	
 
 	/**

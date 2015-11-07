@@ -13,18 +13,16 @@ class Consignacion extends Model
     protected $table = 'Consignacion';
 
     protected $fillable = [
+	
 		'codigo',
     	'fechaInicial',
     	'fechaFinal',
-    	'detalleConsignacion', //servira escribir un pequeño detalle de la consignacion que se hace
-    	'proveedores_id'
-
+    	'detalleConsignacion',
+        'proveedores_id'//servira escribir un pequeño detalle de la consignacion que se hace
     ];
 	
 	public function verConsignacion(){
-    
-
-    return DB::select($rawQuery);   
+     return DB::select($rawQuery);   
 }
 	public function detalles()
     {
@@ -49,4 +47,9 @@ class Consignacion extends Model
             return $query->where("fechaInicial",'>',$fechaini);    
         }
     }
+
+    public function proveedores()
+    {
+       return $this->belongsTo('RED\Despensa\Proveedore');
+     }
 }

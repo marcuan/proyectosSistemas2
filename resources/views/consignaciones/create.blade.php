@@ -7,7 +7,8 @@
 			 
       <div class="col-sm-3">
 				{!!Form::label('Codigo de Consignacion:')!!}
-				{!!Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Codigo', 'required'])!!}
+  
+				{!!Form::text('codigo','C-001 ' ,['class'=>'form-control','placeholder'=>'Codigo', 'required'])!!}
 	  </div><br/>
 		
     <div class="col-md-4 col-md-offset-1">	

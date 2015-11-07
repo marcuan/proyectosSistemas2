@@ -3,8 +3,9 @@
 namespace RED\Http\Controllers\Ong;
 
 use Illuminate\Http\Request;
+use RED\Ong\Donor;
 use RED\Ong\Donation;
-use RED\Http\Requests;
+use RED\Http\Requests;  
 use RED\Http\Controllers\Controller;
 
 class DonationController extends Controller
@@ -16,7 +17,9 @@ class DonationController extends Controller
      */
     public function index(Request $request)
     {
-         return view('Ong.Donation.index',compact('course'));
+        $donation = Donation::all();
+        $donor = Donor::all();
+        return view('Ong.donation.index',compact(['donation', 'donor']));
     }
 
     /**
@@ -24,9 +27,9 @@ class DonationController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function create($id = 0)
     {
-        return view('Ong.Donation.create');
+        return view('Ong.donation.create', compact('id'));
     }
 
     /**
@@ -39,7 +42,7 @@ class DonationController extends Controller
     {
         Donation::create($request->all());
 
-    return redirect('/donation')->with('message','store');
+    return redirect('/donantes')->with('message','store');
     }
 
     /**
@@ -63,7 +66,7 @@ class DonationController extends Controller
     public function edit($id)
     {
         $donation = Donation::find($id);
-        return view('Ong.Donation.edit', ['donation'=>$donation]);
+        return view('Ong.donation.edit', ['donation']);
     }
 
     /**
@@ -79,7 +82,7 @@ class DonationController extends Controller
         $donation->fill($request->all());
         $donation->save();
 
-     return redirect('/donation')->with('message','edit');
+     return redirect('/donantes')->with('message','edit');
     }
 
     /**
@@ -93,6 +96,6 @@ class DonationController extends Controller
         $donation = Donation::find($id);
         $donation->delete();  
 
-    return redirect('/donation')->with('message','erase');
+    return redirect('/donantes')->with('message','erase');
     }
 }

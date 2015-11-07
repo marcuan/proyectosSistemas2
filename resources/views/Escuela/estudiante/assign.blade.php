@@ -42,7 +42,8 @@
         <h4>Cursos Asignados</h4>
         {!!link_to('asignacionestudiantes/'.$student->id, $title = 'Asignar Cursos', $attributes = ['class'=>'btn btn-success'], $secure = null);!!}
         {!!link_to('desasignacionestudiantes/'.$student->id, $title = 'Desasignar Cursos', $attributes = ['class'=>'btn btn-warning'], $secure = null);!!}
-        <table class="table table-hover table-responsive">
+        <div class="table-responsive">
+        <table class="table table-hover">
             <thead>
                 <th>Codigo</th>
                 <th>Nombre</th>
@@ -62,6 +63,7 @@
             </tbody>
             @endforeach
         </table>
+        </div>
     </div>
  {!!form::close()!!}
 

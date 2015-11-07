@@ -23,6 +23,7 @@ class CreateCursoTable extends Migration
             $table->integer('num_estudiantes');
             $table->boolean('activo');  
 		    $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('Horario', function(Blueprint $table) {
@@ -34,6 +35,7 @@ class CreateCursoTable extends Migration
             $table->integer('curso_id');
             $table->boolean('activo');  
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

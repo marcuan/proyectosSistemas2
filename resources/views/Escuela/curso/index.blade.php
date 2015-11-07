@@ -24,9 +24,11 @@
 
 @section('content')
     <div class="container col-xs-12">
-    <h3 class="title" selected="selected">Cursos</h3>
-    <a href="/cursos/create" class="btn btn-danger">Crear Curso</a>
-    {!!Form::open(['rout'=>'estudiantes.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
+
+        <h3 class="title" selected="selected">Cursos</h3>
+        <a href="/cursos/create" class="btn btn-danger">Crear Curso</a>
+        <a href="reposiCurso" class="btn btn-danger">Descargar Reporte</a>
+        {!!Form::open(['rout'=>'estudiantes.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
         <div class="form-group">
             {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
         </div>
@@ -38,8 +40,9 @@
         </div>
         <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
     {!!Form::close()!!}
-    <div></div>
-        <table class="table table-hover table-responsive">
+    <div>{!!$course->render()!!}</div>
+    <div class="table-responsive col-xs-12"> 
+        <table class="table table-hover">
             <thead>
                 <th>Codigo</th>
                 <th>Nombre</th>
@@ -54,12 +57,15 @@
                 <td>{{$curso->descripcion}}</td>
                 <td>{{$curso->max_estudiantes}}</td>
                 <td>{!!link_to_route('cursos.edit', $title = 'Editar', $parameters = $curso->id, $attributes = ['class'=>'btn btn-primary']);!!}
-                    {!!link_to_route('cursos.show', $title = 'Ver Información', $parameters = $curso->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
+                    {!!link_to_route('cursos.show', $title = 'Información', $parameters = $curso->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
             </tbody>
             @endforeach
-            {!!$course->render()!!}
+            
         </table>
+        </div>
+        <div>
             {!!$course->render()!!}
+        </div>
     </div>
 
 @stop

@@ -26,11 +26,11 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
 	   
-	     $materiaprima=$this->materiaprimarepo->findall();
+	     $materiaprima=MateriaPrima::name($request->get('name'))->orderBy('nombre','DESC')->paginate(10);
 	
 	  return View('materiaprima.todamateriaprima',compact('materiaprima'));
     }

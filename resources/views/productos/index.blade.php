@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             {!!Form::select('active',[0=>'Activos',1=>'Inhabilitados',2=>'Todos'],null,['class'=>'form-control'])!!}
-        </di
+        </div>
         <div class="form-group">
             {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
         </div>
@@ -49,7 +49,6 @@
                 <td>{{$productos->precioVenta}}</td>
                 <td>{{$productos->existencia}}</td>
                 <td>{{$productos->comision}}</td>
-                <td>{{$productos->estado}}</td>
                 <td>{!!link_to_route('producto.edit', $title = 'Editar', $parameters = $productos->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach

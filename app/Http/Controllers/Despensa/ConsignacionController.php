@@ -33,13 +33,11 @@ class ConsignacionController extends Controller
 
     public function index(Request $request)
     {
-
+        
         $consignacion = Consignacion::all();
         $consignacion = Consignacion::code($request->get('codigo'))->orderBy('id','DESC')->paginate(10);
         $consignacion = Consignacion::fechai($request->get('fechaInicial'))->orderBy('id','DESC')->paginate(10);    
         return View('consignaciones.index',compact('consignacion'));
-
-
     }
 
     /**
@@ -146,6 +144,8 @@ class ConsignacionController extends Controller
     public function proveedor($id)
     {
         $proveedore=$this->proveedorrepo->find($id);
+		return View('consignacion.comprasaproveedor',compact('proveedore'));
+	   //dd($proveedore);
         
     }
 }

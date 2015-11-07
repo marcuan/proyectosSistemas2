@@ -11,12 +11,13 @@
             </thead>
             @foreach($detalle->detalles as $DetalleCompra)  
                 <tbody>
-                    <td>{{$DetalleCompra->materia_prima_id}}</td>
+                    <td>{{$DetalleCompra->materia_prima->nombre}}</td>
                     <td>{{$DetalleCompra->cantidad}}</td>
                     <td>{{$DetalleCompra->costo}}</td>
                 </tbody>
             @endforeach
-            <a href="/detallecompra/create" class="btn btn-danger">Crear Detalle</a>
+		    <h1>Total: {{$detalle->total}}</h1>
+            <a class="btn btn-danger" {!!link_to_route('detallecompra.show', $title = 'Crear Detalles', $parameters = $detalle->id, $attributes = ['class'=>'btn btn-primary']);!!}</a>
             <a href="/compra" class="btn btn-danger">Regresar</a>
         </table>
     </div>

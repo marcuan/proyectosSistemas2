@@ -26,6 +26,8 @@
     <h3 class="title" selected="selected">Estudiantes</h3>
     <a href="/estudiantes/create" class="btn btn-danger">Crear Estudiante</a>
     
+    <a href="reposiEstu" class="btn btn-danger">Descargar Reporte</a>
+
     {!!Form::open(['rout'=>'estudiantes.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
         <div class="form-group">
             {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
@@ -38,8 +40,9 @@
         </div>
         <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
     {!!Form::close()!!}
-    <div></div>
-        <table class="table table-hover table-responsive">
+    <div>{!!$student->render()!!}</div>
+    <div class="table-responsive col-xs-12">
+        <table class="table table-hover">
             <thead>
                 <th></th>
                 <th>Código</th>
@@ -58,12 +61,13 @@
                 <td>{{$estudiante->correo}}</td>
                 <td>{{$estudiante->telefonos()->get()->first()->numero_telefono}}</td>
                 <td>{!!link_to_route('estudiantes.edit', $title = 'Editar', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-primary']);!!}
-                    {!!link_to_route('estudiantes.show', $title = 'Ver Información', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
+                    {!!link_to_route('estudiantes.show', $title = 'Información', $parameters = $estudiante->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
             </tbody>
             @endforeach
-            {!!$student->render()!!}
+           
         </table>
-        {!!$student->render()!!}
-
+        
+    </div>
+        <div>{!!$student->render()!!}</div>
     </div>
 @stop

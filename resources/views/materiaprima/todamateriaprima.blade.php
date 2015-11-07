@@ -8,9 +8,18 @@
 </div>
 @endif
 @section('content')
+<!-- Vista -> Cuadro para buscar platillo-->
+    {!! Form::open(['href' => '../public/materiaprima', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
+    <div class="form-group">
+        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre de la Materia Prima']) !!}
+    </div>
+        <button type="submit" class="btn btn-primary">Buscar</button> 
+    {!! Form::close() !!}
+    <!-- .....  -->
+
  <a href="/materiaprima/create" class="btn btn-danger">Crear Materia</a>
-   <div class="container col-xs-12">
-        <table class="table">
+   <div class="container-fluid">
+        <table class="table table-condensed">
             <thead>
                 <th>Nombre</th>
                 <th>Existencia</th>
@@ -26,6 +35,8 @@
 			 <td>{!!link_to_route('materiaprima.edit', $title = 'Editar', $parameters = $dato->id, $attributes = ['class'=>'btn btn-primary']);!!}
                  </tbody>
             @endforeach
+		  {!!$materiaprima->render()!!}
         </table>
+	    {!!$materiaprima->render()!!}
     </div>
 @stop

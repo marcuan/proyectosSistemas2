@@ -87,8 +87,9 @@ class CursoController extends Controller
     public function show($id)
     {
         $curso = Curso::find($id);
-        $horario = $curso->horarios()->get();
-        return view('Escuela.curso.info', compact(['curso', 'horario']));
+        $horarios = $curso->horarios()->get();
+        $maestros = $curso->maestros()->get();
+        return view('Escuela.curso.info', compact(['curso', 'horarios', 'maestros']));    
     }
 
     /**

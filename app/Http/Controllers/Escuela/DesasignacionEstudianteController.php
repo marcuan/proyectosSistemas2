@@ -44,6 +44,9 @@ class DesasignacionEstudianteController extends Controller
         if($request['check'] != null) {
             foreach ($request['check'] as $dato) {
                 $estudiante->cursos()->detach($idcurso[$dato]);
+                $curso = Curso::find($idcurso[$dato]);
+                $curso->num_estudiantes = $curso->num_estudiantes - 1;
+                $curso->save();
             }
 
             return redirect('/estudiantes/'.$idestudiante)->with('message','unassign');
