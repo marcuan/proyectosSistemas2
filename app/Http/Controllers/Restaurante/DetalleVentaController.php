@@ -3,6 +3,9 @@
 namespace RED\Http\Controllers\Restaurante;
 
 use Illuminate\Http\Request;
+use RED\Http\Requests;
+use RED\Http\Controllers\Controller;
+
 use RED\Restaurante\DetalleVenta;
 
 use RED\Restaurante\Temporada;
@@ -11,20 +14,11 @@ use RED\Repositories\TemporadaRepo;
 use RED\Repositories\PlatillosRepo;
 use RED\Restaurante\Platillo;
 
+use RED\Despensa\Ventum;
 use Resources;
-use RED\Http\Requests;
-use RED\Http\Controllers\Controller;
 
 class DetalleVentaController extends Controller
 {
-
-    public function mostrarplatillotemporada($id)
-    {
-        $temporada = Temporada::find($id);
-        return View('platillo.platillotemporada',compact('temporada'));
-    }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -33,6 +27,8 @@ class DetalleVentaController extends Controller
     public function index()
     {
         //
+        $DetalleVenta = DetalleVenta::all();
+        return view('detalleventa.index', compact('DetalleVenta'));
     }
 
     /**
@@ -40,18 +36,20 @@ class DetalleVentaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
-        $opciontemporada = Temporada::all()->lists('nombre','id');
-        $numtemporada = $opciontemporada->first();
-        //(int) $numtemporada;
-        //echo ($numtemporada);
-        $opcionesplatillos = Platillo::where('temporada_id', '=', $numtemporada)->lists('nombre', 'id');
-        //echo($numero);
-        
+        //'temporada_id',
+        //'nombre',
+        //'precio',
+        //'descripcion'
+        //$customer = Cliente::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate(7);
 
-        return view('detalleventa.create', compact('opciontemporada'), compact('opcionesplatillos'));
+        $opcionplatillo = Platillo::all();
+        $precio = Platillo::all()->last()->precio; //captura solo un precio
+        $idsales = Ventum::all()->last()->id;    //ultima venta realizada
+        $platillosrest = Platillo::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate(5);
+        return view('detalleventa.create', compact('opcionplatillo', 'precio', 'idsales', 'platillosrest'));
     }
 
     /**
@@ -63,13 +61,37 @@ class DetalleVentaController extends Controller
     public function store(Request $request)
     {
         //
-        DetalleVenta::create([
-            //'temporada_id' => $request['temporada_id'],
-            //'nombre' => $request['nombre'];                 //aquí se supone se deplegaran los platillos
-            'cantidad' => $request['cantidad'],
-            'total' => $request['total'],
-            'tiendaorestaurante' => $request['tiendaorestaurante'],
-            ]);
+
+        $cantidad = $request['cantidad'];
+        $total = $request['subprecio'];         //aqui capturo el precio del platillo
+        $tiendaorestaurante = $request['tiendaorestaurante'];
+        $idventa = $request['venta_id'];
+        $idproducto = $request['producto_id'];
+        $idplatillo = $request['platillo_id'];
+
+        DetalleVenta::create($request->all());
+
+        $searchdetalleventa = DetalleVenta::all()->last()->id;
+        echo "$searchdetalleventa";
+
+        $encontrartotal = DetalleVenta::where('id', '=', $searchdetalleventa)->get(array('total'));
+        $valtotal = $request->input('total');   //valor 1 es el precio del platillo
+        echo("$valtotal");
+        $encontrarcantidad = DetalleVenta::where('id', '=', $searchdetalleventa)->get(array('cantidad'));
+        $numcantidad = $request->input('cantidad');
+        echo "$numcantidad";
+        //var_dump("$valtotal");
+        //$searchsaleorest = DetalleVenta::where('id', '=', $searchdetalleventa)->get(array('tiendaorestaurante'));
+        //$numrestaurante = $request->input('tiendaorestaurante');
+        //$searchidventa = DetalleVenta::where('id', '=', $searchdetalleventa)->get(array('venta_id'));
+        //$numventa = $request->input('venta_id');
+        //$searchidporducto = DetalleVenta::where('id', '=', $searchdetalleventa)->get(array('producto_id'));
+        //$numproducto = $request->input('producto_id');
+
+
+              
+        $searchdetalleventa->total = $searchdetalleventa->$subtotal;  //ayuda con la depuración :P
+        
 
         return redirect('/detalleventa')->with('message','store');
     }
