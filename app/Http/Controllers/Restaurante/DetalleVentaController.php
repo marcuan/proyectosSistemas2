@@ -39,17 +39,10 @@ class DetalleVentaController extends Controller
     public function create(Request $request)
     {
         //
-        //'temporada_id',
-        //'nombre',
-        //'precio',
-        //'descripcion'
-        //$customer = Cliente::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate(7);
 
         $opcionplatillo = Platillo::all();
-        $precio = Platillo::all()->last()->precio; //captura solo un precio
         $idsales = Ventum::all()->last()->id;    //ultima venta realizada
-        $platillosrest = Platillo::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate(5);
-        return view('detalleventa.create', compact('opcionplatillo', 'precio', 'idsales', 'platillosrest'));
+        return view('detalleventa.create', compact('opcionplatillo', 'idsales'));
     }
 
     /**
@@ -63,37 +56,37 @@ class DetalleVentaController extends Controller
         //
 
         $cantidad = $request['cantidad'];
-        $total = $request['subprecio'];         //aqui capturo el precio del platillo
+        $total = $request['valor'];
         $tiendaorestaurante = $request['tiendaorestaurante'];
         $idventa = $request['venta_id'];
         $idproducto = $request['producto_id'];
         $idplatillo = $request['platillo_id'];
-
         DetalleVenta::create($request->all());
 
-        $searchdetalleventa = DetalleVenta::all()->last()->id;
-        echo "$searchdetalleventa";
 
-        $encontrartotal = DetalleVenta::where('id', '=', $searchdetalleventa)->get(array('total'));
-        $valtotal = $request->input('total');   //valor 1 es el precio del platillo
-        echo("$valtotal");
-        $encontrarcantidad = DetalleVenta::where('id', '=', $searchdetalleventa)->get(array('cantidad'));
+        $buscardetalleventa = DetalleVenta::all()->last()->id;  
+
+        $val1 = $request['valor'];        //echo "$val1";        
+
+        $encontrarcantidad = DetalleVenta::where('id', '=', $buscardetalleventa)->get(array('cantidad'));
         $numcantidad = $request->input('cantidad');
-        echo "$numcantidad";
-        //var_dump("$valtotal");
-        //$searchsaleorest = DetalleVenta::where('id', '=', $searchdetalleventa)->get(array('tiendaorestaurante'));
-        //$numrestaurante = $request->input('tiendaorestaurante');
-        //$searchidventa = DetalleVenta::where('id', '=', $searchdetalleventa)->get(array('venta_id'));
-        //$numventa = $request->input('venta_id');
-        //$searchidporducto = DetalleVenta::where('id', '=', $searchdetalleventa)->get(array('producto_id'));
-        //$numproducto = $request->input('producto_id');
 
+        $encontrarplatillo = DetalleVenta::where('id', '=', $buscardetalleventa)->get(array('platillo_id'));
+        $idplat = $request->input('platillo_id');        
 
+        $totalreal = $val1 * $numcantidad;
+        $totalacumulado = 0;
+        echo "$totalreal";
+       
+        $detalleventa = DetalleVenta::find($buscardetalleventa);
+        $detalleventa->total = "$totalreal";
+        echo "$detalleventa";
+        $detalleventa->save();
               
-        $searchdetalleventa->total = $searchdetalleventa->$subtotal;  //ayuda con la depuración :P
+        //$searchdetalleventa->total1 = $buscardetalleventa->$subtotal;  //ayuda con la depuración :P
         
 
-        return redirect('/detalleventa')->with('message','store');
+        return redirect('detalleventa')->with('message','store');
     }
 
     /**

@@ -16,25 +16,21 @@
                             <option value="{{$opcionplatillo->id}}" >{{$opcionplatillo->nombre}}</option>
                         @endforeach
                 </select>
-                <select  disabled class="form-control" id="subprecio" name="subprecio" >
+                <select class="form-control" id="subprecio" name="subprecio" >
+                    
                     <option value="0" selected disabled="">Precio</option>
                 </select>
-
+                <input type="text" name="valor" size="40" id="valor" value="">
             </div>
 
 <!-- Comienza la vista de cantidad-->
-
-<div class="form-grup">
-    <!--{!!Form::label('Precio:')!!}-->
-    {!!Form::hidden('precio',$precio,['class'=>'form-control','placeholder'=>'Ingrese cantidad', 'required'])!!}
-</div>
 <div class="form-grup">
     {!!Form::label('Cantidad:')!!}
     {!!Form::number('cantidad',0,['class'=>'form-control','placeholder'=>'Ingrese cantidad', 'required'])!!}
 </div>
 <div class="form-grup">
 <!--{!!Form::label('Total:')!!}-->
-    {!!Form::hidden('total', $precio,['class'=>'form-control','placeholder'=>'Total', 'null'])!!}
+    {!!Form::hidden('total1', 55,['class'=>'form-control','placeholder'=>'Total', 'null'])!!}
 </div>
 <div class="form-grup">
 <!--{!!Form::label('Tienda o Restaurante:')!!}-->
@@ -60,17 +56,6 @@
     <th>Cantidad</th>   
     <th>Vender</th>              
 </thead>
-<!--@foreach($platillosrest as $key => $dato)
-<tbody>
-    <td> {!!Form::number('platillos_id',$dato->id,['class'=>'form-control','placeholder'=>'Ingrese Total', 'hidden'])!!}</td>
-    <td>{{ $dato->nombre }}</td>
-    <td>{!!Form::number('precio[]', $dato->precio ,['class'=>'form-control','placeholder'=>'Ingrese Cantidad','required'])!!}</td>
-    <td>{!!Form::number('cantidad[]',0,['class'=>'form-control','placeholder'=>'Ingrese Cantidad','required'])!!}</td>
-    <td>{!!Form::checkbox('check[]', $key);!!}
-    {!!Form::text('dato['.$key.']', $dato->id, ['class'=>'hidden', 'id'=>'iddato'])!!}</td>     
-</tbody>
-@endforeach
--->
 </table>
 {!!Form::submit('Guardar',['class'=>'btn btn-primary'])!!}
 {!!form::close()!!}
@@ -88,6 +73,7 @@
                   subcat.empty();
                   $.each(data, function(index, element) {
                       subcat.append("<option value='"+ element.id +"'>" + element.precio + "</option>");
+                      document.getElementById('valor').value= element.precio;
                   });
               });
         });
