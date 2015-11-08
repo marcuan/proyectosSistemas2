@@ -2,8 +2,9 @@
 @section('content')
 
 <div class="container col-xs-12">
-<h3 class="title" selected="selected">Horarios</h3>
-	<hr> 
+<h3 class="title" selected="selected">Horario, fecha:&nbsp;<strong><?php echo $hoy = date("d-m-y"); ?></strong></h3>
+<a href="/cursos" class = "btn btn-danger">Todos los Cursos</a>
+	<hr>
 	<div class=" table-responsive">
 		<table class="table table-condensed">
   			<thead>

@@ -26,22 +26,28 @@
         <a href="/cursos/create" class="btn btn-danger">Crear Curso</a>
         <a href="reposiCurso" class="btn btn-danger">Descargar Reporte</a>
         {!!Form::open(['rout'=>'estudiantes.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
-        <div class="form-group">
-            {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código','fecha'=>'Fecha'],null,['class'=>'form-control'])!!}
-        </div>
-        <div class="form-group">
-            {!!Form::select('active',['activos'=>'Activos','inhabilitados'=>'Inhabilitados','todos'=>'Todos'],null,['class'=>'form-control'])!!}
-        </div>
-        <div class="form-group">
-            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
-        </div>
-        <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
-        <br></br>
-        <div class="form-group">
-            {!!Form::date('init_date',null,['class'=>'form-control','placeholder'=>''])!!}            
-        </div>
-        <div class="form-group">
-            {!!Form::date('finish_date',null,['class'=>'form-control','placeholder'=>''])!!}            
+        <div class="_busquedas">
+            <div class="form-group">
+                {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código','fecha'=>'Fecha'],null,['class'=>'form-control _search'])!!}
+            </div>
+            <div class="b_normal">
+                <div class="form-group">
+                    {!!Form::select('active',['activos'=>'Activos','inhabilitados'=>'Inhabilitados','todos'=>'Todos'],null,['class'=>'form-control'])!!}
+                </div>
+                <div class="form-group">
+                    {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
+                </div>
+            </div>
+            <div class="b_fecha" style="display:none;">
+                <div class="form-group">
+                {!!Form::date('init_date',null,['class'=>'form-control','placeholder'=>''])!!}            
+                </div>
+                <div class="form-group">
+                    {!!Form::date('finish_date',null,['class'=>'form-control','placeholder'=>''])!!}            
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>
         </div>
     {!!Form::close()!!}
     <div>{!!$course->render()!!}</div>

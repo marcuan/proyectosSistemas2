@@ -170,8 +170,6 @@ line-height: 30px;
 /*==============================================
     MENU STYLES    
     =============================================*/
-
-
 .user-image {
     margin: 25px auto;
 -webkit-border-radius: 10px;
@@ -312,54 +310,12 @@ background-color: #FFF;
 }
 .navbar-header {
         background: #A70303;
-    }
-
-
-
-/*otro*/
-.business-header {
-    height: 400px;
-    background: url('../images/xela.png') center center no-repeat scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
 }
-
-/* Customize the text color and shadow color and to optimize text legibility. */
-
-.tagline {
-    text-shadow: 0 0 10px #000;
-    color: #fff;
-}
-
 .img-center {
     margin: 0 auto;
 }
-
-
 .form-group input{
     width: 75%;
-    text-align: center;
-}
-.login{
-    float: right;
-}
-.login-cont
-{
-    text-align: center;
-    margin: 5px;
-}
-.login-cont input{
-    margin: 0 0 5px 0;
-}
-.administrativa{
-    text-align: center;
-}
-.administrativa .ad1 h2,
-.ad2 h2,
-.ad2 p{
-    color:#000;
     text-align: center;
 }
 .title{
@@ -516,8 +472,20 @@ a:hover{
         margin:-59px 0 0 0;
     }
 }
-@media screen and (max-width: 637px) {
-    .info .datos .foto{
-        display: none;
+._busquedas{
+    display: flex;
+    display: -webkit-flex;
+}
+@media screen and (max-width: 768px) {
+    
+    .datos{
+        flex-direction:column;
+    }
+    .datos .foto{
+        margin: 0 auto;
+    }
+    ._busquedas{
+        flex-direction:column;
+        width: 250px;
     }
 }
