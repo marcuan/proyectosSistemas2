@@ -26,7 +26,7 @@
         <div class="info card">
             <div class="datos">
                 <figure class="foto">
-                    <img src="{{{ asset('images/usuario.png') }}}" alt="" class="img-circle">
+                    <img src="{{{ asset('images/cursos.png') }}}" alt="" class="img-datos">
                 </figure>
                 <div class="personales"> 
                     <h5><strong>Codigo: </strong>{{$curso->codigo}}</h5>

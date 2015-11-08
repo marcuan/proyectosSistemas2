@@ -33,7 +33,7 @@
             </div><br>
             <div class="form-grup">
                 {!!Form::label('Telefono:')!!}
-                {!!Form::tel('numero_telefono',null,['class'=>'form-control','placeholder'=>'Ingrese Telefono ej. 54545454','required','pattern'=>'[0-9]{8}'])!!}
+                {!!Form::tel('numero_telefono',null,['class'=>'form-control','placeholder'=>'Ingrese Telefono ej. 5454-5454','required'])!!}
             </div><br>
             <div class="form-grup">
                 {!!Form::label('Seleccione foto de perfil:')!!}
