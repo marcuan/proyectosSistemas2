@@ -17,7 +17,13 @@ class DonationController extends Controller
      */
     public function index(Request $request)
     {
-        $donation = Donation::all();
+        if($request->get('type') == "created_at")
+        {
+            $donation = Donation::code($request->get('name'))->orderBy('created_at','DESC')->paginate(100);
+        }else
+        {
+            $donation = Donation::all();
+        }
         $donor = Donor::all();
         return view('Ong.donation.index',compact(['donation', 'donor']));
     }
@@ -54,7 +60,7 @@ class DonationController extends Controller
     public function show($id)
     {
         $donation = Donation::find($id);
-        return view('Ong.donation.assign', compact(['donations']));
+        return view('Ong.donation.assign', compact(['donation']));
     }
 
     /**

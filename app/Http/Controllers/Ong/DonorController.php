@@ -33,7 +33,7 @@ class DonorController extends Controller
                 $donor = Donor::name($request->get('name'))->withTrashed()->orderBy('id','DESC')->paginate(10);    
             }
         }
-        else if($request->get('type') == "codigo")
+        else if($request->get('type') == "e_mail")
         {
             if($request->get('active') == "activos")
             {

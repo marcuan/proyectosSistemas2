@@ -39,7 +39,7 @@ class Donor extends Model
 
         if (trim($code) != "")
         {
-            return $query->where("id_donor","LIKE","%$code%");    
+            return $query->where("e_mail","LIKE","%$code%");    
         }
     }
 }

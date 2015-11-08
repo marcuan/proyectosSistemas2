@@ -18,5 +18,12 @@ class Donation extends Model
 		'monto',
 		'descripcion'
 		];
-	
+
+    public function scopeCode($query, $code){
+
+        if (trim($code) != "")
+        {
+            return $query->where("created_at","LIKE","%$code%");    
+        }
+    }
 }

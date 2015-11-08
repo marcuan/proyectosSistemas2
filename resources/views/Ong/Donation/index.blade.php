@@ -19,6 +19,13 @@
     <h3 class="title" selected="selected">Donaciones</h3>
     
     {!!Form::open(['rout'=>'Donaciones.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right','role'=>'search'])!!}
+        <div class="form-group">
+            {!!Form::select('type',['created_at'=>'Fecha'],null,['class'=>'form-control'])!!}
+        </div>
+        <div class="form-group">
+            {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
+        </div>
+        <button type="submit" class="btn btn-default glyphicon glyphicon-search"> </button>    
     {!!Form::close()!!}
     <div></div>
         <table class="table">
