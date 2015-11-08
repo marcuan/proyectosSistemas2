@@ -18,5 +18,18 @@ class DetalleConsignacion extends Model
     {
     	return $this->hasMany('RED\Consignacion','consignacion_id'); 
 	}
+		public function getIndex()
+	{
+		return view('datatables.index');
+	}
 
+	/**
+	 * Process datatables ajax request.
+	 *
+	 * @return \Illuminate\Http\JsonResponse
+	 */
+	public function anyData()
+	{
+		return Datatables::of(Producto::select('*'))->make(true);
+	}
 }
