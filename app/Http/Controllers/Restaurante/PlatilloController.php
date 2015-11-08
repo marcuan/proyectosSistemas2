@@ -43,13 +43,12 @@ class PlatilloController extends Controller
      */
     public function index(Request $request)
     {
-       if($request->get('name')==''&& $request->get('type')=='')
-       {
+    
             $platillo = Platillo::name($request->get('name'))->orderBy('nombre','ASC')->paginate(10);
             return View('platillo.platillo',compact('platillo'));
-        }
+       
 
-        if($request->get('name')!=''&& $request->get('type')=='')
+       /* if($request->get('name')!=''&& $request->get('type')=='')
        {
             $platillo = Platillo::name($request->get('name'))->orderBy('nombre','ASC')->paginate(10);
             return View('platillo.platillo',compact('platillo'));
@@ -58,7 +57,7 @@ class PlatilloController extends Controller
        {
             $platillo = Platillo::temporada($request->get('temporada_id'))->orderBy('temporada_id','ASC')->paginate(10);
             return View('platillo.platillo',compact('platillo'));
-        }
+        }*/
 
     }
 
