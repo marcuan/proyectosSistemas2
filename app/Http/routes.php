@@ -111,4 +111,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/consignacionproveedor/{id}',['as'=>'consignacion','uses'=>'Despensa\ConsignacionController@proveedor']);
 	
 	//Route::resource('proveedores', 'Despensa\proveedoresController@getIndex');
+	Route::controller('datatables', 'DatatablesController', [
+    'anyData'  => 'datatables.data',
+    'getIndex' => 'datatables',
+		]);
 });
