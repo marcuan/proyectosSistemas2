@@ -17,18 +17,18 @@ class VentasController extends Controller
     {
         if ($request->get('type')=='' && $request->get('fecha')=='')
         {           
-        $venta = Ventum::All();
-             return view ('Despensa.venta.index',compact('venta'));
+            $venta = Ventum::All();
+            return view ('Despensa.venta.index',compact('venta'));
         }
         if ($request->get('type')!='' && $request->get('fecha')=='')
         {   
-            $venta = Ventum::code($request->get('type'))->orderBy('id')->paginate(10);
-           return view ('Despensa.venta.index',compact('venta'));
+            $venta = Ventum::code($request->get('type'))->orderBy('id')->paginate();
+            return view ('Despensa.venta.index',compact('venta'));
         }
         if ($request->get('fecha')!='' && $request->get('type')=='')
         {   
-            $venta = Ventum::fecha($request->get('fecha'))->orderBy('id')->paginate(10);
-           return view ('Despensa.venta.index',compact('venta'));
+            $venta = Ventum::fecha($request->get('fecha'))->orderBy('id')->paginate();
+            return view ('Despensa.venta.index',compact('venta'));
         }
 		
     }
@@ -41,7 +41,7 @@ class VentasController extends Controller
     
     public function create (Request $request)
     {
-         $clientes = RED\Restaurante\Cliente::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate(7);
+         $clientes = RED\Restaurante\Cliente::name($request->get('name'))->orderBy('nombre', 'ASC')->paginate();
         return view ('Despensa.venta.create',compact('clientes'));
     }
     

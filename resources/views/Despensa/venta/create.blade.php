@@ -1,40 +1,42 @@
 @extends('layouts.principal')
+<?php $message=Session::get('message')?>
+@if($message == 'store')
+<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Operación Exitosa!</strong> Cliente creado.
+</div>
+@endif
 @section('content')
-<h3 class="title" selected="selected">Ventas</h3>
-{!! Form::open(['route' => 'venta.create', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
-
-    <div class="form-group">
-        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nit del Cliente']) !!}
+<div class="container col-xs-12">
+    <h3 class="title" selected="selected">Generar Venta</h3>
+    {!! Form::open(['route' => 'venta.create', 'method' => 'GET', 'class' => 'navbar-form navbar-default pull-right' , 'role' => 'search']) !!}
+    <div align="center">
+        <br>
+        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nit Cliente', 'autofocus', 'style'=>'text-align:center']) !!}
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Buscar Cliente</button>
+        <br>
     </div>
-        <button type="submit" class="btn btn-primary">Buscar</button> 
-{!! Form::close() !!}
-
-{!! Form::open(['route' => 'venta.create', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
-    <div class="form-group">
-        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre del Cliente']) !!}
-    </div>
-        <button type="submit" class="btn btn-primary">Buscar</button> 
-{!! Form::close() !!}
-
+    {!! Form::close() !!}
     <div class="container-fluid">
-        <a href="/clientes/create" class="btn btn-danger">Nuevo Cliente</a>
         <table class="table table-condensed">
             <thead>
-            <h3>Clientes Activos</h3>
+            <h3>Clientes Existentes</h3>
                 <th>Nombre</th>
                 <th>Nit</th>
-                <!-- <th>Telefono</th> -->
                 <th>Dirección</th>
             </thead>
             @foreach($clientes as $cliente)
             <tbody>
                 <td>{{$cliente->nombre}}</td>
                 <td>{{$cliente->nit}}</td>
-                <!-- <td>{{$cliente->telefono}}</td> -->
                 <td>{{$cliente->dirección}}</td>
-                <td>{!!link_to_route('venta.show', $title = 'Realizar Venta', $parameters = $cliente->id, $attributes =['class'=>'btn btn-primary']);!!}</td>
+                <td>{!!link_to_route('venta.show', $title = 'Realizar Venta', $parameters = $cliente->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
             </tbody>
             @endforeach
         </table>
     </div>
+    <a href="/clientes/create" c class="btn btn-danger btn-block btn-lg">Nuevo Cliente</a>
+</div>
 @stop

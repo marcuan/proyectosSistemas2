@@ -21,7 +21,7 @@ class ClienteController extends Controller
     {
         //
         //$customer = Cliente::All();
-        $customer = Cliente::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate(7);
+        $customer = Cliente::name($request->get('name'))->orderBy('nombre', 'ASC')->paginate();
 
         return view ('cliente.index', compact('customer'));
     }
@@ -34,7 +34,7 @@ class ClienteController extends Controller
     public function create()
     {
         //
-        return view('cliente.create');
+        return view('/cliente/create');
     }
 
     /**
@@ -51,9 +51,9 @@ class ClienteController extends Controller
             'nit' => $request['nit'],
             'telefono' => $request['telefono'],
             'dirección' => $request['dirección'],
-            ]);
-
-        return redirect('/clientes')->with('message','store');
+        ]);
+        $clientes = Cliente::all()->last();
+        return redirect ('/venta/create?name='.$clientes['nit'])->with('message','store');
     }
 
     /**
