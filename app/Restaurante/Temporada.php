@@ -8,8 +8,9 @@ class Temporada extends Model
 {
 	protected $table = 'Temporada';
 	protected $fillable = [
-		'nombre'
-	
+		'nombre',
+		'fecha_inicio',
+		'fecha_fin'
 		];
 	
     public function platillos()
@@ -19,11 +20,13 @@ class Temporada extends Model
 	
 	public function scopeName($query, $name)
     {
-        if (trim($name) != "") {
+        if (trim($name) != "") 
+	{
             # code...
             $query->where(\DB::raw("CONCAT(nombre)"), "LIKE", "%$name%");
         }
         
     }
+
 
 }
