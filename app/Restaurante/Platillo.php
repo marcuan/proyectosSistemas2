@@ -15,17 +15,33 @@ class Platillo extends Model
     	'descripcion'
     ];
 
+    public function temporada(){
+        return $this->belongsTo('RED\Restaurante\Temporada');
+        
+        
+    }
+
     public function scopeName($query, $name)
     {
     	if(trim($name)!="")
     	{
     		#code...
-    		$query->where(\DB::raw("CONCAT(nombre)"), "LIKE", "%$name%");
+            
+            return $query->where("nombre","LIKE","%$name%");  
+    		//$query->where(\DB::raw("CONCAT(nombre)"), "LIKE", "%$name%");
     	}
     }
-    public function temporada(){
-	    return $this->belongsTo('RED\Restaurante\Temporada');
-	    
-	    
+
+    public function scopeTemporada($query, $type)
+    {
+        if(trim($type)!="")
+        {
+            #code...
+            return $query->where("temporada_id","LIKE","%$type%");
+            //$query->where(\DB::raw("CONCAT(temporada)"), "LIKE", "%$season%");
+        }
     }
+
+
+    
 }

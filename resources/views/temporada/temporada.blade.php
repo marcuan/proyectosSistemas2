@@ -26,8 +26,8 @@
 {!! Form::close() !!}
 
 <a href="/temporada/create" class="btn btn-danger">Nueva Temporada</a>
-    <div class="container">
-        <table class="table">
+    <div class="container-fluid">
+        <table class="table table-condensed">
             <thead>
             <h3>Temporada</h3>
                 <th>Nombre</th>
