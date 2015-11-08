@@ -29,7 +29,7 @@
             {!!Form::select('active',['activos'=>'Activos','inhabilitados'=>'Inhabilitados','todos'=>'Todos'],null,['class'=>'form-control'])!!}
         </div>
         <div class="form-group">
-            {!!Form::select('type',['nombre'=>'Nombre','codigo'=>'Código'],null,['class'=>'form-control'])!!}
+            {!!Form::select('type',['nombre'=>'Nombre','e_mail'=>'Correo'],null,['class'=>'form-control'])!!}
         </div>
         <div class="form-group">
             {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar...'])!!}            
