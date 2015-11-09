@@ -24,17 +24,22 @@
     </div>
         <button type="submit" class="btn btn-primary">Buscar</button> 
 {!! Form::close() !!}
+<!-- .....  -->
 
 <a href="/temporada/create" class="btn btn-danger">Nueva Temporada</a>
     <div class="container-fluid">
         <table class="table table-condensed">
             <thead>
             <h3>Temporada</h3>
-                <th>Nombre</th>
+               	<th>Nombre</th>
+		<th>Fecha Inicio</th>
+		<th>Fecha Fin</th>
             </thead>
             @foreach($temporadas as $temporada)
             <tbody>
                 <td>{{$temporada->nombre}}</td>
+		<td>{{$temporada->fecha_inicio}}</td>
+		<td>{{$temporada->fecha_fin}}</td>
   		<td>{!!link_to_route('temporada.edit', $title = 'Editar', $parameters = $temporada->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
 		<td>{!!link_to_action('Restaurante\PlatilloController@mostrarplatillotemporada', $title = 'Menu', $parameters = $temporada->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
             </tbody>

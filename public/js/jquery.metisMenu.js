@@ -1,18 +1,6 @@
-$(".alert").fadeOut(4800);
-
-$('._search').on('change',function(){
-    var valor = $(this).val();
-    if(valor=='fecha'){
-        $('.b_normal').hide();
-        $('.b_fecha').show();
-    }
-    else
-    {
-        $('.b_normal').show();
-        $('.b_fecha').hide(); 
-    }
-});
-
+//esto sirve para quitar el alert automaticamente
+$(".alerta").fadeOut(4800);
+//aqui termina para quitar el alert automatico
 (function ($, window, document, undefined) {
 
     var pluginName = "metisMenu",

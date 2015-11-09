@@ -61,7 +61,9 @@ class TemporadaController extends Controller
     {
         //
 	    Temporada::create([
-            'nombre' => $request['nombre_temporada'],  
+            'nombre' => $request['nombre_temporada'], 
+	    'fecha_inicio' => $request['fecha_inicio'],
+	    'fecha_fin' => $request['fecha_fin'], 
 		  ]);
 		   return redirect('/temporada')->with('message','store');
      
