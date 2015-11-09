@@ -33,6 +33,7 @@
                 <!-- <td>{{$cliente->telefono}}</td> -->
                 <td>{{$cliente->dirección}}</td>
                 <td>{!!link_to_route('venta.show', $title = 'Realizar Venta', $parameters = $cliente->id, $attributes =['class'=>'btn btn-primary']);!!}</td>
+                <td>{!!link_to_route('detalleventa.show', $title = 'Realizar Venta Restaurante', $parameters = $cliente->id, $attributes =['class'=>'btn btn-primary']);!!}</td>
             </tbody>
             @endforeach
         </table>
