@@ -15,7 +15,12 @@ use RED\Repositories\PlatillosRepo;
 use RED\Restaurante\Platillo;
 
 use RED\Despensa\Ventum;
+use RED\Restaurante\Cliente;
 use Resources;
+
+use Carbon\Carbon;
+use RED;
+use RED\Repositories\ClienteRepo;
 
 class DetalleVentaController extends Controller
 {
@@ -98,6 +103,21 @@ class DetalleVentaController extends Controller
     public function show($id)
     {
         //
+            $date = Carbon::now();
+            $date = $date->format('Y-m-d');
+            $venta = new  RED\Despensa\Ventum;
+            $venta -> fechaVenta = $date;
+            $venta -> descuento = '0.00';
+            $venta -> subtotal = '0.00';
+            $venta -> total = '0.00';
+            $venta -> anulado = '0';
+            $venta -> clientes_id = $id;  
+            $venta -> save();
+            
+            $ultimaventa = Ventum::all()->last()->id;
+            $DetalleVenta = DetalleVenta::where('venta_id', '=', $ultimaventa);
+            //$idsales = Ventum::all()->last()->id;
+            return view('detalleventa.index',compact('venta', 'DetalleVenta', 'opcionplatillo', 'idsales'));
     }
 
     /**
