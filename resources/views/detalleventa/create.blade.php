@@ -1,6 +1,7 @@
 @extends('layouts.principal')
 
 @section('content')
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!--{!!Form::open(array ('route' => array('detalleventa.store'),'$detalleventa', 'method'=>'POST'))!!}-->
     {!!Form::open(array ('route' => array('detalleventa.store'),'$detalleventa', 'method'=>'POST'))!!}
@@ -16,11 +17,10 @@
                             <option value="{{$opcionplatillo->id}}" >{{$opcionplatillo->nombre}}</option>
                         @endforeach
                 </select>
-                <select class="form-control" id="subprecio" name="subprecio" >
-                    
+                <select disabled="" class="form-control" id="subprecio" name="subprecio" >                    
                     <option value="0" selected disabled="">Precio</option>
                 </select>
-                <input type="text" name="valor" size="40" id="valor" value="">
+                <input hidden type="text" name="valor" size="40" id="valor" value="">
             </div>
 
 <!-- Comienza la vista de cantidad-->
@@ -47,17 +47,9 @@
     
 
     {!!form::close()!!}
+    {!!Form::submit('Vender',['class'=>'btn btn-primary'])!!}
 
-<table class="table">
-<thead>
-    <th>Id platillo</th>
-    <th>Nombre Platillo</th>
-    <th>Precio</th>
-    <th>Cantidad</th>   
-    <th>Vender</th>              
-</thead>
-</table>
-{!!Form::submit('Guardar',['class'=>'btn btn-primary'])!!}
+
 {!!form::close()!!}
     </div>
 </div>
@@ -79,4 +71,7 @@
         });
 
     </script>
+
+
+    
 @stop
