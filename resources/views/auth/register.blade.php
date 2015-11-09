@@ -46,6 +46,17 @@
 			</div>
 
 			<div class="form-group">
+				<div class="col-md-offset-4 col-md-6">
+					<div class="checkbox">
+						<label style="text-align: left">
+							<input type="checkbox" name="admin" value="true" style="width: auto;">
+							Registrar como Administrador
+						</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
 				<div class="col-md-6 col-md-offset-4">
 					<button type="submit" class="btn btn-primary">
 						Registrar nuevo usuario

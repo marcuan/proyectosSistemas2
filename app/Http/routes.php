@@ -32,6 +32,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('donaciones/create/{id}','Ong\DonationController@create');
 	Route::resource('donantes','Ong\DonorController');
 	Route::resource('actividades','Ong\ActivityController');
+	Route::get('user/edit/{id}/{status}', 'Ong\UserController@cambiarEstatus');
+	Route::get('user/privileges/{id}', 'Ong\UserController@listarPrivilegios');
+	Route::post('user/savePrivileges', 'Ong\UserController@storePrivilegios');
 
 	/**
 	 *	User Authentication

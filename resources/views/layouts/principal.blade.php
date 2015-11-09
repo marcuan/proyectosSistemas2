@@ -25,7 +25,7 @@
 			</div>
 	<div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;"> 
 		-Café Red- &nbsp; 
-		<a href="auth/logout" class="btn btn-danger square-btn-adjust">Salir</a> 
+		<a href="/auth/logout" class="btn btn-danger square-btn-adjust">Salir</a> 
 	</div>
 		</nav>
 		<!-- /. NAV TOP  -->

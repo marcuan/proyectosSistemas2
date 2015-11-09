@@ -17,6 +17,6 @@ class AdminAuthTableSeeder extends Seeder
 
         # Usuario: admin@mail.com
         # Password: !UrL_p2@
-        User::create(['name' => 'Administrador', 'email' => 'admin@mail.com', 'password' => '$2y$10$2omZfzNdXnP0.HyrIB5e6.TrBFLCaBG9Yk4Xhh9hBgch/fktME/Qq']);
+        User::create(['name' => 'Administrador', 'email' => 'admin@mail.com', 'password' => '$2y$10$2omZfzNdXnP0.HyrIB5e6.TrBFLCaBG9Yk4Xhh9hBgch/fktME/Qq', 'admin' => true]);
     }
 }
