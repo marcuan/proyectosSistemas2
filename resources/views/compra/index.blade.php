@@ -18,7 +18,7 @@
 
 @section('content')
 
-    <a href="compra/create" class="btn btn-danger">Crear Compra</a>
+    <a href="../compra/create" class="btn btn-danger">Crear Compra</a>
      {!! Form::open(['href' => '../public/compra', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
 
     <div class="form-group">
