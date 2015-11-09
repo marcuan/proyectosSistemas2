@@ -88,36 +88,8 @@ class ComprasController extends Controller
             'total' => $request['total'],
         ]);
 	     
-	   
-	     $compra = Compra::all()->last();
-	//  dd($compra);
-	       if($request['check'] != null) {		  
-            foreach ($request['check'] as $datos) {		  
-			   DetalleCompra::create([          
-            'compras_id' => $compra->id,
-            'cantidad' => $request['cantidad'][$datos],
-		 'costo' => $request['costo'][$datos],
-		  'materia_prima_id' => $request['dato'][$datos],
-        ]);
-	   $subtotaldetalle= $request['cantidad'][$datos]*$request['costo'][$datos];
-	   $subtotal=$compra->subtotal;
-	   $compra->subtotal=$subtotal+$subtotaldetalle;
-	  
-	  $total=$compra->total;
-	  $compra->total=$total+$subtotaldetalle;
-	
-	   $compra->save();
-		   
-               // $estudiante->cursos()->attach($idcurso[$dato]);
-            }}
-		  
-	
-		  
-		  
-        //Redirigir la compra al detalle de compra
-	   return redirect('/compra/'.$compra->id);
-      //  return redirect('/detallecompra/create');
-        //return view("detallecompra.create");   
+         $opcionmateria = MateriaPrima::all();
+        return view("detallecompra.create", compact('opcionmateria'));     
     }
 
     /**

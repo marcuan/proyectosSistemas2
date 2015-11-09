@@ -102,7 +102,15 @@ Route::group(['middleware' => 'auth'], function () {
 		$id = Input::get('platilloselect');
 		$subcategory = RED\Restaurante\Platillo::where('id', '=',$id);
 		return Response::make($subcategory->get(['id','precio']));
-
+	Route::get('search', function(){
+		$opcionmateria= RED\Restaurante\MateriaPrima::all();
+		return view('detallecompra.create', compact('opcionmateria'));
+	});
+	Route::get('search/results', function(){
+		$id = Input::get('nombre');
+		$materia = RED\Restaurante\MateriaPrima::where('nombre', 'LIKE', '%'.$id.'%')->take(10)->get();
+		return Response::json($materia);
+	});
 	/**
 	 *	Modulo Despensa
 	 */

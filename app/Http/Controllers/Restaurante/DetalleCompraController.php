@@ -22,7 +22,6 @@ class DetalleCompraController extends Controller
      */
     public function index()
     {
-        //$DetalleCompra = DetalleCompra::all();
         $DetalleCompra = DetalleCompra::orderBy('id','DESC')->paginate(10);
         return View('detallecompra.index',compact('DetalleCompra'));
     }
@@ -47,9 +46,7 @@ class DetalleCompraController extends Controller
     {	
         $compra = Compra::all()->last()->id;
         $opcionmateria = MateriaPrima::all()->lists('nombre','id');
-
         return view("detallecompra.create", compact('compra','opcionmateria'));  
-        //return view("detallecompra.create", compact('compra','opcionmateria'));  
 
     }
 
@@ -61,27 +58,23 @@ class DetalleCompraController extends Controller
      */
     public function store(Request $request)
     {
-        $opcionmateria = MateriaPrima::all()->lists('nombre','id');
-      
-	   //Aqui se actualiza la compra
-	    $idcompra=$request['compras_id'];
-	    $costo=$request['costo'];//Obtenemos el costo unitario 
-	    $cantidad=$request['cantidad'];
-	     $descuento=$request['descuento'];
-  	    $subtotal=$cantidad*$costo;
-	    DetalleCompra::create($request->all());
-	   
-	   $compra = Compra::find($idcompra);//Buscamos la compra
-	
-		
-		$compra->subTotal=$compra->subTotal+$subtotal; //Actualizamos el subtotal
-		
-		$compra->total=$compra->subTotal-$descuento; //Descuento
-		
-	   $compra->save();//actualizar
-	   $compra=$idcompra;
-	   return view('detallecompra.create',compact('compra','opcionmateria'))->with('message','store');;
-      //  return redirect('/detallecompra')->with('message','store');
+        $compra = Compra::all()->last();
+        DetalleCompra::create([
+            'materia_prima_id'=>$request['valor1'],
+            'compras_id'=>$compra->id,
+            'cantidad'=>$request['cantidad'],
+            'costo'=>$request['costo'],
+            'fecha_inicio' => $request['fecha_inicio'],
+            'fecha_fin' => $request['fecha_fin'],
+        ]);
+        $subtotaldetalle= $request['cantidad']*$request['costo'];
+        $subtotal=$compra->subtotal;
+        $compra->subtotal=$subtotal+$subtotaldetalle;
+        $total=$compra->total;
+        $compra->total=$total+$subtotaldetalle;
+        $compra->save();
+        return redirect('/compra/'.$compra->id);
+ 
     }
 
     /**
@@ -94,8 +87,10 @@ class DetalleCompraController extends Controller
     {
         //asignar # a la casilla compra
         $compra = $id;
-        $opcionmateria = MateriaPrima::all()->lists('nombre','id');
+        return redirect('/search/');
+/*        $opcionmateria = MateriaPrima::all()->lists('nombre','id');
         return view("detallecompra.create", compact('compra','opcionmateria'));  
+*/        
     }
 
     /**
