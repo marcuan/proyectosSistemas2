@@ -102,12 +102,13 @@ Route::group(['middleware' => 'auth'], function () {
 		$id = Input::get('platilloselect');
 		$subcategory = RED\Restaurante\Platillo::where('id', '=',$id);
 		return Response::make($subcategory->get(['id','precio']));
+	});
 
 	/**
 	 *	Modulo Despensa
 	 */
 	Route::resource ('venta','Despensa\VentasController');    
-	Route::resource ('detalleventa','Despensa\DetalleVentaController');
+	//Route::resource ('detalleventa','Despensa\DetalleVentaController');
 	Route::resource('inventario','Despensa\InventarioController');
 	Route::resource('producto','Despensa\productosController');
 	Route::resource('proveedores', 'Despensa\proveedoresController');
