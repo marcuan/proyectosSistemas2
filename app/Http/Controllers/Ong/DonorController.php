@@ -7,6 +7,8 @@ use RED\Ong\Donor;
 use RED\Ong\Donation;
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
+use Redirect;
+use Gate;
 
 class DonorController extends Controller
 {
@@ -17,7 +19,8 @@ class DonorController extends Controller
      */
     public function index(Request $request)
     {
-        
+        $this->authorize('listar', new Donor());
+
         if($request->get('type') == "nombre")
         {
             if($request->get('active') == "activos")
@@ -64,6 +67,8 @@ class DonorController extends Controller
      */
     public function create()
     {
+        $this->authorize('crear', new Donor());
+
         return view('Ong.donor.create');
     }
 
@@ -75,9 +80,10 @@ class DonorController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('crear', new Donor());
         $donor = Donor::create($request->all());
 
-    return redirect('/donantes')->with('message','store');
+        return redirect('/donantes')->with('message','store');
     }
 
     /**
@@ -88,6 +94,7 @@ class DonorController extends Controller
      */
     public function show($id)
     {
+        $this->authorize('ver', new Donor());
         $donor = Donor::find($id);
         $donations = Donation::all();
         return view('Ong.donor.assign', compact(['donations', 'donor']));
@@ -101,6 +108,7 @@ class DonorController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('editar', new Donor());
         $donor = Donor::find($id);
         return view('Ong.donor.edit', compact(['donor']));
     }
@@ -114,11 +122,13 @@ class DonorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('editar', new Donor());
+
         $donor = Donor::find($id);
         $donor->fill($request->all());
         $donor->save();
 
-    return redirect('/donantes')->with('message','edit');
+        return redirect('/donantes')->with('message','edit');
     }
 
     /**
@@ -129,9 +139,11 @@ class DonorController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('inhabilitar', new Donor());
+
         $donor = Donor::find($id);
         $donor->delete();  
 
-    return redirect('/donantes')->with('message','erase');
+        return redirect('/donantes')->with('message','erase');
     }
 }

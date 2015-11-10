@@ -17,6 +17,8 @@ class DonationController extends Controller
      */
     public function index(Request $request)
     {
+        $this->authorize('listar', new Donation());
+
         if($request->get('type') == "created_at")
         {
             $donation = Donation::code($request->get('name'))->orderBy('created_at','DESC')->paginate(100);
@@ -35,6 +37,8 @@ class DonationController extends Controller
      */
     public function create($id = 0)
     {
+        $this->authorize('crear', new Donation());
+
         return view('Ong.donation.create', compact('id'));
     }
 
@@ -46,9 +50,11 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('crear', new Donation());
+
         Donation::create($request->all());
 
-    return redirect('/donantes')->with('message','store');
+        return redirect('/donantes')->with('message','store');
     }
 
     /**
