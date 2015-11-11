@@ -8,8 +8,16 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 # uses para los modelos de la aplicación y las políticas de cada modelo
 use RED\Ong\Donor;
 use RED\Ong\Donation;
+use RED\Restaurante\Platillo;
+use RED\Restaurante\Temporada;
+use RED\Restaurante\MateriaPrima;
+use RED\Restaurante\Cliente;
 use RED\Policies\PoliticasDonadores;
 use RED\Policies\PoliticasDonaciones;
+use RED\policies\PoliticasPlatillos;
+use RED\policies\PoliticasTemporada;
+use RED\policies\PoliticasMateriaPrima;
+use RED\policies\PoliticasClientes;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -21,6 +29,10 @@ class AuthServiceProvider extends ServiceProvider
 	protected $policies = [
 		Donor::class => PoliticasDonadores::class,
 		Donation::class => PoliticasDonaciones::class,
+		Platillo::class => PoliticasPlatillos::class,
+		Temporada::class => PoliticasTemporada::class,
+		MateriaPrima::class => PoliticasMateriaPrima::class,
+		Cliente::class => PoliticasClientes::class,
 	];
 
 	/**

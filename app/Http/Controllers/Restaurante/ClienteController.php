@@ -9,6 +9,8 @@ use RED\Http\Controllers\Controller;
 //use RED\Repositories\Cliente;
 //uso de facades
 use Illuminate\Support\Facades\Session;
+use Redirect;
+use Gate;
 
 class ClienteController extends Controller
 {
@@ -21,6 +23,8 @@ class ClienteController extends Controller
     {
         //
         //$customer = Cliente::All();
+        $this->authorize('listar',new Cliente());
+
         $customer = Cliente::name($request->get('name'))->orderBy('nombre', 'ASC')->paginate(7);
 
         return view ('cliente.index', compact('customer'));
@@ -34,6 +38,7 @@ class ClienteController extends Controller
     public function create()
     {
         //
+        $this->authorize('crear',new Cliente());
         return view('cliente.create');
     }
 
@@ -46,6 +51,7 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         //
+        $this->authorize('crear',new Cliente());
         Cliente::create([
             'nombre' => $request['nombre'],
             'nit' => $request['nit'],
@@ -76,6 +82,7 @@ class ClienteController extends Controller
     public function edit($id)
     {
         //
+        $this->authorize('editar',new Cliente());
         $cliente = Cliente::find($id);
         return view('cliente.edit', ['cliente'=>$cliente]);
     }
@@ -90,8 +97,10 @@ class ClienteController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $cliente = Cliente::find($id);
 
+                $this->authorize('editar',new Cliente());
+
+        $cliente = Cliente::find($id);
         $cliente->nombre = $request['nombre'];
         $cliente->nit = $request['nit'];
         $cliente->telefono = $request['telefono'];
