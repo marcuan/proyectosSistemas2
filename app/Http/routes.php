@@ -105,6 +105,7 @@ Route::group(['middleware' => 'auth'], function () {
 		$id = Input::get('platilloselect');
 		$subcategory = RED\Restaurante\Platillo::where('id', '=',$id);
 		return Response::make($subcategory->get(['id','precio']));
+	});
 	Route::get('search', function(){
 		$opcionmateria= RED\Restaurante\MateriaPrima::all();
 		return view('detallecompra.create', compact('opcionmateria'));
