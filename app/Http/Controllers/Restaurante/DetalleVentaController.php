@@ -91,7 +91,7 @@ class DetalleVentaController extends Controller
         //$searchdetalleventa->total1 = $buscardetalleventa->$subtotal;  //ayuda con la depuración :P
         
 
-        return redirect('detalleventa')->with('message','store');
+        return redirect()->back();
     }
 
     /**

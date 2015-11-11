@@ -8,11 +8,12 @@ class DetalleVenta extends Model
 {
     protected $table = 'detalleventa';
     protected $fillable = [
-	'temporada_id',
-	'nombre',
-	'cantidad',
 	'total',
-	'tiendaorestaurante'
+	'cantidad',
+	'tiendaorestaurante',
+	'venta_id',
+	'producto_id',
+	'platillo_id',
 	];
 
 	
