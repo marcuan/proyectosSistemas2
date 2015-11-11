@@ -12,6 +12,8 @@ use RED\Repositories\PlatillosRepo;
 use RED\Repositories\TemporadaRepo;
 use Resources;
 use Illuminate\Support\Facades\Session;
+use Redirect;
+use Gate;
 
 class PlatilloController extends Controller
 {
@@ -43,7 +45,8 @@ class PlatilloController extends Controller
      */
     public function index(Request $request)
     {
-    
+            $this->authorize('listar',new Platillo());
+
             $platillo = Platillo::name($request->get('name'))->orderBy('nombre','ASC')->paginate(10);
             return View('platillo.platillo',compact('platillo'));
        
@@ -69,6 +72,7 @@ class PlatilloController extends Controller
     public function create()
     {
         //  
+        $this->authorize('crear',new Platillo());
         $opciontemporada = Temporada::all()->lists('nombre','id');
         return view('platillo.create',compact('opciontemporada'));
 
@@ -83,6 +87,7 @@ class PlatilloController extends Controller
     public function store(Request $request)
     {
         //
+        $this->authorize('crear',new Platillo());
         Platillo::create([
             'temporada_id'  =>  $request['temporada_id'],
             'nombre'        =>  $request['nombre'],
@@ -112,6 +117,7 @@ class PlatilloController extends Controller
     public function edit($id)
     {
         //
+        $this->authorize('editar',new Platillo());
          $platillo = Platillo::find($id);
         return view('platillo.edit', ['platillo'=>$platillo]);
     }
@@ -126,6 +132,7 @@ class PlatilloController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->authorize('editar',new Platillo());
         $platillo = Platillo::find($id);
         $platillo->fill($request->all());
         $platillo->save();

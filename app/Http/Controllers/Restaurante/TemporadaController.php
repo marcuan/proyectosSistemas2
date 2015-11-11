@@ -8,6 +8,8 @@ use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 use RED\Restaurante\Temporada;
 use Resources;
+use Redirect;
+use Gate;
 
 
 class TemporadaController extends Controller
@@ -20,6 +22,7 @@ class TemporadaController extends Controller
      */
     public function mostrar()
     {
+        
         $temporada = temporada::name($request->get('name'))->orderBy('nombre', 'ASC')->paginate(10);
         return View('temporada.temporada',compact('temporada'));
     }
@@ -34,6 +37,8 @@ class TemporadaController extends Controller
     {
         //$temporada = Temporada::all();
   	//$temporada = temporada::All();
+        $this->authorize('listar',new Temporada());
+
         $temporadas = temporada::orderBy('nombre', 'ASC')->paginate(10);
         return View('temporada.temporada',compact('temporadas'));
     }
@@ -47,7 +52,7 @@ class TemporadaController extends Controller
     public function create()
     {
         //
-	   
+	       $this->authorize('crear',new Temporada());
 	      return view('Temporada.create');
     }
 
@@ -60,6 +65,7 @@ class TemporadaController extends Controller
     public function store(Request $request)
     {
         //
+        $this->authorize('crear',new Temporada());
 	    Temporada::create([
             'nombre' => $request['nombre_temporada'], 
 	    'fecha_inicio' => $request['fecha_inicio'],
@@ -88,7 +94,7 @@ class TemporadaController extends Controller
      */
     public function edit($id)
     {
-        
+        $this->authorize('editar',new Temporada());
         $temporada = temporada::find($id);
         return view('temporada.edit', ['temporada'=>$temporada]);
     }
@@ -102,6 +108,7 @@ class TemporadaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('editar',new Temporada());
         $temporada = temporada::find($id);
         $temporada->fill($request->all());
         $temporada->save();
