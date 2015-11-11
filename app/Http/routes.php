@@ -119,7 +119,7 @@ Route::group(['middleware' => 'auth'], function () {
 	 *	Modulo Despensa
 	 */
 	Route::resource ('venta','Despensa\VentasController');    
-	Route::resource ('detalleventa','Despensa\DetalleVentaController');
+	//Route::resource ('detalleventa','Despensa\DetalleVentaController');
 	Route::resource('inventario','Despensa\InventarioController');
 	Route::resource('producto','Despensa\productosController');
 	Route::resource('proveedores', 'Despensa\proveedoresController');
