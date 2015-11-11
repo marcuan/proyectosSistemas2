@@ -9,6 +9,8 @@ use RED\Http\Controllers\Controller;
 use RED\Repositories\MateriaPrimaRepo;
 use Resources;
 use RED\Restaurante\MateriaPrima;
+use Redirect;
+use Gate;
 
 
 class MateriaPrimaController extends Controller
@@ -29,7 +31,7 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
     public function index(Request $request)
     {
         //
-	   
+	   $this->authorize('listar',new MateriaPrima());
 	     $materiaprima=MateriaPrima::name($request->get('name'))->orderBy('nombre','ASC')->paginate(10);
 	
 	  return View('materiaprima.todamateriaprima',compact('materiaprima'));
@@ -43,7 +45,7 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
     public function create()
     {
         //
-	   
+	   $this->authorize('crear',new MateriaPrima());
 	     return view('materiaprima.create');
 		
     }
@@ -57,6 +59,7 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
     public function store(Request $request)
     {
         //
+        $this->authorize('crear',new MateriaPrima());
 	   MateriaPrima::create([
             'nombre' => $request['nombre'],
             'existencia' => $request['existencia'],
@@ -87,7 +90,7 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
     public function edit($id)
     {
         //
-	   
+	   $this->authorize('editar',new MateriaPrima());
 	      $materiaprima = MateriaPrima::find($id);
         return view('materiaprima.edit', ['materiaprima'=>$materiaprima]);
     }
@@ -110,6 +113,7 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
     public function update(Request $request, $id)
     {
         //
+        $this->authorize('editar',new MateriaPrima());
 	     $materiaprima = MateriaPrima::find($id);
 	
         $materiaprima->fill($request->all());
