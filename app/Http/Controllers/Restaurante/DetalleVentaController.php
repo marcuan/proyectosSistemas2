@@ -70,24 +70,28 @@ class DetalleVentaController extends Controller
         DetalleVenta::create($request->all());
 
         $val1 = $request['valor']; 
-        $buscardetalleventa = DetalleVenta::all()->last()->id;  
-        //echo "$val1";        
+        $buscardetalleventa = DetalleVenta::all()->last()->id;          
 
         $encontrarcantidad = DetalleVenta::where('id', '=', $buscardetalleventa)->get(array('cantidad'));
         $numcantidad = $request->input('cantidad');
 
         $totalreal = $val1 * $numcantidad;
-        $totalacumulado = 0;
-        //echo "$totalreal";
-       
         $detalleventa = DetalleVenta::find($buscardetalleventa);
         $detalleventa->total = "$totalreal";
         $detalleventa->save();
-        //echo "$detalleventa";
 
-        //esto fue modificado 13/11/2015
         $findventa = Ventum::all()->last()->id;
+        $ventatotal = Ventum::all()->last()->total;
+        echo "$ventatotal";
+
         $encontrarid = Ventum::where('id', '=', $findventa)->get(array('clientes_id'));
+        $encontrartotal = Ventum::where('id', '=', $findventa)->get(array('total'));
+        echo "$encontrartotal";
+
+        $totalventa = Ventum::find($findventa);
+        $totalventa->total = "$totalreal" + "$ventatotal";
+        $totalventa->save();
+
         foreach ($encontrarid as $key) {
             # code...
             //$searchdetalleventa->total1 = $buscardetalleventa->$subtotal;  //ayuda con la depuración :P
