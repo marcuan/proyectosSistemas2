@@ -16,7 +16,8 @@ class Ventum extends Model
     'subtotal',
     'total',
     'anulado',
-    'clientes_id'];
+    'clientes_id',
+    ];
 
     protected $dates = ['deleted_at'];
 

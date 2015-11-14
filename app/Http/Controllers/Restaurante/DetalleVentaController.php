@@ -64,34 +64,33 @@ class DetalleVentaController extends Controller
         $total = $request['valor'];
         $tiendaorestaurante = $request['tiendaorestaurante'];
         $idventa = $request['venta_id'];
+        echo($idventa);
         $idproducto = $request['producto_id'];
         $idplatillo = $request['platillo_id'];
         DetalleVenta::create($request->all());
 
-
+        $val1 = $request['valor']; 
         $buscardetalleventa = DetalleVenta::all()->last()->id;  
-
-        $val1 = $request['valor'];        //echo "$val1";        
+        //echo "$val1";        
 
         $encontrarcantidad = DetalleVenta::where('id', '=', $buscardetalleventa)->get(array('cantidad'));
         $numcantidad = $request->input('cantidad');
 
-        $encontrarplatillo = DetalleVenta::where('id', '=', $buscardetalleventa)->get(array('platillo_id'));
-        $idplat = $request->input('platillo_id');        
-
         $totalreal = $val1 * $numcantidad;
         $totalacumulado = 0;
-        echo "$totalreal";
+        //echo "$totalreal";
        
         $detalleventa = DetalleVenta::find($buscardetalleventa);
         $detalleventa->total = "$totalreal";
-        echo "$detalleventa";
         $detalleventa->save();
-              
-        //$searchdetalleventa->total1 = $buscardetalleventa->$subtotal;  //ayuda con la depuración :P
-        
 
-        return redirect()->back();
+        $findventa = Ventum::all()->last()->id;
+        $encontrarid = Ventum::where('id', '=', $findventa)->get(array('clientes_id'));
+        foreach ($encontrarid as $key) {
+            # code...
+            //$searchdetalleventa->total1 = $buscardetalleventa->$subtotal;  //ayuda con la depuración :P
+            return redirect('/detalleventa/'.$key->clientes_id);
+        }
     }
 
     /**
