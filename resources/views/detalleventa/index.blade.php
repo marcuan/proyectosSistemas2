@@ -38,7 +38,8 @@
         </table>
     </div>
 
-   <a href="create" class="btn btn-danger">Nueva Venta</a>    
+   <a href="../detalleventa/create" class="btn btn-danger">Nueva Venta</a>
+   <a href="../venta" class="btn btn-danger">Terminar</a>        
 
     <div class="container">
         <table class="table">
