@@ -100,6 +100,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('compra','Restaurante\ComprasController');
 	Route::resource('detallecompra', 'Restaurante\DetalleCompraController');
 	Route::get('cierre/{id}', 'Restaurante\MateriaPrimaController@cierre');
+	Route::get('CrearVenta/{id}', 'Restaurante\DetalleVentaController@CrearVenta');
 	Route::resource('detalleventa', 'Restaurante\DetalleVentaController');
 	Route::get('api/dropdown', function(){
 		$id = Input::get('platilloselect');
