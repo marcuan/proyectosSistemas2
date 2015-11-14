@@ -18,25 +18,21 @@
 
 
  <div class="container col-xs-12">
-        <table class="table table-hover table-responsive">
-            <thead>
-                <th>No. Venta</th>
-                <h3>Datos de Venta</h3>
-                <th>Fecha</th>
-                <th>Cliente</th>
-                <th>Nit</th>
-                <th>Dirección</th>
-            </thead>            
-            {{-- */$clienteComp = RED\Restaurante\Cliente::find($venta->clientes_id)/* --}}
-            <tbody>
-                <td>{{$venta->id}}</td>
-                <td>{{$venta->fechaVenta}}</td>
-                <td>{{$clienteComp->nombre}}</td>
-                <td>{{$clienteComp->nit}}</td>
-                <td>{{$clienteComp->dirección}}</td>
-            </tbody>
+        <table class="panel panel-info">
+        <div class="panel-heading">
+                <h4><strong>No. Venta: {{$venta->id}}</strong> </h4>
+        </div>
+
+        <div class="panel-body">
+                    {{-- */$clienteComp = RED\Restaurante\Cliente::find($venta->clientes_id)/* --}}
+                    <h5><strong>Fecha:</strong> {{$venta->fechaVenta}}</h5>
+                    <h5><strong>Cliente:</strong> {{$clienteComp->nombre}}</h5>
+                    <h5><strong>Nit:</strong> {{$clienteComp->nit}}</h5>
+                    <h5><strong>Dirección:</strong> {{$clienteComp->dirección}}</h5> 
+                    <h5><strong>Total (Q):</strong> {{$venta->total}}</h5>
+        </div>
         </table>
-    </div>
+</div>
 
    <a href="../detalleventa/create" class="btn btn-danger">Nueva Venta</a>
    <a href="../venta" class="btn btn-danger">Terminar</a>        
