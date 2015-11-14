@@ -95,15 +95,9 @@ class DetalleVentaController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function CrearVenta($id)
     {
-        //
+        # code...
             $date = Carbon::now();
             $date = $date->format('Y-m-d');
             $venta = new  RED\Despensa\Ventum;
@@ -114,11 +108,31 @@ class DetalleVentaController extends Controller
             $venta -> anulado = '0';
             $venta -> clientes_id = $id;  
             $venta -> save();
-            
+
+            $venta = Ventum::all()->last();  
             $ultimaventa = Ventum::all()->last()->id;
-            $DetalleVenta = DetalleVenta::where('venta_id', '=', $ultimaventa);
+            $DetalleVenta = DetalleVenta::where('venta_id', '=', $ultimaventa)->get();
+
+            return view('detalleventa.index', compact('venta', 'DetalleVenta'));
+            
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+            $venta = Ventum::all()->last();  
+            $ultimaventa = Ventum::all()->last()->id;
+            $DetalleVenta = DetalleVenta::where('venta_id', '=', $ultimaventa)->get();
             //$idsales = Ventum::all()->last()->id;
-            return view('detalleventa.index',compact('venta', 'DetalleVenta', 'opcionplatillo', 'idsales'));
+            return view('detalleventa.index',compact('venta', 'DetalleVenta', 'opcionplatillo', 'idsales'));      
+            
+            
     }
 
     /**
