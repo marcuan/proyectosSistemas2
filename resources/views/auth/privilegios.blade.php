@@ -268,6 +268,187 @@
 					</div>
 				</div>
 			</div>
+			<h3>DESPENSA<h3>
+			<h4>Permisos sobre Proveedores</h4>
+			<div class="form-group">
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('prov_crear', $privilegios))
+								<input type="checkbox" name="prov_crear" checked>
+							@else
+								<input type="checkbox" name="prov_crear">
+							@endif
+							Crear
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('prov_editar', $privilegios))
+								<input type="checkbox" name="prov_editar" checked>
+							@else
+								<input type="checkbox" name="prov_editar">
+							@endif
+							Editar
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('prov_inhabilitar', $privilegios))
+								<input type="checkbox" name="prov_inhabilitar" checked>
+							@else
+								<input type="checkbox" name="prov_inhabilitar">
+							@endif
+							Inhabilitar
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('prov_listar', $privilegios))
+								<input type="checkbox" name="prov_listar" checked>
+							@else
+								<input type="checkbox" name="prov_listar">
+							@endif
+							Ver Listado de Proveedores
+						</label>
+					</div>
+				</div>
+			</div>
+			<h4>Permisos sobre Ventas</h4>
+			<div class="form-group">
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('ven_crear', $privilegios))
+								<input type="checkbox" name="ven_crear" checked>
+							@else
+								<input type="checkbox" name="ven_crear">
+							@endif
+							Crear
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('ven_anular', $privilegios))
+								<input type="checkbox" name="ven_anular" checked>
+							@else
+								<input type="checkbox" name="ven_anular">
+							@endif
+							Anular
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('ven_listar', $privilegios))
+								<input type="checkbox" name="ven_listar" checked>
+							@else
+								<input type="checkbox" name="ven_listar">
+							@endif
+							Ver Listado de Ventas
+						</label>
+					</div>
+				</div>
+			</div>
+			<h4>Permisos sobre Productos</h4>
+			<div class="form-group">
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('prod_crear', $privilegios))
+								<input type="checkbox" name="prod_crear" checked>
+							@else
+								<input type="checkbox" name="prod_crear">
+							@endif
+							Crear
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('prod_editar', $privilegios))
+								<input type="checkbox" name="prod_editar" checked>
+							@else
+								<input type="checkbox" name="prod_editar">
+							@endif
+							Editar
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('prod_listar', $privilegios))
+								<input type="checkbox" name="prod_listar" checked>
+							@else
+								<input type="checkbox" name="prod_listar">
+							@endif
+							Ver Listado de Productos
+						</label>
+					</div>
+				</div>
+			</div>
+			<h4>Permisos sobre Consignaciones</h4>
+			<div class="form-group">
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cons_crear', $privilegios))
+								<input type="checkbox" name="cons_crear" checked>
+							@else
+								<input type="checkbox" name="cons_crear">
+							@endif
+							Crear
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cons_editar', $privilegios))
+								<input type="checkbox" name="cons_editar" checked>
+							@else
+								<input type="checkbox" name="cons_editar">
+							@endif
+							Editar
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cons_ver', $privilegios))
+								<input type="checkbox" name="cons_ver" checked>
+							@else
+								<input type="checkbox" name="cons_ver">
+							@endif
+							Ver Detalles
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cons_listar', $privilegios))
+								<input type="checkbox" name="cons_listar" checked>
+							@else
+								<input type="checkbox" name="cons_listar">
+							@endif
+							Ver Listado de Consignaciones
+						</label>
+					</div>
+				</div>
+			</div>
 
 			<div class="form-group">
 				<div class="col-md-12" align="right">

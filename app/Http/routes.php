@@ -64,7 +64,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('asignacioncursoestudiantes/{id}', 'Escuela\AsignCursoController@asignarestudiantes');
 	Route::resource('asignacioncursos', 'Escuela\AsignacionCursoController');
 
-
 	// direccion para reportes 
 	
 	Route::get('reposiEstu',function ()
@@ -82,11 +81,6 @@ Route::group(['middleware' => 'auth'], function () {
 		// llega a la vista de los reportes 
 		return view('\Escuela\maestro\Reporte');
 	});
-
-
-	 
-
-	
 
 	/**
 	 *	Modulo Restaurante
@@ -116,11 +110,11 @@ Route::group(['middleware' => 'auth'], function () {
 		$materia = RED\Restaurante\MateriaPrima::where('nombre', 'LIKE', '%'.$id.'%')->take(10)->get();
 		return Response::json($materia);
 	});
+
 	/**
 	 *	Modulo Despensa
 	 */
 	Route::resource ('venta','Despensa\VentasController');    
-	//Route::resource ('detalleventa','Despensa\DetalleVentaController');
 	Route::resource('inventario','Despensa\InventarioController');
 	Route::resource('producto','Despensa\productosController');
 	Route::resource('proveedores', 'Despensa\proveedoresController');
@@ -130,7 +124,7 @@ Route::group(['middleware' => 'auth'], function () {
 	
 	//Route::resource('proveedores', 'Despensa\proveedoresController@getIndex');
 	Route::controller('datatables', 'DatatablesController', [
-    'anyData'  => 'datatables.data',
-    'getIndex' => 'datatables',
-		]);
+		'anyData'  => 'datatables.data',
+		'getIndex' => 'datatables',
+	]);
 });

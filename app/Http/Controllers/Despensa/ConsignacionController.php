@@ -10,13 +10,8 @@ use RED\Repositories\ProveedorRepo;
 use RED\Despensa\Proveedore;
 use Resources;
 
-/**
-* 
-*/
 class ConsignacionController extends Controller
 {
-
-
     protected $proveedorrepo;
     public $opcionproveedor;
 
@@ -25,14 +20,10 @@ class ConsignacionController extends Controller
         $this->proveedorrepo=$proveedorrepo;
     }
 	
-    /**
-     *
-     *
-     * @return Response
-     */
-
     public function index(Request $request)
     {
+        $this->authorize('listar', new Consignacion());
+
          if ($request->get('codigo')=='' && $request->get('fechaIni')=='')
         {           
         $consignacion = Consignacion::orderBy('id','DESC')->paginate(10);
@@ -62,7 +53,8 @@ class ConsignacionController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('crear', new Consignacion());
+        
         $opcionproveedor = Proveedore::all()->lists('nombre','id');
         return view('consignaciones.create', compact('opcionproveedor'));
     }
@@ -75,7 +67,8 @@ class ConsignacionController extends Controller
      */
     public function store(Request $request)
     {
-    
+        $this->authorize('crear', new Consignacion());
+        
 		$consignacion=Consignacion::create($request->all());
 		$codigo = $consignacion->id+100;
 		$codigo = "C-".$codigo;
@@ -89,9 +82,10 @@ class ConsignacionController extends Controller
 	
 	 public function detalle(Request $request)
     {
-       
-		 Consignacion::create($request->all());
-          return redirect('/detalleconsignacion/create');
+        $this->authorize('crear', new Consignacion());
+        
+		Consignacion::create($request->all());
+        return redirect('/detalleconsignacion/create');
 	 }
     /**
      * Display the specified resource.
@@ -101,7 +95,9 @@ class ConsignacionController extends Controller
      */
     public function show($id)
     {
-         $detalle = Consignacion::find($id);
+        $this->authorize('ver', new Consignacion());
+
+        $detalle = Consignacion::find($id);
         return view('detalleconsignacion.detalleconsignacion',compact('detalle'));
     }
 
@@ -113,8 +109,7 @@ class ConsignacionController extends Controller
      */
     public function edit($id)
     {
-        //
-		
+        $this->authorize('editar', new Consignacion());
 		
         $consignacion = Consignacion::find($id);
 	    return view('consignaciones.edit', ['consignaciones'=>$consignacion]);
@@ -129,25 +124,13 @@ class ConsignacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-			
-			
-            $consignacion = Consignacion::find($id);
-            $consignacion->fill($request->all());
-            $consignacion->save();
-            return redirect('/consignaciones')->with('message','edit');
+        $this->authorize('editar', new Consignacion());
+		
+        $consignacion = Consignacion::find($id);
+        $consignacion->fill($request->all());
+        $consignacion->save();
+        return redirect('/consignaciones')->with('message','edit');
 
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 	
 	public function getNombreProveedor($id)
@@ -164,8 +147,5 @@ class ConsignacionController extends Controller
     {
         $proveedore=$this->proveedorrepo->find($id);
 		return View('consignacion.comprasaproveedor',compact('proveedore'));
-	   //dd($proveedore);
-        
     }
 }
-

@@ -15,6 +15,8 @@ class VentasController extends Controller
 {
     public function index (Request $request)
     {
+        $this->authorize('listar', new Ventum());
+
         if ($request->get('type')=='' && $request->get('fecha')=='')
         {           
         $venta = Ventum::All();
@@ -41,12 +43,16 @@ class VentasController extends Controller
     
     public function create (Request $request)
     {
-         $clientes = RED\Restaurante\Cliente::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate(7);
+        $this->authorize('crear', new Ventum());
+
+        $clientes = RED\Restaurante\Cliente::name($request->get('name'))->orderBy('nombre', 'DESC')->paginate(7);
         return view ('Despensa.venta.create',compact('clientes'));
     }
     
     public function store (Request $request)
     {
+        $this->authorize('crear', new Ventum());
+
         RED\Despensa\Ventum::create($request.All());
         return view ('Despensa.venta.create',compact('clientes'));
     }
@@ -68,27 +74,28 @@ class VentasController extends Controller
     
     public function edit($id)
     {
+        $this->authorize('anular', new Ventum());
+
         $venta = RED\Despensa\Ventum::find($id);
         return view('Despensa.venta.edit', ['venta'=>$venta]);
     }
     
     public function anular($id)
     {
+        $this->authorize('anular', new Ventum());
+
         $venta = RED\Despensa\Ventum::find($id);
         return view('Despensa.venta.edit', ['venta'=>$venta]);
     }
     
     public function update(Request $request, $id)
     {
+        $this->authorize('anular', new Ventum());
+
         $venta = RED\Despensa\Ventum::find($id);
         $venta->fill($request->all());
         $venta->save();
         return redirect('/venta')->with('message','edit');
-    }
-    
-    public function destroy($id)
-    {
-        //
     }
     
 }
