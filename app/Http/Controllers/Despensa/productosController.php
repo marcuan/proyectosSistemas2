@@ -9,9 +9,6 @@ use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
 use Resources;
 
-/**
-* 
-*/
 class ProductosController extends Controller
 {
     /**
@@ -19,10 +16,10 @@ class ProductosController extends Controller
      *
      * @return Response
      */
-    
-
     public function index(Request $request)
     {   
+        $this->authorize('listar', new Producto());
+
         $producto = Producto::all();
         if($request->get('type') == "nombre")
         {
@@ -54,9 +51,6 @@ class ProductosController extends Controller
                 $producto = Producto::all();
             }
         }
-
-        
-        
         
         return View('productos.index',compact('producto'));
     }
@@ -68,6 +62,8 @@ class ProductosController extends Controller
      */
     public function create()
     {
+        $this->authorize('crear', new Producto());
+
         return view('productos.create');
     }
 
@@ -79,7 +75,7 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->authorize('crear', new Producto());
         
 		$producto=Producto::create($request->all());
 		//concatena la P al codigo
@@ -91,17 +87,6 @@ class ProductosController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -109,7 +94,8 @@ class ProductosController extends Controller
      */
     public function edit($idProducto)
     {
-        //
+        $this->authorize('editar', new Producto());
+        
         $provider = Producto::find($idProducto);
         return view('productos.edit', ['productos'=>$provider]);
     }
@@ -123,23 +109,12 @@ class ProductosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-            $provider = Producto::find($id);
-            $provider->fill($request->all());
-            $provider->save();
-            return redirect('/producto')->with('message','edit');
-
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
+        $this->authorize('editar', new Producto());
+        
+        $provider = Producto::find($id);
+        $provider->fill($request->all());
+        $provider->save();
+        return redirect('/producto')->with('message','edit');
     }
 }
 
