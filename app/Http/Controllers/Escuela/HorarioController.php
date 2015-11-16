@@ -7,6 +7,7 @@ use RED\Http\Requests;
 use RED\Escuela\Curso;
 use RED\Escuela\Horarios;
 use RED\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class HorarioController extends Controller
 {
@@ -18,8 +19,14 @@ class HorarioController extends Controller
     public function index()
     {
         $this->authorize('ver_horarios', new Curso());
+        
+       $carbon = new Carbon();
+       $date = $carbon->now(); 
 
-        $horarios = Horarios::orderBy('hora_inicio')->get();
+       $horarios = Horarios::orderBy('hora_inicio')->whereHas('curso', function($q) use($date)
+        {     
+            $q->where('fecha_fin','>',$date);
+        })->get();
         return view('Escuela.horario.index', compact('horarios'));
     }
 
