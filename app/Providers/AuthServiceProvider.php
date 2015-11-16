@@ -18,6 +18,7 @@ use RED\Despensa\Producto;
 use RED\Despensa\Consignacion;
 use RED\Escuela\Estudiante;
 use RED\Escuela\Curso;
+use RED\Escuela\Maestro;
 # policies / politicas para los modelos listados anteriormente
 use RED\Policies\PoliticasDonadores;
 use RED\Policies\PoliticasDonaciones;
@@ -31,6 +32,7 @@ use RED\Policies\PoliticasProductos;
 use RED\Policies\PoliticasConsignaciones;
 use RED\Policies\PoliticasEstudiantes;
 use RED\Policies\PoliticasCursos;
+use RED\Policies\PoliticasMaestros;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -51,7 +53,8 @@ class AuthServiceProvider extends ServiceProvider
 		Producto::class => PoliticasProductos::class,
 		Consignacion::class => PoliticasConsignaciones::class,
 		Estudiante::class => PoliticasEstudiantes::class,
-		Curso::class => PoliticasCursos::class
+		Curso::class => PoliticasCursos::class,
+		Maestro::class => PoliticasMaestros::class
 	];
 
 	/**

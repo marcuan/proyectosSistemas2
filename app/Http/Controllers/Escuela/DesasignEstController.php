@@ -12,6 +12,8 @@ class DesasignEstController extends Controller
 {
 	public function desasignar($id, Request $request) 
 	{
+		$this->authorize('cursos', new Estudiante());
+		
 		$student = Estudiante::find($id);
 		$course = $student->cursos()->get();
 		return view('Escuela.desasignacionestudiante.index', compact(['course', 'student']));

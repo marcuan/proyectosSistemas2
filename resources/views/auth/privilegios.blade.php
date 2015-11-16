@@ -669,6 +669,83 @@
 					</div>
 				</div>
 			</div>
+			<h4>Permisos sobre Maestros</h4>
+			<div class="form-group">
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('maes_crear', $privilegios))
+								<input type="checkbox" name="maes_crear" checked>
+							@else
+								<input type="checkbox" name="maes_crear">
+							@endif
+							Crear
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('maes_editar', $privilegios))
+								<input type="checkbox" name="maes_editar" checked>
+							@else
+								<input type="checkbox" name="maes_editar">
+							@endif
+							Editar
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('maes_ver', $privilegios))
+								<input type="checkbox" name="maes_ver" checked>
+							@else
+								<input type="checkbox" name="maes_ver">
+							@endif
+							Ver
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('maes_inhabilitar', $privilegios))
+								<input type="checkbox" name="maes_inhabilitar" checked>
+							@else
+								<input type="checkbox" name="maes_inhabilitar">
+							@endif
+							Inhabilitar
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('maes_cursos', $privilegios))
+								<input type="checkbox" name="maes_cursos" checked>
+							@else
+								<input type="checkbox" name="maes_cursos">
+							@endif
+							Asignar/Desasignar Cursos
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('maes_listar', $privilegios))
+								<input type="checkbox" name="maes_listar" checked>
+							@else
+								<input type="checkbox" name="maes_listar">
+							@endif
+							Ver listado de Maestros
+						</label>
+					</div>
+				</div>
+			</div>
 
 			<div class="form-group">
 				<div class="col-md-12" align="right">
