@@ -12,6 +12,8 @@ class DesasignMaestController extends Controller
 {
 	public function desasignar($id, Request $request) 
 	{
+		$this->authorize('cursos', new Maestro());
+		
 		$teacher = Maestro::find($id);
 		$course = $teacher->cursos()->get();
 		return view('Escuela.desasignacionmaestro.index', compact(['course', 'teacher']));
