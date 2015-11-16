@@ -13,8 +13,10 @@ class AsignEstController extends Controller
 {
 	public function asignar($id, Request $request) 
 	{
+		$this->authorize('cursos', new Estudiante());
+
 		$carbon = new Carbon();
-        $date = $carbon->now();
+		$date = $carbon->now();
 		if($request->get('name') != "")
 		{
 			$course = Curso::name($request->get('name'))->where('fecha_fin','>',$date)->where('num_estudiantes','>',0)->orderBy('id','DESC')->paginate(10);   

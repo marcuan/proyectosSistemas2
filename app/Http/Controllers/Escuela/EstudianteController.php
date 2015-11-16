@@ -19,6 +19,7 @@ class EstudianteController extends Controller
      */
     public function index(Request $request)
     {
+        $this->authorize('listar', new Estudiante());
         
         if($request->get('type') == "nombre")
         {
@@ -66,6 +67,8 @@ class EstudianteController extends Controller
      */
     public function create()
     {
+        $this->authorize('crear', new Estudiante());
+
         return view('Escuela.estudiante.create');
     }
 
@@ -77,6 +80,8 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('crear', new Estudiante());
+
         $estudiante = Estudiante::create($request->all());
         $carbon = new Carbon();
         $date = $carbon->now()->year-2000;
@@ -102,6 +107,8 @@ class EstudianteController extends Controller
      */
     public function show($id)
     {
+        $this->authorize('ver', new Estudiante());
+
         $student = Estudiante::find($id);
         $courses = $student->cursos()->get();
         $telefono = $student->telefonos()->get()->first();
@@ -115,6 +122,8 @@ class EstudianteController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('editar', new Estudiante());
+
         $estudiante = Estudiante::find($id);
         $telefono = $estudiante->telefonos()->get()->first();
         return view('Escuela.estudiante.edit', compact(['estudiante','telefono']));
@@ -129,6 +138,8 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('editar', new Estudiante());
+
         $estudiante = Estudiante::find($id);
         $estudiante->fill($request->all());
         $estudiante->save();
@@ -148,6 +159,8 @@ class EstudianteController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('inhabilitar', new Estudiante());
+
         $estudiante = Estudiante::find($id);
         $estudiante->delete();  
 

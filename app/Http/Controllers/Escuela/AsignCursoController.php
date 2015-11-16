@@ -12,6 +12,8 @@ class AsignCursoController extends Controller
 {
 	public function asignarestudiantes($id) 
 	{
+        $this->authorize('estudiantes', new Curso());
+		
 		$curso = Curso::find($id);
 		$students = Estudiante::all();
 		return view('Escuela.asignacioncurso.index', compact(['curso', 'students']));
