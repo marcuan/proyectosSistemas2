@@ -21,7 +21,7 @@
 		<form class="form-horizontal" role="form" method="POST" action="{{ url('/user/savePrivileges') }}">
 			{!! csrf_field() !!}
 			<input type="hidden" value="{{$usuario->id}}" name="usuario_id" />
-			<h3><font face="Comic Sans MS,arial,verdana"> ONG </font> <h3>
+			<h3>ONG<h3>
 			<h4>Permisos sobre Donantes</h4>
 			<div class="form-group">
 				<div class="col-md-3">
@@ -111,7 +111,7 @@
 					</div>
 				</div>
 			</div>
-			<h3><font face="Comic Sans MS,arial,verdana"> RESTAURANTE </font> <h3>
+			<h3>RESTAURANTE<h3>
 			<h4>Permisos sobre Platillos</h4>
 			<div class="form-group">
 				<div class="col-md-3">

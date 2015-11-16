@@ -141,7 +141,7 @@ return [
         /*
          * Application Service Providers...
          */
-		yajra\Datatables\DatatablesServiceProvider::class,
+		#yajra\Datatables\DatatablesServiceProvider::class,
         RED\Providers\AppServiceProvider::class,
         RED\Providers\AuthServiceProvider::class,
         RED\Providers\EventServiceProvider::class,

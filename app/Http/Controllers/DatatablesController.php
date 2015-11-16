@@ -3,7 +3,7 @@
 namespace RED\Http\Controllers;
 
 use Illuminate\Http\Request;
-use yajra\Datatables\Datatables;
+#use yajra\Datatables\Datatables;
 
 use RED\Http\Requests;
 use RED\Http\Controllers\Controller;
