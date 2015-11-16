@@ -17,18 +17,10 @@ class HorarioController extends Controller
      */
     public function index()
     {
+        $this->authorize('ver_horarios', new Curso());
+
         $horarios = Horarios::orderBy('hora_inicio')->get();
         return view('Escuela.horario.index', compact('horarios'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -39,6 +31,8 @@ class HorarioController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('horario_agregar', new Curso());
+
         $idcurso = $request['curso'];
         $horario = new Horarios;
         $horario->dia = $request['dia'];
@@ -52,17 +46,6 @@ class HorarioController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -70,6 +53,8 @@ class HorarioController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('horario_editar', new Curso());
+
         $horario = Horarios::find($id);
         return view('Escuela.horario.edit', compact('horario'));
     }
@@ -83,6 +68,8 @@ class HorarioController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('horario_editar', new Curso());
+
         $horario = Horarios::find($id);
         $idcurso = $horario->curso_id;
         $horario->dia = $request['dia'];
@@ -102,10 +89,12 @@ class HorarioController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('horario_eliminar', new Curso());
+
         $horario = Horarios::find($id);
         $idcurso = $horario->curso_id;
         $horario->delete();  
 
-    return redirect('/cursos/'.$idcurso)->with('message','erase');
+        return redirect('/cursos/'.$idcurso)->with('message','erase');
     }
 }

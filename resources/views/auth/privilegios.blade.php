@@ -6,6 +6,9 @@
 		input[type="checkbox"] {
 			width:  auto;
 		}
+		h4 {
+			border-bottom: 1px solid #CCC;
+		}
 	</style>
 
 	<?php $message=Session::get('message')?>
@@ -445,6 +448,223 @@
 								<input type="checkbox" name="cons_listar">
 							@endif
 							Ver Listado de Consignaciones
+						</label>
+					</div>
+				</div>
+			</div>
+			<h3>ESCUELA<h3>
+			<h4>Permisos sobre Estudiantes</h4>
+			<div class="form-group">
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('est_crear', $privilegios))
+								<input type="checkbox" name="est_crear" checked>
+							@else
+								<input type="checkbox" name="est_crear">
+							@endif
+							Crear
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('est_editar', $privilegios))
+								<input type="checkbox" name="est_editar" checked>
+							@else
+								<input type="checkbox" name="est_editar">
+							@endif
+							Editar
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('est_ver', $privilegios))
+								<input type="checkbox" name="est_ver" checked>
+							@else
+								<input type="checkbox" name="est_ver">
+							@endif
+							Ver
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('est_inhabilitar', $privilegios))
+								<input type="checkbox" name="est_inhabilitar" checked>
+							@else
+								<input type="checkbox" name="est_inhabilitar">
+							@endif
+							Inhabilitar
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('est_cursos', $privilegios))
+								<input type="checkbox" name="est_cursos" checked>
+							@else
+								<input type="checkbox" name="est_cursos">
+							@endif
+							Asignar/Desasignar Cursos
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('est_listar', $privilegios))
+								<input type="checkbox" name="est_listar" checked>
+							@else
+								<input type="checkbox" name="est_listar">
+							@endif
+							Ver Listado de Estudiantes
+						</label>
+					</div>
+				</div>
+			</div>
+			<h4>Permisos sobre Cursos</h4>
+			<div class="form-group">
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cur_crear', $privilegios))
+								<input type="checkbox" name="cur_crear" checked>
+							@else
+								<input type="checkbox" name="cur_crear">
+							@endif
+							Crear
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cur_editar', $privilegios))
+								<input type="checkbox" name="cur_editar" checked>
+							@else
+								<input type="checkbox" name="cur_editar">
+							@endif
+							Editar
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cur_ver', $privilegios))
+								<input type="checkbox" name="cur_ver" checked>
+							@else
+								<input type="checkbox" name="cur_ver">
+							@endif
+							Ver
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cur_inhabilitar', $privilegios))
+								<input type="checkbox" name="cur_inhabilitar" checked>
+							@else
+								<input type="checkbox" name="cur_inhabilitar">
+							@endif
+							Inhabilitar
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cur_estudiantes', $privilegios))
+								<input type="checkbox" name="cur_estudiantes" checked>
+							@else
+								<input type="checkbox" name="cur_estudiantes">
+							@endif
+							Asignar/Desasignar Estudiantes
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cur_estudiantes_ver', $privilegios))
+								<input type="checkbox" name="cur_estudiantes_ver" checked>
+							@else
+								<input type="checkbox" name="cur_estudiantes_ver">
+							@endif
+							Ver Estudiantes Asignados
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cur_horario_add', $privilegios))
+								<input type="checkbox" name="cur_horario_add" checked>
+							@else
+								<input type="checkbox" name="cur_horario_add">
+							@endif
+							Agregar Horarios
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cur_horario_edit', $privilegios))
+								<input type="checkbox" name="cur_horario_edit" checked>
+							@else
+								<input type="checkbox" name="cur_horario_edit">
+							@endif
+							Editar Horarios
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cur_horario_del', $privilegios))
+								<input type="checkbox" name="cur_horario_del" checked>
+							@else
+								<input type="checkbox" name="cur_horario_del">
+							@endif
+							Eliminar Horarios
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cur_horarios', $privilegios))
+								<input type="checkbox" name="cur_horarios" checked>
+							@else
+								<input type="checkbox" name="cur_horarios">
+							@endif
+							Ver Horarios
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('cur_listar', $privilegios))
+								<input type="checkbox" name="cur_listar" checked>
+							@else
+								<input type="checkbox" name="cur_listar">
+							@endif
+							Ver Listado de Cursos
 						</label>
 					</div>
 				</div>
