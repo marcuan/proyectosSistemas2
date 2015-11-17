@@ -334,6 +334,45 @@
 					</div>
 				</div>
 			</div>
+			<h4>Permisos sobre Ventas</h4>
+			<div class="form-group">
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('ven_crear', $privilegios))
+								<input type="checkbox" name="ven_crear" checked>
+							@else
+								<input type="checkbox" name="ven_crear">
+							@endif
+							Crear
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('ven_anular', $privilegios))
+								<input type="checkbox" name="ven_anular" checked>
+							@else
+								<input type="checkbox" name="ven_anular">
+							@endif
+							Anular
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('ven_listar', $privilegios))
+								<input type="checkbox" name="ven_listar" checked>
+							@else
+								<input type="checkbox" name="ven_listar">
+							@endif
+							Ver Listado de Ventas
+						</label>
+					</div>
+				</div>
+			</div>
 			<h3>DESPENSA<h3>
 			<h4>Permisos sobre Proveedores</h4>
 			<div class="form-group">
