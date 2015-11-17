@@ -7,18 +7,18 @@
         		{!!Form::label('Fecha:')!!}
         		{!!Form::date('fecha',$fecha,['class'=>'form-control','placeholder'=>'Ingrese fecha', 'required'])!!}
         	</div><br>
-        	<div class="form-grup">
-        	<!--	{!!Form::label('Sub Total:')!!}-->
+        	<!--<div class="form-grup">
+        		{!!Form::label('Sub Total:')!!}
         		{!!Form::hidden('subTotal',0,['class'=>'form-control','placeholder'=>'Ingrese Sub Total', 'required'])!!}
         	</div><br>
         	<div class="form-grup">
-        		<!--{!!Form::label('Descuento:')!!}-->
+        		{!!Form::label('Descuento:')!!}
         		{!!Form::hidden('descuento',0,['class'=>'form-control','placeholder'=>'Ingrese Descuento', 'hidden'])!!}
         	</div><br>
             <div class="form-grup">
-        <!--        {!!Form::label('Total:')!!}-->
+                {!!Form::label('Total:')!!}
                 {!!Form::hidden('total',0,['class'=>'form-control','placeholder'=>'Ingrese Total', 'hidden'])!!}
-            </div><br>
+            </div><br>-->
             <div class="form-grup">
                 {!!Form::label('Proveedor:')!!}
                 <select required class="form-control" id="proveedores_id" name="proveedores_id" >

@@ -2,11 +2,8 @@
 
 @section('content')
 {!!Form::open(['route'=>'detallecompra.store', 'method'=>'POST'])!!}
-        
- <!--<a href="/materiaprima/create" class="btn btn-danger">Crear Materia</a>-->
    <div class="container-fluid" ng-app="RED">
         <div class="row" ng-controller="SearchCtrl">
-            <!--@{{searchInput}}-->
             <label>Buscar Materia Prima:</label>
             <input type="text" class="form-control" name="valor" id="valor" value="Materia Prima" ng-model="searchInput" ng-change="search()" autofocus>        
             <div class="list-group">
@@ -16,12 +13,11 @@
                         </h4>
                 </a>
             </div>
-            <div class="container">
+            <div class="container col-xs-12">
                 
                 <div class="form-grup">
-                        {!!Form::label('Id:')!!}
-                    <!--<input type="text" name="valor1" class="form-control" id="valor1" selected disabled="" required>-->
-                    <input type="text" name="valor1" class="form-control" id="valor1" value="">
+                       <!-- Obtener id de Materia Prima-->
+                    <input type="hidden" name="valor1" class="form-control" id="valor1" value="">
                 </div>
                 <div class="form-grup">
                     {!!Form::label('Materia Prima:')!!}
