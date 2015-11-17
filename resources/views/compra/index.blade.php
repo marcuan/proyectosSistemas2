@@ -53,7 +53,7 @@
                     <td>{{$compra->descuento}}</td>-->
                     <td>{{$compra->total}}</td>
                     <td>{{$compra->proveedores->nombre}}</td>
-                    <td>{!!link_to_route('compra.show', $title = 'Ver Detalles', $parameters = $compra->id, $attributes = ['class'=>'btn btn-primary']);!!}
+                    <td>{!!link_to_action('Restaurante\ComprasController@verdetallecompra', $title = 'Ver Detalles', $parameters = $compra->id, $attributes = ['class'=>'btn btn-primary']);!!}
                     {!!link_to_route('compra.edit', $title = 'Editar', $parameters = $compra->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
                 </tbody>
             @endforeach
