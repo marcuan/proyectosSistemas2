@@ -56,8 +56,11 @@
                     <td>{{$maestro->apellido_maestro}}</td>
                     <td>{{$maestro->correo}}</td>
                     <td>{{$maestro->telefonos()->get()->first()->numero_telefono}}</td>
-                    <td>{!!link_to_route('maestros.edit', $title = 'Editar', $parameters = $maestro->id, $attributes = ['class'=>'btn btn-primary']);!!}
+                    <td>
+                    @if (!$maestro->trashed())
+                    {!!link_to_route('maestros.edit', $title = 'Editar', $parameters = $maestro->id, $attributes = ['class'=>'btn btn-primary']);!!}
                     {!!link_to_route('maestros.show', $title = 'Información', $parameters = $maestro->id, $attributes = ['class'=>'btn btn-success']);!!}</td>
+                    @endif
                 </tbody>
                 @endforeach
                 
