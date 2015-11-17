@@ -96,6 +96,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('cierre/{id}', 'Restaurante\MateriaPrimaController@cierre');
 	Route::get('CrearVenta/{id}', 'Restaurante\DetalleVentaController@CrearVenta');
 	Route::resource('detalleventa', 'Restaurante\DetalleVentaController');
+	Route::get('verdetallecompra/{id}', 'Restaurante\ComprasController@verdetallecompra');
 	Route::get('api/dropdown', function(){
 		$id = Input::get('platilloselect');
 		$subcategory = RED\Restaurante\Platillo::where('id', '=',$id);
