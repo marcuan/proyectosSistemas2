@@ -6,7 +6,7 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 
 use RED\Ong\User;
 
-class PoliticasMateriaPrima
+class PoliticasCompras
 {
 
 	use HandlesAuthorization;
@@ -19,33 +19,33 @@ class PoliticasMateriaPrima
 	 */
 	public function listar(User $usuario)
 	{
-		if (strpos($usuario->acl, 'mp_listar') !== false)
+		if (strpos($usuario->acl, 'comp_listar') !== false)
 			return true;
 		return false;
 	}
 
 	/**
-	 * Determina si el usuario tiene permiso de crear platillos.
+	 * Determina si el usuario tiene permiso de crear compras.
 	 *
 	 * @param  \App\User  $usuario
 	 * @return bool
 	 */
 	public function crear(User $usuario)
 	{
-		if (strpos($usuario->acl, 'mp_crear') !== false)
+		if (strpos($usuario->acl, 'comp_crear') !== false)
 			return true;
 		return false;
 	}
 
 	/**
-	 * Determina si el usuario tiene permiso de editar clientes.
+	 * Determina si el usuario tiene permiso de editar donantes.
 	 *
 	 * @param  \App\User  $usuario
 	 * @return bool
 	 */
 	public function editar(User $usuario)
 	{
-		if (strpos($usuario->acl, 'mp_editar') !== false)
+		if (strpos($usuario->acl, 'comp_editar') !== false)
 			return true;
 		return false;
 	}
@@ -76,11 +76,10 @@ class PoliticasMateriaPrima
 			return true;
 		return false;
 	}*/
-	public function cierr(User $usuario)
+	public function detalle(User $usuario)
 	{
-		if (strpos($usuario->acl, 'mp_cierr') !== false)
+		if (strpos($usuario->acl, 'comp_detalle') !== false)
 			return true;
 		return false;
 	}
-
 }

@@ -231,6 +231,18 @@
 						</label>
 					</div>
 				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('mp_cierr', $privilegios))
+								<input type="checkbox" name="mp_cierr" checked>
+							@else
+								<input type="checkbox" name="mp_cierr">
+							@endif
+							Cierre de Materia Prima
+						</label>
+					</div>
+				</div>
 			</div>
 			<h4>Permisos sobre Clientes</h4>
 			<div class="form-group">
@@ -267,6 +279,57 @@
 								<input type="checkbox" name="cli_listar">
 							@endif
 							Ver Listado de clientes
+						</label>
+					</div>
+				</div>
+			</div>
+			<h4>Permisos sobre Compras</h4>
+			<div class="form-group">
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('comp_crear', $privilegios))
+								<input type="checkbox" name="comp_crear" checked>
+							@else
+								<input type="checkbox" name="comp_crear">
+							@endif
+							Crear
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('comp_editar', $privilegios))
+								<input type="checkbox" name="comp_editar" checked>
+							@else
+								<input type="checkbox" name="comp_editar">
+							@endif
+							Editar
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('comp_listar', $privilegios))
+								<input type="checkbox" name="comp_listar" checked>
+							@else
+								<input type="checkbox" name="comp_listar">
+							@endif
+							Ver Listado de compras
+						</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="checkbox">
+						<label style="text-align: left">
+							@if (array_key_exists('comp_detalle', $privilegios))
+								<input type="checkbox" name="comp_detalle" checked>
+							@else
+								<input type="checkbox" name="comp_detalle">
+							@endif
+							Ver detalle
 						</label>
 					</div>
 				</div>

@@ -12,6 +12,7 @@ use RED\Restaurante\Platillo;
 use RED\Restaurante\Temporada;
 use RED\Restaurante\MateriaPrima;
 use RED\Restaurante\Cliente;
+use RED\Restaurante\Compra;
 use RED\Despensa\Proveedore;
 use RED\Despensa\Ventum;
 use RED\Despensa\Producto;
@@ -26,6 +27,7 @@ use RED\policies\PoliticasPlatillos;
 use RED\policies\PoliticasTemporada;
 use RED\policies\PoliticasMateriaPrima;
 use RED\policies\PoliticasClientes;
+use RED\policies\PoliticasCompras;
 use RED\Policies\PoliticasProveedores;
 use RED\Policies\PoliticasVentas;
 use RED\Policies\PoliticasProductos;
@@ -48,6 +50,7 @@ class AuthServiceProvider extends ServiceProvider
 		Temporada::class => PoliticasTemporada::class,
 		MateriaPrima::class => PoliticasMateriaPrima::class,
 		Cliente::class => PoliticasClientes::class,
+		Compra::class => PoliticasCompras::class,
 		Proveedore::class => PoliticasProveedores::class,
 		Ventum::class => PoliticasVentas::class,
 		Producto::class => PoliticasProductos::class,

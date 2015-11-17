@@ -11,6 +11,8 @@ use RED\Repositories\ProveedorRepo;
 use RED\Despensa\Proveedore;
 use RED\Restaurante\MateriaPrima;
 use Resources;
+use Redirect;
+use Gate;
 
 class ComprasController extends Controller
 {
@@ -29,6 +31,8 @@ class ComprasController extends Controller
      */
     public function index(Request $request)
     {
+        $this->authorize('listar',new Compra());
+
         if ($request->get('type')=='' && $request->get('fecha')=='')
         {           
             //$compras = Compra::All();
@@ -62,6 +66,8 @@ class ComprasController extends Controller
     public function create()
     {
         //mostrar fecha actual
+        $this->authorize('crear',new Compra());
+
         $fecha = date('Y-m-d');
         //Cargar nombre de proveedores
         $opcionproveedor = Proveedore::all();
@@ -80,6 +86,8 @@ class ComprasController extends Controller
     {
 	 
         //Compra::create($request->all());
+        
+        
         Compra::create([
             'fecha' => $request['fecha'],
             'subtotal' => $request['subTotal'],
@@ -100,6 +108,7 @@ class ComprasController extends Controller
      */
     public function show($id)
     {
+        $this->authorize('detalle',new Compra());
         $detalle = Compra::find($id);
         return view('detallecompra.detallecompra',compact('detalle'));
     }
@@ -113,6 +122,7 @@ class ComprasController extends Controller
     public function edit($id)
     {
         //$opcionproveedor = Proveedore::find($id)->lists('id');
+        $this->authorize('editar',new Compra());
         $opcionproveedor = Proveedore::all();
         $compra = Compra::find($id);
         return view('compra.edit', ['compra'=>$compra],['opcionproveedor'=>$opcionproveedor]);
@@ -127,6 +137,7 @@ class ComprasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('editar',new Compra());
         $compra = Compra::find($id);
         $compra->fill($request->all());
         $compra->save();
