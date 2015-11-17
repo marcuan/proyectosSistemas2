@@ -158,6 +158,12 @@ class ComprasController extends Controller
         //
     }
     
+    public function verdetallecompra($id){
+
+        $detalle = Compra::find($id);
+        return view('detallecompra.verdetalle',compact('detalle'));
+    }
+
     public function proveedor($id)
     {
         //Buscamo al proveedor con ese id
