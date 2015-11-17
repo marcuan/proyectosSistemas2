@@ -27,7 +27,7 @@
                     <h5><strong>Total (Q):</strong> {{$detalle->total}}</h5>
                 </div>
             </div>		    
-            <a class="btn btn-primary" {!!link_to_route('detallecompra.show', $title = 'Crear Detalles', $parameters = $detalle->id, $attributes = ['class'=>'btn btn-primary']);!!}</a>
+            <!--<a class="btn btn-primary" {!!link_to_route('detallecompra.show', $title = 'Crear Detalles', $parameters = $detalle->id, $attributes = ['class'=>'btn btn-primary']);!!}</a>-->
             <a href="/compra" class="btn btn-danger">Regresar</a>
         </table>
     </div>
