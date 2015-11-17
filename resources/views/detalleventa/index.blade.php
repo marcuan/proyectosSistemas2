@@ -41,7 +41,7 @@
         <table class="table">
             <thead>
               <h3>Ventas realizadas al cliente</h3>
-              <th>Id Platillo</th>
+              <th>Platillo</th>
               <th>Nombre Platillo</th>
               <th>Precio (Q)</th>
               <th>Cantidad</th>

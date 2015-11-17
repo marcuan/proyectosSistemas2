@@ -88,6 +88,9 @@
 							<li>
 								<a href="/compra">Compras</a>
 							</li>
+							 <li>
+								<a href="/venta">Ventas</a>
+							</li>
 						</ul>
 					</li>
 					<li>
