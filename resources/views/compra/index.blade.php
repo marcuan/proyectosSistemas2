@@ -23,14 +23,14 @@
 
     <div class="form-group">
         {!!Form::Date('fecha',null,['class'=>'form-control','placeholder'=>'Ingrese o Seleccione Fecha'])!!}
-                <button type="submit" class="btn btn-primary">Buscar</button> 
+                <button type="submit" class="btn btn-default glyphicon glyphicon-search"></button> 
     </div>
 
 {!! Form::close() !!}
 {!! Form::open(['href' => '../public/compra', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right' , 'role' => 'search']) !!}
     <div class="form-group">
         {!! Form::text('type',null,['class' => 'form-control', 'placeholder' => 'Numero de Compra']) !!}
-    <button type="submit" class="btn btn-primary">Buscar</button> 
+    <button type="submit" class="btn btn-default glyphicon glyphicon-search"></button> 
     </div>
 
 {!! Form::close() !!}
@@ -40,8 +40,8 @@
             <thead>
                 <th>No. Compra</th>
                 <th>Fecha</th>
-                <th>Sub Total (Q)</th>
-                <th>Descuento</th>
+                <!--<th>Sub Total (Q)</th>
+                <th>Descuento</th>-->
                 <th>Total (Q)</th>
                 <th>Proveedor</th>
             </thead>
@@ -49,8 +49,8 @@
                 <tbody>
                     <td>{{$compra->id}}</td>
                     <td>{{$compra->fecha}}</td>
-                    <td>{{$compra->subTotal}}</td>
-                    <td>{{$compra->descuento}}</td>
+                    <!--<td>{{$compra->subTotal}}</td>
+                    <td>{{$compra->descuento}}</td>-->
                     <td>{{$compra->total}}</td>
                     <td>{{$compra->proveedores->nombre}}</td>
                     <td>{!!link_to_route('compra.show', $title = 'Ver Detalles', $parameters = $compra->id, $attributes = ['class'=>'btn btn-primary']);!!}

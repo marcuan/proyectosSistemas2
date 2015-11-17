@@ -90,10 +90,13 @@ class ComprasController extends Controller
         
         Compra::create([
             'fecha' => $request['fecha'],
-            'subtotal' => $request['subTotal'],
-            'descuento' => $request['descuento'],
+            'subtotal'=>'0',
+            'descuento'=>'0',
+            //'subtotal' => $request['subTotal'],
+            //'descuento' => $request['descuento'],
             'proveedores_id' => $request['proveedores_id'],
-            'total' => $request['total'],
+            'total'=>'0',
+            //'total' => $request['total'],
         ]);
 	     
          $opcionmateria = MateriaPrima::all();

@@ -73,6 +73,13 @@ class DetalleCompraController extends Controller
         $total=$compra->total;
         $compra->total=$total+$subtotaldetalle;
         $compra->save();
+
+        //sumar existencia a materia prima
+        $opcionmateria=MateriaPrima::find($request['valor1']);
+        $existencia=$opcionmateria->existencia;
+        $opcionmateria->existencia=$existencia+$request['cantidad'];
+        $opcionmateria->save();
+
         return redirect('/compra/'.$compra->id);
  
     }
