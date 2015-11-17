@@ -98,7 +98,7 @@ public function __construct(MateriaPrimaRepo $materiaprimarepo){
         public function cierre($id)
     {
         //
-	   
+	       $this->authorize('cierr',new MateriaPrima());
 	      $materiaprima = MateriaPrima::find($id);
         return view('materiaprima.cierre', ['materiaprima'=>$materiaprima]);
     }
