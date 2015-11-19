@@ -45,7 +45,11 @@
 				<td>{{$Activity->date_end}}</td>
 				<td>{{$Activity->capacity}}</td>
 				<td>{{$Activity->address}}</td>
-				<td>{!!link_to_route('actividades.edit', $title = 'Editar', $parameters = $Activity->id, $attributes = ['class'=>'btn btn-primary']);!!}</td>
+				<td>
+				@if (!$Activity->trashed())
+				{!!link_to_route('actividades.edit', $title = 'Editar', $parameters = $Activity->id, $attributes = ['class'=>'btn btn-primary']);!!}
+				@endif
+				</td>
 			</tbody>
 			@endforeach
 			{!!$activities->render()!!}
